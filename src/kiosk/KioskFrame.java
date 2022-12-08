@@ -1,5 +1,7 @@
 package kiosk;
 
+import java.awt.Font;
+
 import javax.swing.JFrame;
 
 public class KioskFrame extends JFrame {
@@ -11,6 +13,11 @@ public class KioskFrame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		
+	}
+	
+	@Override
+	public Font getFont() {
+		return super.getFont();
 	}
 	
 	public static void main(String[] args) {
