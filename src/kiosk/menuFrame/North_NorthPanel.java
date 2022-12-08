@@ -23,13 +23,15 @@ public class North_NorthPanel extends JPanel{
 		logo();
 		homeButton();
 		
+		setBackground(Color.white);
+		
 	}
 	
 	//로고
 	public void logo() {
 		
-		logo.setBounds(5, 5, 83, 66);
-		logo.setSize(83, 66);
+		logo.setBounds(52, 25, 83, 66);
+		logo.setSize(60, 83);
 		
 		try {
 			BufferedImage logoBufferedImage =
@@ -43,15 +45,15 @@ public class North_NorthPanel extends JPanel{
 		
 	}
 	
-	//
+	//홈버튼
 	public void homeButton() {
 		homeButton.setSize(52, 52);
 		homeButton.setBorderPainted(false);	
 		homeButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 		homeButton.setOpaque(false);
 
-		homeButton.setBounds(580, 5, 52, 52);
-		
+		homeButton.setBounds(542, 44, 52, 52);
+		setBackground(Color.white);
 		try {
 			BufferedImage homeBufferedImage =
 			ImageIO.read(new File("image/menu/homeScaled.png"));

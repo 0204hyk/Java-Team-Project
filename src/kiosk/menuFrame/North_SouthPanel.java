@@ -1,63 +1,48 @@
 package kiosk.menuFrame;
 
-import java.awt.Image;
+import java.awt.Color;
+import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class North_SouthPanel extends JPanel {
 
-	private JLabel logo = new JLabel();
-	private JButton homeButton = new JButton();
-	
 	public North_SouthPanel() {
-		logo();
-		homeButton();
-	}
-	//로고
-		public void logo() {
-			
-			logo.setBounds(500, 50, 50, 50);
-			logo.setSize(100, 100);
-			
-			try {
-				BufferedImage logoBufferedImage =
-				ImageIO.read(new File("image/menu/logoScaled.png"));			
-				logo.setIcon(new ImageIcon(logoBufferedImage));
-				
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-			add(logo);
-			
-		}
+		categoryButton();
 		
-		//
-		public void homeButton() {
-			homeButton.setSize(52, 52);
+		setBackground(Color.white);
+	}
 
-			homeButton.setBounds(300, 300, 100, 100);
-			
+	// 카테고리 버튼
+	public void categoryButton() {
+		
+		GridLayout grid = new GridLayout(2, 4, 0, 0);
+		setLayout(grid);
+		
+		for (int i = 0; i < 8; i++) {
+			JButton categoryButton = new JButton();
+
 			try {
-				BufferedImage homeBufferedImage =
-				ImageIO.read(new File("image/menu/homeScaled.png"));
-				
-				Image scaledImage =  homeBufferedImage.getScaledInstance(100, 100, Image.SCALE_DEFAULT);
-				
-				homeButton.setIcon(new ImageIcon(scaledImage));
-				
+				BufferedImage homeBufferedImage = ImageIO.read(new File("image/menu/categoryScaled.png"));
+
+				categoryButton.setIcon(new ImageIcon(homeBufferedImage));
+
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-			
-			
-			add(homeButton);
+
+			categoryButton.setBorderPainted(false);
+			categoryButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
+			categoryButton.setOpaque(false);
+
+			add(categoryButton);
+
 		}
-	
-	
+
+	}
+
 }
