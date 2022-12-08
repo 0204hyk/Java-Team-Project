@@ -2,6 +2,8 @@ package kiosk.menuFrame;
 
 
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 
 //메뉴프레임
@@ -9,12 +11,13 @@ public class MenuFrame extends JFrame{
 
 	
 	public MenuFrame()  {
+		panelSetting();
 		setDisplay();
 		
 	}
 	
 	public void panelSetting() {
-		
+		add(new NorthPanel(), BorderLayout.NORTH);
 		
 		
 	}
@@ -35,5 +38,7 @@ public class MenuFrame extends JFrame{
 	
 	public static void main(String[] args) {
 		new MenuFrame();
+		
+	
 	}
 }
