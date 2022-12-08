@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 //메뉴프레임
 public class MenuFrame extends JFrame{
 
+
 	
 	public MenuFrame()  {
 		panelSetting();
@@ -19,6 +20,7 @@ public class MenuFrame extends JFrame{
 	
 	public void panelSetting() {
 		add(new NorthPanel(), BorderLayout.NORTH);
+		add(new CenterPanel(), BorderLayout.CENTER);
 		setBackground(Color.white);
 		
 	}

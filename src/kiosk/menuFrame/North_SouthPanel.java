@@ -42,7 +42,7 @@ public class North_SouthPanel extends JPanel {
 			add(categoryButton);
 
 		}
-
+		
 	}
-
+	
 }
