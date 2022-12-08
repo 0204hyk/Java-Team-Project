@@ -3,21 +3,26 @@ package pos.salescheck.component.dateyear;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 
 public class YearComboBox extends JComboBox  {
 
-	Calendar ymd = Calendar.getInstance();
-	int toyear = ymd.get(Calendar.YEAR);
-	ArrayList<String> year;
-	String[] comboYear;
+	JComboBox<Integer> yearCombo = new JComboBox<Integer>();
+	DefaultComboBoxModel<Integer> yearModel = new DefaultComboBoxModel<>();
+	Calendar now = Calendar.getInstance();
+	int year = now.get(Calendar.YEAR);
+	
 	
 	public YearComboBox() {
-		year = new ArrayList<>();
-		for (int i = toyear; i <= toyear +10; i++) {
-			year.add(String.valueOf(i));
+		for (int i = year; i <= year + 10; ++i) {
+			yearModel.addElement(i);
 		}
-		//add(new JComboBox(year));
+		
+		yearCombo.setModel(yearModel);
+		yearCombo.setSelectedItem(year);
+		add(yearCombo);
 	}
 
 }

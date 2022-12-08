@@ -13,30 +13,39 @@ import javax.swing.JPanel;
 
 import pos.salescheck.component.ChartLabel;
 import pos.salescheck.component.DateComboBox;
-import pos.salescheck.component.DigitalClock;
 import pos.salescheck.component.EscapeButton;
 import pos.salescheck.component.SearchButton;
 import pos.salescheck.component.TestCombo;
 import pos.salescheck.component.dateyear.YearComboBox;
+import pos.salescheck.component.title.DigitalClock;
 
 public class SalesCheckMainFrame extends JFrame {
 	
 	
 	
 	public SalesCheckMainFrame() {
-		JLabel titleName = new JLabel("안녕");
-		JPanel titlePanel = new JPanel();
-		JComboBox comboYear = new YearComboBox();
+		
+		JLabel leftTitle = new JLabel("왼쪽 상단");
+		JLabel centerTitle = new DigitalClock();
+		JLabel rightTitle = new JLabel("오른쪽 상단");
+
+		
+		leftTitle.setBounds(100, 10, 400, 30);
+		centerTitle.setBounds(550, 10, 400, 30);
+		rightTitle.setBounds(1100, 10, 400, 30);
+		
 		JButton searchBtn = new SearchButton();
 		JButton escapeBtn = new EscapeButton();
 		JLabel label = new ChartLabel();
+	
 		
-		
-		add(comboYear);
-		add(label);
+		add(leftTitle);
+		add(centerTitle);
+		add(rightTitle);
+	
 		add(searchBtn);
 		add(escapeBtn);
-		setBackground(Color.DARK_GRAY);
+		setBackground(Color.BLACK);
 		setLayout(null);
 		setSize(1200, 800);
 		setVisible(true);
