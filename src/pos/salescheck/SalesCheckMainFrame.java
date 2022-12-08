@@ -16,7 +16,9 @@ import pos.salescheck.component.DateComboBox;
 import pos.salescheck.component.EscapeButton;
 import pos.salescheck.component.SearchButton;
 import pos.salescheck.component.TestCombo;
-import pos.salescheck.component.dateyear.YearComboBox;
+import pos.salescheck.component.datecombo1.DayComboBox;
+import pos.salescheck.component.datecombo1.MonthComboBox;
+import pos.salescheck.component.datecombo1.YearComboBox;
 import pos.salescheck.component.title.DigitalClock;
 
 public class SalesCheckMainFrame extends JFrame {
@@ -28,7 +30,9 @@ public class SalesCheckMainFrame extends JFrame {
 		JLabel leftTitle = new JLabel("왼쪽 상단");
 		JLabel centerTitle = new DigitalClock();
 		JLabel rightTitle = new JLabel("오른쪽 상단");
-
+		JComboBox combo1 = new YearComboBox();
+		JComboBox monthCombo = new MonthComboBox();
+		JComboBox dayCombo = new DayComboBox();
 		
 		leftTitle.setBounds(100, 10, 400, 30);
 		centerTitle.setBounds(550, 10, 400, 30);
@@ -42,7 +46,9 @@ public class SalesCheckMainFrame extends JFrame {
 		add(leftTitle);
 		add(centerTitle);
 		add(rightTitle);
-	
+		add(combo1);
+		add(monthCombo);
+		add(dayCombo);
 		add(searchBtn);
 		add(escapeBtn);
 		setBackground(Color.BLACK);
