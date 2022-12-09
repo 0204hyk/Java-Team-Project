@@ -1,8 +1,8 @@
 package pos.salescheck.component.chart;
 
 
-public class BarChart_AWT {
-
+public class BarChart_AWT  {
+	
 
 	
 	
