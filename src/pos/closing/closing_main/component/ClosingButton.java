@@ -19,7 +19,7 @@ public class ClosingButton extends JButton implements ActionListener{
 	public ClosingButton(ClosingMessageFrame frame) {
 		this.frame = frame;
 		try {
-			File f = new File("PosImages/포스기 이미지 png/마감 이미지/마감 버튼.png");
+			File f = new File("PosImages/마감 이미지/마감 버튼.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
 			Image scaledImage = bufferedImage.getScaledInstance(300, 80, Image.SCALE_DEFAULT);
 			ImageIcon btnImage = new ImageIcon(scaledImage);
