@@ -27,6 +27,7 @@ import pos.salescheck.component.datecombo2.DayComboBox2;
 import pos.salescheck.component.datecombo2.MonthComboBox2;
 import pos.salescheck.component.datecombo2.YearComboBox2;
 import pos.salescheck.component.saleslist.AmountLabel;
+import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.ListLabel;
 import pos.salescheck.component.saleslist.TitleLabel;
 import pos.salescheck.component.title.DigitalClock;
@@ -42,7 +43,6 @@ public class SalesCheckMainFrame extends JFrame {
 		JLabel salesTitle = new TitleLabel();
 		JLabel amount = new AmountLabel();
 		JPanel graph = new JPanel();
-		SalesChart chart = new SalesChart("gd", "하이");
 		JComboBox combo1 = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
 		JComboBox dayCombo = new DayComboBox();
@@ -50,7 +50,6 @@ public class SalesCheckMainFrame extends JFrame {
 		JComboBox yearCombo2 = new YearComboBox2();
 		JComboBox monthCombo2 = new MonthComboBox2();
 		
-		RefineryUtilities.centerFrameOnScreen(chart);
 
 		
 		
@@ -66,7 +65,7 @@ public class SalesCheckMainFrame extends JFrame {
 		JButton searchBtn = new SearchButton();
 		JButton escapeBtn = new EscapeButton();
 		JLabel label = new ChartLabel();
-		JLabel list = new ListLabel();
+		JLabel list = new ListImgLabel();
 		JPanel title = new TitleImage();
 		title.add(centerTitle);
 		add(title);
