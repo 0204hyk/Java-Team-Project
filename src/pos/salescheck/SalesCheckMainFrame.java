@@ -11,6 +11,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import org.jfree.ui.RefineryUtilities;
 
@@ -41,7 +43,6 @@ public class SalesCheckMainFrame extends JFrame {
 		JLabel salesTitle = new TitleLabel();
 		JLabel amount = new AmountLabel();
 		JPanel graph = new JPanel();
-		JLabel month = new ListLabel();
 		JComboBox combo1 = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
 		JComboBox dayCombo = new DayComboBox();
@@ -77,7 +78,6 @@ public class SalesCheckMainFrame extends JFrame {
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
-		add(month);
 		add(amount);
 		add(list);
 		setBackground(Color.BLACK);

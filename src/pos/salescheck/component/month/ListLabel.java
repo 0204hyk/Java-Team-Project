@@ -3,18 +3,18 @@ package pos.salescheck.component.month;
 import java.awt.Font;
 
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
-public class ListLabel extends JLabel {
+public class ListLabel {
 
-	JLabel account = new JLabel();
+	String[] header = {"날짜", "금액"};
+	String []contents = {"1월", "2월", "3월", "4월", "5월"};
+	
 	public ListLabel() {
 		
-		account.setText("1,000,000원");
-		account.setBounds(800, 100, 500, 500);
-		add(account);
-		setText("1월");
-		setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		setBounds(650, 100, 500, 500);
+		
+		
 		
 	}
 }
