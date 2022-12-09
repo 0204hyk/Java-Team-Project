@@ -13,6 +13,9 @@ public class DayComboBox extends JComboBox {
 
 	public DayComboBox() {
 
+		
+		
+		
 		for (int i = 1; i <= now.getActualMaximum(Calendar.DAY_OF_MONTH); ++i) {
 			dayModel.addElement(i);
 		}
