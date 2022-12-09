@@ -21,10 +21,9 @@ public class ReceiptCheckButton {
 		JButton refundBtn = new JButton();
 	
 		try {
-			BufferedImage bufferedImage = ImageIO.read(new File("src/receiptImages/환불 버튼.png"));
+			BufferedImage bufferedImage = ImageIO.read(new File("PosImages/영수증 조회 이미지/환불 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(230, 60, Image.SCALE_SMOOTH); // 크기 조정
-			refundBtn.setIcon(new ImageIcon(scaledImage
-					));
+			refundBtn.setIcon(new ImageIcon(scaledImage));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
