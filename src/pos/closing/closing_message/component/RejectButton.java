@@ -15,7 +15,7 @@ public class RejectButton extends JButton implements ActionListener{
 	
 	public RejectButton() {
 		try {
-			File f = new File("images/포스기 이미지 png/마감 이미지/안내창 - 아니요.png");
+			File f = new File("PosImages/포스기 이미지 png/마감 이미지/안내창 - 아니요.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
 			Image scaledImage = bufferedImage.getScaledInstance(150, 75, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage = new ImageIcon(scaledImage);

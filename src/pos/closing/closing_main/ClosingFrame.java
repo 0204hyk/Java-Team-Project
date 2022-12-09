@@ -18,14 +18,13 @@ public class ClosingFrame extends JFrame {
 	public ClosingFrame() {
 		
 		PaymentMethodPanel panelA = new PaymentMethodPanel(ImageScaledTool.getScaledImage(
-				"images/포스기 이미지 png/마감 이미지/현금 & 카드 결제 금액 확인 틀.png", 400, 100));
+				"PosImages/포스기 이미지 png/마감 이미지/현금 & 카드 결제 금액 확인 틀.png", 400, 100));
 		CashOnHandPanel panelB = new CashOnHandPanel(ImageScaledTool.getScaledImage(
-				"images/포스기 이미지 png/마감 이미지/현금 시제 기본 틀.png", 400, 430));
+				"PosImages/포스기 이미지 png/마감 이미지/현금 시제 기본 틀.png", 400, 430));
 		DailySalesPanel panelC = new DailySalesPanel(ImageScaledTool.getScaledImage(
-				"images/포스기 이미지 png/마감 이미지/마감 내역 기본 틀.png", 500, 550));
+				"PosImages/포스기 이미지 png/마감 이미지/마감 내역 기본 틀.png", 500, 550));
 		ClosingButton closingBtn = new ClosingButton();
 		pack();
-//		JLabel labelA;
 
 		add(panelA);
 		add(panelB);
