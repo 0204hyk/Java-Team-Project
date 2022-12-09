@@ -31,7 +31,7 @@ public class South_EastPanel extends JPanel{
 		
 		try {
 			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("image/menu/paymentScaled.png"));			
+			ImageIO.read(new File("image/menu/payScaled.png"));			
 			paymentButton.setIcon(new ImageIcon(logoBufferedImage));
 			
 			paymentButton.setBorderPainted(false);	
@@ -51,7 +51,7 @@ public class South_EastPanel extends JPanel{
 		
 		try {
 			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("image/menu/cancelScaled.png"));			
+			ImageIO.read(new File("image/menu/deleteAllScaled.png"));			
 			cancelButton.setIcon(new ImageIcon(logoBufferedImage));
 			
 			cancelButton.setBorderPainted(false);	
