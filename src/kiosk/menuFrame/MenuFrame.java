@@ -21,6 +21,7 @@ public class MenuFrame extends JFrame{
 	public void panelSetting() {
 		add(new NorthPanel(), BorderLayout.NORTH);
 		add(new CenterPanel(), BorderLayout.CENTER);
+		add(new SouthPanel(), BorderLayout.SOUTH);
 		setBackground(Color.white);
 		
 	}
