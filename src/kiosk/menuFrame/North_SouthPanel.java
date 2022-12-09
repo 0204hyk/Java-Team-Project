@@ -39,7 +39,7 @@ public class North_SouthPanel extends JPanel {
 			categoryButton.setBorderPainted(false);
 			categoryButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 			categoryButton.setOpaque(false);
-			
+
 			add(categoryButton);
 			
 		}

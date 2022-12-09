@@ -38,7 +38,7 @@ public class MenuFrame extends JFrame{
 		setLocation(100, 100);
 		setSize(650, 950);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		setLocationRelativeTo(null);
 	}
 	
 	public static void main(String[] args) {
