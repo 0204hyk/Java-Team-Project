@@ -79,7 +79,7 @@ public class SalesCheckMainFrame extends JFrame {
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
-	
+		
 		add(amount);
 		add(list);
 		setBackground(Color.BLACK);
