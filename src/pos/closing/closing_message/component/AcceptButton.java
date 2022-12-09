@@ -1,4 +1,4 @@
-package pos.closing.closing_message;
+package pos.closing.closing_message.component;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -13,9 +13,9 @@ import javax.swing.JButton;
 
 import pos.closing.ImageScaledTool;
 
-public class YesButton extends JButton implements ActionListener {
+public class AcceptButton extends JButton implements ActionListener {
 
-	public YesButton() {
+	public AcceptButton() {
 		try {
 			File f = new File("images/포스기 이미지 png/마감 이미지/안내창 - 네.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
@@ -26,17 +26,16 @@ public class YesButton extends JButton implements ActionListener {
 			setContentAreaFilled(false);
 			setBorderPainted(false);
 			setSize(150, 75);
-			setLocation(100, 140);
+			setLocation(80, 140);
 			setFocusable(false);
 			addActionListener(this);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("네 버튼 기능 구현x");
+		System.out.println("네 버튼 기능 구현 X");
 	}
 }

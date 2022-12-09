@@ -1,10 +1,14 @@
-package pos.closing.closing_message;
+package pos.closing.closing_message.container;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.JPanel;
+
+import pos.closing.closing_message.component.AcceptButton;
+import pos.closing.closing_message.component.RejectButton;
 
 public class BackgroundPanel extends JPanel {
 	private Image background;
@@ -18,9 +22,10 @@ public class BackgroundPanel extends JPanel {
 		this.background = background;
 		setSize(new Dimension(background.getWidth(null), background.getHeight(null)));
 		setLayout(null);
-		setSize(508, 258);
+		setSize(500, 250);
 		
-		add(new YesButton());
+		add(new AcceptButton());
+		add(new RejectButton());
 	}
 
 }

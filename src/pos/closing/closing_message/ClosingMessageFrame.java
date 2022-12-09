@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import pos.closing.ImageScaledTool;
+import pos.closing.closing_message.container.BackgroundPanel;
 
 public class ClosingMessageFrame extends JFrame {
 	
@@ -21,7 +22,6 @@ public class ClosingMessageFrame extends JFrame {
 				"images/포스기 이미지 png/마감 이미지/마감 확인 안내창.png", 508, 258)));
 		
 		setSize(500, 250);
-//		setResizable(false);
 		setLayout(null);
 		setUndecorated(true);
 		setLocationRelativeTo(null);

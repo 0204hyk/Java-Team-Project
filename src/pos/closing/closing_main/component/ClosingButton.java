@@ -20,8 +20,9 @@ public class ClosingButton extends JButton implements ActionListener{
 			Image scaledImage = bufferedImage.getScaledInstance(300, 80, Image.SCALE_DEFAULT);
 			ImageIcon btnImage = new ImageIcon(scaledImage);
 			setIcon(btnImage);
-			setBounds(850, 680, 250, 50);
-//			setBorderPainted(false);
+			setBounds(800, 660, 300, 80);
+			setContentAreaFilled(false);	// 버튼 배경 지우기
+			setBorderPainted(false);	// 버튼 테두리 지우기
 			setFocusable(false);	
 			addActionListener(this);
 		} catch (IOException e) {
