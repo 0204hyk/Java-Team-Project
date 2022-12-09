@@ -1,5 +1,6 @@
 package kiosk;
 
+<<<<<<< HEAD
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
@@ -7,7 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
 public class KioskFrame {
+=======
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+>>>>>>> branch 'jsj' of https://github.com/0204hyk/Java-Team-Project.git
 
+<<<<<<< HEAD
 	public KioskFrame() {
 		JFrame f = new JFrame();
 		
@@ -25,6 +31,19 @@ public class KioskFrame {
 		
 		
 	}
+=======
+public class KioskFrame extends JFrame {
+	
+	public KioskFrame() {		
+		
+		setLocation(500, 50);
+		setSize(650, 950);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
+		
+	}
+	
+>>>>>>> branch 'jsj' of https://github.com/0204hyk/Java-Team-Project.git
 	public static void main(String[] args) {
 		new KioskFrame();
 	}
