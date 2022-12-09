@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.jfree.ui.RefineryUtilities;
+
 import pos.salescheck.component.ChartLabel;
 import pos.salescheck.component.DateComboBox;
 import pos.salescheck.component.EscapeButton;
@@ -39,14 +41,22 @@ public class SalesCheckMainFrame extends JFrame {
 		JLabel centerTitle = new DigitalClock();
 		JLabel salesTitle = new TitleLabel();
 		JLabel amount = new AmountLabel();
+		JPanel graph = new JPanel();
+		SalesChart chart = new SalesChart("gd", "하이");
 		JComboBox combo1 = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
 		JComboBox dayCombo = new DayComboBox();
 		JComboBox dayCombo2 = new DayComboBox2();
 		JComboBox yearCombo2 = new YearComboBox2();
 		JComboBox monthCombo2 = new MonthComboBox2();
-		JLabel graph = new SalesChart();
+		
+		RefineryUtilities.centerFrameOnScreen(chart);
+
+		
+		
 	
+
+		
 		centerTitle.setBounds(1000, 10, 400, 30);
 		
 		
@@ -66,10 +76,10 @@ public class SalesCheckMainFrame extends JFrame {
 		add(yearCombo2);
 		add(monthCombo2);
 		add(dayCombo2);
-		add(graph);
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
+	
 		add(amount);
 		add(list);
 		setBackground(Color.BLACK);
@@ -84,7 +94,6 @@ public class SalesCheckMainFrame extends JFrame {
 
 	public static void main(String[] args) {
 		
-
 		new SalesCheckMainFrame();
 
 	}
