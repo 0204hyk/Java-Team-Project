@@ -10,11 +10,8 @@ import javax.swing.JFrame;
 //메뉴프레임
 public class MenuFrame extends JFrame{
 
-
-	
 	public MenuFrame()  {
-		setUndecorated(true); 
-		
+			
 		panelSetting();
 		setDisplay();
 		
@@ -33,9 +30,9 @@ public class MenuFrame extends JFrame{
 	
 	public void setDisplay() {
 		
+		setUndecorated(true); 
 		setBackground(Color.white);
 		setVisible(true);
-		setLocation(100, 100);
 		setSize(650, 950);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
