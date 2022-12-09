@@ -8,5 +8,4 @@ public class CartMenuPanel extends JPanel{
 		setBounds(80,240, 490, 370);
 	}
 	
-	
 }

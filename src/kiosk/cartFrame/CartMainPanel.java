@@ -8,8 +8,6 @@ import javax.swing.JPanel;
 
 public class CartMainPanel extends JPanel {
 	
-	CartComponent compo = new CartComponent();
-	
 	public CartMainPanel() {
 		panelSetting();
 	}
@@ -18,6 +16,17 @@ public class CartMainPanel extends JPanel {
 	public void panelSetting() {
 		
 		setLayout(null);
+		setBackground(Color.white);
+		
+		addComponent();
+	
+	}
+	
+	//추가된 컴포넌트 모음
+	public void addComponent() {
+		
+		CartComponent compo = new CartComponent();
+		
 		add(compo.logo());
 		add(compo.homeButton());
 		add(compo.mainLabel());
@@ -29,10 +38,7 @@ public class CartMainPanel extends JPanel {
 		add(compo.totalPrice());
 		add(compo.payButton());
 		add(compo.cancelButton());
-		
 		add(new CartMenuPanel());
-		setBackground(Color.white);
-		
-		}
+	}
 	
 }

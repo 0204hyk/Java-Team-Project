@@ -1,6 +1,5 @@
 package kiosk.cartFrame;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
@@ -13,20 +12,15 @@ public class CartMainFrame extends JFrame{
 		
 	}
 
-
 	public void panelSetting() {
 
 	add(new CartMainPanel());	
 	setBackground(Color.white);
-	
 	}
-	
-	
 
-	
 	public void setDisplay() {
 		
-		setBackground(Color.white);
+		setUndecorated(true); 
 		setVisible(true);
 		setLocation(100, 100);
 		setSize(650, 950);

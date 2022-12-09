@@ -12,11 +12,6 @@ import javax.swing.JLabel;
 
 public class CartComponent {
 	
-
-	
-	
-	
-	
 	//로고
 	public JLabel logo() {
 		JLabel logo = new JLabel();
@@ -36,6 +31,7 @@ public class CartComponent {
 		return logo;
 	}
 		
+	//홈버튼
 	public JButton homeButton() {
 		JButton homeButton = new JButton();
 		
@@ -57,16 +53,18 @@ public class CartComponent {
 		return homeButton;
 	}	
 		
+	//메인라벨 ("주문 정보를 확인해주세요.")
 	public JLabel mainLabel() {
 		JLabel label = new JLabel();
 		
 		Font font = new Font("맑은 고딕", Font.BOLD, 27);
 		label.setFont(font);
 		label.setText("주문 정보를 확인해주세요.");
-		label.setBounds(80, 130, 350, 150);
+		label.setBounds(80, 110, 350, 150);
 		
 		return label;
 	}
+	
 	
 	public JLabel priceLabel() {
 		JLabel label = new JLabel();
@@ -75,6 +73,7 @@ public class CartComponent {
 		
 		label.setText("주문 금액");
 		label.setBounds(350, 645, 91, 23);
+		
 		
 		return label;
 	}
@@ -85,10 +84,12 @@ public class CartComponent {
 		label.setFont(font);
 		
 		label.setText("11,200원");
-		label.setBounds(510, 645, 91, 23);
+		label.setBounds(480, 645, 91, 23);
+		label.setHorizontalAlignment(JLabel.RIGHT);
 		
 		return label;
 	}
+	
 	
 	public JLabel pointLabel() {
 		JLabel label = new JLabel();
@@ -97,6 +98,8 @@ public class CartComponent {
 		
 		label.setText("포인트 사용");
 		label.setBounds(332, 680, 112, 23);
+
+		
 		return label;
 	}
 	
@@ -106,9 +109,12 @@ public class CartComponent {
 		label.setFont(font);
 		
 		label.setText("200원");
-		label.setBounds(520, 680, 112, 23);
+		label.setBounds(460, 680, 112, 23);
+		label.setHorizontalAlignment(JLabel.RIGHT);
+		
 		return label;
 	}
+	
 	
 	public JLabel totalPriceLabel() {
 		JLabel label = new JLabel();
@@ -117,6 +123,8 @@ public class CartComponent {
 		
 		label.setText("결제 금액");
 		label.setBounds(300, 715, 126, 32);
+
+		
 		return label;
 	}
 	
@@ -127,8 +135,11 @@ public class CartComponent {
 		label.setFont(font);
 		label.setText("11,000원");
 		label.setBounds(450, 715, 126, 32);
+		label.setHorizontalAlignment(JLabel.RIGHT);
+		
 		return label;
 	}
+	
 	
 	public JButton payButton() {
 		JButton payButton = new JButton();
