@@ -1,5 +1,6 @@
 package pos.salescheck.component.title;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.util.Calendar;
@@ -30,6 +31,9 @@ public class DigitalClock extends JLabel implements Runnable{
 					cal.get(Calendar.MINUTE)+"분 "+
 					cal.get(Calendar.SECOND)+"초";
 			setText(now);
+			setHorizontalAlignment(CENTER);
+			setForeground(Color.WHITE);
+			setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 			try{
 				Thread.sleep(1000);
 			}catch(InterruptedException e){

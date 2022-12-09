@@ -10,7 +10,7 @@ public class DayComboBox extends JComboBox {
 	Calendar now = Calendar.getInstance();
 	int day = now.get(Calendar.DATE);
 	DefaultComboBoxModel<Integer> dayModel = new DefaultComboBoxModel<Integer>();
-
+	
 	public DayComboBox() {
 
 		

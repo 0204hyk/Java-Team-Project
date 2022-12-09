@@ -13,14 +13,14 @@ public class SearchButton extends JButton {
 	
 	public SearchButton() {
 		try {
-			BufferedImage image = ImageIO.read(new File("sales_summary/datesearch.png"));
+			BufferedImage image = ImageIO.read(new File("sales_summary/search.png"));
 			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(scale));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		setBounds(400, 150, 120, 60);
+		setBounds(700, 100, 120, 60);
 		setBorder(null);
 		
 	}

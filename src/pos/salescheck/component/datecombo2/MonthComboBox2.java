@@ -16,8 +16,7 @@ public class MonthComboBox2 extends JComboBox {
 			monthModel2.addElement(i);
 		}
 		setModel(monthModel2);
-		setSelectedItem(month);
-		setBounds(250, 150, 100, 25);
+		setBounds(500, 100, 100, 25);
 	}
 
 }
