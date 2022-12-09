@@ -1,6 +1,7 @@
 package kiosk.cartFrame;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -8,27 +9,16 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-public class CartNorth_NorthPanel extends JPanel{
+public class CartComponent {
 	
 	private JLabel logo = new JLabel();
 	private JButton homeButton = new JButton();
-	
-	// 북북패널 ( 로고, 홈버튼)
-	public CartNorth_NorthPanel() {
-		
-		//setLayout(null);
-		logo();
-		homeButton();
-		
-		setBackground(Color.white);
-		
-	}
+	Font font = new Font("맑은 고딕", Font.BOLD, 27);
 	
 	//로고
-	public void logo() {
-		
+	public JLabel logo() {
+			
 		logo.setBounds(52, 25, 60, 83);
 		
 		
@@ -40,18 +30,17 @@ public class CartNorth_NorthPanel extends JPanel{
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
-		add(logo);
 		
+		return logo;
 	}
-	
-	//홈버튼
-	public void homeButton() {
+		
+	public JButton homeButton() {
 		homeButton.setBorderPainted(false);	
 		homeButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 		homeButton.setOpaque(false);
 
 		homeButton.setBounds(542, 44, 52, 52);
-		setBackground(Color.white);
+		
 		try {
 			BufferedImage homeBufferedImage =
 			ImageIO.read(new File("image/menu/homeScaled.png"));
@@ -61,7 +50,17 @@ public class CartNorth_NorthPanel extends JPanel{
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
-		add(homeButton);
+		return homeButton;
+	}	
+		
+	public JLabel mainLabel() {
+		JLabel label = new JLabel();
+		
+		label.setFont(font);
+		label.setText("주문 정보를 확인해주세요.");
+		label.setBounds(80, 130, 350, 150);
+		
+		return label;
 	}
 	
 }

@@ -15,13 +15,13 @@ public class CartMainFrame extends JFrame{
 
 
 	public void panelSetting() {
-	add(new CartNorthPanel(), BorderLayout.NORTH);
-	//add(new CenterPanel(), BorderLayout.CENTER);	
-	//add(new SouthPanel(), BorderLayout.SOUTH);
 
+	add(new CartMainPanel());	
 	setBackground(Color.white);
 	
 	}
+	
+	
 
 	
 	public void setDisplay() {
