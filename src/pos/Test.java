@@ -11,7 +11,7 @@ import pos.main.MainFrame;
 
 public class Test {
 	public static void main(String[] args) {
-//		new ClosingFrame();
-		new MainFrame();
+		new ClosingFrame();
+//		new MainFrame();
 	}
 }

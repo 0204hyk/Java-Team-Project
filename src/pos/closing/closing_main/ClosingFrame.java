@@ -29,15 +29,15 @@ public class ClosingFrame extends JFrame {
 
 		ClosingMessageFrame messageFrame = new ClosingMessageFrame();
 		
-		DoCloseButton closingBtn = new DoCloseButton(messageFrame);
-		closingBtn.setLocation(800, 660);
+		DoCloseButton doCloseBtn = new DoCloseButton(messageFrame);
+		doCloseBtn.setLocation(800, 660);
 		
 		pack();
 
 		add(panelA);
 		add(panelB);
 		add(panelC);
-		add(closingBtn);
+		add(doCloseBtn);
 		
 		setTitle("마감");
 		setSize(1200, 800);

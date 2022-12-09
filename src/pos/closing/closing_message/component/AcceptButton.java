@@ -27,6 +27,13 @@ public class AcceptButton extends JButton implements ActionListener {
 			setBorderPainted(false);
 			setSize(150, 75);
 			setFocusable(false);
+			
+			File f2 = new File("PosImages/마감 이미지/안내창 - 네 클릭.png");
+			BufferedImage bufferedImage2 = ImageIO.read(f2);
+			Image scaledImage2 = bufferedImage2.getScaledInstance(150, 75, Image.SCALE_AREA_AVERAGING);
+			ImageIcon btnImage2 = new ImageIcon(scaledImage2);
+			setPressedIcon(btnImage2);
+			
 			addActionListener(this);
 		} catch (IOException e) {
 			e.printStackTrace();

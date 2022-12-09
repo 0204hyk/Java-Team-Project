@@ -21,13 +21,21 @@ public class DoCloseButton extends JButton implements ActionListener{
 		try {
 			File f = new File("PosImages/마감 이미지/마감 버튼.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
-			Image scaledImage = bufferedImage.getScaledInstance(300, 80, Image.SCALE_DEFAULT);
+			Image scaledImage = bufferedImage.getScaledInstance(300, 80, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage = new ImageIcon(scaledImage);
 			setIcon(btnImage);
 			setSize(300, 80);
 			setContentAreaFilled(false);	// 버튼 배경 지우기
 			setBorderPainted(false);	// 버튼 테두리 지우기
 			setFocusable(false);	
+			
+			File f2 = new File("PosImages/마감 이미지/마감 버튼 클릭.png");
+			BufferedImage bufferedImage2 = ImageIO.read(f2);
+			Image scaledImage2 = bufferedImage2.getScaledInstance(300, 80, Image.SCALE_AREA_AVERAGING);
+			ImageIcon btnImage2 = new ImageIcon(scaledImage2);
+
+			setPressedIcon(btnImage2);
+			
 			addActionListener(this);
 		} catch (IOException e) {
 			e.printStackTrace();
