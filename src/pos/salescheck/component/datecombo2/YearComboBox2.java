@@ -9,13 +9,13 @@ public class YearComboBox2 extends JComboBox {
 	
 	Calendar now = Calendar.getInstance();
 	int year = now.get(Calendar.YEAR);
-	DefaultComboBoxModel<Integer> yearModel2 = new DefaultComboBoxModel<Integer>();
+
 	
 	public YearComboBox2() {
 		for (int i = year; i <= year + 10; ++i) {
-			yearModel2.addElement(i);
+			addItem(i);
 		}
-		setModel(yearModel2);
+
 		setSelectedItem(year);
 		setBounds(400, 100, 100, 25);
 		

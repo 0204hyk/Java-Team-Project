@@ -24,7 +24,9 @@ import pos.salescheck.component.datecombo1.YearComboBox;
 import pos.salescheck.component.datecombo2.DayComboBox2;
 import pos.salescheck.component.datecombo2.MonthComboBox2;
 import pos.salescheck.component.datecombo2.YearComboBox2;
+import pos.salescheck.component.saleslist.AmountLabel;
 import pos.salescheck.component.saleslist.ListLabel;
+import pos.salescheck.component.saleslist.TitleLabel;
 import pos.salescheck.component.title.DigitalClock;
 import pos.salescheck.component.title.TitleImage;
 
@@ -34,10 +36,9 @@ public class SalesCheckMainFrame extends JFrame {
 	
 	public SalesCheckMainFrame() {
 		JPanel titlePanel = new JPanel();
-		JLabel leftTitle = new JLabel();
 		JLabel centerTitle = new DigitalClock();
-		JLabel rightTitle = new JLabel();
-	
+		JLabel salesTitle = new TitleLabel();
+		JLabel amount = new AmountLabel();
 		JComboBox combo1 = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
 		JComboBox dayCombo = new DayComboBox();
@@ -45,9 +46,9 @@ public class SalesCheckMainFrame extends JFrame {
 		JComboBox yearCombo2 = new YearComboBox2();
 		JComboBox monthCombo2 = new MonthComboBox2();
 		JLabel graph = new SalesChart();
-		leftTitle.setBounds(10, 10, 400, 30);
+	
 		centerTitle.setBounds(1000, 10, 400, 30);
-		rightTitle.setBounds(1100, 10, 400, 30);
+		
 		
 		
 		
@@ -57,13 +58,8 @@ public class SalesCheckMainFrame extends JFrame {
 		JLabel label = new ChartLabel();
 		JLabel list = new ListLabel();
 		JPanel title = new TitleImage();
-		title.add(leftTitle);
 		title.add(centerTitle);
-		title.add(rightTitle);
 		add(title);
-//		add(leftTitle);
-//		add(centerTitle);
-//		add(rightTitle);
 		add(combo1);
 		add(monthCombo);
 		add(dayCombo);
@@ -73,8 +69,9 @@ public class SalesCheckMainFrame extends JFrame {
 		add(graph);
 		add(searchBtn);
 		add(escapeBtn);
+		add(salesTitle);
+		add(amount);
 		add(list);
-		
 		setBackground(Color.BLACK);
 		setLayout(null);
 		setSize(1200, 800);

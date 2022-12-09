@@ -26,18 +26,7 @@ public class YearComboBox extends JComboBox  {
 		for (int i = year; i <= year + 10; ++i) {
 			addItem(i);
 		}
-		
-		
-		try {
-			BufferedImage image = ImageIO.read(new File("sales_summary/date.png"));
-			Image scale = image.getScaledInstance(100, 25, Image.SCALE_SMOOTH);
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		
-		
+
 		setPreferredSize(new Dimension(150, 20));
 		setSelectedItem(year);
 		setBounds(50, 100, 100, 25);
