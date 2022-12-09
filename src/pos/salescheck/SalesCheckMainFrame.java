@@ -15,10 +15,8 @@ import javax.swing.JPanel;
 import org.jfree.ui.RefineryUtilities;
 
 import pos.salescheck.component.ChartLabel;
-import pos.salescheck.component.DateComboBox;
 import pos.salescheck.component.EscapeButton;
 import pos.salescheck.component.SearchButton;
-import pos.salescheck.component.TestCombo;
 import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;

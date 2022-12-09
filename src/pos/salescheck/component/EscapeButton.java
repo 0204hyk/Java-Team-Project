@@ -14,7 +14,7 @@ public class EscapeButton extends JButton {
 	public EscapeButton() {
 		
 		try {
-			BufferedImage image = ImageIO.read(new File("sales_summary/escape.png"));
+			BufferedImage image = ImageIO.read(new File("PosImage/매출 요약 이미지/escape.png"));
 			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(scale));
 		} catch (IOException e) {

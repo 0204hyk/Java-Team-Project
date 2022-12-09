@@ -15,7 +15,7 @@ public class TitleImage extends JPanel {
 	
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
-		ImageIcon image = new ImageIcon("sales_summary/title.png");
+		ImageIcon image = new ImageIcon("PosImage/매출 요약 이미지/title.png");
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}
 	

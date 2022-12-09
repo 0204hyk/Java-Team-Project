@@ -15,7 +15,7 @@ public class ListImgLabel extends JLabel {
 	public ListImgLabel() {
 
 		try {
-			BufferedImage image = ImageIO.read(new File("sales_summary/saleslist.png"));
+			BufferedImage image = ImageIO.read(new File("PosImage/매출 요약 이미지/saleslist.png"));
 			Image scale = image.getScaledInstance(500, 500, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(scale));
 		} catch (IOException e) {
