@@ -26,8 +26,14 @@ public class BackgroundPanel extends JPanel {
 		setLayout(null);
 		setSize(500, 250);
 		
-		add(new AcceptButton());
-		add(new RejectButton(frame));
+		AcceptButton acceptBtn = new AcceptButton();
+		acceptBtn.setLocation(80, 140);
+
+		RejectButton rejectBtn = new RejectButton(frame);
+		rejectBtn.setLocation(280, 140);
+		
+		add(acceptBtn);
+		add(rejectBtn);
 	}
 
 }

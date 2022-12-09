@@ -26,7 +26,6 @@ public class DailySalesPanel extends JPanel {
 		this.background = background;
 		setSize(new Dimension(background.getWidth(null), background.getHeight(null)));
 		setLayout(null);
-		setLocation(600, 100);
 		setSize(500, 550);
 
 		Calendar now = Calendar.getInstance();

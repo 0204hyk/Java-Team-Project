@@ -25,7 +25,6 @@ public class CashOnHandPanel extends JPanel{
 		this.background = background;
 		setSize(new Dimension(background.getWidth(null), background.getHeight(null)));
 		setLayout(null);
-		setLocation(120, 230);
 		setSize(400, 430);
 		
 	}

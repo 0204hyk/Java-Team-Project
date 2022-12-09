@@ -19,7 +19,6 @@ public class PaymentMethodPanel extends JPanel{
 
 		setSize(new Dimension(background.getWidth(null), background.getHeight(null)));
 		setSize(400, 100);
-		setLocation(120, 80);
 		setLayout(null);	
 	}
 }
