@@ -56,7 +56,7 @@ public class DailySalesPanel extends JPanel {
 		southPanel.add(southLabel1, "West");
 		southPanel.add(southLabel2, "East");
 
-//		add(northPanel, "North");
+		add(northPanel, "North");
 		add(scrollPane, "Center");
 		add(southPanel, "South");
 	}
