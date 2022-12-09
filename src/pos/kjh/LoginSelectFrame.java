@@ -43,6 +43,7 @@ public class LoginSelectFrame extends JFrame{
 		posBtn.setContentAreaFilled(false);
 		posBtn.setFocusPainted(false);
 		
+		setUndecorated(true);
 		setLayout(null);
 		setSize(570, 450);
 		setVisible(true);
