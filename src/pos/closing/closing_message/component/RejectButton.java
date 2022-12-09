@@ -11,9 +11,13 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.closing.closing_message.ClosingMessageFrame;
+
 public class RejectButton extends JButton implements ActionListener{
+	ClosingMessageFrame frame;
 	
-	public RejectButton() {
+	public RejectButton(ClosingMessageFrame frame) {
+		this.frame = frame;
 		try {
 			File f = new File("PosImages/포스기 이미지 png/마감 이미지/안내창 - 아니요.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
@@ -35,7 +39,7 @@ public class RejectButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("아니오 버튼 기능 구현 X");
+		frame.setVisible(false);
 	}
 
 }

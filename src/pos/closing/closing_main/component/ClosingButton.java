@@ -1,6 +1,5 @@
 package pos.closing.closing_main.component;
 
-import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,8 +11,13 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.closing.closing_message.ClosingMessageFrame;
+
 public class ClosingButton extends JButton implements ActionListener{
-	public ClosingButton() {
+	ClosingMessageFrame frame;
+	
+	public ClosingButton(ClosingMessageFrame frame) {
+		this.frame = frame;
 		try {
 			File f = new File("PosImages/포스기 이미지 png/마감 이미지/마감 버튼.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
@@ -32,6 +36,6 @@ public class ClosingButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("마감 버튼 기능 구현 X");
+		frame.setVisible(true);
 	}
 }

@@ -13,6 +13,7 @@ import pos.closing.closing_main.component.ClosingButton;
 import pos.closing.closing_main.container.CashOnHandPanel;
 import pos.closing.closing_main.container.DailySalesPanel;
 import pos.closing.closing_main.container.PaymentMethodPanel;
+import pos.closing.closing_message.ClosingMessageFrame;
 
 public class ClosingFrame extends JFrame {
 	public ClosingFrame() {
@@ -23,7 +24,8 @@ public class ClosingFrame extends JFrame {
 				"PosImages/포스기 이미지 png/마감 이미지/현금 시제 기본 틀.png", 400, 430));
 		DailySalesPanel panelC = new DailySalesPanel(ImageScaledTool.getScaledImage(
 				"PosImages/포스기 이미지 png/마감 이미지/마감 내역 기본 틀.png", 500, 550));
-		ClosingButton closingBtn = new ClosingButton();
+		ClosingMessageFrame messageFrame = new ClosingMessageFrame();
+		ClosingButton closingBtn = new ClosingButton(messageFrame);
 		pack();
 
 		add(panelA);
