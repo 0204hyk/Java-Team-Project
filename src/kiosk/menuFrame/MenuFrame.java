@@ -13,6 +13,8 @@ public class MenuFrame extends JFrame{
 
 	
 	public MenuFrame()  {
+		setUndecorated(true); 
+		
 		panelSetting();
 		setDisplay();
 		
@@ -20,8 +22,9 @@ public class MenuFrame extends JFrame{
 	
 	public void panelSetting() {
 		add(new NorthPanel(), BorderLayout.NORTH);
-		add(new CenterPanel(), BorderLayout.CENTER);
+		add(new CenterPanel(), BorderLayout.CENTER);	
 		add(new SouthPanel(), BorderLayout.SOUTH);
+
 		setBackground(Color.white);
 		
 	}
@@ -29,20 +32,17 @@ public class MenuFrame extends JFrame{
 	
 	
 	public void setDisplay() {
+		
 		setBackground(Color.white);
 		setVisible(true);
 		setLocation(100, 100);
 		setSize(650, 950);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
-		
+
 	}
-	
 	
 	public static void main(String[] args) {
 		new MenuFrame();
-		
-	
+
 	}
 }

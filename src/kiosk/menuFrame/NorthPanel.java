@@ -13,8 +13,8 @@ public class NorthPanel extends JPanel {
 	//북쪽 패널 세팅(메뉴, 홈버튼)
 	public void panelSetting() {
 		
-		GridLayout grid = new GridLayout(0,1);
-		setLayout(grid);
+		setLayout(new GridLayout(0,1));
+		
 		add(new North_NorthPanel());
 		add(new North_SouthPanel());
 		

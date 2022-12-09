@@ -1,7 +1,6 @@
 package kiosk.menuFrame;
 
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -30,8 +29,8 @@ public class North_NorthPanel extends JPanel{
 	//로고
 	public void logo() {
 		
-		logo.setBounds(52, 25, 83, 66);
-		logo.setSize(60, 83);
+		logo.setBounds(52, 25, 60, 83);
+		
 		
 		try {
 			BufferedImage logoBufferedImage =
@@ -47,7 +46,6 @@ public class North_NorthPanel extends JPanel{
 	
 	//홈버튼
 	public void homeButton() {
-		homeButton.setSize(52, 52);
 		homeButton.setBorderPainted(false);	
 		homeButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 		homeButton.setOpaque(false);

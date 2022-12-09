@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,8 +13,8 @@ import javax.swing.JPanel;
 public class North_SouthPanel extends JPanel {
 
 	public North_SouthPanel() {
-		categoryButton();
 		
+		categoryButton();
 		setBackground(Color.white);
 	}
 
