@@ -33,10 +33,10 @@ public class SalesChart extends ApplicationFrame {
 	
 	public SalesChart(String applicationTitle, String chartTitle) {
 		super(applicationTitle);
-		JFreeChart barChart = ChartFactory.createBarChart(chartTitle, "12월 매출", "", createDataset(),
+		JFreeChart barChart = ChartFactory.createBarChart(chartTitle, "first_name", "", createDataset(),
 				PlotOrientation.VERTICAL, true, true, false);
 		ChartPanel chartPanel = new ChartPanel(barChart);
-		chartPanel.setPreferredSize(new Dimension(560, 367));
+		chartPanel.setPreferredSize(new Dimension(650, 500));
 		setContentPane(chartPanel);
 		
 		
@@ -64,7 +64,7 @@ public class SalesChart extends ApplicationFrame {
 		return dataset;
 	}
 	public static void main(String[] args) {
-		SalesChart chart = new SalesChart("gd", "gd");
+		SalesChart chart = new SalesChart("ChartTest", "salary > 11000");
 		JLabel test = new JLabel();
 		
 		chart.pack();
