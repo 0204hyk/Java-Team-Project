@@ -1,4 +1,4 @@
-package kiosk.paymentComplete;
+package kiosk.cardPut;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
