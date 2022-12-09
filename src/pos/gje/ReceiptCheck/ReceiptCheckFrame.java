@@ -11,7 +11,7 @@ public class ReceiptCheckFrame extends JFrame{
 		
 		
 		// 영수증 목록 (Panel)
-		f.add(new ReceiptCheckPanel().listPanel());
+		f.add(new ReceiptCheckPanel());
 		
 		// 버튼 
 		f.add(new ReceiptCheckButton().refundBtn());
