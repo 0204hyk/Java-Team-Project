@@ -1,6 +1,7 @@
 package pos.salescheck;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -14,12 +15,17 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.Plot;
+import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
 import pos.salescheck.component.ChartLabel;
 import pos.salescheck.component.EscapeButton;
 import pos.salescheck.component.SearchButton;
 import pos.salescheck.component.chart.SalesChart;
+import pos.salescheck.component.chart.testChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
@@ -36,24 +42,27 @@ import pos.salescheck.component.title.TitleImage;
 public class SalesCheckMainFrame extends JFrame {
 	
 	
+
 	
 	public SalesCheckMainFrame() {
 		JPanel titlePanel = new JPanel();
 		JLabel centerTitle = new DigitalClock();
 		JLabel salesTitle = new TitleLabel();
 		JLabel amount = new AmountLabel();
-		JPanel graph = new JPanel();
+		
+	
+		SalesChart chart = new SalesChart("", "");
+		
+		ChartPanel chartPanel = new ChartPanel(chart.barChart);
+		chartPanel.setBounds(50, 200, 500, 500);
+	
+
 		JComboBox combo1 = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
 		JComboBox dayCombo = new DayComboBox();
 		JComboBox dayCombo2 = new DayComboBox2();
 		JComboBox yearCombo2 = new YearComboBox2();
 		JComboBox monthCombo2 = new MonthComboBox2();
-		
-
-		
-		
-	
 
 		
 		centerTitle.setBounds(1000, 10, 400, 30);
@@ -64,7 +73,6 @@ public class SalesCheckMainFrame extends JFrame {
 		
 		JButton searchBtn = new SearchButton();
 		JButton escapeBtn = new EscapeButton();
-		JLabel label = new ChartLabel();
 		JLabel list = new ListImgLabel();
 		JPanel title = new TitleImage();
 		title.add(centerTitle);
@@ -80,6 +88,7 @@ public class SalesCheckMainFrame extends JFrame {
 		add(salesTitle);
 		add(amount);
 		add(list);
+		add(chartPanel);
 		setBackground(Color.BLACK);
 		setLayout(null);
 		setSize(1200, 800);

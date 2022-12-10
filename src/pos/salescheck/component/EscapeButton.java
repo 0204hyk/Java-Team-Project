@@ -21,7 +21,7 @@ public class EscapeButton extends JButton {
 			e.printStackTrace();
 		}
 		
-		setBounds(1050, 700, 120, 80);
+		setBounds(1050, 700, 100, 50);
 		setBorder(null);
 	}
 }

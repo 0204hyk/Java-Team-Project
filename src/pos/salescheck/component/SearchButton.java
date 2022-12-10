@@ -20,7 +20,7 @@ public class SearchButton extends JButton {
 			e.printStackTrace();
 		}
 		
-		setBounds(700, 100, 120, 60);
+		setBounds(710, 100, 100, 50);
 		setBorder(null);
 		
 	}

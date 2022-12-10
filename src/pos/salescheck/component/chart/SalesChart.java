@@ -24,22 +24,25 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
 import database.OjdbcConnection;
+import pos.salescheck.SalesCheckMainFrame;
 
 
 
 public class SalesChart extends ApplicationFrame {
 
+	public static JFreeChart barChart;
 	
-	
-	public SalesChart(String applicationTitle, String chartTitle) {
+	SalesCheckMainFrame main;
+
+	public SalesChart (String applicationTitle, String chartTitle) {
 		super(applicationTitle);
-		JFreeChart barChart = ChartFactory.createBarChart(chartTitle, "first_name", "", createDataset(),
+	
+		 barChart = ChartFactory.createBarChart(chartTitle, "first_name", "", createDataset(),
 				PlotOrientation.VERTICAL, true, true, false);
-		ChartPanel chartPanel = new ChartPanel(barChart);
-		chartPanel.setPreferredSize(new Dimension(650, 500));
-		setContentPane(chartPanel);
-		
-		
+		 
+//		ChartPanel chartPanel = new ChartPanel(barChart);
+//		chartPanel.setPreferredSize(new Dimension(650, 500));
+//		setContentPane(chartPanel);	
 	}
 
 	private CategoryDataset createDataset() {
@@ -52,10 +55,9 @@ public class SalesChart extends ApplicationFrame {
 			ResultSet rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
-				System.out.println(rs.getInt("salary"));
-				System.out.println(rs.getString("first_name"));
 				dataset.addValue(rs.getInt("salary"), rs.getString("first_name"), rs.getString("first_name"));
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -63,15 +65,11 @@ public class SalesChart extends ApplicationFrame {
 	
 		return dataset;
 	}
-	public static void main(String[] args) {
-		SalesChart chart = new SalesChart("ChartTest", "salary > 11000");
-		JLabel test = new JLabel();
-		
-		chart.pack();
-		chart.setVisible(true);
-		RefineryUtilities.centerFrameOnScreen(chart);
-	
-	}
-	
-	
+//	public static void main(String[] args) {
+//		SalesChart chart = new SalesChart("12월 매출", "salary 11000");
+//		chart.pack();
+//		chart.setVisible(true);
+//		RefineryUtilities.centerFrameOnScreen(chart);
+//	
+//	}
 }
