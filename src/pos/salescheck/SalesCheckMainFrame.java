@@ -52,10 +52,9 @@ public class SalesCheckMainFrame extends JFrame {
 		
 	
 		SalesChart chart = new SalesChart("", "");
-		
 		ChartPanel chartPanel = new ChartPanel(chart.barChart);
 		chartPanel.setBounds(50, 200, 500, 500);
-	
+		
 
 		JComboBox combo1 = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
@@ -89,6 +88,7 @@ public class SalesCheckMainFrame extends JFrame {
 		add(amount);
 		add(list);
 		add(chartPanel);
+		
 		setBackground(Color.BLACK);
 		setLayout(null);
 		setSize(1200, 800);

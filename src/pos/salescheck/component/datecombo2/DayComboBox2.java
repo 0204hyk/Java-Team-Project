@@ -17,7 +17,7 @@ public class DayComboBox2 extends JComboBox {
 			addItem(i);
 		}
 
-		setBounds(600, 100, 100, 25);
+		setBounds(640, 100, 100, 25);
 		
 	}
 }

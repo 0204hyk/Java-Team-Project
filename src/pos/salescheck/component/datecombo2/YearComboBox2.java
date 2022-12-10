@@ -17,7 +17,7 @@ public class YearComboBox2 extends JComboBox {
 		}
 
 		setSelectedItem(year);
-		setBounds(400, 100, 100, 25);
+		setBounds(410, 100, 100, 25);
 		
 	}
 

@@ -65,11 +65,12 @@ public class SalesChart extends ApplicationFrame {
 	
 		return dataset;
 	}
-//	public static void main(String[] args) {
-//		SalesChart chart = new SalesChart("12월 매출", "salary 11000");
+	public static void main(String[] args) {
+// 	SalesChart chart = new SalesChart("12월 매출", "salary 11000");
 //		chart.pack();
 //		chart.setVisible(true);
 //		RefineryUtilities.centerFrameOnScreen(chart);
-//	
-//	}
+	
+	
+	}
 }

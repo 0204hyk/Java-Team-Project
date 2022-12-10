@@ -17,6 +17,6 @@ public class MonthComboBox extends JComboBox {
 		}
 	
 		setSelectedItem(month);
-		setBounds(150, 100, 100, 25);
+		setBounds(170, 100, 100, 25);
 	}
 }
