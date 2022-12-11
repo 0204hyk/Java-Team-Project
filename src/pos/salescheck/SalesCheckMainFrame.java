@@ -41,9 +41,7 @@ import pos.salescheck.component.title.TitleImage;
 
 public class SalesCheckMainFrame extends JFrame {
 	
-	
 
-	
 	public SalesCheckMainFrame() {
 		JPanel titlePanel = new JPanel();
 		JLabel centerTitle = new DigitalClock();
@@ -62,14 +60,8 @@ public class SalesCheckMainFrame extends JFrame {
 		JComboBox dayCombo2 = new DayComboBox2();
 		JComboBox yearCombo2 = new YearComboBox2();
 		JComboBox monthCombo2 = new MonthComboBox2();
-
-		
 		centerTitle.setBounds(1000, 10, 400, 30);
-		
-		
-		
-		
-		
+
 		JButton searchBtn = new SearchButton();
 		JButton escapeBtn = new EscapeButton();
 		JLabel list = new ListImgLabel();
@@ -88,7 +80,6 @@ public class SalesCheckMainFrame extends JFrame {
 		add(amount);
 		add(list);
 		add(chartPanel);
-		
 		setBackground(Color.BLACK);
 		setLayout(null);
 		setSize(1200, 800);
