@@ -7,9 +7,11 @@ import javax.swing.JPanel;
 
 public class FrappeBlendedMenu extends JPanel {
 
+	public static JButton[] frappeBlendedBtns = new JButton[12];
+	
 	public FrappeBlendedMenu() {
 		
-		JButton[] frappeBlendedBtns = new JButton[12];
+		
 		for (int i = 0; i < 12; ++i) {
 	
 			add(frappeBlendedBtns[i] = new JButton(""));	

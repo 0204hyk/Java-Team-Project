@@ -19,9 +19,7 @@ public class NonCoffeeMenu extends JPanel {
 			add(nonCoffeeBtns[i]);	
 		
 		}
-		
-		
-		
+
 		nonCoffeeBtns[0].setText("초코라떼");
 		nonCoffeeBtns[1].setText("고구마라떼");
 		

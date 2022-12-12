@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import pos.calculation.categorybutton.CalcEscapeButton;
+
 import pos.calculation.categorybutton.PaymentButton;
 import pos.calculation.menubutton.CoffeeMenu;
 import pos.calculation.menubutton.FrappeBlendedMenu;
@@ -26,7 +27,6 @@ public class CalculationMain extends JFrame {
 	private static JButton nonCoffeeCategoryBtn = new JButton("논커피");
 	private static JButton teaAdeBtn = new JButton("티/에이드");
 	private static JButton frappeBlendedBtn = new JButton("프라페/블렌디드");
-
 
 	public CalculationMain() {
 		// 메뉴 상단 타이틀 구현
@@ -53,26 +53,19 @@ public class CalculationMain extends JFrame {
 		coffeeCategoryBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			
-			
 				add(coffee());
-
 			}
-
+			
 		});
-
+		
 		nonCoffeeCategoryBtn.setBounds(695, 110, 150, 100);
 		nonCoffeeCategoryBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				coffee().setVisible(false);
-				add(coffee());
-				nonCoffee().setVisible(true);
 				add(nonCoffee());
 			}
-			
 		});
-
+		
 		teaAdeBtn.setBounds(840, 110, 150, 100);
 		teaAdeBtn.addActionListener(new ActionListener() {
 
@@ -113,7 +106,7 @@ public class CalculationMain extends JFrame {
 	public JPanel coffee() {
 
 		JPanel coffeePanel = new CoffeeMenu();
-
+		coffeePanel.setVisible(true);
 
 		return coffeePanel;
 	}
@@ -122,7 +115,7 @@ public class CalculationMain extends JFrame {
 
 		JPanel teaAdePanel = new TeaAdeMenu();		
 		teaAdePanel.setVisible(true);
-	
+		
 		return teaAdePanel;
 
 	}
@@ -131,19 +124,19 @@ public class CalculationMain extends JFrame {
 	
 		JPanel nonCoffeePanel = new NonCoffeeMenu();
 
-
+		nonCoffeePanel.setVisible(true);
 		return nonCoffeePanel;
 
 	}
 
 	public JPanel frappeBlended() {
 
-		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
+		FrappeBlendedMenu frappeBlendedPanel = new FrappeBlendedMenu();
 		JPanel teaAdePanel = new TeaAdeMenu();
 
-	
+		
 		frappeBlendedPanel.setVisible(true);
-
+		
 		return frappeBlendedPanel;
 	}
 

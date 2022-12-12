@@ -15,7 +15,7 @@ import pos.calculation.CalculationMain;
 
 public class CoffeeMenu extends JPanel {
 
-	
+
 	
 	public CoffeeMenu() {
 	
