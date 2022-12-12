@@ -26,33 +26,43 @@ public class SalesCheckMainFrame extends JFrame {
 	
 
 	public SalesCheckMainFrame() {
-		JPanel titlePanel = new JPanel();
+		
+		// 매출요약 상단 메뉴바 생성.
 		JLabel centerTitle = new DigitalClock();
-		JLabel salesTitle = new TitleLabel();
-		JLabel amount = new AmountLabel();
-		JLabel between = new JLabel("~");
-		between.setBounds(390, 100, 100, 25);
-	
+		centerTitle.setBounds(1000, 10, 400, 30);
+		JPanel title = new TitleImage();
+		title.add(centerTitle);
+		
+		// 매출요약 차트 구현
 		SalesChart chart = new SalesChart("", "");
 		ChartPanel chartPanel = new ChartPanel(chart.barChart);
 		chartPanel.setBounds(50, 200, 500, 500);
 		
-
-		JComboBox combo1 = new YearComboBox();
+		// 매출요약 콤보박스 구현
+		JComboBox yearCombo = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
 		JComboBox dayCombo = new DayComboBox();
 		JComboBox dayCombo2 = new DayComboBox2();
 		JComboBox yearCombo2 = new YearComboBox2();
 		JComboBox monthCombo2 = new MonthComboBox2();
-		centerTitle.setBounds(1000, 10, 400, 30);
-
+		JLabel between = new JLabel("~");
+		between.setBounds(390, 100, 100, 25);
+		
+		// 매출요약 검색 버튼 구현
 		JButton searchBtn = new SalesSearch();
+		
+		// 매출요약 뒤로가기 구현
 		JButton escapeBtn = new SalesEscape();
+		
+		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();
-		JPanel title = new TitleImage();
-		title.add(centerTitle);
+		
+		// 매출요약
+		JLabel salesTitle = new TitleLabel();
+		JLabel amount = new AmountLabel();
+		
 		add(title);
-		add(combo1);
+		add(yearCombo);
 		add(between);
 		add(monthCombo);
 		add(dayCombo);

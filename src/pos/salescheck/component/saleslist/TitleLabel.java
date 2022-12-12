@@ -5,10 +5,15 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 
+import pos.salescheck.component.title.DigitalClock;
+
 public class TitleLabel extends JLabel {
 
 	
 	public TitleLabel() {
+		
+		
+		
 		
 		setText("2022년 12월 매출");
 		setForeground(Color.WHITE);
