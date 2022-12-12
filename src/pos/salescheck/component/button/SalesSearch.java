@@ -14,8 +14,8 @@ public class SalesSearch extends JButton {
 	public SalesSearch() {
 		// 매출요약 검색 버튼 이미지 설정.
 		try {
-			BufferedImage image = ImageIO.read(new File("PosImages/매출 요약 이미지/날짜 검색 버튼.png"));
-			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);
+			BufferedImage image = ImageIO.read(new File("PosImages/매출 요약 이미지/검색버튼.png"));
+			Image scale = image.getScaledInstance(100, 50, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(scale));
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -33,7 +33,7 @@ public class SalesSearch extends JButton {
 		
 		// 검색버튼 위치 설정.
 		
-		setBounds(750, 100, 100, 50);
+		setBounds(750, 90, 100, 50);
 		setBorder(null);
 		
 	}
