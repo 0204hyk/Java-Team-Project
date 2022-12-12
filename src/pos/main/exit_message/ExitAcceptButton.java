@@ -40,6 +40,7 @@ public class ExitAcceptButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// 종료
 		System.exit(0);
 	}
 	
