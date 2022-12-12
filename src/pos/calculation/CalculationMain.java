@@ -15,11 +15,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import pos.calculation.button.CalcEscapeButton;
-import pos.calculation.button.CoffeeMenu;
-import pos.calculation.button.FrappeBlendedMenu;
-import pos.calculation.button.NonCoffeeMenu;
 import pos.calculation.button.PaymentButton;
-import pos.calculation.button.TeaAdeMenu;
+import pos.calculation.menubutton.CoffeeMenu;
+import pos.calculation.menubutton.FrappeBlendedMenu;
+import pos.calculation.menubutton.NonCoffeeMenu;
+import pos.calculation.menubutton.TeaAdeMenu;
 import pos.salescheck.component.title.DigitalClock;
 import pos.salescheck.component.title.TitleImage;
 
@@ -79,6 +79,16 @@ public class CalculationMain extends JFrame {
 			}
 		});
 
+		frappeBlendedBtn.setBounds(985, 110, 150, 100);
+		frappeBlendedBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				add(frappeBlended());
+			}
+		});
+
+
 		add(titleBar);
 		add(menuList);
 		add(coffeeCategoryBtn);
@@ -97,15 +107,15 @@ public class CalculationMain extends JFrame {
 
 
 	public JPanel coffee() {
-	
+
 		JPanel coffeePanel = new CoffeeMenu();
 		coffeePanel.setVisible(true);
-	
+
 		return coffeePanel;
 	}
 
 	public JPanel teaAde() {
-	
+
 		JPanel teaAdePanel = new TeaAdeMenu();
 		teaAdePanel.setVisible(true);
 		return teaAdePanel;
@@ -119,26 +129,11 @@ public class CalculationMain extends JFrame {
 
 	}
 
-	public void frappeBlended() {
-		frappeBlendedBtn.setBounds(985, 110, 150, 100);
-		frappeBlendedBtn.addActionListener(new ActionListener() {
+	public JPanel frappeBlended() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				CalculationMain main = new CalculationMain();
-				JPanel coffeePanel = new CoffeeMenu();
-				JPanel nonCoffeePanel = new NonCoffeeMenu();
-				JPanel teaAdePanel = new TeaAdeMenu();
-				JPanel frappeBlendedPanel = new FrappeBlendedMenu();
-				//				coffeePanel.setVisible(false);
-				//				nonCoffeePanel.setVisible(false);
-				//				teaAdePanel.setVisible(false);
-				frappeBlendedPanel.setVisible(true);
-				main.add(frappeBlendedPanel);
-
-			}
-		});
-
+		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
+		frappeBlendedPanel.setVisible(true);
+		return frappeBlendedPanel;
 	}
 
 
