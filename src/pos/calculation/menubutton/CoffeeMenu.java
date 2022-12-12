@@ -27,6 +27,15 @@ public class CoffeeMenu extends JPanel {
 		
 		
 		coffeeBtns[0].setText("아메리카노");
+		coffeeBtns[0].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(e.getActionCommand());
+				
+			}
+		});
+		
 		coffeeBtns[1].setText("꿀커피");
 		coffeeBtns[2].setText("카페라떼");
 		coffeeBtns[3].setText("꿀라떼");
@@ -35,7 +44,7 @@ public class CoffeeMenu extends JPanel {
 		
 		
 		setLayout(new GridLayout(3, 4));
-		setVisible(false);
+		setVisible(true);
 		setBounds(570, 250, 600, 280);
 
 	}

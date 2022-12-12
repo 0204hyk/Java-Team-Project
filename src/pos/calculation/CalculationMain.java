@@ -48,12 +48,19 @@ public class CalculationMain extends JFrame {
 		JLabel menuCategory = new MenuCategoryView();
 
 		// 커피 버튼 및 카테고리들 ---
-
+		JPanel nonCoffeePanel = new NonCoffeeMenu();
+		JPanel coffeePanel = new CoffeeMenu();
 		coffeeCategoryBtn.setBounds(550, 110, 150, 100);
 		coffeeCategoryBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				add(coffee());
+				
+				nonCoffeePanel.setVisible(false);
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				coffeePanel.setVisible(true);
 			}
 			
 		});
@@ -62,11 +69,18 @@ public class CalculationMain extends JFrame {
 		nonCoffeeCategoryBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				add(nonCoffee());
+				coffeePanel.setVisible(false);
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				nonCoffeePanel.setVisible(true);
 			}
 		});
 		
 		teaAdeBtn.setBounds(840, 110, 150, 100);
+	
 		teaAdeBtn.addActionListener(new ActionListener() {
 
 			@Override
@@ -89,7 +103,9 @@ public class CalculationMain extends JFrame {
 		add(titleBar);
 		add(menuList);
 		add(coffeeCategoryBtn);
+		add(coffeePanel);
 		add(nonCoffeeCategoryBtn);
+		add(nonCoffeePanel);
 		add(teaAdeBtn);
 		add(frappeBlendedBtn);
 		add(menuCategory);
@@ -103,13 +119,15 @@ public class CalculationMain extends JFrame {
 	}
 
 	// 각 카테고리 별 버튼들 
-	public JPanel coffee() {
-
-		JPanel coffeePanel = new CoffeeMenu();
-		coffeePanel.setVisible(true);
-
-		return coffeePanel;
-	}
+//	public JPanel coffee() {
+//
+//		JPanel coffeePanel = new CoffeeMenu();
+//		coffeePanel.setVisible(true);
+//		
+//		
+//
+//		return coffeePanel;
+//	}
 
 	public JPanel teaAde() {
 
@@ -120,14 +138,14 @@ public class CalculationMain extends JFrame {
 
 	}
 
-	public JPanel nonCoffee() {
-	
-		JPanel nonCoffeePanel = new NonCoffeeMenu();
-
-		nonCoffeePanel.setVisible(true);
-		return nonCoffeePanel;
-
-	}
+//	public JPanel nonCoffee() {
+//	
+//		JPanel nonCoffeePanel = new NonCoffeeMenu();
+//
+//		nonCoffeePanel.setVisible(true);
+//		return nonCoffeePanel;
+//
+//	}
 
 	public JPanel frappeBlended() {
 

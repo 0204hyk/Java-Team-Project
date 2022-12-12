@@ -1,6 +1,8 @@
 package pos.calculation.menubutton;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -21,11 +23,19 @@ public class NonCoffeeMenu extends JPanel {
 		}
 
 		nonCoffeeBtns[0].setText("초코라떼");
+		nonCoffeeBtns[0].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(e.getActionCommand());
+				
+			}
+		});
 		nonCoffeeBtns[1].setText("고구마라떼");
 		
 		
 		setLayout(new GridLayout(3, 4));
-		setVisible(false);
+		setVisible(true);
 		setBounds(570, 250, 600, 280);
 	}
 }
