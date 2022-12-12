@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_message.ClosingMessageFrame;
+import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
 import pos.main.exit_message.ExitMessageFrame;
 import pos.main.main_component.ExitButton;
 

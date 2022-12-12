@@ -17,7 +17,7 @@ import pos.gje.ReceiptCheck.refund_message.panel.ReceiptPanel;
 
 public class RefundCloseButton extends JButton implements ActionListener{
 	RefundFrame f;
-	public RefundCloseButton(RefundFrame f2) {
+	public RefundCloseButton(RefundFrame f) {
 		this.f = f;
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/환불 창 닫기 버튼.png"));
@@ -38,7 +38,7 @@ public class RefundCloseButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		f.dispose();
+		f.setVisible(false);
 	}
 
 }
