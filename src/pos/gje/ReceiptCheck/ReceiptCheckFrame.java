@@ -5,8 +5,8 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 import pos.gje.ReceiptCheck.panel.ReceiptListPanel;
-import pos.gje.refund.PaymentTypePanel;
-import pos.gje.refund.ReceiveAndChangePanel;
+import pos.gje.refund.panel.PaymentTypePanel;
+import pos.gje.refund.panel.ReceiveAndChangePanel;
 
 public class ReceiptCheckFrame extends JFrame{
 

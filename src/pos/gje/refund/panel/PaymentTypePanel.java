@@ -1,4 +1,4 @@
-package pos.gje.refund;
+package pos.gje.refund.panel;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -16,7 +16,7 @@ public class PaymentTypePanel extends JPanel{
 	}	
 	
 	public PaymentTypePanel() {
-		setBounds(25, 80, 300, 139); // Panel 틀
+		setBounds(25, 80, 350, 162); // Panel 틀
 	}	     
 
 }
