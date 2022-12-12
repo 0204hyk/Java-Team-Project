@@ -20,6 +20,6 @@ public class CalcView extends JLabel {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		setBounds(100, 150, 500, 500);
+		setBounds(80, 150, 500, 500);
 	}
 }
