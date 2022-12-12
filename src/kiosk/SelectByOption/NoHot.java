@@ -1,4 +1,4 @@
-package kiosk.jsj.SelectByOption;
+package kiosk.SelectByOption;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -12,11 +12,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class NoMilk extends JFrame {
+public class NoHot extends JFrame {
 
 	String root = "KioskImages/4. detailedOption/";
 
-	public NoMilk() {
+	public NoHot() {
 
 		JLabel totalCups = new JLabel("2잔"); // 잔 수
 		totalCups.setFont(new Font("맑은 고딕", Font.PLAIN, 19));
@@ -47,20 +47,16 @@ public class NoMilk extends JFrame {
 		// 밑으로 고정 -----------------------------------------------------------------
 		add(makeLabel("hy.png", 53, 24, 60, 83));
 		add(makeLabel("home.png", 543, 44, 52, 52));
-
-		add(makeLabel("hot, ice.png", 46, 313, 90, 14));
-		add(makeLabel("hot.png", 34,336,79,73));
-		add(makeLabel("ice.png", 123,336,79,73));
 		
-		add(makeLabel("changeDecaffein.png", 251,309,114,17));
-		add(makeLabel("noDecaffein.png", 238,337,79,73));
-		add(makeLabel("toDecaffein.png",327,337,79,73));
+		add(makeLabel("changeDecaffein.png", 49,309,114,17));
+		add(makeLabel("noDecaffein.png", 36,337,79,73));
+		add(makeLabel("toDecaffein.png",125,337,79,73));
 		
-		add(makeLabel("selectCup.png", 453,312,59,17));
-		add(makeLabel("useDisposal.png", 446,337,79,73));
-		add(makeLabel("useTumbler.png", 535,336,79,73));
-		
-		add(makeLabel("selectSize.png", 44,446,97,17));
+		add(makeLabel("selectCup.png", 364,311,59,17));
+		add(makeLabel("useDisposal.png", 357,337,79,73));
+		add(makeLabel("useTumbler.png", 446,336,79,73));
+		 
+		add(makeLabel("selectSize.png", 45,446,97,17));
 		add(makeLabel("S.png", 35,471,79,73));
 		add(makeLabel("M.png", 124,471,79,73));
 		add(makeLabel("L.png", 214,471,79,73));
@@ -74,6 +70,11 @@ public class NoMilk extends JFrame {
 		add(makeLabel("normalIce.png", 35,619,79,73));
 		add(makeLabel("lessIce.png", 124,619,79,73));
 		add(makeLabel("noIce.png", 215,619,79,73));
+		
+		add(makeLabel("selectMilk.png", 367,592,74,16));
+		add(makeLabel("basicMilk.png", 357,619,79,73));
+		add(makeLabel("toSoy.png", 447,619,79,73));
+		add(makeLabel("toLowfat.png", 536,619,79,73));
 		
 		add(makeLabel("minus.png", 311,755,19,19));
 		add(makeLabel("plus.png", 410,755,19,19));
@@ -119,6 +120,6 @@ public class NoMilk extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new NoMilk();
+		new NoHot();
 	}
 }

@@ -1,4 +1,4 @@
-package kiosk.jsj.SelectByOption;
+package kiosk.SelectByOption;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -12,11 +12,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class NoHot extends JFrame {
+public class NoHotAndDecaf extends JFrame {
 
 	String root = "KioskImages/4. detailedOption/";
 
-	public NoHot() {
+	public NoHotAndDecaf() {
 
 		JLabel totalCups = new JLabel("2잔"); // 잔 수
 		totalCups.setFont(new Font("맑은 고딕", Font.PLAIN, 19));
@@ -48,15 +48,11 @@ public class NoHot extends JFrame {
 		add(makeLabel("hy.png", 53, 24, 60, 83));
 		add(makeLabel("home.png", 543, 44, 52, 52));
 		
-		add(makeLabel("changeDecaffein.png", 49,309,114,17));
-		add(makeLabel("noDecaffein.png", 36,337,79,73));
-		add(makeLabel("toDecaffein.png",125,337,79,73));
+		add(makeLabel("selectCup.png", 41,311,59,17));
+		add(makeLabel("useDisposal.png", 34,336,79,73));
+		add(makeLabel("useTumbler.png", 123,336,79,73));
 		
-		add(makeLabel("selectCup.png", 364,311,59,17));
-		add(makeLabel("useDisposal.png", 357,337,79,73));
-		add(makeLabel("useTumbler.png", 446,336,79,73));
-		 
-		add(makeLabel("selectSize.png", 45,446,97,17));
+		add(makeLabel("selectSize.png", 44,446,97,17));
 		add(makeLabel("S.png", 35,471,79,73));
 		add(makeLabel("M.png", 124,471,79,73));
 		add(makeLabel("L.png", 214,471,79,73));
@@ -120,6 +116,6 @@ public class NoHot extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new NoHot();
+		new NoHotAndDecaf();
 	}
 }

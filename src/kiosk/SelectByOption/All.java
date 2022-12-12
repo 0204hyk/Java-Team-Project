@@ -1,4 +1,4 @@
-package kiosk.jsj.SelectByOption;
+package kiosk.SelectByOption;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -12,11 +12,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class NoDecafAndMilk extends JFrame {
+public class All extends JFrame {
 
 	String root = "KioskImages/4. detailedOption/";
 
-	public NoDecafAndMilk() {
+	public All() {
 
 		JLabel totalCups = new JLabel("2잔"); // 잔 수
 		totalCups.setFont(new Font("맑은 고딕", Font.PLAIN, 19));
@@ -52,9 +52,13 @@ public class NoDecafAndMilk extends JFrame {
 		add(makeLabel("hot.png", 34,336,79,73));
 		add(makeLabel("ice.png", 123,336,79,73));
 		
-		add(makeLabel("selectCup.png", 363,311,59,17));
-		add(makeLabel("useDisposal.png", 356,336,79,73));
-		add(makeLabel("useTumbler.png", 445,336,79,73));
+		add(makeLabel("changeDecaffein.png", 251,309,114,17));
+		add(makeLabel("noDecaffein.png", 238,337,79,73));
+		add(makeLabel("toDecaffein.png",327,337,79,73));
+		
+		add(makeLabel("selectCup.png", 453,312,59,17));
+		add(makeLabel("useDisposal.png", 446,337,79,73));
+		add(makeLabel("useTumbler.png", 535,336,79,73));
 		
 		add(makeLabel("selectSize.png", 44,446,97,17));
 		add(makeLabel("S.png", 35,471,79,73));
@@ -70,6 +74,12 @@ public class NoDecafAndMilk extends JFrame {
 		add(makeLabel("normalIce.png", 35,619,79,73));
 		add(makeLabel("lessIce.png", 124,619,79,73));
 		add(makeLabel("noIce.png", 215,619,79,73));
+		
+		add(makeLabel("selectMilk.png", 367,592,74,16));
+		add(makeLabel("basicMilk.png", 357,619,79,73));
+		add(makeLabel("toSoy.png", 447,619,79,73));
+		add(makeLabel("toLowfat.png", 536,619,79,73));
+		
 		add(makeLabel("minus.png", 311,755,19,19));
 		add(makeLabel("plus.png", 410,755,19,19));
 		
@@ -78,7 +88,7 @@ public class NoDecafAndMilk extends JFrame {
 		
 		
 		
-
+		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -114,6 +124,6 @@ public class NoDecafAndMilk extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new NoDecafAndMilk();
+		new All();
 	}
 }

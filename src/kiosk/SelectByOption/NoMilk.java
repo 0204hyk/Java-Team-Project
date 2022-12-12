@@ -1,4 +1,4 @@
-package kiosk.jsj.SelectByOption;
+package kiosk.SelectByOption;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -12,11 +12,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class All extends JFrame {
+public class NoMilk extends JFrame {
 
 	String root = "KioskImages/4. detailedOption/";
 
-	public All() {
+	public NoMilk() {
 
 		JLabel totalCups = new JLabel("2잔"); // 잔 수
 		totalCups.setFont(new Font("맑은 고딕", Font.PLAIN, 19));
@@ -75,11 +75,6 @@ public class All extends JFrame {
 		add(makeLabel("lessIce.png", 124,619,79,73));
 		add(makeLabel("noIce.png", 215,619,79,73));
 		
-		add(makeLabel("selectMilk.png", 367,592,74,16));
-		add(makeLabel("basicMilk.png", 357,619,79,73));
-		add(makeLabel("toSoy.png", 447,619,79,73));
-		add(makeLabel("toLowfat.png", 536,619,79,73));
-		
 		add(makeLabel("minus.png", 311,755,19,19));
 		add(makeLabel("plus.png", 410,755,19,19));
 		
@@ -88,7 +83,7 @@ public class All extends JFrame {
 		
 		
 		
-		setUndecorated(true);
+
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -124,6 +119,6 @@ public class All extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new All();
+		new NoMilk();
 	}
 }

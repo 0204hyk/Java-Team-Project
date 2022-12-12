@@ -1,4 +1,4 @@
-package kiosk.jsj.SelectByOption;
+package kiosk.SelectByOption;
 
 import java.awt.Color;
 import java.awt.Font;

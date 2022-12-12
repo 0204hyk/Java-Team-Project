@@ -1,4 +1,4 @@
-package kiosk.jsj;
+package kiosk;
 
 import java.awt.Color;
 import java.awt.Font;
