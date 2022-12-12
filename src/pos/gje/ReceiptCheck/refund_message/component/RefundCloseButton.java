@@ -11,11 +11,13 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
 import pos.gje.ReceiptCheck.refund_message.RefundFrame;
+import pos.gje.ReceiptCheck.refund_message.panel.ReceiptPanel;
 
 public class RefundCloseButton extends JButton implements ActionListener{
 	RefundFrame f;
-	public RefundCloseButton(RefundFrame f) {
+	public RefundCloseButton(RefundFrame f2) {
 		this.f = f;
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/환불 창 닫기 버튼.png"));

@@ -12,13 +12,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
+import pos.gje.ReceiptCheck.refund_message.RefundFrame;
 
 public class ReceiptCheckButton extends JButton implements ActionListener{
-	
-	public ReceiptCheckButton() {
+	RefundFrame f;
+	public ReceiptCheckButton(RefundFrame f) {
+		this.f = f;
 		try {
-			File f = new File("images/PosImages/시작 페이지 버튼 이미지/영수증 조회 버튼.png");
-			BufferedImage bufferedImage = ImageIO.read(f);
+			File file = new File("images/PosImages/시작 페이지 버튼 이미지/영수증 조회 버튼.png");
+			BufferedImage bufferedImage = ImageIO.read(file);
 			Image scaledImage = bufferedImage.getScaledInstance(300, 300, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage = new ImageIcon(scaledImage);
 			setIcon(btnImage);
@@ -42,7 +44,7 @@ public class ReceiptCheckButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new ReceiptCheckFrame();
+		new ReceiptCheckFrame(f);
 	}
 
 }

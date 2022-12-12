@@ -6,6 +6,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
+import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
 import pos.gje.ReceiptCheck.refund_message.component.CheckButton;
 import pos.gje.ReceiptCheck.refund_message.component.InputButton;
 import pos.gje.ReceiptCheck.refund_message.component.NumberPadButton;
@@ -25,7 +26,7 @@ public class RefundFrame extends JFrame{
 		setSize(800, 550); // 프레임 사이즈
 		setUndecorated(true); // 타이틀바 없애기
 		setLayout(null); 
-		setVisible(true); 
+//		setVisible(true); 
 		setResizable(false); // 크기 조절 안되게
 		setLocationRelativeTo(null); // 가운데에 뜨게
 		

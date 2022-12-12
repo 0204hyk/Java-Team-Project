@@ -13,10 +13,13 @@ import pos.gje.ReceiptCheck.receiptcheck_main.component.OutputButton;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.ReceiptCheckTextArea;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.RefundButton;
 import pos.gje.ReceiptCheck.receiptcheck_main.panel.ReceiptListPanel;
+import pos.gje.ReceiptCheck.refund_message.RefundFrame;
 
 public class ReceiptCheckFrame extends JFrame{
-	
-	public ReceiptCheckFrame() {
+	RefundFrame f;
+	public ReceiptCheckFrame(RefundFrame f) {
+		this.f = f;
+		
 		setTitle("영수증 조회");
 		// 상단 메뉴바 설정
 		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
@@ -33,7 +36,7 @@ public class ReceiptCheckFrame extends JFrame{
 		add(new ReceiptListPanel());
 		
 		// 버튼
-		add(new RefundButton());
+		add(new RefundButton(this, f));
 		add(new OutputButton());
 		
 		// 영수증 출력 
@@ -46,10 +49,6 @@ public class ReceiptCheckFrame extends JFrame{
 		setResizable(false); // 크기 조절 안되게
 		setLocationRelativeTo(null); // 가운데에 뜨게
 		setDefaultCloseOperation(EXIT_ON_CLOSE); 
-	}
-		
-	public static void main(String[] args) {
-		new ReceiptCheckFrame();
 	}
 	
 }
