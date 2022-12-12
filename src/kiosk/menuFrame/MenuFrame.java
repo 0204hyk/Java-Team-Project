@@ -32,7 +32,7 @@ public class MenuFrame extends JFrame{
 	
 	public void setDisplay() {
 		
-		//setUndecorated(true); //테두리제거
+		setUndecorated(true); //테두리제거
 		setBackground(Color.white);
 		setVisible(true);
 		setSize(650, 950);
