@@ -47,7 +47,8 @@ public class SalesCheckMainFrame extends JFrame {
 		JLabel centerTitle = new DigitalClock();
 		JLabel salesTitle = new TitleLabel();
 		JLabel amount = new AmountLabel();
-		
+		JLabel between = new JLabel("~");
+		between.setBounds(390, 100, 100, 25);
 	
 		SalesChart chart = new SalesChart("", "");
 		ChartPanel chartPanel = new ChartPanel(chart.barChart);
@@ -69,6 +70,7 @@ public class SalesCheckMainFrame extends JFrame {
 		title.add(centerTitle);
 		add(title);
 		add(combo1);
+		add(between);
 		add(monthCombo);
 		add(dayCombo);
 		add(yearCombo2);
@@ -82,6 +84,7 @@ public class SalesCheckMainFrame extends JFrame {
 		add(chartPanel);
 		setBackground(Color.BLACK);
 		setLayout(null);
+		setLocationRelativeTo(null);
 		setSize(1200, 800);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
