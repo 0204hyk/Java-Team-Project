@@ -44,6 +44,10 @@ public class MenuAddFrame extends JFrame{
 
 		return fixBtn;
 	}
+	
+//	public JRadioButton category() {
+//		return
+//	}
 
 	
 	public MenuAddFrame() throws IOException {
@@ -54,6 +58,7 @@ public class MenuAddFrame extends JFrame{
 		coffee.setBorderPainted(false);
 		coffee.setContentAreaFilled(false);
 		coffee.setFocusPainted(false);
+		
 		
 		
 
