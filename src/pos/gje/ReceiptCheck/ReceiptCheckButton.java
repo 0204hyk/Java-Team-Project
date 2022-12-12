@@ -20,7 +20,7 @@ public class ReceiptCheckButton {
 	}
 	
 	
-	
+	// 환불 버튼 
 	public static JButton refundBtn () {
 		JButton refundBtn = new JButton();
 	
@@ -57,7 +57,7 @@ public class ReceiptCheckButton {
 	}
 	
 
-	
+	// 출력 버튼
 	public static JButton outfutBtn() {
 		JButton outfutBtn = new JButton();
 		

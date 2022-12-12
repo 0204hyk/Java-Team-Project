@@ -130,6 +130,7 @@ public class RefundButton{
 	
 	}
 	
+	// 닫기 버튼
 	public static JButton closeBtn(JFrame f) {
 		
 		JButton closeBtn = new JButton();

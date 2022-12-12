@@ -38,7 +38,7 @@ public class RefundFrame extends JFrame{
 	}
 
 	public static void add(JFrame f) {
-		f.add(new RefundButton().closeBtn(f));
+		f.add(new RefundButton().closeBtn(f)); // 닫기 버튼 
 		f.add(new TitlePanel()); // 타이틀바
 		f.add(new PaymentTypePanel()); // 결제방식
 		f.add(new ReceiveAndChangePanel());  // 받은 돈 거스름 돈
