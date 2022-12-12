@@ -1,4 +1,4 @@
-package pos.gje.ReceiptCheck.refund_message.component;
+package pos.gje.ReceiptCheck.refund.component;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;

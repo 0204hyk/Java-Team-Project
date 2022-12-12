@@ -5,7 +5,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
-import pos.gje.ReceiptCheck.refund_message.RefundFrame;
+import pos.gje.ReceiptCheck.refund.RefundFrame;
 import pos.main.exit_message.ExitMessageFrame;
 import pos.main.main_component.CalculationButton;
 import pos.main.main_component.ClosingButton;
@@ -21,8 +21,7 @@ public class PosFrame extends JFrame {
 		CalculationButton calculationBtn = new CalculationButton();
 		calculationBtn.setLocation(95, 70);
 		
-		RefundFrame refundFrame = new RefundFrame();
-		ReceiptCheckButton receiptCheckBtn = new ReceiptCheckButton(refundFrame);
+		ReceiptCheckButton receiptCheckBtn = new ReceiptCheckButton();
 		receiptCheckBtn.setLocation(445, 70);
 		
 		ProductManagementButton productManagementBtn = new ProductManagementButton();
@@ -34,8 +33,8 @@ public class PosFrame extends JFrame {
 		ClosingButton closingBtn = new ClosingButton();
 		closingBtn.setLocation(445, 400);
 		
-		ExitMessageFrame messageFrame = new ExitMessageFrame();
-		ExitButton exitBtn = new ExitButton(messageFrame);
+		ExitMessageFrame exitFrame = new ExitMessageFrame();
+		ExitButton exitBtn = new ExitButton(exitFrame);
 		exitBtn.setLocation(795, 400);
 		
 		add(calculationBtn);

@@ -1,14 +1,12 @@
-package pos.gje.ReceiptCheck.refund_message.panel;
+package pos.gje.ReceiptCheck.refund.panel;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import pos.ImageScaledTool;
-import pos.gje.ReceiptCheck.refund_message.component.InputButton;
 
 public class InputPanel extends JPanel{
 	Image image = ImageScaledTool.getScaledImage(
