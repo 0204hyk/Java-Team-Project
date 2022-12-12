@@ -2,6 +2,8 @@ package pos.kjh;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -50,6 +52,8 @@ public class LoginStart extends JFrame{
 		Image chImage = bufferedCheckImage.getScaledInstance(38,38, Image.SCALE_SMOOTH);
 		checkBtn.setIcon(new ImageIcon(chImage));
 		checkBtn.setBounds(428,291,38,38);
+		
+		
 		
 		checkBtn.setBorderPainted(false);
 		checkBtn.setContentAreaFilled(false);
