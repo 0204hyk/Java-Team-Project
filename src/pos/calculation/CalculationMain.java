@@ -35,8 +35,12 @@ public class CalculationMain extends JFrame {
 		// 결제버튼 구현
 		JButton paymentBtn = new PaymentButton();
 		
+		// 메뉴 카테고리 배경 
+		JLabel menuCategory = new MenuCategoryView();
+		
 		add(titleBar);
 		add(menuList);
+		add(menuCategory);
 		add(calcEscapeBtn);
 		add(paymentBtn);
 		setBackground(Color.BLACK);
