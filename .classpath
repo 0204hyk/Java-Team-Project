@@ -6,8 +6,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="/Users/kang/Downloads/ojdbc6.jar"/>
+=======
+>>>>>>> refs/heads/main
 	<classpathentry kind="lib" path="/Users/kang/Downloads/jfreechart-1.0.19/lib/jfreechart-1.0.19.jar"/>
 	<classpathentry kind="lib" path="/Users/kang/Downloads/jfreechart-1.0.19/lib/jcommon-1.0.23.jar"/>
-	<classpathentry kind="output" path="bin"/>
+
 </classpath>
