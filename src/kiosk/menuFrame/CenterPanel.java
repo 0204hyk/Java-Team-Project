@@ -22,7 +22,8 @@ public class CenterPanel extends JPanel{
 		
 		FlowLayout flow = new FlowLayout();	
 		
-		flow.setHgap(-20);
+		flow.setHgap(-15);
+		flow.setVgap(25);
 		setLayout(flow);
 		
 		setBackground(Color.white);
