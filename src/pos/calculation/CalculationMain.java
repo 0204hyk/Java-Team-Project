@@ -38,6 +38,9 @@ public class CalculationMain extends JFrame {
 		// 메뉴 카테고리 배경 
 		JLabel menuCategory = new MenuCategoryView();
 		
+		
+		
+		
 		add(titleBar);
 		add(menuList);
 		add(menuCategory);
