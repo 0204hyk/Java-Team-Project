@@ -19,7 +19,7 @@ public class ClosingEscapeButton extends JButton implements ActionListener {
 	public ClosingEscapeButton(ClosingFrame frame) {
 		this.frame = frame;
 		try {
-			File f = new File("PosImages/마감 이미지/돌아가기 버튼.png");
+			File f = new File("images/PosImages/마감 이미지/돌아가기 버튼.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
 			Image scaledImage = bufferedImage.getScaledInstance(180, 80, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage = new ImageIcon(scaledImage);
@@ -29,7 +29,7 @@ public class ClosingEscapeButton extends JButton implements ActionListener {
 			setBorderPainted(false);	// 버튼 테두리 지우기
 			setFocusable(false);	
 			
-			File f2 = new File("PosImages/마감 이미지/돌아가기 버튼 클릭.png");
+			File f2 = new File("images/PosImages/마감 이미지/돌아가기 버튼 클릭.png");
 			BufferedImage bufferedImage2 = ImageIO.read(f2);
 			Image scaledImage2 = bufferedImage2.getScaledInstance(180, 80, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage2 = new ImageIcon(scaledImage2);

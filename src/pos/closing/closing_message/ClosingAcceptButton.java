@@ -18,7 +18,7 @@ public class ClosingAcceptButton extends JButton implements ActionListener {
 	
 	public ClosingAcceptButton() {
 		try {
-			File f = new File("PosImages/마감 이미지/안내창 - 네.png");
+			File f = new File("images/PosImages/마감 이미지/안내창 - 네.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
 			Image scaledImage = bufferedImage.getScaledInstance(150, 75, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage = new ImageIcon(scaledImage);
@@ -29,7 +29,7 @@ public class ClosingAcceptButton extends JButton implements ActionListener {
 			setSize(150, 75);
 			setFocusable(false);
 			
-			File f2 = new File("PosImages/마감 이미지/안내창 - 네 클릭.png");
+			File f2 = new File("images/PosImages/마감 이미지/안내창 - 네 클릭.png");
 			BufferedImage bufferedImage2 = ImageIO.read(f2);
 			Image scaledImage2 = bufferedImage2.getScaledInstance(150, 75, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage2 = new ImageIcon(scaledImage2);

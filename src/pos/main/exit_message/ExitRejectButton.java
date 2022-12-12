@@ -17,7 +17,7 @@ public class ExitRejectButton extends JButton implements ActionListener{
 	public ExitRejectButton(ExitMessageFrame frame) {
 		this.frame = frame;
 		try {
-			File f = new File("PosImages/시작 페이지 버튼 이미지/로그아웃 취소 버튼.png");
+			File f = new File("images/PosImages/시작 페이지 버튼 이미지/로그아웃 취소 버튼.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
 			Image scaledImage = bufferedImage.getScaledInstance(150, 75, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage = new ImageIcon(scaledImage);
@@ -28,7 +28,7 @@ public class ExitRejectButton extends JButton implements ActionListener{
 			setSize(150, 75);
 			setFocusable(false);
 			
-			File f2 = new File("PosImages/시작 페이지 버튼 이미지/로그아웃 취소 버튼 클릭.png");
+			File f2 = new File("images/PosImages/시작 페이지 버튼 이미지/로그아웃 취소 버튼 클릭.png");
 			BufferedImage bufferedImage2 = ImageIO.read(f2);
 			Image scaledImage2 = bufferedImage2.getScaledInstance(150, 75, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage2 = new ImageIcon(scaledImage2);

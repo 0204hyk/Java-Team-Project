@@ -11,7 +11,7 @@ public class ClosingMessageFrame extends JFrame {
 	public ClosingMessageFrame() {
 				
 		add(new ClosingBackgroundPanel(this, ImageScaledTool.getScaledImage(
-				"PosImages/마감 이미지/마감 확인 안내창.png", 500, 250)));
+				"images/PosImages/마감 이미지/마감 확인 안내창.png", 500, 250)));
 		
 		setSize(500, 250);
 		setLayout(null);

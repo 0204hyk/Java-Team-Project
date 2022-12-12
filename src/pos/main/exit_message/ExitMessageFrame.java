@@ -11,7 +11,7 @@ public class ExitMessageFrame extends JFrame {
 	public ExitMessageFrame() {
 		
 		add(new ExitMessageBackgroundPanel(this, ImageScaledTool.getScaledImage(
-				"PosImages/시작 페이지 버튼 이미지/로그아웃 창.png", 500, 250)));
+				"images/PosImages/시작 페이지 버튼 이미지/로그아웃 창.png", 500, 250)));
 				
 		setSize(500, 250);
 		setLayout(null);
