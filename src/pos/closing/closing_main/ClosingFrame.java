@@ -110,11 +110,11 @@ public class ClosingFrame extends JFrame {
 		ClosingMessageFrame messageFrame = new ClosingMessageFrame(this);
 		
 		// 마감하기 버튼
-		JButton doCloseBtn = new DoCloseButton(this ,messageFrame);
+		DoCloseButton doCloseBtn = new DoCloseButton(this ,messageFrame);
 		doCloseBtn.setLocation(800, 670);
 		
 		// 뒤로가기 버튼
-		JButton escapeBtn = new ClosingEscapeButton(this);
+		ClosingEscapeButton escapeBtn = new ClosingEscapeButton(this);
 		escapeBtn.setLocation(80, 670);
 
 		add(titlePanel);

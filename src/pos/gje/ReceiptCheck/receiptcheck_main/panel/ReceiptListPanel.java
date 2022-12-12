@@ -1,4 +1,4 @@
-package pos.gje.ReceiptCheck.panel;
+package pos.gje.ReceiptCheck.receiptcheck_main.panel;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,8 +12,6 @@ import javax.swing.JScrollPane;
 
 public class ReceiptListPanel extends JPanel{
 
-	
-	
 	// 패널 배경 넣기
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();

@@ -1,4 +1,4 @@
-package pos.gje.refund.panel;
+package pos.gje.ReceiptCheck.refund_message.panel;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,20 +6,18 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import pos.gje.refund.RefundButton;
+public class InputPanel extends JPanel{
 
-public class TitlePanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
 		ImageIcon image = new ImageIcon
-				("images/PosImages/영수증 조회 이미지/타이틀바.png");
+				("images/PosImages/영수증 조회 이미지/카드번호 & 현금 영수증 입력 란.png");
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 	
-	public TitlePanel() {
-		//add(new RefundButton().closeBtn());
-		setBounds(0, 0, 800, 63); // Panel 틀
-		setLayout(null); 
+	public InputPanel() {
+		setBounds(25, 370, 272, 48); // Panel 틀
 	}	     
 
+	
 }

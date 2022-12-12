@@ -1,4 +1,4 @@
-package pos.gje.ReceiptCheck;
+package pos.gje.ReceiptCheck.receiptcheck_main.component;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;

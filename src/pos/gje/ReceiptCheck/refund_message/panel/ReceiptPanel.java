@@ -1,4 +1,4 @@
-package pos.gje.refund.panel;
+package pos.gje.ReceiptCheck.refund_message.panel;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

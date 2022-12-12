@@ -11,6 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
+
 public class ReceiptCheckButton extends JButton implements ActionListener{
 	
 	public ReceiptCheckButton() {
@@ -40,7 +42,7 @@ public class ReceiptCheckButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		new ReceiptCheckFrame();
 	}
 
 }
