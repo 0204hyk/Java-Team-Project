@@ -14,7 +14,7 @@ import pos.gje.refund.panel.ReceiveAndChangePanel;
 import pos.gje.refund.panel.TitlePanel;
 
 public class RefundFrame extends JFrame{
-	private Image background = new ImageIcon("PosImages/영수증 조회 이미지/환불 결제 고정 틀.png").getImage();//배경이미지
+	private Image background = new ImageIcon("images/PosImages/영수증 조회 이미지/환불 결제 고정 틀.png").getImage();//배경이미지
 	
 	public RefundFrame() {
 		refundFrame();
@@ -56,6 +56,6 @@ public class RefundFrame extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		//new RefundFrame();
+		new RefundFrame();
 	}
 }

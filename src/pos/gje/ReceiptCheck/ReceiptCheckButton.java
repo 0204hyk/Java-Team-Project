@@ -25,11 +25,11 @@ public class ReceiptCheckButton {
 		JButton refundBtn = new JButton();
 	
 		try {
-			BufferedImage bufferedImage = ImageIO.read(new File("PosImages/영수증 조회 이미지/환불 버튼.png"));
+			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/환불 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(230, 60, Image.SCALE_SMOOTH); // 크기 조정
 			refundBtn.setIcon(new ImageIcon(scaledImage));
 			
-			BufferedImage bufferedImage2 = ImageIO.read(new File("PosImages/영수증 조회 이미지/환불 버튼 클릭.png"));
+			BufferedImage bufferedImage2 = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/환불 버튼 클릭.png"));
 			Image scaledImage2 = bufferedImage2.getScaledInstance(230, 60, Image.SCALE_SMOOTH); // 크기 조정
 			ImageIcon img = new ImageIcon(scaledImage2);
 			refundBtn.setPressedIcon(img);
@@ -62,11 +62,11 @@ public class ReceiptCheckButton {
 		JButton outfutBtn = new JButton();
 		
 		try {
-			BufferedImage bufferedImage = ImageIO.read(new File("PosImages/영수증 조회 이미지/영수증 출력 버튼.png"));
+			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/영수증 출력 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(230, 60, Image.SCALE_SMOOTH); // 크기 조정
 			outfutBtn.setIcon(new ImageIcon(scaledImage));
 			
-			BufferedImage bufferedImage2 = ImageIO.read(new File("PosImages/영수증 조회 이미지/영수증 출력 버튼 클릭.png"));
+			BufferedImage bufferedImage2 = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/영수증 출력 버튼 클릭.png"));
 			Image scaledImage2 = bufferedImage2.getScaledInstance(230, 60, Image.SCALE_SMOOTH); // 크기 조정
 			ImageIcon img = new ImageIcon(scaledImage2);
 			outfutBtn.setPressedIcon(img);

@@ -11,11 +11,16 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.closing.closing_main.ClosingFrame;
+import pos.closing.closing_main.component.DoCloseButton;
+
 public class ClosingRejectButton extends JButton implements ActionListener{
 	// 마감 확인 안내 프레임의 "아니오" 버튼
+	ClosingFrame mainFrame;
 	ClosingMessageFrame frame;
 	
-	public ClosingRejectButton(ClosingMessageFrame frame) {
+	public ClosingRejectButton(ClosingFrame mainFrame, ClosingMessageFrame frame) {
+		this.mainFrame = mainFrame;
 		this.frame = frame;
 		// 버튼에 이미지 삽입
 		try {
@@ -46,6 +51,7 @@ public class ClosingRejectButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		mainFrame.setEnabled(true);
 		frame.setVisible(false);
 	}
 

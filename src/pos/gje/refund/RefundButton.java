@@ -135,7 +135,7 @@ public class RefundButton{
 		JButton closeBtn = new JButton();
 		
 		try {
-			BufferedImage bufferedImage = ImageIO.read(new File("PosImages/영수증 조회 이미지/새 폴더/환불 창 닫기 버튼.jpg"));
+			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/새 폴더/환불 창 닫기 버튼.jpg"));
 			Image scaledImage = bufferedImage.getScaledInstance(40, 40, Image.SCALE_SMOOTH); // 크기 조정
 			closeBtn.setIcon(new ImageIcon(scaledImage));
 		} catch (IOException e1) {

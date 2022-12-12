@@ -18,7 +18,7 @@ public class ReceiptListPanel extends JPanel{
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
 		ImageIcon image = new ImageIcon
-				("PosImages/영수증 조회 이미지/날짜별 영수증 리스트 기본 틀.png");
+				("images/PosImages/영수증 조회 이미지/날짜별 영수증 리스트 기본 틀.png");
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 	
