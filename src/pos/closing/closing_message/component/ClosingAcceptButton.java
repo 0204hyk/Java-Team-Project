@@ -11,11 +11,11 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.closing.ImageScaledTool;
+import pos.ImageScaledTool;
 
-public class AcceptButton extends JButton implements ActionListener {
+public class ClosingAcceptButton extends JButton implements ActionListener {
 
-	public AcceptButton() {
+	public ClosingAcceptButton() {
 		try {
 			File f = new File("PosImages/마감 이미지/안내창 - 네.png");
 			BufferedImage bufferedImage = ImageIO.read(f);

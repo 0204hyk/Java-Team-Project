@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
-import pos.closing.ImageScaledTool;
+import pos.ImageScaledTool;
 import pos.closing.closing_main.component.DoCloseButton;
 import pos.closing.closing_main.container.CashOnHandPanel;
 import pos.closing.closing_main.container.DailySalesPanel;
@@ -32,7 +32,7 @@ public class ClosingFrame extends JFrame {
 		DoCloseButton doCloseBtn = new DoCloseButton(messageFrame);
 		doCloseBtn.setLocation(800, 660);
 		
-		pack();
+//		pack();
 
 		add(panelA);
 		add(panelB);

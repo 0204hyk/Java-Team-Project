@@ -1,4 +1,4 @@
-package pos.main.component;
+package pos.main.main_component;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -11,9 +11,13 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.main.exitmessage.ExitMessageFrame;
+
 public class ExitButton extends JButton implements ActionListener{
+	ExitMessageFrame frame;
 	
-	public ExitButton() {
+	public ExitButton(ExitMessageFrame frame) {
+		this.frame = frame;
 		try {
 			File f = new File("PosImages/시작 페이지 버튼 이미지/종료 버튼.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
@@ -39,8 +43,7 @@ public class ExitButton extends JButton implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		frame.setVisible(true);
 	}
 
 }

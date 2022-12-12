@@ -1,4 +1,4 @@
-package pos.main.component;
+package pos.main.main_component;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
