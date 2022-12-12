@@ -16,8 +16,9 @@ import pos.gje.refund.RefundFrame;
 public class ReceiptCheckButton {
 	
 	public ReceiptCheckButton() {
-
+		
 	}
+	
 	
 	
 	public static JButton refundBtn () {
@@ -38,9 +39,11 @@ public class ReceiptCheckButton {
 		}
 		
 		refundBtn.addActionListener(new ActionListener() {
+		
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new RefundFrame(); // 환불 버튼을 눌렀을 때 환불창이 뜸 
+				new RefundFrame();
+				refundBtn.setEnabled(false);
 			}
 		});
 		

@@ -12,21 +12,6 @@ public class ReceiptCheckFrame extends JFrame{
 
 	public ReceiptCheckFrame() {}
 	
-//	public static void refundFrame() {
-//		JFrame f = new JFrame();
-//		
-//		f.add(new PaymentTypePanel());
-//		f.add(new ReceiveAndChangePanel());
-//		
-//		f.getContentPane().setBackground(Color.white); // 배경색
-//		f.setSize(800, 700); // 프레임 사이즈
-//		f.setLayout(null); 
-//		f.setVisible(true); 
-//		f.setResizable(false); // 크기 조절 안되게
-//		f.setLocationRelativeTo(null); // 가운데에 뜨게
-//		f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
-//	}
-	
 	
 	public static void mainFrame() {
 		JFrame f = new JFrame("POS");

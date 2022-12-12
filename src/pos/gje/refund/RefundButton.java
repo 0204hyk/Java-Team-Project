@@ -146,6 +146,7 @@ public class RefundButton{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				f.dispose();
+
 			}
 		});
 		

@@ -1,10 +1,10 @@
 package pos.gje.refund;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import pos.gje.refund.panel.InputPanel;
@@ -33,6 +33,8 @@ public class RefundFrame extends JFrame{
 		f.setResizable(false); // 크기 조절 안되게
 		f.setLocationRelativeTo(null); // 가운데에 뜨게
 		f.setDefaultCloseOperation(f.HIDE_ON_CLOSE);
+	
+	
 	}
 
 	public static void add(JFrame f) {
@@ -54,6 +56,6 @@ public class RefundFrame extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		new RefundFrame();
+		//new RefundFrame();
 	}
 }
