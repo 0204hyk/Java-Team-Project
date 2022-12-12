@@ -20,7 +20,7 @@ public class SalesEscapeButton extends JButton {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		// 매출요약 < 버튼 눌렀을 때
 		try {
 			BufferedImage image = ImageIO.read(new File("Images/PosImages/매출 요약 이미지/돌아가기 버튼 클릭.png"));
@@ -29,7 +29,7 @@ public class SalesEscapeButton extends JButton {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		// < 버튼 위치 지정
 		setBounds(1050, 700, 100, 50);
 		setBorder(null);

@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class SalesSearchButton extends JButton {
-	
+
 	public SalesSearchButton() {
 		// 매출요약 검색 버튼 이미지 설정.
 		try {
@@ -20,7 +20,7 @@ public class SalesSearchButton extends JButton {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		// 매출요약 검색 버튼 눌렀을 때 설정.
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/매출 요약 이미지/날짜 검색 버튼 클릭.png"));
@@ -29,12 +29,12 @@ public class SalesSearchButton extends JButton {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
+
 		// 검색버튼 위치 설정.
-		
+
 		setBounds(750, 90, 100, 50);
 		setBorder(null);
-		
+
 	}
 }
