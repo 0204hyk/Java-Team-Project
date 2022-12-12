@@ -9,10 +9,13 @@ import javax.swing.JPanel;
 import pos.closing.closing_main.ClosingFrame;
 
 public class ClosingBackgroundPanel extends JPanel {
+	// 마감확인안내창 배경 이미지 프레임
+	
 	ClosingMessageFrame frame;
 	Image background;
 	
 	public void paintComponent(Graphics g) {
+		// 이미지 그리기
 		Dimension d = getSize();
 		g.drawImage(background, 0, 0, d.width, d.height, null);		
 	}	
