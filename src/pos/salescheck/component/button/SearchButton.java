@@ -12,6 +12,7 @@ import javax.swing.JButton;
 public class SearchButton extends JButton {
 	
 	public SearchButton() {
+		// 매출요약 검색 버튼 이미지 설정.
 		try {
 			BufferedImage image = ImageIO.read(new File("PosImage/매출 요약 이미지/search.png"));
 			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);
@@ -19,7 +20,7 @@ public class SearchButton extends JButton {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		// 검색버튼 위치 설정.
 		setBounds(750, 100, 100, 50);
 		setBorder(null);
 		

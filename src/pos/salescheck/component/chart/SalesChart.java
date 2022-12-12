@@ -26,7 +26,11 @@ import org.jfree.ui.RefineryUtilities;
 import database.OjdbcConnection;
 import pos.salescheck.SalesCheckMainFrame;
 
-
+/*
+ 	JFreeChart 
+ 	Build Path Jar파일 필요.
+ 
+*/
 
 public class SalesChart extends ApplicationFrame {
 
@@ -65,12 +69,12 @@ public class SalesChart extends ApplicationFrame {
 	
 		return dataset;
 	}
-	public static void main(String[] args) {
-// 	SalesChart chart = new SalesChart("12월 매출", "salary 11000");
-//		chart.pack();
-//		chart.setVisible(true);
-//		RefineryUtilities.centerFrameOnScreen(chart);
-	
-	
-	}
+//	public static void main(String[] args) {
+//// 	SalesChart chart = new SalesChart("12월 매출", "salary 11000");
+////		chart.pack();
+////		chart.setVisible(true);
+////		RefineryUtilities.centerFrameOnScreen(chart);
+//	
+//	
+//	}
 }

@@ -1,30 +1,15 @@
 package pos.salescheck;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.util.ArrayList;
-import java.util.Calendar;
-
-import javax.print.attribute.standard.DateTimeAtCompleted;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.Plot;
-import org.jfree.ui.ApplicationFrame;
-import org.jfree.ui.RefineryUtilities;
-
 import pos.salescheck.component.button.EscapeButton;
 import pos.salescheck.component.button.SearchButton;
 import pos.salescheck.component.chart.SalesChart;
-import pos.salescheck.component.chart.testChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;

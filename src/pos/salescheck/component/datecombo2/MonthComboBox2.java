@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 
 public class MonthComboBox2 extends JComboBox {
 	
+	// 매출요약 월 콤보박스 생성.
 	Calendar now = Calendar.getInstance();
 	int month = now.get(Calendar.MONTH) + 1;
 	
