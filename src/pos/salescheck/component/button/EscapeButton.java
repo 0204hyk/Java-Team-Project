@@ -1,4 +1,4 @@
-package pos.salescheck.component;
+package pos.salescheck.component.button;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;

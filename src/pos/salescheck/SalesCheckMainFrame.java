@@ -21,8 +21,8 @@ import org.jfree.chart.plot.Plot;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
-import pos.salescheck.component.EscapeButton;
-import pos.salescheck.component.SearchButton;
+import pos.salescheck.component.button.EscapeButton;
+import pos.salescheck.component.button.SearchButton;
 import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.chart.testChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
