@@ -18,6 +18,11 @@ public class ClosingFrame extends JFrame {
 	
 	public ClosingFrame() {
 		
+		ClosingImagePanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+				"images/PosImages/상단 메뉴바.png", 1200, 60));
+		titlePanel.setBounds(0 ,0, 1200, 60);
+//		titlePanel.add();
+		
 		ClosingImagePanel panelA = new ClosingImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/마감 이미지/현금 & 카드 결제 금액 확인 틀.png", 400, 100));
 		panelA.setBounds(120, 80, 400, 100);
@@ -97,6 +102,7 @@ public class ClosingFrame extends JFrame {
 		ClosingEscapeButton escapeBtn = new ClosingEscapeButton(this);
 		escapeBtn.setLocation(80, 670);
 
+		add(titlePanel);
 		add(panelA);
 		add(panelB);
 		add(panelC);
