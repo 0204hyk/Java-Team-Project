@@ -3,7 +3,8 @@ package pos.calculation;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -47,24 +48,29 @@ public class CalculationMain extends JFrame {
 		JLabel menuCategory = new MenuCategoryView();
 
 		// 커피 버튼 및 카테고리들 ---
-		coffeeCategoryBtn.setBounds(550, 110, 150, 100);
-		coffeeCategoryBtn.addActionListener(new ActionListener() {
 
+		coffeeCategoryBtn.setBounds(550, 110, 150, 100);
+		coffeeCategoryBtn.addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
-		
+			public void mouseClicked(MouseEvent e) {
+			
+			
 				add(coffee());
+
 			}
+
 		});
 
 		nonCoffeeCategoryBtn.setBounds(695, 110, 150, 100);
-		nonCoffeeCategoryBtn.addActionListener(new ActionListener() {
-
+		nonCoffeeCategoryBtn.addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				
+			public void mouseClicked(MouseEvent e) {
+				coffee().setVisible(false);
+				add(coffee());
+				nonCoffee().setVisible(true);
 				add(nonCoffee());
 			}
+			
 		});
 
 		teaAdeBtn.setBounds(840, 110, 150, 100);
@@ -107,41 +113,25 @@ public class CalculationMain extends JFrame {
 	public JPanel coffee() {
 
 		JPanel coffeePanel = new CoffeeMenu();
-		JPanel nonCoffeePanel = new NonCoffeeMenu();
-		JPanel teaAdePanel = new TeaAdeMenu();
-		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
-		
-		coffeePanel.setVisible(true);
-		nonCoffeePanel.setVisible(false);
-		teaAdePanel.setVisible(false);
-		frappeBlendedPanel.setVisible(false);
+
+
 		return coffeePanel;
 	}
 
 	public JPanel teaAde() {
 
-		JPanel teaAdePanel = new TeaAdeMenu();
-		JPanel coffeePanel = new CoffeeMenu();
-		JPanel nonCoffeePanel = new NonCoffeeMenu();
-		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
-		
+		JPanel teaAdePanel = new TeaAdeMenu();		
 		teaAdePanel.setVisible(true);
-		coffeePanel.setVisible(false);
-		nonCoffeePanel.setVisible(false);
-		frappeBlendedPanel.setVisible(false);
+	
 		return teaAdePanel;
 
 	}
 
 	public JPanel nonCoffee() {
-		JPanel teaAdePanel = new TeaAdeMenu();
-		JPanel coffeePanel = new CoffeeMenu();
+	
 		JPanel nonCoffeePanel = new NonCoffeeMenu();
-		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
-		nonCoffeePanel.setVisible(true);
-		coffeePanel.setVisible(false);
-		teaAdePanel.setVisible(false);
-		frappeBlendedPanel.setVisible(false);
+
+
 		return nonCoffeePanel;
 
 	}
@@ -150,12 +140,10 @@ public class CalculationMain extends JFrame {
 
 		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
 		JPanel teaAdePanel = new TeaAdeMenu();
-		JPanel coffeePanel = new CoffeeMenu();
-		JPanel nonCoffeePanel = new NonCoffeeMenu();
+
+	
 		frappeBlendedPanel.setVisible(true);
-		teaAdePanel.setVisible(false);
-		coffeePanel.setVisible(false);
-		nonCoffeePanel.setVisible(false);
+
 		return frappeBlendedPanel;
 	}
 
