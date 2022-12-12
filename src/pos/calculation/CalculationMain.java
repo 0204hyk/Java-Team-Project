@@ -3,6 +3,8 @@ package pos.calculation;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -50,6 +52,7 @@ public class CalculationMain extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+		
 				add(coffee());
 			}
 		});
@@ -59,6 +62,7 @@ public class CalculationMain extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				add(nonCoffee());
 			}
 		});
@@ -68,6 +72,7 @@ public class CalculationMain extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				add(teaAde());
 			}
 		});
@@ -102,21 +107,41 @@ public class CalculationMain extends JFrame {
 	public JPanel coffee() {
 
 		JPanel coffeePanel = new CoffeeMenu();
+		JPanel nonCoffeePanel = new NonCoffeeMenu();
+		JPanel teaAdePanel = new TeaAdeMenu();
+		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
+		
 		coffeePanel.setVisible(true);
+		nonCoffeePanel.setVisible(false);
+		teaAdePanel.setVisible(false);
+		frappeBlendedPanel.setVisible(false);
 		return coffeePanel;
 	}
 
 	public JPanel teaAde() {
 
 		JPanel teaAdePanel = new TeaAdeMenu();
+		JPanel coffeePanel = new CoffeeMenu();
+		JPanel nonCoffeePanel = new NonCoffeeMenu();
+		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
+		
 		teaAdePanel.setVisible(true);
+		coffeePanel.setVisible(false);
+		nonCoffeePanel.setVisible(false);
+		frappeBlendedPanel.setVisible(false);
 		return teaAdePanel;
 
 	}
 
 	public JPanel nonCoffee() {
+		JPanel teaAdePanel = new TeaAdeMenu();
+		JPanel coffeePanel = new CoffeeMenu();
 		JPanel nonCoffeePanel = new NonCoffeeMenu();
+		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
 		nonCoffeePanel.setVisible(true);
+		coffeePanel.setVisible(false);
+		teaAdePanel.setVisible(false);
+		frappeBlendedPanel.setVisible(false);
 		return nonCoffeePanel;
 
 	}
@@ -124,7 +149,13 @@ public class CalculationMain extends JFrame {
 	public JPanel frappeBlended() {
 
 		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
+		JPanel teaAdePanel = new TeaAdeMenu();
+		JPanel coffeePanel = new CoffeeMenu();
+		JPanel nonCoffeePanel = new NonCoffeeMenu();
 		frappeBlendedPanel.setVisible(true);
+		teaAdePanel.setVisible(false);
+		coffeePanel.setVisible(false);
+		nonCoffeePanel.setVisible(false);
 		return frappeBlendedPanel;
 	}
 
