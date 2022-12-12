@@ -41,16 +41,15 @@ public class Agreement extends JFrame {
 		scrollablePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		add(scrollablePane); // 휠 스크롤이 안됨
 
-		add(makeLabel("frame.png", 30,47,400,631));
+		add(makeLabel("frame.png", 30, 30, 400, 631));
 		add(makeLabel("agreementText.png", 118, 505, 263, 21));
 		add(makeButton("checkBox.png", 82, 502, 26, 26));
 		add(makeLabel("check.png", 79, 476, 43, 42));
-		add(makeButton("cancel.png", 74,562,151,71));
-		add(makeButton("join.png", 237,562,151,71));
+		add(makeButton("cancel.png", 95,573,127,60));
+		add(makeButton("join.png", 237, 573, 127, 60));
 
-		Dimension dim = new Dimension(461,726);
-		setPreferredSize(dim);
-		setSize(461, 710);
+		setUndecorated(true);
+		setSize(460, 700);
 		setLayout(null);
 		setVisible(true);
 		setLocationRelativeTo(null);
@@ -70,14 +69,14 @@ public class Agreement extends JFrame {
 	public JButton makeButton(String detailedRoot, int x, int y, int w, int h) {
 		JButton bt = new JButton();
 
-		bt.setIcon(new ImageIcon(readImage(root + "/"+ detailedRoot, w, h)));
+		bt.setIcon(new ImageIcon(readImage(root + "/" + detailedRoot, w, h)));
 		bt.setBounds(x, y, w, h);
 		bt.setBorderPainted(false);
 		bt.setContentAreaFilled(false);
-		bt.setPressedIcon(new ImageIcon(readImage(root +" Selected/" + detailedRoot, w, h)));
+		bt.setPressedIcon(new ImageIcon(readImage(root + " Selected/" + detailedRoot, w, h)));
 		return bt;
 	}
-	
+
 	public Image readImage(String root, int w, int h) {
 
 		BufferedImage image;

@@ -23,7 +23,7 @@ public class UsePoint extends JFrame {
 		phoneNum.setBounds(32, 65, 86, 32);
 		add(phoneNum);
 
-		JLabel currentPoint = new JLabel("395포인트"); //네자리면 위치가 바뀌어야하는데..
+		JLabel currentPoint = new JLabel("395포인트"); //네자리면 위치가 바뀌어야하는데.. 안바뀜.
 		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 34));
 		currentPoint.setForeground(new Color(63, 186, 145));
 		currentPoint.setBounds(150, 264, 200, 35);
@@ -35,7 +35,7 @@ public class UsePoint extends JFrame {
 		add(makeLabel("useAll.png", 85, 399, 63, 14));
 		add(makeLabel("usePointBox.png", 171, 383, 105, 46));
 		add(makeButton("use.png", 303, 383, 84, 46));
-		add(makeLabel("check.png", 60, 381, 28, 27)); // 체크 햇다 안했다
+		add(makeLabel("check.png", 60, 381, 28, 27)); // 체크 했다 안했다
 		add(makeButton("checkBox.png", 63, 399, 14, 14));
 		add(makeLabel("currentPointText.png", 163, 214, 121, 22));
 		add(makeLabel("currentPointBox.png", 63, 186, 320, 132));
@@ -76,6 +76,7 @@ public class UsePoint extends JFrame {
 		bt.setBorderPainted(false);
 		bt.setContentAreaFilled(false);
 		bt.setPressedIcon(new ImageIcon(readImage(root +" Selected/" + detailedRoot, w, h)));
+		
 		return bt;
 	}
 

@@ -40,6 +40,8 @@ public class ShowPoint extends JFrame {
 //		currentPoint.setHorizontalTextPosition(JLabel.CENTER);
 		add(currentPoint);
 
+		
+		// 고정 값 ----------------------------------------------------
 		add(makeLabel("frame.png", 23, 23, 400, 631));
 		add(makeLabel("nim.png", 146, 125, 25, 32));
 		add(makeLabel("hello.png", 60, 172, 278, 50));
