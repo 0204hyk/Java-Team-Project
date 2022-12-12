@@ -21,7 +21,6 @@ import org.jfree.chart.plot.Plot;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
-import pos.salescheck.component.ChartLabel;
 import pos.salescheck.component.EscapeButton;
 import pos.salescheck.component.SearchButton;
 import pos.salescheck.component.chart.SalesChart;
@@ -32,7 +31,6 @@ import pos.salescheck.component.datecombo1.YearComboBox;
 import pos.salescheck.component.datecombo2.DayComboBox2;
 import pos.salescheck.component.datecombo2.MonthComboBox2;
 import pos.salescheck.component.datecombo2.YearComboBox2;
-import pos.salescheck.component.month.ListLabel;
 import pos.salescheck.component.saleslist.AmountLabel;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitleLabel;
