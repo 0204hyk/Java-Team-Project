@@ -11,42 +11,44 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-public class ShowPoint extends JFrame {
+public class UsePoint extends JFrame {
+	String root = "KioskImages/5_4. step2 usePoint/";
 
-	String root = "KioskImages/5_2. step1 point/";
-
-	public ShowPoint() {
-		// 고객 번호
+	public UsePoint() {
 		JLabel phoneNum = new JLabel("1724"); // 고객 휴대폰 번호 입력 - 나중에 get으로 가져오기
 		phoneNum.setFont(new Font("맑은 고딕", Font.BOLD, 36));
 		phoneNum.setForeground(Color.black);
-		phoneNum.setBounds(55, 122, 85, 32);
+		phoneNum.setBounds(32, 65, 86, 32);
 		add(phoneNum);
 
-		// 적립 포인트
-		JLabel savePoint = new JLabel("112"); // 네자리면 위치가 바뀌어야하는데..
-		savePoint.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
-		savePoint.setForeground(Color.BLACK);
-		savePoint.setBounds(84,341,40,21);
-		savePoint.setHorizontalTextPosition(JLabel.CENTER);
-		add(savePoint);
-
-		// 누적 포인트
-		JLabel currentPoint = new JLabel("395"); // 네자리면 위치가 바뀌어야하는데..
-		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 33));
+		JLabel currentPoint = new JLabel("395포인트"); //네자리면 위치가 바뀌어야하는데..
+		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 34));
 		currentPoint.setForeground(new Color(63, 186, 145));
-		currentPoint.setBounds(152, 489, 60, 28);
-//		currentPoint.setHorizontalTextPosition(JLabel.CENTER);
+		currentPoint.setBounds(150, 264, 200, 35);
+		currentPoint.setHorizontalTextPosition(JLabel.CENTER);
 		add(currentPoint);
 
-		add(makeLabel("frame.png", 23, 23, 400, 631));
-		add(makeLabel("nim.png", 146, 125, 25, 32));
-		add(makeLabel("hello.png", 60, 172, 278, 50));
-		add(makeLabel("pointText.png", 213, 490, 88, 28));
-		add(makeLabel("saveAfter.png", 131, 441, 200, 21));
-		add(makeLabel("saveSoon.png", 125, 342, 241, 21));
-		add(makeLabel("box.png", 74, 414, 314, 130));
+		add(makeLabel("leftPointText.png", 33, 67, 335, 83));
+		add(makeLabel("byUnitText.png", 88, 329, 269, 16));
+		add(makeLabel("checkBox.png", 63, 399, 14, 14));
+		add(makeLabel("useAll.png", 85, 399, 63, 14));
+		add(makeLabel("usePointBox.png", 171, 383, 105, 46));
+		add(makeLabel("use.png", 303, 383, 84, 46));
+		add(makeLabel("check.png", 60, 381, 28, 27)); // 체크 햇다 안했다
+		add(makeLabel("currentPointText.png", 163, 214, 121, 22));
+		add(makeLabel("currentPointBox.png", 63, 186, 320, 132));
+
+		int x = 57, y = 455;
+		for (int i = 0; i < 12; i++) {
+			add(makeLabel(i + 1 + ".png", x, y, 106, 42));
+			x += 113;
+			if (i == 2 || i == 5 || i == 8) {
+				x = 57;
+				y += 49;
+			}
+		}
 
 		setLayout(null);
 		setSize(461, 710); // 창 크기 이상해서 임시로 늘림
@@ -54,6 +56,7 @@ public class ShowPoint extends JFrame {
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(Color.WHITE);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
 	}
 
 	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
@@ -81,6 +84,6 @@ public class ShowPoint extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new ShowPoint();
+		new UsePoint();
 	}
 }

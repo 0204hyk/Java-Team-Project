@@ -40,10 +40,12 @@ public class Kiosk_Step1_Step2 extends JFrame {
 
 		add(pay());
 		add(cancel());
+		
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
+		
 
 		getContentPane().setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
