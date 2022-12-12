@@ -13,6 +13,7 @@ public class PaymentButton extends JButton {
 
 	public PaymentButton() {
 		
+		// 결제 버튼 이미지 
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/결제 버튼.png"));
 			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);
@@ -22,6 +23,7 @@ public class PaymentButton extends JButton {
 			e.printStackTrace();
 		}
 		
+		// 결제 버튼 눌렀을 때
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/결제 버튼 클릭.png"));
 			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);

@@ -14,6 +14,7 @@ public class CalcEscapeButton extends JButton {
 	
 	public CalcEscapeButton() {
 		
+		// < 버튼 이미지
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/돌아가기 버튼.png"));
 			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);
@@ -23,6 +24,7 @@ public class CalcEscapeButton extends JButton {
 			e.printStackTrace();
 		}
 		
+		// < 버튼 이미지 눌렀을 때
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/돌아가기 버튼 클릭.png"));
 			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);

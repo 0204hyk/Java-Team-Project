@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 
 public class DigitalClock extends JLabel implements Runnable{
 
+	// pos 상단 메뉴바 시계
 	private Thread thread;
 
 	public DigitalClock(){

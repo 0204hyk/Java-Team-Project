@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 
 public class TitleImage extends JPanel {
 	
+	// 상단 메뉴바 이미지
+	
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
 		ImageIcon image = new ImageIcon("PosImage/매출 요약 이미지/title.png");
