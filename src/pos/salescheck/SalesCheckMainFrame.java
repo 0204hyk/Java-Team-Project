@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartPanel;
-import pos.salescheck.component.button.EscapeButton;
-import pos.salescheck.component.button.SearchButton;
+import pos.salescheck.component.button.SalesEscape;
+import pos.salescheck.component.button.SalesSearch;
 import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
@@ -46,8 +46,8 @@ public class SalesCheckMainFrame extends JFrame {
 		JComboBox monthCombo2 = new MonthComboBox2();
 		centerTitle.setBounds(1000, 10, 400, 30);
 
-		JButton searchBtn = new SearchButton();
-		JButton escapeBtn = new EscapeButton();
+		JButton searchBtn = new SalesSearch();
+		JButton escapeBtn = new SalesEscape();
 		JLabel list = new ListImgLabel();
 		JPanel title = new TitleImage();
 		title.add(centerTitle);
