@@ -2,12 +2,15 @@ package pos.kjh;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -43,6 +46,20 @@ public class LoginStart extends JFrame{
 		pw.setBounds(170, 318, 227, 43);
 
 		
+		// 로그인 진행 확인 버튼
+		JButton checkBtn = new JButton();
+		BufferedImage bufferedCheckImage = ImageIO.read(new File("KioskImages/2. 로그인/Asset 12@4x-8.png"));
+		Image chImage = bufferedCheckImage.getScaledInstance(38,38, Image.SCALE_SMOOTH);
+		checkBtn.setIcon(new ImageIcon(chImage));
+		checkBtn.setBounds(428,291,38,38);
+		
+		
+		
+		checkBtn.setBorderPainted(false);
+		checkBtn.setContentAreaFilled(false);
+		checkBtn.setFocusPainted(false);
+		
+		add(checkBtn);
 		add(pw);
 		add(id);
 		add(logo);

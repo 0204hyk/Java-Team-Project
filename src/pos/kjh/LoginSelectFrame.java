@@ -17,20 +17,20 @@ public class LoginSelectFrame extends JFrame{
 	
 	public LoginSelectFrame() throws IOException {
 		
+		// 키오스크 로그인 버튼
 		JButton kioskBtn = new JButton();
-		JButton posBtn = new JButton();
-		
 		BufferedImage bufferedKioskImage = ImageIO.read(new File("KioskImages/1. 관리자, 키오스크 모드/Asset 11@4x-8.png"));
-		BufferedImage bufferedPoskImage = ImageIO.read(new File("KioskImages/1. 관리자, 키오스크 모드/Asset 10@4x-8.png"));
-		
 		Image kImage = bufferedKioskImage.getScaledInstance(163, 141, Image.SCALE_SMOOTH);
-		Image pImage = bufferedPoskImage.getScaledInstance(163, 141, Image.SCALE_SMOOTH);
-		
 		kioskBtn.setIcon(new ImageIcon(kImage));
-		posBtn.setIcon(new ImageIcon(pImage));
-		
 		kioskBtn.setBounds(87, 154, 163, 141);
+		
+		// 포스 로그인 버튼
+		JButton posBtn = new JButton();
+		BufferedImage bufferedPoskImage = ImageIO.read(new File("KioskImages/1. 관리자, 키오스크 모드/Asset 10@4x-8.png"));
+		Image pImage = bufferedPoskImage.getScaledInstance(163, 141, Image.SCALE_SMOOTH);
+		posBtn.setIcon(new ImageIcon(pImage));
 		posBtn.setBounds(319, 154, 163, 141);
+
 		
 		add(kioskBtn);
 		add(posBtn);
