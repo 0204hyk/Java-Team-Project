@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.main.exitmessage.ExitMessageFrame;
+import pos.main.exit_message.ExitMessageFrame;
 
 public class ExitButton extends JButton implements ActionListener{
 	ExitMessageFrame frame;

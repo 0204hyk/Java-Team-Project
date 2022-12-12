@@ -4,7 +4,8 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
-import pos.main.exitmessage.ExitMessageFrame;
+import pos.closing.closing_main.ClosingFrame;
+import pos.main.exit_message.ExitMessageFrame;
 import pos.main.main_component.CalculationButton;
 import pos.main.main_component.ClosingButton;
 import pos.main.main_component.ExitButton;
@@ -33,7 +34,6 @@ public class MainFrame extends JFrame {
 		ExitMessageFrame messageFrame = new ExitMessageFrame();
 		ExitButton exitBtn = new ExitButton(messageFrame);
 		exitBtn.setLocation(795, 400);
-		
 		
 		add(calculationBtn);
 		add(receiptCheckBtn);

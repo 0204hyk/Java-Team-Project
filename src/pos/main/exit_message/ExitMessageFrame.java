@@ -1,4 +1,4 @@
-package pos.main.exitmessage;
+package pos.main.exit_message;
 
 import java.awt.Color;
 

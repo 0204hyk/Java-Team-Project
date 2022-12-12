@@ -1,4 +1,4 @@
-package pos.closing.closing_message.component;
+package pos.closing.closing_message;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -12,9 +12,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.ImageScaledTool;
+import pos.closing.closing_main.ClosingFrame;
 
 public class ClosingAcceptButton extends JButton implements ActionListener {
-
+	
 	public ClosingAcceptButton() {
 		try {
 			File f = new File("PosImages/마감 이미지/안내창 - 네.png");
@@ -42,6 +43,6 @@ public class ClosingAcceptButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("네 버튼 기능 구현 X");
+		System.out.println("네 버튼 구현X");
 	}
 }

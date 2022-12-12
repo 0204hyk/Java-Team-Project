@@ -5,7 +5,6 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 import pos.ImageScaledTool;
-import pos.closing.closing_message.container.ClosingBackgroundPanel;
 
 public class ClosingMessageFrame extends JFrame {
 	

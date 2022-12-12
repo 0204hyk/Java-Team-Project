@@ -1,4 +1,4 @@
-package pos.closing.closing_message.container;
+package pos.closing.closing_message;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -6,9 +6,7 @@ import java.awt.Image;
 
 import javax.swing.JPanel;
 
-import pos.closing.closing_message.ClosingMessageFrame;
-import pos.closing.closing_message.component.ClosingAcceptButton;
-import pos.closing.closing_message.component.ClosingRejectButton;
+import pos.closing.closing_main.ClosingFrame;
 
 public class ClosingBackgroundPanel extends JPanel {
 	ClosingMessageFrame frame;

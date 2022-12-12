@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 import pos.ImageScaledTool;
+import pos.closing.closing_main.component.ClosingEscapeButton;
 import pos.closing.closing_main.component.DoCloseButton;
 import pos.closing.closing_main.container.CashOnHandPanel;
 import pos.closing.closing_main.container.DailySalesPanel;
@@ -30,7 +31,10 @@ public class ClosingFrame extends JFrame {
 		ClosingMessageFrame messageFrame = new ClosingMessageFrame();
 		
 		DoCloseButton doCloseBtn = new DoCloseButton(messageFrame);
-		doCloseBtn.setLocation(800, 660);
+		doCloseBtn.setLocation(800, 670);
+		
+		ClosingEscapeButton escapeBtn = new ClosingEscapeButton(this);
+		escapeBtn.setLocation(80, 670);
 		
 //		pack();
 
@@ -38,6 +42,7 @@ public class ClosingFrame extends JFrame {
 		add(panelB);
 		add(panelC);
 		add(doCloseBtn);
+		add(escapeBtn);
 		
 		setTitle("마감");
 		setSize(1200, 800);
