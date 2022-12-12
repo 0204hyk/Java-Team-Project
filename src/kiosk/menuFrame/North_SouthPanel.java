@@ -1,6 +1,7 @@
 package kiosk.menuFrame;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -21,14 +22,19 @@ public class North_SouthPanel extends JPanel {
 	// 카테고리 버튼
 	public void categoryButton() {
 		
-		GridLayout grid = new GridLayout(2, 4, 0, 0);
+		GridLayout grid = new GridLayout(2, 5, 0, 5);
 		setLayout(grid);
+		int count = 0;
 		
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 10; i++) {
 			JButton categoryButton = new JButton();
-
+			
 			try {
-				BufferedImage homeBufferedImage = ImageIO.read(new File("image/menu/categoryScaled.png"));
+				
+				count +=1;
+				
+				BufferedImage homeBufferedImage = ImageIO.read(new File
+						("KioskImages/3_메뉴선택/menuImages/"+ count + ".png"));
 
 				categoryButton.setIcon(new ImageIcon(homeBufferedImage));
 
@@ -39,7 +45,7 @@ public class North_SouthPanel extends JPanel {
 			categoryButton.setBorderPainted(false);
 			categoryButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 			categoryButton.setOpaque(false);
-
+			categoryButton.setPreferredSize(new Dimension(110, 46));
 			add(categoryButton);
 			
 		}

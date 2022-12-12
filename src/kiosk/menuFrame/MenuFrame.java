@@ -21,7 +21,9 @@ public class MenuFrame extends JFrame{
 		add(new NorthPanel(), BorderLayout.NORTH);
 		add(new CenterPanel(), BorderLayout.CENTER);	
 		add(new SouthPanel(), BorderLayout.SOUTH);
-
+		add(new WestPanel(), BorderLayout.WEST);
+		add(new EastPanel(), BorderLayout.EAST);
+		
 		setBackground(Color.white);
 		
 	}
@@ -30,7 +32,7 @@ public class MenuFrame extends JFrame{
 	
 	public void setDisplay() {
 		
-		setUndecorated(true); 
+		//setUndecorated(true); 
 		setBackground(Color.white);
 		setVisible(true);
 		setSize(650, 950);

@@ -34,7 +34,7 @@ public class CenterPanel extends JPanel{
 		for (int i = 0; i < 9; i++) {
 			JButton menuButton = new JButton();
 			try {
-				BufferedImage homeBufferedImage = ImageIO.read(new File("image/menu/menuScaled.png"));
+				BufferedImage homeBufferedImage = ImageIO.read(new File("KioskImages/3_메뉴선택/menuScaled.png"));
 
 				menuButton.setIcon(new ImageIcon(homeBufferedImage));
 
