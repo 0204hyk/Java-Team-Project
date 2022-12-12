@@ -9,10 +9,10 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class CalcEscape extends JButton {
+public class CalcEscapeButton extends JButton {
 
 	
-	public CalcEscape() {
+	public CalcEscapeButton() {
 		
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/돌아가기 버튼.png"));
@@ -33,7 +33,7 @@ public class CalcEscape extends JButton {
 		
 		
 		setBorder(null);
-		setBounds(100, 700, 100, 50);
+		setBounds(80, 700, 100, 50);
 		
 		
 	}

@@ -7,7 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import pos.calculation.button.CalcEscape;
+import pos.calculation.button.CalcEscapeButton;
+import pos.calculation.button.PaymentButton;
 import pos.salescheck.component.title.DigitalClock;
 import pos.salescheck.component.title.TitleImage;
 
@@ -28,13 +29,16 @@ public class CalculationMain extends JFrame {
 		// 주문 리스트 구현 ----
 		JLabel menuList = new CalcView();
 		
-		// 뒤로가기
-		JButton calcEscapeBtn = new CalcEscape();
+		// 뒤로가기 버튼 구현
+		JButton calcEscapeBtn = new CalcEscapeButton();
 		
+		// 결제버튼 구현
+		JButton paymentBtn = new PaymentButton();
 		
 		add(titleBar);
 		add(menuList);
 		add(calcEscapeBtn);
+		add(paymentBtn);
 		setBackground(Color.BLACK);
 		setLayout(null);
 		setLocationRelativeTo(null);
