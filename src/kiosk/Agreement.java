@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -17,7 +18,7 @@ import javax.swing.JTextArea;
 
 public class Agreement extends JFrame {
 
-	String root = "KioskImages/5_3. step1 Agreement/";
+	String root = "KioskImages/5_3. step1 Agreement";
 
 	public Agreement() {
 		JTextArea agreement = new JTextArea(
@@ -42,10 +43,10 @@ public class Agreement extends JFrame {
 
 		add(makeLabel("frame.png", 30,47,400,631));
 		add(makeLabel("agreementText.png", 118, 505, 263, 21));
-		add(makeLabel("checkBox.png", 82, 502, 26, 26));
+		add(makeButton("checkBox.png", 82, 502, 26, 26));
 		add(makeLabel("check.png", 79, 476, 43, 42));
-		add(makeLabel("cancel.png", 74,562,151,71));
-		add(makeLabel("join.png", 237,562,151,71));
+		add(makeButton("cancel.png", 74,562,151,71));
+		add(makeButton("join.png", 237,562,151,71));
 
 		Dimension dim = new Dimension(461,726);
 		setPreferredSize(dim);
@@ -60,12 +61,23 @@ public class Agreement extends JFrame {
 	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
 		JLabel lb = new JLabel();
 
-		lb.setIcon(new ImageIcon(readImage(root + detailedRoot, w, h)));
+		lb.setIcon(new ImageIcon(readImage(root + "/" + detailedRoot, w, h)));
 		lb.setBounds(x, y, w, h);
 
 		return lb;
 	}
 
+	public JButton makeButton(String detailedRoot, int x, int y, int w, int h) {
+		JButton bt = new JButton();
+
+		bt.setIcon(new ImageIcon(readImage(root + "/"+ detailedRoot, w, h)));
+		bt.setBounds(x, y, w, h);
+		bt.setBorderPainted(false);
+		bt.setContentAreaFilled(false);
+		bt.setPressedIcon(new ImageIcon(readImage(root +" Selected/" + detailedRoot, w, h)));
+		return bt;
+	}
+	
 	public Image readImage(String root, int w, int h) {
 
 		BufferedImage image;

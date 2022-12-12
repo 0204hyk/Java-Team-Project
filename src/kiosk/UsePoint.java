@@ -9,12 +9,12 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 public class UsePoint extends JFrame {
-	String root = "KioskImages/5_4. step2 usePoint/";
+	String root = "KioskImages/5_4. step2 usePoint";
 
 	public UsePoint() {
 		JLabel phoneNum = new JLabel("1724"); // 고객 휴대폰 번호 입력 - 나중에 get으로 가져오기
@@ -32,17 +32,17 @@ public class UsePoint extends JFrame {
 
 		add(makeLabel("leftPointText.png", 33, 67, 335, 83));
 		add(makeLabel("byUnitText.png", 88, 329, 269, 16));
-		add(makeLabel("checkBox.png", 63, 399, 14, 14));
 		add(makeLabel("useAll.png", 85, 399, 63, 14));
 		add(makeLabel("usePointBox.png", 171, 383, 105, 46));
-		add(makeLabel("use.png", 303, 383, 84, 46));
+		add(makeButton("use.png", 303, 383, 84, 46));
 		add(makeLabel("check.png", 60, 381, 28, 27)); // 체크 햇다 안했다
+		add(makeButton("checkBox.png", 63, 399, 14, 14));
 		add(makeLabel("currentPointText.png", 163, 214, 121, 22));
 		add(makeLabel("currentPointBox.png", 63, 186, 320, 132));
 
 		int x = 57, y = 455;
 		for (int i = 0; i < 12; i++) {
-			add(makeLabel(i + 1 + ".png", x, y, 106, 42));
+			add(makeButton(i + 1 + ".png", x, y, 106, 42));
 			x += 113;
 			if (i == 2 || i == 5 || i == 8) {
 				x = 57;
@@ -62,10 +62,21 @@ public class UsePoint extends JFrame {
 	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
 		JLabel lb = new JLabel();
 
-		lb.setIcon(new ImageIcon(readImage(root + detailedRoot, w, h)));
+		lb.setIcon(new ImageIcon(readImage(root + "/"+detailedRoot, w, h)));
 		lb.setBounds(x, y, w, h);
 
 		return lb;
+	}
+	
+	public JButton makeButton(String detailedRoot, int x, int y, int w, int h) {
+		JButton bt = new JButton();
+
+		bt.setIcon(new ImageIcon(readImage(root + "/"+ detailedRoot, w, h)));
+		bt.setBounds(x, y, w, h);
+		bt.setBorderPainted(false);
+		bt.setContentAreaFilled(false);
+		bt.setPressedIcon(new ImageIcon(readImage(root +" Selected/" + detailedRoot, w, h)));
+		return bt;
 	}
 
 	public Image readImage(String root, int w, int h) {
