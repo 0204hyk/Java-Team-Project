@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartPanel;
-import pos.salescheck.component.button.SalesEscape;
-import pos.salescheck.component.button.SalesSearch;
+import pos.salescheck.component.button.SalesEscapeButton;
+import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
@@ -49,10 +49,10 @@ public class SalesCheckMainFrame extends JFrame {
 		between.setBounds(390, 100, 100, 25);
 		
 		// 매출요약 검색 버튼 구현
-		JButton searchBtn = new SalesSearch();
+		JButton searchBtn = new SalesSearchButton();
 		
 		// 매출요약 뒤로가기 구현
-		JButton escapeBtn = new SalesEscape();
+		JButton escapeBtn = new SalesEscapeButton();
 		
 		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();

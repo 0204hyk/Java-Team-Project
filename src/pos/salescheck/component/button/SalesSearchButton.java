@@ -9,9 +9,9 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class SalesSearch extends JButton {
+public class SalesSearchButton extends JButton {
 	
-	public SalesSearch() {
+	public SalesSearchButton() {
 		// 매출요약 검색 버튼 이미지 설정.
 		try {
 			BufferedImage image = ImageIO.read(new File("Images/PosImages/매출 요약 이미지/날짜 검색 버튼.png"));
