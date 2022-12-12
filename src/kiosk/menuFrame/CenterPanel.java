@@ -20,10 +20,10 @@ public class CenterPanel extends JPanel{
 	//패널 디스플레이 설정
 	private void setDisplay() {
 		
-		FlowLayout flow = new FlowLayout();	
-		
+		FlowLayout flow = new FlowLayout(); //매뉴버튼 간격조절
 		flow.setHgap(-15);
-		flow.setVgap(25);
+		flow.setVgap(10);
+	
 		setLayout(flow);
 		
 		setBackground(Color.white);

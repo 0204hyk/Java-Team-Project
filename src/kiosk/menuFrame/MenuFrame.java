@@ -32,12 +32,13 @@ public class MenuFrame extends JFrame{
 	
 	public void setDisplay() {
 		
-		//setUndecorated(true); 
+		//setUndecorated(true); //테두리제거
 		setBackground(Color.white);
 		setVisible(true);
 		setSize(650, 950);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
+		
 	}
 	
 	public static void main(String[] args) {

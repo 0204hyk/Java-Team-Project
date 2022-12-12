@@ -131,7 +131,7 @@ public class CartComponent {
 	public JLabel totalPrice() {
 		JLabel label = new JLabel();
 		Font font = new Font("맑은 고딕", Font.BOLD, 27);
-		label.setForeground(Color.getHSBColor(63, 187, 145));
+		label.setForeground(Color.getHSBColor(63, 186, 145));
 		label.setFont(font);
 		label.setText("11,000원");
 		label.setBounds(450, 715, 126, 32);

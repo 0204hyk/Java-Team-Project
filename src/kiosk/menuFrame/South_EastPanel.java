@@ -17,21 +17,22 @@ public class South_EastPanel extends JPanel{
 
 	public South_EastPanel() {
 		
-		setLayout(new GridLayout(0,1));
+		setLayout(new GridLayout(2,0));
 		setBackground(Color.white);
 		
+
 		paymentButton();
 		cancelButton();
-		
+	
 	}
 	
 	public void paymentButton() {
 		
-		paymentButton.setBounds(540, 833, 85, 56);
+		paymentButton.setBounds(540, 833, 78, 93);
 		
 		try {
 			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("image/menu/payScaled.png"));			
+			ImageIO.read(new File("KioskImages/3_메뉴선택/payScaled.png"));			
 			paymentButton.setIcon(new ImageIcon(logoBufferedImage));
 			
 			paymentButton.setBorderPainted(false);	
@@ -46,12 +47,12 @@ public class South_EastPanel extends JPanel{
 	}
 	
 	public void cancelButton() {
-		cancelButton.setBounds(540, 896, 85, 50);
+		cancelButton.setBounds(540, 896, 78, 71);
 
 		
 		try {
 			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("image/menu/deleteAllScaled.png"));			
+			ImageIO.read(new File("KioskImages/3_메뉴선택/deleteAllScaled.png"));			
 			cancelButton.setIcon(new ImageIcon(logoBufferedImage));
 			
 			cancelButton.setBorderPainted(false);	

@@ -12,7 +12,7 @@ public class SouthPanel extends JPanel{
 		setBackground(Color.white);
 		
 		//장바구니 부분
-		add(new SouthScrollPane());
+		add(new SouthScrollPane(), BorderLayout.CENTER);
 		
 		//버튼 부분
 		add(new South_EastPanel(), BorderLayout.EAST);

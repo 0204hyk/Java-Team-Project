@@ -1,30 +1,19 @@
 package kiosk.menuFrame;
 
+import java.awt.Dimension;
+
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 public class SouthScrollPane extends JScrollPane{
 	
-	JScrollPane pane = new JScrollPane();
-	
-	public SouthScrollPane() {
-	
+	public SouthScrollPane() {	//기능미구현 
 		setPane();
-		
 	}
+	
+	public void setPane() { //스크롤패널 초기값만 설정.
+		setPreferredSize(new Dimension(350, 190));
+	}
+	
 
-	
-	public void setPane() {
-		temp();
-		
-	}
-	
-	//임시 좌우버튼부분
-	public void temp() {
-		JTextArea temp = new JTextArea();
-		temp.setSize(300,15);
-		
-		add(temp);
-	}
 	
 }
