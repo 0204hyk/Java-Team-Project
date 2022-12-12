@@ -57,7 +57,7 @@ public class CalculationMain extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				coffee();
+				add(coffee());
 			}
 		});
 
@@ -66,7 +66,7 @@ public class CalculationMain extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				nonCoffee();
+				add(nonCoffee());
 			}
 		});
 
@@ -75,7 +75,7 @@ public class CalculationMain extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				teaAde();
+				add(teaAde());
 			}
 		});
 
@@ -90,46 +90,32 @@ public class CalculationMain extends JFrame {
 		add(paymentBtn);
 		setBackground(Color.BLACK);
 		setLayout(null);
-		setLocationRelativeTo(null);
 		setSize(1200, 800);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 
-	public void coffee() {
-		CalculationMain main = new CalculationMain();
+	public JPanel coffee() {
+	
 		JPanel coffeePanel = new CoffeeMenu();
-		JPanel nonCoffeePanel = new NonCoffeeMenu();
-		JPanel teaAdePanel = new TeaAdeMenu();
-		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
-		nonCoffeePanel.setVisible(false);
-		teaAdePanel.setVisible(false);
-		frappeBlendedPanel.setVisible(false);
 		coffeePanel.setVisible(true);
-		main.add(coffeePanel);
+	
+		return coffeePanel;
 	}
 
-	public void teaAde() {
-		CalculationMain main = new CalculationMain();
-		JPanel coffeePanel = new CoffeeMenu();
-		JPanel nonCoffeePanel = new NonCoffeeMenu();
+	public JPanel teaAde() {
+	
 		JPanel teaAdePanel = new TeaAdeMenu();
-		JPanel frappeBlendedPanel = new FrappeBlendedMenu();
-		frappeBlendedPanel.setVisible(false);
-		nonCoffeePanel.setVisible(false);
-		coffeePanel.setVisible(false);
 		teaAdePanel.setVisible(true);
-		main.add(teaAdePanel);
+		return teaAdePanel;
 
 	}
 
-	public void nonCoffee() {
-
-		CalculationMain main = new CalculationMain();
+	public JPanel nonCoffee() {
 		JPanel nonCoffeePanel = new NonCoffeeMenu();
 		nonCoffeePanel.setVisible(true);
-		main.add(nonCoffeePanel);
+		return nonCoffeePanel;
 
 	}
 
