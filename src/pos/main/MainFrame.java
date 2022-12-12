@@ -4,12 +4,14 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
-import pos.main.component.CalculationButton;
-import pos.main.component.ClosingButton;
-import pos.main.component.ExitButton;
-import pos.main.component.ProductManagementButton;
-import pos.main.component.ReceiptCheckButton;
-import pos.main.component.SalesSummaryButton;
+import pos.closing.closing_main.ClosingFrame;
+import pos.main.exit_message.ExitMessageFrame;
+import pos.main.main_component.CalculationButton;
+import pos.main.main_component.ClosingButton;
+import pos.main.main_component.ExitButton;
+import pos.main.main_component.ProductManagementButton;
+import pos.main.main_component.ReceiptCheckButton;
+import pos.main.main_component.SalesSummaryButton;
 
 public class MainFrame extends JFrame {
 	public MainFrame() {
@@ -29,7 +31,8 @@ public class MainFrame extends JFrame {
 		ClosingButton closingBtn = new ClosingButton();
 		closingBtn.setLocation(445, 400);
 		
-		ExitButton exitBtn = new ExitButton();
+		ExitMessageFrame messageFrame = new ExitMessageFrame();
+		ExitButton exitBtn = new ExitButton(messageFrame);
 		exitBtn.setLocation(795, 400);
 		
 		add(calculationBtn);

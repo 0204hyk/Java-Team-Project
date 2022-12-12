@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PaymentMethodPanel extends JPanel{
@@ -16,7 +17,7 @@ public class PaymentMethodPanel extends JPanel{
 	
 	public PaymentMethodPanel(Image background) {
 		this.background = background;
-
+		
 		setSize(new Dimension(background.getWidth(null), background.getHeight(null)));
 		setSize(400, 100);
 		setLayout(null);	
