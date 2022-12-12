@@ -14,8 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import pos.calculation.button.CalcEscapeButton;
-import pos.calculation.button.PaymentButton;
+import pos.calculation.categorybutton.CalcEscapeButton;
+import pos.calculation.categorybutton.PaymentButton;
 import pos.calculation.menubutton.CoffeeMenu;
 import pos.calculation.menubutton.FrappeBlendedMenu;
 import pos.calculation.menubutton.NonCoffeeMenu;
