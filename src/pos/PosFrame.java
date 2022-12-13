@@ -4,8 +4,6 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
-import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
-import pos.gje.ReceiptCheck.refund.RefundFrame;
 import pos.main.exit_message.ExitMessageFrame;
 import pos.main.main_component.CalculationButton;
 import pos.main.main_component.ClosingButton;
