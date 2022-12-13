@@ -1,6 +1,8 @@
 package pos.calculation.categorybutton;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -18,10 +20,13 @@ public class NonCoffeeButton extends JButton{
 	JPanel coffeePanel;
 	JPanel teaAdePanel;
 	JPanel frappeBiendedPanel;
+	CoffeeButton coffeeButton = new CoffeeButton();
+	
 
 	
+	
 	public NonCoffeeButton(JPanel coffeePanel, JPanel nonCoffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
-		
+
 		this.coffeePanel =  coffeePanel;
 		this.nonCoffeePanel = nonCoffeePanel;
 		this.teaAdePanel = teaAdePanel;
@@ -39,6 +44,8 @@ public class NonCoffeeButton extends JButton{
 		setBounds(695, 110, 150, 100);
 		setBorderPainted(false);
 		setContentAreaFilled(false);
+		
+		
 		addMouseListener(new MouseAdapter() {
 			
 			// 마우스 클릭 시 기존에 나오던 Panel들은 숨긴다.
@@ -47,19 +54,24 @@ public class NonCoffeeButton extends JButton{
 				coffeePanel.setVisible(false);
 				teaAdePanel.setVisible(false);
 				frappeBiendedPanel.setVisible(false);
-			
-			}
-			
-			// 마우스 누를 시 nonCoffeePanel이 나타난다.
-			@Override
-			public void mousePressed(MouseEvent e) {
 				nonCoffeePanel.setVisible(true);
-			
+				setBtnEnabled();
 			}
+			
+		
 			
 		});
 	}
+	public void setBtnEnabled() {
+		try {
+			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/논 커피 버튼.png"));
+			Image scale = image.getScaledInstance(150, 100, Image.SCALE_SMOOTH);
+			setIcon(new ImageIcon(scale));
+		} catch (IOException e) {
+			e.printStackTrace();
 
+		}
+	}
 
 
 }

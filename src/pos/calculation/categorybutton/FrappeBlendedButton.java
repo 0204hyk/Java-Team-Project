@@ -1,9 +1,15 @@
 package pos.calculation.categorybutton;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -13,6 +19,11 @@ public class FrappeBlendedButton extends JButton {
 	JPanel coffeePanel;
 	JPanel teaAdePanel;
 	JPanel frappeBiendedPanel;
+	JButton coffeeBtn;
+	
+	public FrappeBlendedButton(JButton coffeeBtn) {
+		this.coffeeBtn = coffeeBtn;
+	}
 	
 	public FrappeBlendedButton(JPanel nonCoffeePanel, JPanel coffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
 		this.coffeePanel = coffeePanel;
@@ -33,13 +44,9 @@ public class FrappeBlendedButton extends JButton {
 				coffeePanel.setVisible(false);
 				teaAdePanel.setVisible(false);
 				nonCoffeePanel.setVisible(false);
-			}
-			
-			// 마우스 누를 시 frappeBiendedPanel이 나타난다.
-			@Override
-			public void mousePressed(MouseEvent e) {
 				frappeBiendedPanel.setVisible(true);
 			}
+		
 	
 		});
 		

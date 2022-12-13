@@ -50,14 +50,10 @@ public class TeaAdeButton extends JButton {
 				coffeePanel.setVisible(false);
 				nonCoffeePanel.setVisible(false);
 				frappeBiendedPanel.setVisible(false);
-				
-			}
-			
-			// 마우스 누를 시 teaAdePanel이 나타난다.
-			@Override
-			public void mousePressed(MouseEvent e) {
 				teaAdePanel.setVisible(true);
 			}
+			
+		
 		});
 		
 	}
