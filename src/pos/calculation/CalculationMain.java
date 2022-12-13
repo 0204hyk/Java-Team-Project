@@ -45,7 +45,7 @@ public class CalculationMain extends JFrame {
 
 		// 메뉴 카테고리 배경 
 		JLabel menuCategory = new MenuCategoryView();
-
+ 
 		// 커피 버튼 및 카테고리들 ---
 		JPanel nonCoffeePanel = new NonCoffeeMenu();
 		JPanel coffeePanel = new CoffeeMenu();
