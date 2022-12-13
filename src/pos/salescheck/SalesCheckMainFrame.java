@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartPanel;
+
+import pos.DigitalClock;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.chart.SalesChart;
@@ -19,7 +21,6 @@ import pos.salescheck.component.datecombo2.YearComboBox2;
 import pos.salescheck.component.saleslist.AmountLabel;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitleLabel;
-import pos.salescheck.component.title.DigitalClock;
 import pos.salescheck.component.title.TitleImage;
 
 public class SalesCheckMainFrame extends JFrame {

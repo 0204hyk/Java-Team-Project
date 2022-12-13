@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import pos.DigitalClock;
 import pos.calculation.categorybutton.CoffeeButton;
 import pos.calculation.categorybutton.FrappeBlendedButton;
 import pos.calculation.categorybutton.NonCoffeeButton;
@@ -21,7 +22,6 @@ import pos.calculation.menubutton.CoffeeMenu;
 import pos.calculation.menubutton.FrappeBlendedMenu;
 import pos.calculation.menubutton.NonCoffeeMenu;
 import pos.calculation.menubutton.TeaAdeMenu;
-import pos.salescheck.component.title.DigitalClock;
 import pos.salescheck.component.title.TitleImage;
 
 public class CalculationMain extends JFrame {

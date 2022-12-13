@@ -1,7 +1,10 @@
 package pos.calculation.popup;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -9,33 +12,33 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-public class OptionMenu {
+public class OptionMenu extends JFrame {
 	
 	
 	public OptionMenu() {
-		JFrame f = new JFrame();
+	
+
 		JPanel optionPanel = new JPanel();
-		GridLayout view = new GridLayout(2, 0);
-		GridLayout grid = new GridLayout(4, 5);
-		JButton complete = new JButton("완료");
-		complete.setBounds(400, 430, 100, 150);
-		
+		optionPanel.setBounds(0, 0, 600, 500);
+		JPanel textPanel = new JPanel();
+		JTextArea text = new JTextArea();
+		text.setBounds(200, 200, 200, 200);
+		textPanel.add(text);
 		JButton[] optionBtns = new JButton[20];
-		JTextArea text =  new JTextArea();
 		for (int i = 0; i < 20; ++i) {
 			optionBtns[i] = new JButton("");
-			optionBtns[i].setBounds(150, 150, 250, 150);
+			optionBtns[i].setBounds(0, 0, 150, 100);
 			optionPanel.add(optionBtns[i]);
-			f.add(optionPanel);
+		
 		}
 		
-		f.add(optionPanel);
-		f.add(text);
-		f.add(complete);
-		f.setLayout(null);
-		f.setSize(500, 600);
-		f.setLocation(500, 150);
-		f.setVisible(true);
+		
+		add(optionPanel);
+		add(textPanel);
+		setLayout(new GridLayout(2, 0));
+		setSize(600, 600);
+		setLocation(500, 150);
+		setVisible(true);
 		
 	}
 	public static void main(String[] args) {
