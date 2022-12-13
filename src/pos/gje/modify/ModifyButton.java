@@ -36,7 +36,7 @@ public class ModifyButton {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ModifyFrame().checkFrame();
+				new CheckFrame();
 				
 			}
 		});
@@ -51,7 +51,7 @@ public class ModifyButton {
 	} 
 	
 	// 확인 버튼
-	public static JButton okBtn(JFrame f) {
+	public static JButton okBtn(CheckFrame f) {
 		JButton okBtn = new JButton();
 		
 		try {
