@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartPanel;
+
+import pos.DigitalClock;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.chart.SalesChart;
@@ -27,10 +29,10 @@ public class SalesCheckMainFrame extends JFrame {
 	public SalesCheckMainFrame() {
 		
 		// 매출요약 상단 메뉴바 생성.
-//		//JLabel centerTitle = new DigitalClock();
-//		centerTitle.setBounds(1000, 10, 400, 30);
-//		JPanel title = new TitleImage();
-//		title.add(centerTitle);
+		JLabel centerTitle = new DigitalClock();
+		centerTitle.setBounds(1000, 10, 400, 30);
+		JPanel title = new TitleImage();
+		title.add(centerTitle);
 		
 		// 매출요약 차트 구현
 		SalesChart chart = new SalesChart("", "");
@@ -60,7 +62,7 @@ public class SalesCheckMainFrame extends JFrame {
 		JLabel salesTitle = new TitleLabel();
 		JLabel amount = new AmountLabel();
 		
-		//add(title);
+		add(title);
 		add(yearCombo);
 		add(between);
 		add(monthCombo);

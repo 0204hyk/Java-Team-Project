@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import pos.DigitalClock;
 import pos.calculation.categorybutton.CoffeeButton;
 import pos.calculation.categorybutton.FrappeBlendedButton;
 import pos.calculation.categorybutton.NonCoffeeButton;
@@ -32,10 +33,10 @@ public class CalculationMain extends JFrame {
 
 	public CalculationMain() {
 		// 메뉴 상단 타이틀 구현
-//		JLabel calcCenterTitle = new DigitalClock();
-//		calcCenterTitle.setBounds(1000, 10, 400, 30);
+		JLabel calcCenterTitle = new DigitalClock();
+		calcCenterTitle.setBounds(1000, 10, 400, 30);
 		JPanel titleBar = new TitleImage();
-		//titleBar.add(calcCenterTitle);
+		titleBar.add(calcCenterTitle);
 
 		// 주문 리스트 구현 ----
 		JLabel menuList = new CalcView();
