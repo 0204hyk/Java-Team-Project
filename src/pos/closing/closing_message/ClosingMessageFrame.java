@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import pos.ImageScaledTool;
 
 public class ClosingMessageFrame extends JFrame {
+	// 마감 확인 안내창
 	
 	public ClosingMessageFrame() {
 				
