@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class UsePoint extends JFrame {
-	String root = "KioskImages/5_4. step2 usePoint";
+	String root = "images/KioskImages/5_4. step2 usePoint";
 
 	public UsePoint() {
 		JLabel phoneNum = new JLabel("1724"); // 고객 휴대폰 번호 입력 - 나중에 get으로 가져오기

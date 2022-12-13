@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 
 public class TouchToPlaceAnOrder extends JFrame {
 
-	String root = "KioskImages/2_1. touchScreen";
+	String root = "images/KioskImages/2_1. touchScreen";
 
 	public TouchToPlaceAnOrder() {
 		add(makeLabel("hy.png", 53, 23, 60, 83));

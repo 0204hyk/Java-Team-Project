@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 
 public class EnterPhoneNum extends JFrame {
 
-	String root = "KioskImages/5_1. step1 InputPhone";
+	String root = "images/KioskImages/5_1. step1 InputPhone";
 
 	public EnterPhoneNum() {
 
@@ -116,7 +116,7 @@ public class EnterPhoneNum extends JFrame {
 
 		JLabel pn = new JLabel();
 
-		String imageRoot = "KioskImages/5_1. step1 InputPhone/numField.png";
+		String imageRoot = "images/KioskImages/5_1. step1 InputPhone/numField.png";
 		int w = 83;
 		int h = 30;
 

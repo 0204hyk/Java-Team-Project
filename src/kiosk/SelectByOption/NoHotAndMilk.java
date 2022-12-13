@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 
 public class NoHotAndMilk extends JFrame {
 
-	String root = "KioskImages/4. detailedOption/";
+	String root = "images/KioskImages/4. detailedOption/";
 
 	public NoHotAndMilk() {
 

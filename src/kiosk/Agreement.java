@@ -18,7 +18,7 @@ import javax.swing.JTextArea;
 
 public class Agreement extends JFrame {
 
-	String root = "KioskImages/5_3. step1 Agreement";
+	String root = "images/KioskImages/5_3. step1 Agreement";
 
 	public Agreement() {
 		JTextArea agreement = new JTextArea(

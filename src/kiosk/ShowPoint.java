@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 
 public class ShowPoint extends JFrame {
 
-	String root = "KioskImages/5_2. step1 point/";
+	String root = "images/KioskImages/5_2. step1 point/";
 
 	public ShowPoint() {
 		// 고객 번호

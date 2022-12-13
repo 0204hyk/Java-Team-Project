@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 
 public class Kiosk_Step1_Step2 extends JFrame {
 
-	String root = "KioskImages/5. step1, step2";
+	String root = "images/KioskImages/5. step1, step2";
 
 	public Kiosk_Step1_Step2() {
 

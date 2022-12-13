@@ -15,9 +15,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import kiosk.tools.GroupButtons;
+
 public class All extends JFrame {
 
-	String root = "KioskImages/4. detailedOption/";
+	String root = "images/KioskImages/4. detailedOption";
 
 	public All() {
 
@@ -52,39 +54,55 @@ public class All extends JFrame {
 		add(makeButton("home.png", 543, 44, 52, 52));
 
 		add(makeLabel("hot, ice.png", 46, 313, 90, 14));
-		add(makeButton("hot.png", 34, 336, 79, 73));
-		add(makeButton("ice.png", 123, 336, 79, 73));
+		JButton hot = makeButton("hot.png", 34, 336, 79, 73);
+		JButton ice = makeButton("ice.png", 123, 336, 79, 73);
+		add(hot);
+		add(ice);
+		new GroupButtons(hot, ice, "hot", "ice", 79, 73);
 
 		add(makeLabel("changeDecaffein.png", 251, 309, 114, 17));
-		add(makeButton("noDecaffein.png", 238, 337, 79, 73));
-		add(makeButton("toDecaffein.png", 327, 337, 79, 73));
+		JButton noDecaffein = makeButton("noDecaffein.png", 238, 337, 79, 73);
+		JButton toDecaffein = makeButton("toDecaffein.png", 327, 337, 79, 73);
+		add(noDecaffein);
+		add(toDecaffein);
+		new GroupButtons(noDecaffein, toDecaffein, "noDecaffein", "toDecaffein", 79, 73);
 
 		add(makeLabel("selectCup.png", 453, 312, 59, 17));
-		add(makeButton("useDisposal.png", 446, 337, 79, 73));
-		add(makeButton("useTumbler.png", 535, 336, 79, 73));
+		JButton useDisposal = makeButton("useDisposal.png", 446, 337, 79, 73);
+		JButton useTumbler = makeButton("useTumbler.png", 535, 336, 79, 73);
+		add(useDisposal); add(useTumbler);
+		new GroupButtons(useDisposal, useTumbler, "useDisposal", "useTumbler", 79, 73);
 
 		add(makeLabel("selectSize.png", 44, 446, 97, 17));
-		add(makeButton("S.png", 35, 471, 79, 73));
-		add(makeButton("M.png", 124, 471, 79, 73));
-		add(makeButton("L.png", 214, 471, 79, 73));
+		JButton S = makeButton("S.png", 35, 471, 79, 73);
+		JButton M = makeButton("M.png", 124, 471, 79, 73);
+		JButton L = makeButton("L.png", 214, 471, 79, 73);
+		add(S); add(M); add(L);
+		new GroupButtons(S, M, L, "S", "M", "L", 79, 73);
 
 		add(makeLabel("selectShot.png", 368, 445, 61, 18));
-		add(makeButton("noShot.png", 356, 471, 79, 73));
-		add(makeButton("oneShot.png", 445, 471, 79, 73));
-		add(makeButton("twoShot.png", 535, 471, 79, 73));
-
+		JButton noShot = makeButton("noShot.png", 356, 471, 79, 73);
+		JButton oneShot = makeButton("oneShot.png", 445, 471, 79, 73);
+		JButton twoShot = makeButton("twoShot.png", 535, 471, 79, 73);
+		add(noShot); add(oneShot); add(twoShot);
+		new GroupButtons(noShot, oneShot, twoShot, "noShot", "oneShot", "twoShot", 79, 73);
+		
 		add(makeLabel("selectIce.png", 45, 589, 77, 17));
-		add(makeButton("normalIce.png", 35, 619, 79, 73));
-		add(makeButton("lessIce.png", 124, 619, 79, 73));
-		add(makeButton("noIce.png", 215, 619, 79, 73));
+		JButton normalIce = makeButton("normalIce.png", 35, 619, 79, 73);
+		JButton lessIce = makeButton("lessIce.png", 124, 619, 79, 73);
+		JButton noIce = makeButton("noIce.png", 215, 619, 79, 73);
+		add(normalIce); add(lessIce); add(noIce);
+		new GroupButtons(normalIce, lessIce, noIce, "normalIce", "lessIce", "noIce", 79, 73);
 
 		add(makeLabel("selectMilk.png", 367, 592, 74, 16));
-		add(makeButton("basicMilk.png", 357, 619, 79, 73));
-		add(makeButton("toSoy.png", 447, 619, 79, 73));
-		add(makeButton("toLowfat.png", 536, 619, 79, 73));
+		JButton basicMilk = makeButton("basicMilk.png", 357, 619, 79, 73);
+		JButton toSoy = makeButton("toSoy.png", 447, 619, 79, 73);
+		JButton toLowfat = makeButton("toLowfat.png", 536, 619, 79, 73);
+		add(basicMilk); add(toSoy); add(toLowfat);
+		new GroupButtons(basicMilk, toSoy, toLowfat, "basicMilk", "toSoy", "toLowfat", 79, 73);
 
-		add(makeButton("minus.png", 311, 755, 19, 19));
-		add(makeButton("plus.png", 410, 755, 19, 19));
+		add(makeButton("minus.png", 311, 755, 18, 18));
+		add(makeButton("plus.png", 410, 755, 18, 18));
 
 		add(makeButton("put.png", 204, 819, 192, 68));
 		add(makeButton("pay.png", 415, 819, 192, 68));
@@ -116,18 +134,11 @@ public class All extends JFrame {
 		bt.setBounds(x, y, w, h);
 		bt.setBorderPainted(false);
 		bt.setContentAreaFilled(false);
-		
-		bt.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				bt.setIcon(new ImageIcon(readImage(root + " Selected/" + detailedRoot, w, h)));
-				
-			}
-		});
-		
+		bt.setPressedIcon(new ImageIcon(readImage(root + " Selected/" + detailedRoot, w, h)));
+
 		return bt;
 	}
+
 	public Image readImage(String root, int w, int h) {
 
 		BufferedImage image;
