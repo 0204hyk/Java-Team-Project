@@ -27,8 +27,11 @@ public class PrintReciptPanel extends JPanel {
 		
 		try {
 			BufferedImage bufferedImage =
-			ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/printReceiptScaled.png"));			
+			ImageIO.read(new File
+					("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/printReceiptScaled.png"));			
 			label.setIcon(new ImageIcon(bufferedImage));
+			
+			
 			
 		} catch (Exception e2) {
 			e2.printStackTrace();
@@ -41,15 +44,21 @@ public class PrintReciptPanel extends JPanel {
 		JButton button = new JButton();
 		
 		try {
-			BufferedImage logoBufferedImage =
+			BufferedImage printBufferedImage =
 			ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/noPrintButtonScaled.png"));			
-			button.setIcon(new ImageIcon(logoBufferedImage));
+			button.setIcon(new ImageIcon(printBufferedImage));
+			
+			BufferedImage pressedPirntBufferedImage =
+					ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/noPrintButtonPressedScaled.png"));			
+					button.setPressedIcon(new ImageIcon(pressedPirntBufferedImage));
 			
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
 		
 		button.setBorderPainted(false);	
+		button.setFocusPainted(false);
+		button.setContentAreaFilled(false);
 		button.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 		button.setOpaque(false);
 		
@@ -66,11 +75,17 @@ public class PrintReciptPanel extends JPanel {
 			ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/printButtonScaled.png"));			
 			button.setIcon(new ImageIcon(logoBufferedImage));
 			
+			BufferedImage pressedPirntBufferedImage =
+					ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/PrintButtonPressedScaled.png"));			
+					button.setPressedIcon(new ImageIcon(pressedPirntBufferedImage));
+			
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		}
 		
 		button.setBorderPainted(false);	
+		button.setFocusPainted(false);
+		button.setContentAreaFilled(false);
 		button.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 		button.setOpaque(false);
 		

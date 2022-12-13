@@ -28,8 +28,7 @@ public class SouthScrollPaneComponent extends JPanel{
 
 		setLayout(layout);
 	}
-	
-	
+		
 	public void components() {
 
 		add(number());
@@ -40,8 +39,7 @@ public class SouthScrollPaneComponent extends JPanel{
 		add(plusButton());
 		add(closeButton());
 	}
-	
-	
+
 	public JLabel number() {
 		JLabel label = new JLabel();
 		
@@ -71,11 +69,18 @@ public class SouthScrollPaneComponent extends JPanel{
 	
 	public JButton minusButton() {
 		JButton button = new JButton();
+		button.setContentAreaFilled(false);
+		button.setFocusPainted(false);
 		
 		try {
 			BufferedImage buttonBufferedImage =
 			ImageIO.read(new File("images/KioskImages/3_메뉴선택/minusButtonScaled.png"));			
 			button.setIcon(new ImageIcon(buttonBufferedImage));
+			
+			BufferedImage buttonPressedBufferedImage =
+					ImageIO.read(new File("images/KioskImages/3_메뉴선택/minusButtonPressedScaled.png"));			
+					button.setPressedIcon(new ImageIcon(buttonPressedBufferedImage));
+
 			
 			button.setBorderPainted(false);	
 			button.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
@@ -100,11 +105,17 @@ public class SouthScrollPaneComponent extends JPanel{
 	
 	public JButton plusButton() {
 		JButton button = new JButton();
+		button.setContentAreaFilled(false);
+		button.setFocusPainted(false);
 		
 		try {
 			BufferedImage buttonBufferedImage =
 			ImageIO.read(new File("images/KioskImages/3_메뉴선택/plusButtonScaled.png"));			
 			button.setIcon(new ImageIcon(buttonBufferedImage));
+			
+			BufferedImage buttonPressedBufferedImage =
+					ImageIO.read(new File("images/KioskImages/3_메뉴선택/plusButtonPressedScaled.png"));			
+					button.setPressedIcon(new ImageIcon(buttonPressedBufferedImage));
 			
 			button.setBorderPainted(false);	
 			button.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
@@ -121,11 +132,17 @@ public class SouthScrollPaneComponent extends JPanel{
 	
 	public JButton closeButton() {
 		JButton button = new JButton();
+		button.setContentAreaFilled(false);
+		button.setFocusPainted(false);
 		
 		try {
 			BufferedImage buttonBufferedImage =
 			ImageIO.read(new File("images/KioskImages/3_메뉴선택/closeButtonScaled.png"));			
 			button.setIcon(new ImageIcon(buttonBufferedImage));
+			
+			BufferedImage buttonPressedBufferedImage =
+					ImageIO.read(new File("images/KioskImages/3_메뉴선택/closeButtonPressedScaled.png"));			
+					button.setPressedIcon(new ImageIcon(buttonPressedBufferedImage));
 			
 			button.setBorderPainted(false);	
 			button.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정

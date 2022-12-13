@@ -25,10 +25,16 @@ public class EastPanel extends JPanel {
 	
 	public void nextButton() {
 		JButton button = new JButton();
+		button.setContentAreaFilled(false);
+		button.setFocusPainted(false);
 		try {
 			BufferedImage logoBufferedImage =
 			ImageIO.read(new File("images/KioskImages/3_메뉴선택/nextButtonScaled.png"));			
 			button.setIcon(new ImageIcon(logoBufferedImage));
+			
+			BufferedImage pressedBufferedImage =
+					ImageIO.read(new File("images/KioskImages/3_메뉴선택/nextButtonPressedScaled.png"));			
+					button.setPressedIcon(new ImageIcon(pressedBufferedImage));
 			
 			button.setBorderPainted(false);	
 			button.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정

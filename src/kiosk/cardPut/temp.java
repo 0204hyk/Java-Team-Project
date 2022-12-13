@@ -9,7 +9,7 @@ import javax.swing.JScrollPane;
 
 import kiosk.menuFrame.southPanel.SouthScrollPaneComponent;
 
-public class temp extends JFrame{
+public class temp extends JFrame{//임시클래스 삭제해주세요
 
 	public temp() {
 		setDisplay();

@@ -34,12 +34,16 @@ public class CenterPanel extends JPanel{
 		
 		for (int i = 0; i < 9; i++) {
 			JButton menuButton = new JButton();
+			menuButton.setContentAreaFilled(false);
+			menuButton.setFocusPainted(false);
+			
 			try {
 				BufferedImage homeBufferedImage = ImageIO.read
 						(new File("images/KioskImages/3_메뉴선택/menuScaled.png"));
 
 				menuButton.setIcon(new ImageIcon(homeBufferedImage));
-
+				
+				
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}

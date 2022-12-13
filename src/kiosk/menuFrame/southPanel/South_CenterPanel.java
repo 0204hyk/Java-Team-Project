@@ -64,11 +64,17 @@ public class South_CenterPanel extends JPanel{
 	public JButton paymentButton() {
 		
 		paymentButton.setPreferredSize(new Dimension(78, 93));
+		paymentButton.setContentAreaFilled(false);
+		paymentButton.setFocusPainted(false);
 		
 		try {
 			BufferedImage logoBufferedImage =
 			ImageIO.read(new File("images/KioskImages/3_메뉴선택/payScaled.png"));			
 			paymentButton.setIcon(new ImageIcon(logoBufferedImage));
+			
+			BufferedImage pressedBufferedImage =
+					ImageIO.read(new File("images/KioskImages/3_메뉴선택/payPressedScaled.png"));			
+					paymentButton.setPressedIcon(new ImageIcon(pressedBufferedImage));
 			
 			paymentButton.setBorderPainted(false);	
 			paymentButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
@@ -83,12 +89,17 @@ public class South_CenterPanel extends JPanel{
 	
 	public JButton cancelButton() {
 		cancelButton.setPreferredSize(new Dimension(78, 71));
-
+		cancelButton.setContentAreaFilled(false);
+		cancelButton.setFocusPainted(false);
 		
 		try {
 			BufferedImage logoBufferedImage =
 			ImageIO.read(new File("images/KioskImages/3_메뉴선택/deleteAllScaled.png"));			
 			cancelButton.setIcon(new ImageIcon(logoBufferedImage));
+			
+			BufferedImage pressedBufferedImage =
+					ImageIO.read(new File("images/KioskImages/3_메뉴선택/deleteAllPressedScaled.png"));			
+					cancelButton.setPressedIcon(new ImageIcon(pressedBufferedImage));
 			
 			cancelButton.setBorderPainted(false);	
 			cancelButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정

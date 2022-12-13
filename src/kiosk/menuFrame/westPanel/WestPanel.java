@@ -30,6 +30,11 @@ public class WestPanel extends JPanel {
 			ImageIO.read(new File("images/KioskImages/3_메뉴선택/prevButtonScaled.png"));			
 			button.setIcon(new ImageIcon(logoBufferedImage));
 			
+			BufferedImage pressedBufferedImage =
+					ImageIO.read(new File("images/KioskImages/3_메뉴선택/prevButtonPressedScaled.png"));			
+					button.setPressedIcon(new ImageIcon(pressedBufferedImage));
+			button.setContentAreaFilled(false);
+			button.setFocusPainted(false);
 			button.setPreferredSize(new Dimension(40,40));
 			button.setBorderPainted(false);	
 			button.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정

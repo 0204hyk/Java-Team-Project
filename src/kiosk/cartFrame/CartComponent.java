@@ -35,6 +35,8 @@ public class CartComponent {
 	public JButton homeButton() {
 		JButton homeButton = new JButton();
 		
+		homeButton.setContentAreaFilled(false);
+		homeButton.setFocusable(false);
 		homeButton.setBorderPainted(false);	
 		homeButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 		homeButton.setOpaque(false);
@@ -44,8 +46,11 @@ public class CartComponent {
 		try {
 			BufferedImage homeBufferedImage =
 			ImageIO.read(new File("images/KioskImages/3_메뉴선택/homeScaled.png"));
-			
 			homeButton.setIcon(new ImageIcon(homeBufferedImage));
+			
+			BufferedImage homePressedBufferedImage =
+					ImageIO.read(new File("images/KioskImages/3_메뉴선택/homePressedScaled.png"));
+					homeButton.setPressedIcon(new ImageIcon(homePressedBufferedImage));
 			
 		} catch (Exception e2) {
 			e2.printStackTrace();
@@ -143,11 +148,18 @@ public class CartComponent {
 	
 	public JButton payButton() {
 		JButton payButton = new JButton();
+		payButton.setContentAreaFilled(false);
+		payButton.setFocusable(false);
+		
 		
 		try {
 			BufferedImage logoBufferedImage =
 			ImageIO.read(new File("images/KioskImages/7_주문정보_확인/payScaled.png"));			
 			payButton.setIcon(new ImageIcon(logoBufferedImage));
+		
+			BufferedImage pressedBufferedImage =
+			ImageIO.read(new File("images/KioskImages/7_주문정보_확인/payPressedScaled.png"));			
+			payButton.setPressedIcon(new ImageIcon(pressedBufferedImage));
 			
 			payButton.setBorderPainted(false);	
 			payButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
@@ -165,11 +177,18 @@ public class CartComponent {
 	public JButton cancelButton() {
 		JButton cancelButton = new JButton();
 		
+		
 		try {
 			BufferedImage logoBufferedImage =
 			ImageIO.read(new File("images/KioskImages/7_주문정보_확인/cancelScaled.png"));			
 			cancelButton.setIcon(new ImageIcon(logoBufferedImage));
 			
+			BufferedImage pressedBufferedImage =
+					ImageIO.read(new File("images/KioskImages/7_주문정보_확인/cancelPressedScaled.png"));			
+					cancelButton.setPressedIcon(new ImageIcon(pressedBufferedImage));
+			
+			cancelButton.setContentAreaFilled(false);
+			cancelButton.setFocusable(false);
 			cancelButton.setBorderPainted(false);	
 			cancelButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 			cancelButton.setOpaque(false);
