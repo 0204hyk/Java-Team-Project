@@ -1,5 +1,6 @@
 package pos.calculation.categorybutton;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -35,6 +36,9 @@ public class TeaAdeButton extends JButton {
 			e.printStackTrace();
 		}
 		setBounds(840, 110, 150, 100);
+		setBorderPainted(false);
+		setContentAreaFilled(false);
+		setBackground(Color.WHITE);
 		setBorder(null);
 		addMouseListener(new MouseAdapter() {
 			@Override

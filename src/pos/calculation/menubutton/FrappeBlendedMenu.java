@@ -1,5 +1,6 @@
 package pos.calculation.menubutton;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -7,14 +8,15 @@ import javax.swing.JPanel;
 
 public class FrappeBlendedMenu extends JPanel {
 
-	public static JButton[] frappeBlendedBtns = new JButton[12];
+	 
 	
 	public FrappeBlendedMenu() {
 		
-		
+		JButton[] frappeBlendedBtns = new JButton[12];
 		for (int i = 0; i < 12; ++i) {
-	
-			add(frappeBlendedBtns[i] = new JButton(""));	
+			frappeBlendedBtns[i] = new JButton("");
+			frappeBlendedBtns[i].setBackground(Color.white);
+			add(frappeBlendedBtns[i]);
 		}
 		
 		

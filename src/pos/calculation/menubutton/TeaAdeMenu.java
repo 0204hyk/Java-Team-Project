@@ -1,5 +1,6 @@
 package pos.calculation.menubutton;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -11,7 +12,9 @@ public class TeaAdeMenu extends JPanel {
 		
 		JButton[] teaAdeBtns = new JButton[12];
 		for (int i = 0; i < 12; ++i) {
-			add(teaAdeBtns[i] = new JButton(""));	
+			teaAdeBtns[i] = new JButton("");
+			teaAdeBtns[i].setBackground(Color.white);
+			add(teaAdeBtns[i]);
 		}
 		
 		teaAdeBtns[0].setText("인크레드불 화이트");

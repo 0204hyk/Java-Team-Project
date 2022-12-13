@@ -1,5 +1,6 @@
 package pos.calculation.categorybutton;
 
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -20,6 +21,7 @@ public class FrappeBlendedButton extends JButton {
 		this.frappeBiendedPanel = frappeBiendedPanel;
 		
 		setBounds(985, 110, 150, 100);
+		setBackground(Color.WHITE);
 		setText("프라페/블렌디드");
 		addMouseListener(new MouseAdapter() {
 			@Override

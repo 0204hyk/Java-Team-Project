@@ -1,5 +1,6 @@
 package pos.calculation.categorybutton;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,11 +45,10 @@ public class CoffeeButton extends JButton{
 			e.printStackTrace();
 			
 		}
-
+	
 		setBounds(550, 110, 150, 100);
-		setFocusPainted(false);
-		setOpaque(false);
-		setBackground(null);
+		setBorderPainted(false);
+		setContentAreaFilled(false);
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

@@ -1,5 +1,6 @@
 package pos.calculation.menubutton;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +19,7 @@ public class NonCoffeeMenu extends JPanel {
 		JButton[] nonCoffeeBtns = new JButton[12];
 		for (int i = 0; i < 12; ++i) {
 			nonCoffeeBtns[i] = new JButton("");
+			nonCoffeeBtns[i].setBackground(Color.WHITE);
 			add(nonCoffeeBtns[i]);	
 		
 		}

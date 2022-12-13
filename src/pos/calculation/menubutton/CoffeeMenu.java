@@ -1,6 +1,7 @@
 package pos.calculation.menubutton;
 
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -22,6 +23,7 @@ public class CoffeeMenu extends JPanel {
 		JButton[] coffeeBtns = new JButton[12];
 		for (int i = 0; i < 12; ++i) {
 			coffeeBtns[i] = new JButton("");
+			coffeeBtns[i].setBackground(Color.white);
 			add(coffeeBtns[i]);
 		}
 
@@ -30,6 +32,7 @@ public class CoffeeMenu extends JPanel {
 		coffeeBtns[2].setText("카페라떼");
 		coffeeBtns[3].setText("꿀라떼");
 		coffeeBtns[4].setText("바닐라라떼");
+		
 		
 		setOpaque(false);
 		setLayout(new GridLayout(3, 4));

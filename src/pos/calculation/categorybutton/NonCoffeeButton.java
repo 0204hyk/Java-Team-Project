@@ -36,7 +36,8 @@ public class NonCoffeeButton extends JButton{
 		}
 		
 		setBounds(695, 110, 150, 100);
-		setBorder(null);
+		setBorderPainted(false);
+		setContentAreaFilled(false);
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
