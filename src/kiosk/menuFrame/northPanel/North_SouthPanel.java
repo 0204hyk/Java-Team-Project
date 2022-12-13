@@ -32,6 +32,9 @@ public class North_SouthPanel extends JPanel {
 		for (int i = 0; i < 10; i++) {// gridlayout 사용하여 기본 가테고리 틀 추가 (1~5)는 공백처리하여 layout형식 맞추는데 사용함
 
 			JButton categoryButton = new JButton();
+			categoryButton.setContentAreaFilled(false);
+			categoryButton.setFocusPainted(false);
+			
 			try {
 				count += 1;
 

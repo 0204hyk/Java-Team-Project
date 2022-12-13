@@ -17,7 +17,7 @@ public class SouthScrollPane extends JScrollPane{
 		
 		
 		add(new SouthScrollPaneComponent());
-		add(new SouthScrollPaneComponent());
+		
 	}
 	
 

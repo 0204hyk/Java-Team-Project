@@ -49,7 +49,10 @@ public class North_NorthPanel extends JPanel{
 		homeButton.setBorderPainted(false);	
 		homeButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 		homeButton.setOpaque(false);
-
+		
+		homeButton.setFocusable(false);
+		homeButton.setContentAreaFilled(false);
+		homeButton.setFocusPainted(false);
 		homeButton.setBounds(542, 44, 52, 52);
 		setBackground(Color.white);
 		try {
@@ -57,6 +60,11 @@ public class North_NorthPanel extends JPanel{
 			ImageIO.read(new File("images/KioskImages/3_메뉴선택/homeScaled.png"));
 			
 			homeButton.setIcon(new ImageIcon(homeBufferedImage));
+			
+			BufferedImage pressedHomeBufferedImage =
+					ImageIO.read(new File("images/KioskImages/3_메뉴선택/homePressedScaled.png"));
+					
+					homeButton.setPressedIcon(new ImageIcon(pressedHomeBufferedImage));
 			
 		} catch (Exception e2) {
 			e2.printStackTrace();
