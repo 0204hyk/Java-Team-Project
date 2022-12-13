@@ -33,5 +33,10 @@ public class SalesEscapeButton extends JButton {
 		// < 버튼 위치 지정
 		setBounds(1050, 700, 100, 50);
 		setBorder(null);
+		
+		
+		setContentAreaFilled(false);	// 버튼 배경 지우기
+		setBorderPainted(false);	// 버튼 테두리 지우기
+		setFocusable(false);	
 	}
 }

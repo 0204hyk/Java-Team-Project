@@ -11,7 +11,7 @@ public class AmountLabel extends JLabel {
 		
 		setText("5,482,100원");
 		setFont(new Font("맑은 고딕", Font.PLAIN, 30));
-		setBounds(850, 410, 500, 500);
+		setBounds(850, 605, 300, 100);
 		
 	}
 }

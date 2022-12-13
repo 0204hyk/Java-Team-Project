@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartPanel;
 
 import pos.DigitalClock;
+import pos.ImageScaledTool;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.chart.SalesChart;
@@ -32,7 +33,7 @@ public class SalesCheckMainFrame extends JFrame {
 		
 		// 매출요약 상단 메뉴바 생성.
 		JLabel centerTitle = new DigitalClock();
-		centerTitle.setBounds(1000, 10, 400, 30);
+		centerTitle.setBounds(375, 10, 400, 30);
 		JPanel title = new TitleImage();
 		title.add(centerTitle);
 		
@@ -78,10 +79,11 @@ public class SalesCheckMainFrame extends JFrame {
 		add(amount);
 		add(list);
 		add(chartPanel);
-		setBackground(Color.BLACK);
-		setLayout(null);
-		setLocationRelativeTo(null);
 		setSize(1200, 800);
+		getContentPane().setBackground(new Color(64, 64, 64));
+		setLayout(null);
+		setResizable(false);	// 사이즈 조절 불가능하게 만들기
+		setLocationRelativeTo(null);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
