@@ -45,35 +45,35 @@ public class ProductManagementJFrame extends JFrame {
 		serch.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		
 		add(serch);
+//		
+//		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
+//		add(labelImage("images/PosImages/상품 관리 이미지/메뉴 리스트 기본 틀.png", 48, 190, 1100, 400));
+//		
+//		add(btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", "images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50));
+//		add(btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png","images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 690, 110, 55));
+//		add(btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png","images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55));
+//		add(btnImage("images/PosImages/상품 관리 이미지/수정 시작 버튼.png","images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 900, 620, 120, 55));
+//		add(btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png","images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55));
+//		add(tp);
+//		
+//		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
+//				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 
+//				770, 620, 120, 55);
 		
-		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
-		add(labelImage("images/PosImages/상품 관리 이미지/메뉴 리스트 기본 틀.png", 48, 190, 1100, 400));
-		
-		add(btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", "images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50));
-		add(btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png","images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 690, 110, 55));
-		add(btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png","images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55));
-		add(btnImage("images/PosImages/상품 관리 이미지/수정 시작 버튼.png","images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 900, 620, 120, 55));
-		add(btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png","images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55));
-		add(tp);
-		
-		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
-				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 
-				770, 620, 120, 55);
-		
-		addBtn.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						JFrame menu = new JFrame();
-						
-						menu.setLayout(null);
-						menu.setSize(1000, 600);
-						menu.setVisible(true);
-						menu.getContentPane().setBackground(new Color(255, 255, 255));
-						menu.setLocationRelativeTo(null);
-						menu.setResizable(false);
-					}
-		});
+//		addBtn.addActionListener(new ActionListener() {
+//					
+//					@Override
+//					public void actionPerformed(ActionEvent e) {
+//						JFrame menu = new JFrame();
+//						
+//						menu.setLayout(null);
+//						menu.setSize(1000, 600);
+//						menu.setVisible(true);
+//						menu.getContentPane().setBackground(new Color(255, 255, 255));
+//						menu.setLocationRelativeTo(null);
+//						menu.setResizable(false);
+//					}
+//		});
 		
 		setLayout(null);
 		setSize(1200, 800);
