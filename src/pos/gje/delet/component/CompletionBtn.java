@@ -11,9 +11,17 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.gje.delet.DeletFrame;
+import pos.gje.delet.OkFrame;
+
 public class CompletionBtn extends JButton implements ActionListener{
+	OkFrame f;
+
 	
-	public CompletionBtn() {
+	public CompletionBtn(OkFrame f) {
+		this.f = f;
+
+		
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(100, 50, Image.SCALE_SMOOTH); // 크기 조정
@@ -37,7 +45,8 @@ public class CompletionBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.exit(0);
+		f.dispose();
+		
 	}
 	
 }

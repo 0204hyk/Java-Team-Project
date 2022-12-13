@@ -16,17 +16,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import pos.gje.delet.DeletFrame;
 import pos.gje.modify.ModifyFrame;
 
 public class ProductManagementJFrame extends JFrame {
 
 	TopPanel tp = new TopPanel();
 	
+	
 	public ProductManagementJFrame() throws IOException {
-		buttons();
+		buttons(this);
 	}
 	
-	public void buttons() throws IOException {
+	public void buttons(ProductManagementJFrame f) throws IOException {
 		
 
 		JTextField serch = new JTextField();
@@ -41,20 +43,20 @@ public class ProductManagementJFrame extends JFrame {
 		add(labelImage("images/PosImages/상품 관리 이미지/메뉴 리스트 기본 틀.png", 48, 190, 1100, 400));
 		
 		
-		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
-				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 
-				770, 620, 120, 55);
+		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png","images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55);
 		JButton modifyBtn = btnImage("images/PosImages/상품 관리 이미지/수정 시작 버튼.png","images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 900, 620, 120, 55);
+		JButton deletBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png","images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55);
+		JButton backBtn = btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png","images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 690, 110, 55);
+		
 		
 		add(btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", "images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50));
-		add(btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png","images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 690, 110, 55));
-		add(btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png","images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55));
+		add(backBtn);
+		add(deletBtn);
 		add(modifyBtn);
 		add(addBtn);
 		add(tp);
 		
 		addBtn.addActionListener(new ActionListener() {
-					
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame menu = new JFrame();
@@ -69,7 +71,6 @@ public class ProductManagementJFrame extends JFrame {
 		});
 		
 		modifyBtn.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new ModifyFrame();
@@ -77,6 +78,21 @@ public class ProductManagementJFrame extends JFrame {
 			}
 		});
 		
+		
+		deletBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new DeletFrame();
+			}
+		});
+		
+		backBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				f.dispose();
+			}
+		});
 		
 		setLayout(null);
 		setSize(1200, 800);
