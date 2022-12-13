@@ -16,7 +16,7 @@ public class SalesTypeFrame {
 		f.add(new SalesTypeBtn().month());
 		f.add(new SalesTypeBtn().year());
 		
-		f.setUndecorated(true); 
+		f.setUndecorated(true); // 타이틀바 없애기
 		f.setSize(1200, 800); // 프레임 사이즈
 		f.setLayout(null); 
 		f.setVisible(true); 

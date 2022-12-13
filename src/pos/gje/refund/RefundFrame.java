@@ -50,7 +50,6 @@ public class RefundFrame extends JFrame{
 		
 		for (int i = 0; i < 16; ++i) {
 			f.add(new RefundButton().numberPad(i + 1));
-			
 		}
 		
 	}
