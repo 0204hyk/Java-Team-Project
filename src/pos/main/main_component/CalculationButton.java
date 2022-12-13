@@ -11,6 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.calculation.CalculationMain;
+
 public class CalculationButton extends JButton implements ActionListener{
 
 	public CalculationButton() {
@@ -41,7 +43,7 @@ public class CalculationButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		new CalculationMain();
 	}
 
 }
