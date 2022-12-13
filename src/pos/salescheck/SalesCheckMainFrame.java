@@ -56,7 +56,7 @@ public class SalesCheckMainFrame extends JFrame {
 		JButton searchBtn = new SalesSearchButton();
 		
 		// 매출요약 뒤로가기 구현
-		JButton escapeBtn = new SalesEscapeButton();
+		JButton escapeBtn = new SalesEscapeButton(this);
 		
 		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();
@@ -83,10 +83,9 @@ public class SalesCheckMainFrame extends JFrame {
 		getContentPane().setBackground(new Color(64, 64, 64));
 		setLayout(null);
 		setResizable(false);	// 사이즈 조절 불가능하게 만들기
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(null);	// 창 화면 가운데에 나오게하기
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
 	}
 
 
