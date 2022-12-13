@@ -19,6 +19,7 @@ import pos.gje.ReceiptCheck.refund.RefundFrame;
 public class ReceiptCheckFrame extends JFrame{
 	public ReceiptCheckFrame() {		
 		setTitle("영수증 조회");
+		
 		// 상단 메뉴바 설정
 		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
@@ -29,7 +30,6 @@ public class ReceiptCheckFrame extends JFrame{
 		titlePanel.add(clock);
 		
 		add(titlePanel);
-		
 		
 		// 영수증 목록 (Panel)
 		add(new ReceiptListPanel());

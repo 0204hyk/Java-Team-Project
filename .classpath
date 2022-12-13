@@ -7,7 +7,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/OneDrive/Desktop/무제 폴더/무제 폴더/jcommon-1.0.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Owner/OneDrive/Desktop/무제 폴더/무제 폴더/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="C:/JavaFullStack_KHY/repos/JavaTeamProject/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/JavaFullStack_KHY/repos/JavaTeamProject/jfreechart-1.0.19.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

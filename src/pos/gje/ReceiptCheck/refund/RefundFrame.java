@@ -42,7 +42,7 @@ public class RefundFrame extends JFrame{
 		
 		for (int i = 0; i < 16; ++i) {
 			add(new NumberPadButton(i + 1));
-		}	
+		}
 
 	}
 	
