@@ -2,6 +2,8 @@ package kiosk;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,25 +13,58 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
 public class TouchToPlaceAnOrder extends JFrame {
 
 	String root = "images/KioskImages/2_1. touchScreen";
+	JLabel pic;
+	Timer tm;
+	int x = 0;
+
+	String[] list = { root + "/poster1.png", root + "/poster2.png", root + "/poster3.png", root + "/poster4.png",
+			root + "/poster5.png" };
 
 	public TouchToPlaceAnOrder() {
+		
 		add(makeLabel("hy.png", 53, 23, 60, 83));
 		add(makeButton("home.png", 543, 43, 52, 52));
 		add(makeLabel("touchScreen.png", 38, 752, 573, 83));
-		add(makeButton("poster2.png", 0, 0, 650, 920));
 
+		getContentPane().setBackground(Color.WHITE);
+		setLocationRelativeTo(null);
+
+		pic = new JLabel();
+		pic.setBounds(0, 0, 650, 920);
+
+		SetImageSize(4);
+
+		tm = new Timer(3500, new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SetImageSize(x);
+				x += 1;
+				if (x >= list.length)
+					x = 0;
+			}
+		});
+
+		add(pic);
+		tm.start();
+		
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 
-		getContentPane().setBackground(Color.WHITE);
-		setLocationRelativeTo(null);
+	}
 
+	public void SetImageSize(int i) {
+		ImageIcon icon = new ImageIcon(list[i]);
+		Image newImg = icon.getImage().getScaledInstance(pic.getWidth(), pic.getHeight(), Image.SCALE_SMOOTH);
+		ImageIcon newImc = new ImageIcon(newImg);
+		pic.setIcon(newImc);
 	}
 
 	public JButton makeButton(String detailedRoot, int x, int y, int w, int h) {
