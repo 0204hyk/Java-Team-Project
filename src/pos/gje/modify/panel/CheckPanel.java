@@ -17,7 +17,7 @@ public class CheckPanel extends JPanel{
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 	
-	public CheckPanel(JFrame f) {
+	public CheckPanel() {
 		//add(new ModifyButton().okBtn(f));
 		setBounds(0, 0, 400, 200); // Panel 틀
 		setLayout(null); 

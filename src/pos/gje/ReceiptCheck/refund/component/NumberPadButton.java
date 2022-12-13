@@ -13,6 +13,8 @@ import javax.swing.JButton;
 
 public class NumberPadButton extends JButton implements ActionListener{
 
+	String value;
+	
 	public NumberPadButton(int num) {
 		int x = 300, y = 80;
 		
@@ -31,15 +33,45 @@ public class NumberPadButton extends JButton implements ActionListener{
 			e1.printStackTrace();
 		}
 		
-		if (num >= 5 && num <= 8) {
+		if (num < 5) {
+			if(num == 4) {
+				value = "전액현금";
+			} else {
+				value = "" + num;
+			}
+			
+		}else if (num >= 5 && num <= 8) {
+			if (num == 8) {
+				value = "부분현금";
+			} else {
+				value = "" + (num - 1);
+			}
 			x = 300;
 			y += 100;
 			num -= 4;
+			
 		} else if (num > 8 && num < 13) {
+			if (num == 12) {
+				value = "Del";
+			} else {
+				value = "" + (num - 2);
+			}
+			
 			x = 300;
 			y += 100 * 2;
 			num -= 8;
+			
 		} else if (num > 12) {
+			if (num == 13) {
+				value = "0";
+			} else if (num == 14){
+				value = "00";
+			} else if (num == 15) {
+				value = "000";
+			} else if (num == 16) {
+				value = "확인";
+			}
+			
 			x = 300;
 			y += 100 * 3;
 			num -= 12;
@@ -47,6 +79,8 @@ public class NumberPadButton extends JButton implements ActionListener{
 		
 		x += num * 95;
 		
+		
+		addActionListener(this);
 		setBounds(x, y, 90, 95);
 		setContentAreaFilled(false);
 		setBorderPainted(false);
@@ -55,7 +89,13 @@ public class NumberPadButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("기능 구현 X");
+		//System.out.println("기능 구현 X");
+		if (value == "확인") {
+			System.out.println();
+		} else {
+			System.out.print(value);			
+		}
+		
 	}
 
 }
