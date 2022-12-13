@@ -21,7 +21,7 @@ public class CartComponent {
 		
 		try {
 			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("image/menu/logoScaled.png"));			
+			ImageIO.read(new File("images/KioskImages/3_메뉴선택/logoScaled.png"));			
 			logo.setIcon(new ImageIcon(logoBufferedImage));
 			
 		} catch (Exception e2) {
@@ -43,7 +43,7 @@ public class CartComponent {
 		
 		try {
 			BufferedImage homeBufferedImage =
-			ImageIO.read(new File("image/menu/homeScaled.png"));
+			ImageIO.read(new File("images/KioskImages/3_메뉴선택/homeScaled.png"));
 			
 			homeButton.setIcon(new ImageIcon(homeBufferedImage));
 			
@@ -131,7 +131,7 @@ public class CartComponent {
 	public JLabel totalPrice() {
 		JLabel label = new JLabel();
 		Font font = new Font("맑은 고딕", Font.BOLD, 27);
-		label.setForeground(Color.getHSBColor(63, 187, 145));
+		label.setForeground(Color.getHSBColor(63, 186, 145));
 		label.setFont(font);
 		label.setText("11,000원");
 		label.setBounds(450, 715, 126, 32);
@@ -146,7 +146,7 @@ public class CartComponent {
 		
 		try {
 			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("KioskImages/7_주문정보_확인/payScaled.png"));			
+			ImageIO.read(new File("images/KioskImages/7_주문정보_확인/payScaled.png"));			
 			payButton.setIcon(new ImageIcon(logoBufferedImage));
 			
 			payButton.setBorderPainted(false);	
@@ -167,7 +167,7 @@ public class CartComponent {
 		
 		try {
 			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("KioskImages/7_주문정보_확인/cancelScaled.png"));			
+			ImageIO.read(new File("images/KioskImages/7_주문정보_확인/cancelScaled.png"));			
 			cancelButton.setIcon(new ImageIcon(logoBufferedImage));
 			
 			cancelButton.setBorderPainted(false);	
