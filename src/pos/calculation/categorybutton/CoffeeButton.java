@@ -46,7 +46,9 @@ public class CoffeeButton extends JButton{
 		}
 
 		setBounds(550, 110, 150, 100);
-		setBorder(null);
+		setFocusPainted(false);
+		setOpaque(false);
+		setBackground(null);
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

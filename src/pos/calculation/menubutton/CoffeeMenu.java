@@ -31,6 +31,7 @@ public class CoffeeMenu extends JPanel {
 		coffeeBtns[3].setText("꿀라떼");
 		coffeeBtns[4].setText("바닐라라떼");
 		
+		setOpaque(false);
 		setLayout(new GridLayout(3, 4));
 		setVisible(true);
 		setBounds(570, 250, 600, 280);
