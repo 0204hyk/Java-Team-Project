@@ -20,10 +20,14 @@ public class FrappeBlendedButton extends JButton {
 		this.teaAdePanel = teaAdePanel;
 		this.frappeBiendedPanel = frappeBiendedPanel;
 		
+		// 이미지 추가예정..
+		
 		setBounds(985, 110, 150, 100);
 		setBackground(Color.WHITE);
 		setText("프라페/블렌디드");
 		addMouseListener(new MouseAdapter() {
+			
+			// 마우스 클릭 시 기존에 나오던 Panel들은 숨긴다.
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				coffeePanel.setVisible(false);
@@ -31,6 +35,7 @@ public class FrappeBlendedButton extends JButton {
 				nonCoffeePanel.setVisible(false);
 			}
 			
+			// 마우스 누를 시 frappeBiendedPanel이 나타난다.
 			@Override
 			public void mousePressed(MouseEvent e) {
 				frappeBiendedPanel.setVisible(true);
