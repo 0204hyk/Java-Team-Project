@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 
 public class YearComboBox2 extends JComboBox {
 	
+	// 매출요약 년 콤보박스 생성.
 	Calendar now = Calendar.getInstance();
 	int year = now.get(Calendar.YEAR);
 
@@ -17,7 +18,7 @@ public class YearComboBox2 extends JComboBox {
 		}
 
 		setSelectedItem(year);
-		setBounds(400, 100, 100, 25);
+		setBounds(410, 100, 100, 25);
 		
 	}
 
