@@ -24,7 +24,7 @@ public class CheckButton extends JButton implements ActionListener{
 			e1.printStackTrace();
 		}
 
-		setBounds(25, 430, 56, 48);
+		setBounds(23, 430, 56, 48);
 		setContentAreaFilled(false);
 		setBorderPainted(false);
 		setOpaque(false);
@@ -41,8 +41,9 @@ public class CheckButton extends JButton implements ActionListener{
 			if (num % 2 == 0) {	
 				System.out.println("영수증을 출력합니다.");
 				BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/영수증 출력 여부 체크 완.png"));
-				Image scaledImage = bufferedImage.getScaledInstance(56, 63, Image.SCALE_SMOOTH); // 크기 조정
+				Image scaledImage = bufferedImage.getScaledInstance(56, 48, Image.SCALE_SMOOTH); // 크기 조정
 				setIcon(new ImageIcon(scaledImage));
+				
 			} else {
 				BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/영수증 출력 여부 체크.png"));
 				Image scaledImage = bufferedImage.getScaledInstance(56, 48, Image.SCALE_SMOOTH); // 크기 조정
