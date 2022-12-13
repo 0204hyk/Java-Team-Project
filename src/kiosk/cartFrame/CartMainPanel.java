@@ -19,7 +19,6 @@ public class CartMainPanel extends JPanel {
 		setBackground(Color.white);
 		
 		addComponent();
-	
 	}
 	
 	//추가된 컴포넌트 모음
@@ -30,14 +29,19 @@ public class CartMainPanel extends JPanel {
 		add(compo.logo());
 		add(compo.homeButton());
 		add(compo.mainLabel());
+		
 		add(compo.priceLabel());
 		add(compo.price());
+		
 		add(compo.pointLabel());
 		add(compo.point());
+		
 		add(compo.totalPriceLabel());
 		add(compo.totalPrice());
+		
 		add(compo.payButton());
 		add(compo.cancelButton());
+		
 		add(new CartMenuPanel());
 		add(new CartMainPanelComponet().imageLabel());
 	}

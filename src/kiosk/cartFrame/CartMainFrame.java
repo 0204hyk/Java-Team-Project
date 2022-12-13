@@ -13,10 +13,8 @@ public class CartMainFrame extends JFrame{
 	}
 
 	public void panelSetting() {
-	
 
-	add(new CartMainPanel());	
-	
+	add(new CartMainPanel());		
 	setBackground(Color.white);
 	
 	}
@@ -29,7 +27,6 @@ public class CartMainFrame extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 	}
-
 
 	public static void main(String[] args) {
 		new CartMainFrame();
