@@ -38,5 +38,7 @@ public class CalcEscapeButton extends JButton {
 		setBounds(80, 700, 100, 50);
 		
 		
+		
+		
 	}
 }
