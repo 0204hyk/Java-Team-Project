@@ -11,6 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.kjh.ProductManagementJFrame;
+
 public class ProductManagementButton extends JButton implements ActionListener{
 
 	public ProductManagementButton() {
@@ -40,7 +42,12 @@ public class ProductManagementButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		try {
+			new ProductManagementJFrame();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 	}
 

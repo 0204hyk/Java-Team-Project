@@ -9,7 +9,7 @@ import pos.gje.delet.panel.DeletCheckPanel;
 public class DeletFrame extends JFrame{
 	
 	public DeletFrame() {
-		add(new OkBtn());
+		add(new OkBtn(this));
 		add(new CancelBtn(this));
 		add(new DeletCheckPanel());
 		
