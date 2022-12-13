@@ -15,10 +15,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
+import kiosk.menuFrame.MenuFrame;
+
 public class TouchToPlaceAnOrder extends JFrame {
 
 	String root = "images/KioskImages/2_1. touchScreen";
-	JLabel pic;
+	JButton pic;
 	Timer tm;
 	int x = 0;
 
@@ -34,12 +36,12 @@ public class TouchToPlaceAnOrder extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
 
-		pic = new JLabel();
+		pic = new JButton();
 		pic.setBounds(0, 0, 650, 920);
 
 		SetImageSize(4);
 
-		tm = new Timer(3500, new ActionListener() {
+		tm = new Timer(3000, new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -50,11 +52,25 @@ public class TouchToPlaceAnOrder extends JFrame {
 			}
 		});
 
+		pic.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new MenuFrame();
+				
+			}
+		});
+		
+		pic.setBorderPainted(false);
+		pic.setContentAreaFilled(false);
+		
 		add(pic);
 		tm.start();
 		
 		setLayout(null);
 		setSize(650, 950);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 

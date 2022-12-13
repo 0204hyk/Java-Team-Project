@@ -19,6 +19,8 @@ public class NoDecafAndMilk extends JFrame {
 
 	String root = "images/KioskImages/4. detailedOption";
 
+	String imageRoot = "images/KioskImages/menu/";
+	
 	public NoDecafAndMilk() {
 
 		JLabel totalCups = new JLabel("2잔"); // 잔 수
@@ -33,8 +35,7 @@ public class NoDecafAndMilk extends JFrame {
 		amounts.setBounds(475, 749, 98, 30);
 		add(amounts);
 
-//		add(makeLabel("images/KioskImages/menu/coffee/바닐라 라떼 Vanilla Latte.png", 230, 140, 112, 130));
-
+		add(makeImage("coffee/바닐라 라떼 Vanilla Latte.png", 230, 140, 112, 130));
 		JLabel nameKor = new JLabel("카페라떼"); // 커피 이름 한글
 		nameKor.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		nameKor.setForeground(Color.black);
@@ -108,10 +109,19 @@ public class NoDecafAndMilk extends JFrame {
 
 	}
 
+	public JLabel makeImage(String detailedRoot, int x, int y, int w, int h) {
+		JLabel lb = new JLabel();
+
+		lb.setIcon(new ImageIcon(readImage(imageRoot + detailedRoot, w, h)));
+		lb.setBounds(x, y, w, h);
+
+		return lb;
+	}
+	
 	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
 		JLabel lb = new JLabel();
 
-		lb.setIcon(new ImageIcon(readImage(root + detailedRoot, w, h)));
+		lb.setIcon(new ImageIcon(readImage(root + "/"+detailedRoot, w, h)));
 		lb.setBounds(x, y, w, h);
 
 		return lb;
