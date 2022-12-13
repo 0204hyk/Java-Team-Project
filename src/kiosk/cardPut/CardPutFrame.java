@@ -32,7 +32,7 @@ public class CardPutFrame extends JFrame {
 		
 		try {
 			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("KioskImages/7_1_영수증_출력_여부,카드,결제완료/cardPutScaled.png"));			
+			ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/cardPutScaled.png"));			
 			label.setIcon(new ImageIcon(logoBufferedImage));
 			
 		} catch (Exception e2) {

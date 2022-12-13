@@ -27,7 +27,7 @@ public class PrintReciptPanel extends JPanel {
 		
 		try {
 			BufferedImage bufferedImage =
-			ImageIO.read(new File("KioskImages/7_1_영수증_출력_여부,카드,결제완료/printReceiptScaled.png"));			
+			ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/printReceiptScaled.png"));			
 			label.setIcon(new ImageIcon(bufferedImage));
 			
 		} catch (Exception e2) {
@@ -42,7 +42,7 @@ public class PrintReciptPanel extends JPanel {
 		
 		try {
 			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("KioskImages/7_1_영수증_출력_여부,카드,결제완료/noPrintButtonScaled.png"));			
+			ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/noPrintButtonScaled.png"));			
 			button.setIcon(new ImageIcon(logoBufferedImage));
 			
 		} catch (Exception e2) {
@@ -63,7 +63,7 @@ public class PrintReciptPanel extends JPanel {
 		
 		try {
 			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("KioskImages/7_1_영수증_출력_여부,카드,결제완료/printButtonScaled.png"));			
+			ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/printButtonScaled.png"));			
 			button.setIcon(new ImageIcon(logoBufferedImage));
 			
 		} catch (Exception e2) {
