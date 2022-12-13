@@ -44,11 +44,11 @@ public class ProductManagementJFrame extends JFrame {
 		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
 				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 
 				770, 620, 120, 55);
-		JButton modifyBtn = btnImage("PosImages/상품 관리 이미지/수정 시작 버튼.png","PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 900, 620, 120, 55);
+		JButton modifyBtn = btnImage("images/PosImages/상품 관리 이미지/수정 시작 버튼.png","images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 900, 620, 120, 55);
 		
-		add(btnImage("PosImages/상품 관리 이미지/검색 버튼.png", "PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50));
-		add(btnImage("PosImages/상품 관리 이미지/돌아가기 버튼.png","PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 690, 110, 55));
-		add(btnImage("PosImages/상품 관리 이미지/삭제 버튼.png","PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55));
+		add(btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", "images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50));
+		add(btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png","images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 690, 110, 55));
+		add(btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png","images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55));
 		add(modifyBtn);
 		add(addBtn);
 		add(tp);
@@ -72,7 +72,7 @@ public class ProductManagementJFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ModifyFrame().mainFrame();
+				new ModifyFrame();
 				
 			}
 		});

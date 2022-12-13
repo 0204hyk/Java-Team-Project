@@ -7,8 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pos.gje.modify.ModifyButton;
-
 public class listPanel extends JPanel{
 
 	public void paintComponent(Graphics g) {

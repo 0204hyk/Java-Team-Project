@@ -7,8 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pos.gje.modify.ModifyButton;
-
 public class CheckPanel extends JPanel{
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
@@ -18,7 +16,6 @@ public class CheckPanel extends JPanel{
 	}	
 	
 	public CheckPanel() {
-		//add(new ModifyButton().okBtn(f));
 		setBounds(0, 0, 400, 200); // Panel 틀
 		setLayout(null); 
 	}	     
