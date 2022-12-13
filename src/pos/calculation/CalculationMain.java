@@ -17,7 +17,9 @@ import pos.calculation.categorybutton.FrappeBlendedButton;
 import pos.calculation.categorybutton.NonCoffeeButton;
 import pos.calculation.categorybutton.TeaAdeButton;
 import pos.calculation.etcbutton.CalcEscapeButton;
+import pos.calculation.etcbutton.LeftButton;
 import pos.calculation.etcbutton.PaymentButton;
+import pos.calculation.etcbutton.RightButton;
 import pos.calculation.menubutton.CoffeeMenu;
 import pos.calculation.menubutton.FrappeBlendedMenu;
 import pos.calculation.menubutton.NonCoffeeMenu;
@@ -66,6 +68,10 @@ public class CalculationMain extends JFrame {
 		JButton frappeBlendedBtn = new FrappeBlendedButton(nonCoffeePanel, coffeePanel, 
 				teaAdePanel, frappeBiendedPanel);
 
+		// 결제버튼 위쪽 < , > 버튼 
+		JButton leftBtn = new LeftButton();
+		JButton rightBtn = new RightButton();
+		
 		add(titleBar);
 		add(menuList);
 		add(coffeeBtn);
@@ -76,6 +82,8 @@ public class CalculationMain extends JFrame {
 		add(teaAdePanel);
 		add(frappeBlendedBtn);
 		add(frappeBiendedPanel);
+		add(leftBtn);
+		add(rightBtn);
 		add(menuCategory);
 		add(calcEscapeBtn);
 		add(paymentBtn);

@@ -36,6 +36,7 @@ public class NonCoffeeMenu extends JPanel {
 		nonCoffeeBtns[1].setText("고구마라떼");
 		
 		
+		setBorder(null);
 		setLayout(new GridLayout(3, 4));
 		setVisible(true);
 		setBounds(570, 250, 600, 280);
