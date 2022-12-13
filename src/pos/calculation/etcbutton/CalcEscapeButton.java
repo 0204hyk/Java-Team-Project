@@ -1,4 +1,4 @@
-package pos.calculation.categorybutton;
+package pos.calculation.etcbutton;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -9,13 +9,14 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class PaymentButton extends JButton {
+public class CalcEscapeButton extends JButton {
 
-	public PaymentButton() {
+	
+	public CalcEscapeButton() {
 		
-		// 결제 버튼 이미지 
+		// < 버튼 이미지
 		try {
-			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/결제 버튼.png"));
+			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/돌아가기 버튼.png"));
 			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(scale));
 			
@@ -23,9 +24,9 @@ public class PaymentButton extends JButton {
 			e.printStackTrace();
 		}
 		
-		// 결제 버튼 눌렀을 때
+		// < 버튼 이미지 눌렀을 때
 		try {
-			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/결제 버튼 클릭.png"));
+			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/돌아가기 버튼 클릭.png"));
 			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);
 			setPressedIcon(new ImageIcon(scale));
 		} catch (IOException e) {
@@ -33,9 +34,11 @@ public class PaymentButton extends JButton {
 		}
 		
 		
-		
-		setBounds(1050, 700, 100, 50);
 		setBorder(null);
+		setBounds(80, 700, 100, 50);
+		
+		
+		
 		
 	}
 }
