@@ -3,12 +3,8 @@ package pos.gje.modify;
 import java.awt.Color;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-import pos.DigitalClock;
-import pos.ImageScaledTool;
-import pos.closing.closing_main.container.ClosingImagePanel;
+import pos.gje.modify.component.OkBtn;
 import pos.gje.modify.panel.CheckPanel;
 
 public class CheckFrame extends JFrame{
@@ -17,7 +13,7 @@ public class CheckFrame extends JFrame{
 
 		
 		
-		add(new ModifyButton().okBtn(this));
+		add(new OkBtn(this));
 		add(new CheckPanel());
 		
 		setUndecorated(true); 
@@ -31,6 +27,6 @@ public class CheckFrame extends JFrame{
 
 	}
 	public static void main(String[] args) {
-	
+		new CheckFrame();
 	}
 }

@@ -23,14 +23,14 @@ public class RefundCloseButton extends JButton implements ActionListener{
 		this.f2 = f2;
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/환불 창 닫기 버튼.png"));
-			Image scaledImage = bufferedImage.getScaledInstance(40, 40, Image.SCALE_SMOOTH); // 크기 조정
+			Image scaledImage = bufferedImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH); // 크기 조정
 			setIcon(new ImageIcon(scaledImage));
 
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		
-		setBounds(700, 10, 78, 48);
+		setBounds(740, 10, 50, 50);
 		setContentAreaFilled(false);
 		setBorderPainted(false);
 		setOpaque(false);

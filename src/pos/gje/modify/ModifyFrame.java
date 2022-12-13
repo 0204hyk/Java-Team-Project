@@ -3,12 +3,9 @@ package pos.gje.modify;
 import java.awt.Color;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-import pos.DigitalClock;
-import pos.ImageScaledTool;
-import pos.closing.closing_main.container.ClosingImagePanel;
+import pos.gje.modify.component.ModifyButton;
+import pos.gje.modify.component.ModifyEscapeBtn;
 import pos.gje.modify.panel.TitlePanel;
 import pos.gje.modify.panel.listPanel;
 
@@ -18,9 +15,11 @@ public class ModifyFrame extends JFrame{
 	public ModifyFrame() {
 		setTitle("ModifyFrame");
 			
-		add(new ModifyButton().modifyBtn());
+		add(new ModifyEscapeBtn(this));
+		add(new ModifyButton());
 		add(new TitlePanel());
 		add(new listPanel());
+		
 		
 		setUndecorated(true);
 		getContentPane().setBackground(new Color(233, 236, 242)); // 배경색

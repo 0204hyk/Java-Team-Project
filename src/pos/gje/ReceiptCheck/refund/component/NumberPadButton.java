@@ -92,6 +92,12 @@ public class NumberPadButton extends JButton implements ActionListener{
 		//System.out.println("기능 구현 X");
 		if (value == "확인") {
 			System.out.println();
+		} else if (value == "Del") {
+			System.out.println(value);
+		} else if (value == "부분현금") {
+			System.out.println(value);
+		} else if (value == "전체 현금") {
+			System.out.println(value);
 		} else {
 			System.out.print(value);			
 		}
