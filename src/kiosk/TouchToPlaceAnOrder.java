@@ -41,7 +41,7 @@ public class TouchToPlaceAnOrder extends JFrame {
 
 		SetImageSize(4);
 
-		tm = new Timer(3000, new ActionListener() {
+		tm = new Timer(4000, new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {

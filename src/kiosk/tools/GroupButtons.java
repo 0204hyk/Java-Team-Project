@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import kiosk.SelectByOption.All;
+import kiosk.byoption.All;
 
 public class GroupButtons {
 
