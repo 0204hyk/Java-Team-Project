@@ -70,7 +70,7 @@ public class CartComponent {
 		return label;
 	}
 	
-	
+	//가격라벨
 	public JLabel priceLabel() {
 		JLabel label = new JLabel();
 		Font font = new Font("맑은 고딕", Font.BOLD, 15);
@@ -83,6 +83,7 @@ public class CartComponent {
 		return label;
 	}
 	
+	//가격
 	public JLabel price() {
 		JLabel label = new JLabel();
 		Font font = new Font("맑은 고딕", Font.BOLD, 15);
