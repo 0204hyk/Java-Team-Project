@@ -14,6 +14,7 @@ import pos.calculation.categorybutton.CalcEscapeButton;
 import pos.calculation.categorybutton.CoffeeButton;
 import pos.calculation.categorybutton.NonCoffeeButton;
 import pos.calculation.categorybutton.PaymentButton;
+import pos.calculation.categorybutton.TeaAdeButton;
 import pos.calculation.menubutton.CoffeeMenu;
 import pos.calculation.menubutton.FrappeBlendedMenu;
 import pos.calculation.menubutton.NonCoffeeMenu;
@@ -57,23 +58,11 @@ public class CalculationMain extends JFrame {
 				teaAdePanel, frappeBiendedPanel);
 		JButton nonCoffeeBtn = new NonCoffeeButton(coffeePanel, nonCoffeePanel, 
 				teaAdePanel, frappeBiendedPanel);
+		JButton teaAdeBtn = new TeaAdeButton(nonCoffeePanel, coffeePanel, 
+				teaAdePanel, frappeBiendedPanel);
 		
 		
 		
-		teaAdeBtn.setBounds(840, 110, 150, 100);
-		teaAdeBtn.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				coffeePanel.setVisible(false);
-				nonCoffeePanel.setVisible(false);
-				frappeBiendedPanel.setVisible(false);
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				teaAdePanel.setVisible(true);
-			}
-		});
 
 		frappeBlendedBtn.setBounds(985, 110, 150, 100);
 		frappeBlendedBtn.addMouseListener(new MouseAdapter() {
