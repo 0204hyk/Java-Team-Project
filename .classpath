@@ -7,6 +7,7 @@
 		</attributes>
 	</classpathentry>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="jcommon-1.0.23.jar"/>
 	<classpathentry kind="lib" path="jfreechart-1.0.19.jar"/>
 	<classpathentry kind="lib" path="ojdbc6.jar"/>
@@ -17,5 +18,10 @@
 	<classpathentry kind="lib" path="C:/Users/Gi7C-09/Desktop/무제 폴더/jfreechart-1.0.19.jar"/>
 
 >>>>>>> refs/remotes/origin/gje
+=======
+	<classpathentry kind="lib" path="jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="ojdbc6.jar"/>
+>>>>>>> refs/remotes/origin/kbc
 	<classpathentry kind="output" path="bin"/>
 </classpath>

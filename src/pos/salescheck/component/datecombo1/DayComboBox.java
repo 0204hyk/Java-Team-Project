@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 
 public class DayComboBox extends JComboBox {
 
+	// 매출요약 일 콤보박스 생성.
 	Calendar now = Calendar.getInstance();
 	int day = now.get(Calendar.DATE);
 	
@@ -20,7 +21,7 @@ public class DayComboBox extends JComboBox {
 		}
 		
 		setSelectedItem(day);;
-		setBounds(250, 100, 100, 25);
+		setBounds(280, 100, 100, 25);
 	}
 
 }
