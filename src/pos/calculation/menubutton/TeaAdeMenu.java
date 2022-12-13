@@ -19,7 +19,7 @@ public class TeaAdeMenu extends JPanel {
 		
 		teaAdeBtns[0].setText("인크레드불 화이트");
 		
-
+		setBorder(null);
 		setLayout(new GridLayout(3, 4));
 		setVisible(true);
 		setBounds(570, 250, 600, 280);
