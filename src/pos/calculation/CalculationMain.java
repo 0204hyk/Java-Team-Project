@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import pos.calculation.categorybutton.CalcEscapeButton;
+import pos.calculation.categorybutton.CoffeeButton;
+import pos.calculation.categorybutton.NonCoffeeButton;
 import pos.calculation.categorybutton.PaymentButton;
 import pos.calculation.menubutton.CoffeeMenu;
 import pos.calculation.menubutton.FrappeBlendedMenu;
@@ -22,8 +24,7 @@ import pos.salescheck.component.title.TitleImage;
 public class CalculationMain extends JFrame {
 
 	// 카테고리 버튼들
-	private static JButton coffeeCategoryBtn = new JButton("커피");
-	private static JButton nonCoffeeCategoryBtn = new JButton("논커피");
+
 	private static JButton teaAdeBtn = new JButton("티/에이드");
 	private static JButton frappeBlendedBtn = new JButton("프라페/블렌디드");
 
@@ -52,36 +53,12 @@ public class CalculationMain extends JFrame {
 		JPanel teaAdePanel = new TeaAdeMenu();
 		JPanel frappeBiendedPanel = new FrappeBlendedMenu();
 		
-		coffeeCategoryBtn.setBounds(550, 110, 150, 100);
-		coffeeCategoryBtn.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				nonCoffeePanel.setVisible(false);
-				teaAdePanel.setVisible(false);
-				frappeBiendedPanel.setVisible(false);
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				coffeePanel.setVisible(true);
-			}
-			
-		});
+		JButton coffeeBtn = new CoffeeButton(nonCoffeePanel, coffeePanel,
+				teaAdePanel, frappeBiendedPanel);
+		JButton nonCoffeeBtn = new NonCoffeeButton(coffeePanel, nonCoffeePanel, 
+				teaAdePanel, frappeBiendedPanel);
 		
-		nonCoffeeCategoryBtn.setBounds(695, 110, 150, 100);
-		nonCoffeeCategoryBtn.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				coffeePanel.setVisible(false);
-				teaAdePanel.setVisible(false);
-				frappeBiendedPanel.setVisible(false);
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				nonCoffeePanel.setVisible(true);
-			}
-		});
+		
 		
 		teaAdeBtn.setBounds(840, 110, 150, 100);
 		teaAdeBtn.addMouseListener(new MouseAdapter() {
@@ -116,9 +93,9 @@ public class CalculationMain extends JFrame {
 
 		add(titleBar);
 		add(menuList);
-		add(coffeeCategoryBtn);
+		add(coffeeBtn);
 		add(coffeePanel);
-		add(nonCoffeeCategoryBtn);
+		add(nonCoffeeBtn);
 		add(nonCoffeePanel);
 		add(teaAdeBtn);
 		add(teaAdePanel);
