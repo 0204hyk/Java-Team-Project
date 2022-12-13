@@ -4,13 +4,12 @@ import java.awt.Color;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import pos.gje.refund.panel.InputPanel;
-import pos.gje.refund.panel.PaymentTypePanel;
-import pos.gje.refund.panel.ReceiptPanel;
-import pos.gje.refund.panel.ReceiveAndChangePanel;
+import pos.gje.ReceiptCheck.refund.panel.InputPanel;
+import pos.gje.ReceiptCheck.refund.panel.PaymentTypePanel;
+import pos.gje.ReceiptCheck.refund.panel.ReceiptPanel;
+import pos.gje.ReceiptCheck.refund.panel.ReceiveAndChangePanel;
 import pos.gje.refund.panel.TitlePanel;
 
 public class RefundFrame extends JFrame{

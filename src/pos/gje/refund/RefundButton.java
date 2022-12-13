@@ -20,7 +20,6 @@ public class RefundButton{
 		JButton inputBtn = new JButton();
 	
 		try {
-
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/카드번호 & 현금 영수증 란 입력 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(78, 48, Image.SCALE_SMOOTH); // 크기 조정
 			inputBtn.setIcon(new ImageIcon(scaledImage));
@@ -115,7 +114,7 @@ public class RefundButton{
 		numBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(num);
+				System.out.println("");
 			}
 		});
 		

@@ -22,6 +22,11 @@ public class NumberPadButton extends JButton implements ActionListener{
 			BufferedImage bufferedImage = ImageIO.read(new File(root + num + ".png"));
 			Image scaledImage = bufferedImage.getScaledInstance(90, 95, Image.SCALE_SMOOTH); // 크기 조정
 			setIcon(new ImageIcon(scaledImage));
+			
+			BufferedImage bufferedImage2 = ImageIO.read(new File(root + num + " 클릭.png"));
+			Image scaledImage2 = bufferedImage2.getScaledInstance(90, 95, Image.SCALE_SMOOTH); // 크기 조정
+			ImageIcon img = new ImageIcon(scaledImage2);
+			setPressedIcon(img);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
