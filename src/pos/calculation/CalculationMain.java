@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import pos.calculation.categorybutton.CalcEscapeButton;
-
 import pos.calculation.categorybutton.PaymentButton;
 import pos.calculation.menubutton.CoffeeMenu;
 import pos.calculation.menubutton.FrappeBlendedMenu;
@@ -50,12 +49,16 @@ public class CalculationMain extends JFrame {
 		// 커피 버튼 및 카테고리들 ---
 		JPanel nonCoffeePanel = new NonCoffeeMenu();
 		JPanel coffeePanel = new CoffeeMenu();
+		JPanel teaAdePanel = new TeaAdeMenu();
+		JPanel frappeBiendedPanel = new FrappeBlendedMenu();
+		
 		coffeeCategoryBtn.setBounds(550, 110, 150, 100);
 		coffeeCategoryBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
 				nonCoffeePanel.setVisible(false);
+				teaAdePanel.setVisible(false);
+				frappeBiendedPanel.setVisible(false);
 			}
 			
 			@Override
@@ -70,7 +73,8 @@ public class CalculationMain extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				coffeePanel.setVisible(false);
-				
+				teaAdePanel.setVisible(false);
+				frappeBiendedPanel.setVisible(false);
 			}
 			
 			@Override
@@ -80,22 +84,32 @@ public class CalculationMain extends JFrame {
 		});
 		
 		teaAdeBtn.setBounds(840, 110, 150, 100);
-	
-		teaAdeBtn.addActionListener(new ActionListener() {
-
+		teaAdeBtn.addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				add(teaAde());
+			public void mouseClicked(MouseEvent e) {
+				coffeePanel.setVisible(false);
+				nonCoffeePanel.setVisible(false);
+				frappeBiendedPanel.setVisible(false);
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				teaAdePanel.setVisible(true);
 			}
 		});
 
 		frappeBlendedBtn.setBounds(985, 110, 150, 100);
-		frappeBlendedBtn.addActionListener(new ActionListener() {
+		frappeBlendedBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				coffeePanel.setVisible(false);
+				nonCoffeePanel.setVisible(false);
+				teaAdePanel.setVisible(false);
+			}
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				add(frappeBlended());
+			public void mousePressed(MouseEvent e) {
+				frappeBiendedPanel.setVisible(true);
 			}
 		});
 
@@ -107,7 +121,9 @@ public class CalculationMain extends JFrame {
 		add(nonCoffeeCategoryBtn);
 		add(nonCoffeePanel);
 		add(teaAdeBtn);
+		add(teaAdePanel);
 		add(frappeBlendedBtn);
+		add(frappeBiendedPanel);
 		add(menuCategory);
 		add(calcEscapeBtn);
 		add(paymentBtn);
@@ -117,47 +133,6 @@ public class CalculationMain extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
-
-	// 각 카테고리 별 버튼들 
-//	public JPanel coffee() {
-//
-//		JPanel coffeePanel = new CoffeeMenu();
-//		coffeePanel.setVisible(true);
-//		
-//		
-//
-//		return coffeePanel;
-//	}
-
-	public JPanel teaAde() {
-
-		JPanel teaAdePanel = new TeaAdeMenu();		
-		teaAdePanel.setVisible(true);
-		
-		return teaAdePanel;
-
-	}
-
-//	public JPanel nonCoffee() {
-//	
-//		JPanel nonCoffeePanel = new NonCoffeeMenu();
-//
-//		nonCoffeePanel.setVisible(true);
-//		return nonCoffeePanel;
-//
-//	}
-
-	public JPanel frappeBlended() {
-
-		FrappeBlendedMenu frappeBlendedPanel = new FrappeBlendedMenu();
-		JPanel teaAdePanel = new TeaAdeMenu();
-
-		
-		frappeBlendedPanel.setVisible(true);
-		
-		return frappeBlendedPanel;
-	}
-
 
 	public static void main(String[] args) {
 		new CalculationMain();

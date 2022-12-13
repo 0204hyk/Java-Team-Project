@@ -18,7 +18,7 @@ public class TeaAdeMenu extends JPanel {
 		
 
 		setLayout(new GridLayout(3, 4));
-		setVisible(false);
+		setVisible(true);
 		setBounds(570, 250, 600, 280);
 		
 	}
