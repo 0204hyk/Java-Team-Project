@@ -12,9 +12,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.closing.closing_main.ClosingFrame;
+import pos.closing.closing_main.component.DoCloseButton;
 
 public class ClosingButton extends JButton implements ActionListener{
-	
 	public ClosingButton() {
 		try {
 			File f = new File("images/PosImages/시작 페이지 버튼 이미지/마감 버튼.png");

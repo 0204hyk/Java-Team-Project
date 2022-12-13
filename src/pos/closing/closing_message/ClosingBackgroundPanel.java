@@ -7,10 +7,11 @@ import java.awt.Image;
 import javax.swing.JPanel;
 
 import pos.closing.closing_main.ClosingFrame;
+import pos.closing.closing_main.component.DoCloseButton;
 
 public class ClosingBackgroundPanel extends JPanel {
 	// 마감확인안내창 배경 이미지 프레임
-	
+	ClosingFrame mainFrame;
 	ClosingMessageFrame frame;
 	Image background;
 	
@@ -20,7 +21,7 @@ public class ClosingBackgroundPanel extends JPanel {
 		g.drawImage(background, 0, 0, d.width, d.height, null);		
 	}	
 	
-	public ClosingBackgroundPanel(ClosingMessageFrame frame, Image background) {
+	public ClosingBackgroundPanel(ClosingFrame mainFrame, ClosingMessageFrame frame, Image background) {
 		this.background = background;
 		setSize(new Dimension(background.getWidth(null), background.getHeight(null)));
 		setLayout(null);
@@ -29,7 +30,7 @@ public class ClosingBackgroundPanel extends JPanel {
 		ClosingAcceptButton acceptBtn = new ClosingAcceptButton();
 		acceptBtn.setLocation(80, 140);
 
-		ClosingRejectButton rejectBtn = new ClosingRejectButton(frame);
+		ClosingRejectButton rejectBtn = new ClosingRejectButton(mainFrame,frame);
 		rejectBtn.setLocation(280, 140);
 		
 		add(acceptBtn);
