@@ -56,6 +56,6 @@ public class RefundFrame extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		//new RefundFrame();
+		new RefundFrame();
 	}
 }

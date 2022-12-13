@@ -24,6 +24,7 @@ public class ReceiptListPanel extends JPanel{
 	
 	public ReceiptListPanel() {
 		setBounds(75, 80, 500, 550); // Panel 틀
+		setLayout(null);
 	}	       
 	
 
