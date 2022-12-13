@@ -43,7 +43,7 @@ public class NonCoffeeButton extends JButton{
 				coffeePanel.setVisible(false);
 				teaAdePanel.setVisible(false);
 				frappeBiendedPanel.setVisible(false);
-			
+				
 			}
 			
 			@Override

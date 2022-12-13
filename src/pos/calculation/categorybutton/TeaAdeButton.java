@@ -42,6 +42,7 @@ public class TeaAdeButton extends JButton {
 				coffeePanel.setVisible(false);
 				nonCoffeePanel.setVisible(false);
 				frappeBiendedPanel.setVisible(false);
+				
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
