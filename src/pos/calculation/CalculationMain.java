@@ -10,12 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pos.calculation.categorybutton.CalcEscapeButton;
+
 import pos.calculation.categorybutton.CoffeeButton;
 import pos.calculation.categorybutton.FrappeBlendedButton;
 import pos.calculation.categorybutton.NonCoffeeButton;
-import pos.calculation.categorybutton.PaymentButton;
 import pos.calculation.categorybutton.TeaAdeButton;
+import pos.calculation.etcbutton.CalcEscapeButton;
+import pos.calculation.etcbutton.PaymentButton;
 import pos.calculation.menubutton.CoffeeMenu;
 import pos.calculation.menubutton.FrappeBlendedMenu;
 import pos.calculation.menubutton.NonCoffeeMenu;
@@ -54,9 +55,10 @@ public class CalculationMain extends JFrame {
 		JPanel coffeePanel = new CoffeeMenu();
 		JPanel teaAdePanel = new TeaAdeMenu();
 		JPanel frappeBiendedPanel = new FrappeBlendedMenu();
-		
+
 		JButton coffeeBtn = new CoffeeButton(nonCoffeePanel, coffeePanel,
 				teaAdePanel, frappeBiendedPanel);
+		
 		JButton nonCoffeeBtn = new NonCoffeeButton(coffeePanel, nonCoffeePanel, 
 				teaAdePanel, frappeBiendedPanel);
 		JButton teaAdeBtn = new TeaAdeButton(nonCoffeePanel, coffeePanel, 
