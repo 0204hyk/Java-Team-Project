@@ -12,8 +12,9 @@ public class SouthScrollPane extends JScrollPane{
 	}
 	
 	public void setPane() { //스크롤패널 초기값만 설정.
-		setPreferredSize(new Dimension(540, 210));
+		setPreferredSize(new Dimension(530, 210));
 		setViewportView(new SouthScrollPaneComponent());
+		
 		
 		add(new SouthScrollPaneComponent());
 		add(new SouthScrollPaneComponent());

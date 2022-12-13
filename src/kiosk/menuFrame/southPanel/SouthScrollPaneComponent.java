@@ -23,7 +23,7 @@ public class SouthScrollPaneComponent extends JPanel{
 	}
 	
 	public void setSettings() {
-		FlowLayout layout = new FlowLayout(0,10,0);
+		FlowLayout layout = new FlowLayout(0,10,10);
 
 
 		setLayout(layout);

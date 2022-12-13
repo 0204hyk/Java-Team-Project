@@ -27,7 +27,7 @@ public void setDisplay() {
 	setVisible(true);
 		
 		//pane.setPreferredSize(new Dimension(450, 210));
-		pane.set
+		
 		
 		setBackground(Color.WHITE);
 		setSize(650, 950);

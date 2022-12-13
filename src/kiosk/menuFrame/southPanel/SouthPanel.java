@@ -8,7 +8,7 @@ public class SouthPanel extends JPanel{
 		
 	public SouthPanel() {
 		
-		setLayout(new BorderLayout(5,0));	
+		setLayout(new BorderLayout(10,0));	
 		setBackground(Color.white);
 		
 		//장바구니 부분
