@@ -13,22 +13,22 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class RefundButton{
+	static int num;
 	
 	public static JButton inputBtn () {
 		
 		JButton inputBtn = new JButton();
 	
 		try {
-
-			BufferedImage bufferedImage = ImageIO.read(new File("PosImages/영수증 조회 이미지/카드번호 & 현금 영수증 란 입력 버튼.png"));
+			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/카드번호 & 현금 영수증 란 입력 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(78, 48, Image.SCALE_SMOOTH); // 크기 조정
 			inputBtn.setIcon(new ImageIcon(scaledImage));
 			
-			BufferedImage bufferedImage2 = ImageIO.read(new File("PosImages/영수증 조회 이미지/카드번호 및 현금 영수증용 입력 버튼 클릭.png"));
+			BufferedImage bufferedImage2 = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/카드번호 및 현금 영수증용 입력 버튼 클릭.png"));
 			Image scaledImage2 = bufferedImage2.getScaledInstance(78, 48, Image.SCALE_SMOOTH); // 크기 조정
 			ImageIcon img = new ImageIcon(scaledImage2);
-			
 			inputBtn.setPressedIcon(img);
+			
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -48,7 +48,7 @@ public class RefundButton{
 		JButton checkBtn = new JButton();
 		
 		try {
-			BufferedImage bufferedImage = ImageIO.read(new File("PosImages/영수증 조회 이미지/영수증 출력 여부 체크.png"));
+			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/영수증 출력 여부 체크.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(56, 48, Image.SCALE_SMOOTH); // 크기 조정
 			checkBtn.setIcon(new ImageIcon(scaledImage));
 		} catch (IOException e1) {
@@ -65,12 +65,12 @@ public class RefundButton{
 					System.out.println(num);
 					if (num % 2 == 0) {	
 						System.out.println("영수증을 출력합니다.");
-						BufferedImage bufferedImage = ImageIO.read(new File("PosImages/영수증 조회 이미지/영수증 출력 여부 체크 완.png"));
+						BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/영수증 출력 여부 체크 완.png"));
 						Image scaledImage = bufferedImage.getScaledInstance(56, 63, Image.SCALE_SMOOTH); // 크기 조정
 						checkBtn.setIcon(new ImageIcon(scaledImage));
 						checkBtn.setLocation(25, 427);
 					} else {
-						BufferedImage bufferedImage = ImageIO.read(new File("PosImages/영수증 조회 이미지/영수증 출력 여부 체크.png"));
+						BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/영수증 출력 여부 체크.png"));
 						Image scaledImage = bufferedImage.getScaledInstance(56, 48, Image.SCALE_SMOOTH); // 크기 조정
 						checkBtn.setIcon(new ImageIcon(scaledImage));
 					}
@@ -93,17 +93,30 @@ public class RefundButton{
 	// 숫자 키패드
 	public static JButton numberPad(int num) {
 		JButton numBtn = new JButton();
+
 		int x = 300, y = 80;
 		
-		String root = "PosImages/영수증 조회 이미지/새 폴더/";
+		String root = "images/PosImages/영수증 조회 이미지/새 폴더/";
 		
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File(root + num + ".png"));
 			Image scaledImage = bufferedImage.getScaledInstance(90, 95, Image.SCALE_SMOOTH); // 크기 조정
 			numBtn.setIcon(new ImageIcon(scaledImage));
+
+			BufferedImage bufferedImage2 = ImageIO.read(new File(root + num + " 클릭.png"));
+			Image scaledImage2 = bufferedImage2.getScaledInstance(90, 95, Image.SCALE_SMOOTH); // 크기 조정
+			ImageIcon img = new ImageIcon(scaledImage2);
+			numBtn.setPressedIcon(img);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		
+		numBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("");
+			}
+		});
 		
 		if (num >= 5 && num <= 8) {
 			x = 300;
@@ -125,17 +138,20 @@ public class RefundButton{
 		numBtn.setContentAreaFilled(false);
 		numBtn.setBorderPainted(false);
 		numBtn.setOpaque(false);
-		
+			
 		return numBtn;
+		
+	
 	
 	}
 	
+	// 닫기 버튼
 	public static JButton closeBtn(JFrame f) {
 		
 		JButton closeBtn = new JButton();
 		
 		try {
-			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/환불 창 닫기 버튼.png"));
+			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/새 폴더/환불 창 닫기 버튼.jpg"));
 			Image scaledImage = bufferedImage.getScaledInstance(40, 40, Image.SCALE_SMOOTH); // 크기 조정
 			closeBtn.setIcon(new ImageIcon(scaledImage));
 		} catch (IOException e1) {

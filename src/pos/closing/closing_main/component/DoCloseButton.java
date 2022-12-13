@@ -11,14 +11,16 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_message.ClosingMessageFrame;
 
 public class DoCloseButton extends JButton implements ActionListener{
 	// 마감하기 버튼
-	
+	ClosingFrame mainFrame;
 	ClosingMessageFrame frame;
 	
-	public DoCloseButton(ClosingMessageFrame frame) {
+	public DoCloseButton(ClosingFrame mainFrame, ClosingMessageFrame frame) {
+		this.mainFrame = mainFrame;
 		this.frame = frame;
 		try {
 			// 버튼에 이미지 삽입
@@ -49,5 +51,6 @@ public class DoCloseButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		frame.setVisible(true);
+		mainFrame.setEnabled(false);
 	}
 }

@@ -4,13 +4,12 @@ import java.awt.Color;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import pos.gje.refund.panel.InputPanel;
-import pos.gje.refund.panel.PaymentTypePanel;
-import pos.gje.refund.panel.ReceiptPanel;
-import pos.gje.refund.panel.ReceiveAndChangePanel;
+import pos.gje.ReceiptCheck.refund.panel.InputPanel;
+import pos.gje.ReceiptCheck.refund.panel.PaymentTypePanel;
+import pos.gje.ReceiptCheck.refund.panel.ReceiptPanel;
+import pos.gje.ReceiptCheck.refund.panel.ReceiveAndChangePanel;
 import pos.gje.refund.panel.TitlePanel;
 
 public class RefundFrame extends JFrame{
@@ -38,7 +37,7 @@ public class RefundFrame extends JFrame{
 	}
 
 	public static void add(JFrame f) {
-		f.add(new RefundButton().closeBtn(f));
+		f.add(new RefundButton().closeBtn(f)); // 닫기 버튼 
 		f.add(new TitlePanel()); // 타이틀바
 		f.add(new PaymentTypePanel()); // 결제방식
 		f.add(new ReceiveAndChangePanel());  // 받은 돈 거스름 돈
@@ -50,7 +49,6 @@ public class RefundFrame extends JFrame{
 		
 		for (int i = 0; i < 16; ++i) {
 			f.add(new RefundButton().numberPad(i + 1));
-			
 		}
 		
 	}
