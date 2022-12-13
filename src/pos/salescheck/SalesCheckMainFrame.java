@@ -1,28 +1,19 @@
 package pos.salescheck;
 
 import java.awt.Color;
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/kbc
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-<<<<<<< HEAD
 
-import pos.salescheck.component.ChartLabel;
-import pos.salescheck.component.EscapeButton;
-import pos.salescheck.component.SearchButton;
-=======
 import org.jfree.chart.ChartPanel;
 
 import pos.DigitalClock;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.chart.SalesChart;
->>>>>>> refs/remotes/origin/kbc
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;

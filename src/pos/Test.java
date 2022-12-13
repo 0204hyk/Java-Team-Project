@@ -20,11 +20,6 @@ public class Test {
 	
 	
 	public static void main(String[] args) {
-<<<<<<< HEAD
 		new PosFrame();
-=======
-		
-		
->>>>>>> refs/remotes/origin/kbc
 	}
 }
