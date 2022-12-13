@@ -13,6 +13,7 @@ public class CartMainFrame extends JFrame{
 	}
 
 	public void panelSetting() {
+	
 
 	add(new CartMainPanel());	
 	

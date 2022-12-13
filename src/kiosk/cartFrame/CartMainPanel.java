@@ -39,6 +39,7 @@ public class CartMainPanel extends JPanel {
 		add(compo.payButton());
 		add(compo.cancelButton());
 		add(new CartMenuPanel());
+		add(new CartMainPanelComponet().imageLabel());
 	}
 	
 }
