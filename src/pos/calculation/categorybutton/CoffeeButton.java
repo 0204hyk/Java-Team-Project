@@ -29,7 +29,9 @@ public class CoffeeButton extends JButton{
 	JPanel frappeBiendedPanel;
 	
 	public CoffeeButton() {
+		
 	}
+	
 	
 	public CoffeeButton(JPanel nonCoffeePanel, JPanel coffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
 		this.coffeePanel = coffeePanel;
@@ -64,6 +66,8 @@ public class CoffeeButton extends JButton{
 			}
 			
 		});
+		
+	
 	}
 
 	public void setCoffeeBtn() {
@@ -76,7 +80,7 @@ public class CoffeeButton extends JButton{
 			e.printStackTrace();
 			
 		}
+
 	}
-	
-	
+
 }

@@ -19,6 +19,8 @@ public class NonCoffeeButton extends JButton{
 	JPanel teaAdePanel;
 	JPanel frappeBiendedPanel;
 
+
+	
 	public NonCoffeeButton(JPanel coffeePanel, JPanel nonCoffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
 		
 		this.coffeePanel =  coffeePanel;
@@ -44,13 +46,13 @@ public class NonCoffeeButton extends JButton{
 				coffeePanel.setVisible(false);
 				teaAdePanel.setVisible(false);
 				frappeBiendedPanel.setVisible(false);
-				
+			
 			}
 			
 			@Override
 			public void mousePressed(MouseEvent e) {
 				nonCoffeePanel.setVisible(true);
-				
+			
 			}
 			
 		});

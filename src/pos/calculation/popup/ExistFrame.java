@@ -42,7 +42,8 @@ public class ExistFrame extends JFrame {
 		};
 		
 		btn.setBounds(430, 10, 50, 50);
-		
+		btn.setBorderPainted(false);
+		btn.setContentAreaFilled(false);
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/안내 멘트 창 닫기 버튼.png"));
 			Image click = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
@@ -63,8 +64,9 @@ public class ExistFrame extends JFrame {
 
 		setContentPane(backGround);
 		add(btn);
+		
 		setLayout(null);
-		setSize(500, 300);
+		setSize(510, 320);
 		setLocation(500, 250);
 		setVisible(true);
 	}
