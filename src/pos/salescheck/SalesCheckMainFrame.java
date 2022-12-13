@@ -19,7 +19,6 @@ import pos.salescheck.component.datecombo2.YearComboBox2;
 import pos.salescheck.component.saleslist.AmountLabel;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitleLabel;
-import pos.salescheck.component.title.DigitalClock;
 import pos.salescheck.component.title.TitleImage;
 
 public class SalesCheckMainFrame extends JFrame {
@@ -28,10 +27,10 @@ public class SalesCheckMainFrame extends JFrame {
 	public SalesCheckMainFrame() {
 		
 		// 매출요약 상단 메뉴바 생성.
-		JLabel centerTitle = new DigitalClock();
-		centerTitle.setBounds(1000, 10, 400, 30);
-		JPanel title = new TitleImage();
-		title.add(centerTitle);
+//		//JLabel centerTitle = new DigitalClock();
+//		centerTitle.setBounds(1000, 10, 400, 30);
+//		JPanel title = new TitleImage();
+//		title.add(centerTitle);
 		
 		// 매출요약 차트 구현
 		SalesChart chart = new SalesChart("", "");
@@ -61,7 +60,7 @@ public class SalesCheckMainFrame extends JFrame {
 		JLabel salesTitle = new TitleLabel();
 		JLabel amount = new AmountLabel();
 		
-		add(title);
+		//add(title);
 		add(yearCombo);
 		add(between);
 		add(monthCombo);

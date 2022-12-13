@@ -21,7 +21,6 @@ import pos.calculation.menubutton.CoffeeMenu;
 import pos.calculation.menubutton.FrappeBlendedMenu;
 import pos.calculation.menubutton.NonCoffeeMenu;
 import pos.calculation.menubutton.TeaAdeMenu;
-import pos.salescheck.component.title.DigitalClock;
 import pos.salescheck.component.title.TitleImage;
 
 public class CalculationMain extends JFrame {
@@ -33,10 +32,10 @@ public class CalculationMain extends JFrame {
 
 	public CalculationMain() {
 		// 메뉴 상단 타이틀 구현
-		JLabel calcCenterTitle = new DigitalClock();
-		calcCenterTitle.setBounds(1000, 10, 400, 30);
+//		JLabel calcCenterTitle = new DigitalClock();
+//		calcCenterTitle.setBounds(1000, 10, 400, 30);
 		JPanel titleBar = new TitleImage();
-		titleBar.add(calcCenterTitle);
+		//titleBar.add(calcCenterTitle);
 
 		// 주문 리스트 구현 ----
 		JLabel menuList = new CalcView();

@@ -5,7 +5,7 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 
-import pos.salescheck.component.title.DigitalClock;
+
 
 public class TitleLabel extends JLabel {
 
