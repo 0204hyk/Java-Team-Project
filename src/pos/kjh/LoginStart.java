@@ -21,7 +21,7 @@ public class LoginStart extends JFrame{
 		// 카페 로고
 		JLabel logo = new JLabel();
 		
-		BufferedImage bufferedLogoImage = ImageIO.read(new File("KioskImages/2. 로그인/Asset 9@4x-8.png"));
+		BufferedImage bufferedLogoImage = ImageIO.read(new File("images/KioskImages/2. 로그인/Asset 9@4x-8.png"));
 		Image logoImage = bufferedLogoImage.getScaledInstance(118, 163, Image.SCALE_SMOOTH);
 		logo.setIcon(new ImageIcon(logoImage));
 		
@@ -30,7 +30,7 @@ public class LoginStart extends JFrame{
 		// 아이디 입력
 		JLabel id = new JLabel();
 		
-		BufferedImage bufferedIdImage = ImageIO.read(new File("KioskImages/2. 로그인/Asset 13@4x-8.png"));
+		BufferedImage bufferedIdImage = ImageIO.read(new File("images/KioskImages/2. 로그인/Asset 13@4x-8.png"));
 		Image idImage = bufferedIdImage.getScaledInstance(227, 43, Image.SCALE_SMOOTH);
 		id.setIcon(new ImageIcon(idImage));
 		
@@ -39,7 +39,7 @@ public class LoginStart extends JFrame{
 		// 비밀번호 입력
 		JLabel pw = new JLabel();
 
-		BufferedImage bufferedPwImage = ImageIO.read(new File("KioskImages/2. 로그인/Asset 8@4x-8.png"));
+		BufferedImage bufferedPwImage = ImageIO.read(new File("images/KioskImages/2. 로그인/Asset 8@4x-8.png"));
 		Image pwImage = bufferedPwImage.getScaledInstance(227, 43, Image.SCALE_SMOOTH);
 		pw.setIcon(new ImageIcon(pwImage));
 
@@ -48,7 +48,7 @@ public class LoginStart extends JFrame{
 		
 		// 로그인 진행 확인 버튼
 		JButton checkBtn = new JButton();
-		BufferedImage bufferedCheckImage = ImageIO.read(new File("KioskImages/2. 로그인/Asset 12@4x-8.png"));
+		BufferedImage bufferedCheckImage = ImageIO.read(new File("images/KioskImages/2. 로그인/Asset 12@4x-8.png"));
 		Image chImage = bufferedCheckImage.getScaledInstance(38,38, Image.SCALE_SMOOTH);
 		checkBtn.setIcon(new ImageIcon(chImage));
 		checkBtn.setBounds(428,291,38,38);

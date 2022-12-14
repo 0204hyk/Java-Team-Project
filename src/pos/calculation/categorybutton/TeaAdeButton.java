@@ -28,6 +28,7 @@ public class TeaAdeButton extends JButton {
 		this.teaAdePanel = teaAdePanel;
 		this.frappeBiendedPanel = frappeBiendedPanel;
 		
+		// 기본적으로 버튼이 비활성화 되어 있다.
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/티, 에이드 비활성 버튼.png"));
 			Image scale = image.getScaledInstance(150, 100, Image.SCALE_SMOOTH);
@@ -35,23 +36,24 @@ public class TeaAdeButton extends JButton {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		setBounds(840, 110, 150, 100);
 		setBorderPainted(false);
 		setContentAreaFilled(false);
 		setBackground(Color.WHITE);
 		setBorder(null);
 		addMouseListener(new MouseAdapter() {
+			
+			// 마우스 클릭 시 기존에 나오던 Panel들은 숨긴다.
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				coffeePanel.setVisible(false);
 				nonCoffeePanel.setVisible(false);
 				frappeBiendedPanel.setVisible(false);
-				
-			}
-			@Override
-			public void mousePressed(MouseEvent e) {
 				teaAdePanel.setVisible(true);
 			}
+			
+		
 		});
 		
 	}

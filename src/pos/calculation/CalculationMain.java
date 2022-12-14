@@ -57,7 +57,9 @@ public class CalculationMain extends JFrame {
 		JPanel coffeePanel = new CoffeeMenu();
 		JPanel teaAdePanel = new TeaAdeMenu();
 		JPanel frappeBiendedPanel = new FrappeBlendedMenu();
-
+		
+		
+		
 		JButton coffeeBtn = new CoffeeButton(nonCoffeePanel, coffeePanel,
 				teaAdePanel, frappeBiendedPanel);
 		

@@ -6,10 +6,12 @@ import pos.gje.delet.component.CompletionBtn;
 import pos.gje.delet.panel.OkPanel;
 
 public class OkFrame extends JFrame{
-	public OkFrame() {
 
+	
+	public OkFrame() {
+	
 		
-		add (new CompletionBtn());
+		add (new CompletionBtn(this));
 		add(new OkPanel());
 		
 		setUndecorated(true); 
