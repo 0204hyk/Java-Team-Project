@@ -1,9 +1,10 @@
 package kiosk;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,25 +14,52 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
+
+import kiosk.tools.WithImage;
 
 public class EnterPhoneNum extends JFrame {
 
 	String root = "images/KioskImages/5_1. step1 InputPhone";
+	WithImage wi = new WithImage(root);
 
 	public EnterPhoneNum() {
 
-		add(makeLabel("frame.png", 23, 23, 400, 631));
-		add(makeLabel("InputText.png", 125, 80, 197, 29));
-		add(makeLabel("010.png", 104, 147, 49, 16));
-		add(makeButton("cancel.png", 66, 545, 149, 71));
-		add(makeButton("confirm.png", 229, 545, 149, 71));
+		add(wi.makeLabel("frame.png", 23, 23, 400, 631));
+		add(wi.makeLabel("InputText.png", 125, 80, 197, 29));
+		add(wi.makeLabel("010.png", 104, 147, 49, 16));
+		add(wi.makeButton("cancel.png", 66, 545, 149, 71));
+		add(wi.makeButton("confirm.png", 229, 545, 149, 71));
+		
         // 번호 입력하는 곳
-		JLabel[] pf = phoneFields(); add(pf[0]); add(pf[1]);
+		JLabel[] phoneField = new JLabel[2];
+		phoneField[0] = phoneNumBackGround(170, 140);
+		JTextArea tf1 = new JTextArea();
+		tf1.setOpaque(true);
+		tf1.setBackground(new Color(241, 242, 242));
+		tf1.setBorder(null);
+		tf1.setBounds(10, 2, 65, 24);
+		tf1.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		tf1.setForeground(Color.BLACK);
+		phoneField[0].setLayout(null);
+		phoneField[0].add(tf1);
+		add(phoneField[0]);
+
+		phoneField[1] = phoneNumBackGround(269, 140);
+		JTextArea tf2 = new JTextArea();
+		tf2.setOpaque(true);
+		tf2.setBackground(new Color(241, 242, 242));
+		tf2.setBorder(null);
+		tf2.setBounds(10, 2, 65, 24);
+		tf2.setFont(new Font("맑은 고딕", Font.PLAIN, 21));
+		phoneField[1].setLayout(null);
+		phoneField[1].add(tf2);
+		add(phoneField[1]);
+		
 		// 키패드
-		int x = 66, y = 213;
 		for (int i = 0; i < 12; i++) {
-			add(makeButton(i + ".png", x, y, 96, 71));
+			int x = 66, y = 213;
+			add(new PhoneKeypad(i, tf1, x, y));
 			x += 108;
 			if (i == 2 || i == 5 || i == 8) {
 				x = 66;
@@ -39,6 +67,7 @@ public class EnterPhoneNum extends JFrame {
 			}
 		}
 		
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(null);
 		setSize(460, 700);
 		setVisible(true);
@@ -46,27 +75,6 @@ public class EnterPhoneNum extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
 
 	}
-	
-	public JButton makeButton(String detailedRoot, int x, int y, int w, int h) {
-		JButton bt = new JButton();
-
-		bt.setIcon(new ImageIcon(readImage(root + "/"+ detailedRoot, w, h)));
-		bt.setBounds(x, y, w, h);
-		bt.setBorderPainted(false);
-		bt.setContentAreaFilled(false);
-		bt.setPressedIcon(new ImageIcon(readImage(root +" Selected/" + detailedRoot, w, h)));
-		return bt;
-	}
-	
-	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
-		JLabel lb = new JLabel();
-
-		lb.setIcon(new ImageIcon(readImage(root + "/" + detailedRoot, w, h)));
-		lb.setBounds(x, y, w, h);
-
-		return lb;
-	}
-
 	public Image readImage(String root, int w, int h) {
 
 		BufferedImage image;
@@ -83,34 +91,6 @@ public class EnterPhoneNum extends JFrame {
 
 	}
 
-	public JLabel[] phoneFields() {
-		JLabel[] phoneField = new JLabel[2];
-
-		phoneField[0] = phoneNumBackGround(170, 140);
-		JTextField tf1 = new JTextField();
-		tf1.setOpaque(true);
-		tf1.setBackground(new Color(241, 242, 242));
-		tf1.setBorder(null);
-		tf1.setBounds(10, 2, 65, 24);
-		tf1.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
-		tf1.setForeground(Color.BLACK);
-		
-		phoneField[0].setLayout(null);
-		phoneField[0].add(tf1);
-
-		phoneField[1] = phoneNumBackGround(269, 140);
-		JTextField tf2 = new JTextField();
-		tf2.setOpaque(true);
-		tf2.setBackground(new Color(241, 242, 242));
-		tf2.setBorder(null);
-		tf2.setBounds(10, 2, 65, 24);
-		tf2.setFont(new Font("맑은 고딕", Font.PLAIN, 21));
-		phoneField[1].setLayout(null);
-		phoneField[1].add(tf2);
-
-		return phoneField;
-
-	}
 
 	public JLabel phoneNumBackGround(int x, int y) {
 
