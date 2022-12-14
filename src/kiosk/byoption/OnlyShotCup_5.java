@@ -6,26 +6,21 @@ import javax.swing.JFrame;
 
 import kiosk.tools.WithImage;
 
-public class All {
+public class OnlyShotCup_5 {
 	String root = "images/KioskImages/4. detailedOption";
 	WithImage wi = new WithImage(root);
 	Options op = new Options();
 
-	public All() {
+	public OnlyShotCup_5() {
 		
-		op.hotAndIce();
-		op.decaffein();
-		op.sizes();
-		op.cup();
-		op.ice();
-		op.shot();
-		op.milk();
+		op.cup(44, 330);
+		op.shot(300, 330);
 		op.setVisible(true);
 	}
-	
+
 	public static void main(String[] args) {
-		
-		new All();
+
+		new OnlyShotCup_5();
 	}
-	
+
 }
