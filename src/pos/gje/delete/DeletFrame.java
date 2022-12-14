@@ -1,17 +1,17 @@
-package pos.gje.delet;
+package pos.gje.delete;
 
 import javax.swing.JFrame;
 
-import pos.gje.delet.component.CancelBtn;
-import pos.gje.delet.component.OkBtn;
-import pos.gje.delet.panel.DeletCheckPanel;
+import pos.gje.delete.component.CancelBtn;
+import pos.gje.delete.component.OkBtn;
+import pos.gje.delete.panel.DeleteCheckPanel;
 
 public class DeletFrame extends JFrame{
 	
 	public DeletFrame() {
 		add(new OkBtn(this));
 		add(new CancelBtn(this));
-		add(new DeletCheckPanel());
+		add(new DeleteCheckPanel());
 		
 		setUndecorated(true); 
 		setSize(500, 251); // 프레임 사이즈

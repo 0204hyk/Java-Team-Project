@@ -1,10 +1,6 @@
 package pos.calculation;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -24,6 +20,10 @@ import pos.calculation.menubutton.CoffeeMenu;
 import pos.calculation.menubutton.FrappeBlendedMenu;
 import pos.calculation.menubutton.NonCoffeeMenu;
 import pos.calculation.menubutton.TeaAdeMenu;
+import pos.gje.calcView.CalcViewPanel;
+import pos.gje.calcView.QuantityPanel;
+import pos.gje.calcView.component.FullDeleteButton;
+import pos.gje.calcView.component.PartiallyDeleteButton;
 import pos.salescheck.component.title.TitleImage;
 
 public class CalculationMain extends JFrame {
@@ -41,8 +41,11 @@ public class CalculationMain extends JFrame {
 		titleBar.add(calcCenterTitle);
 
 		// 주문 리스트 구현 ----
-		JLabel menuList = new CalcView();
-
+		JPanel menuList = new CalcViewPanel();
+		JButton partdelete = new PartiallyDeleteButton(); 
+		JButton alldelete = new FullDeleteButton();
+		JPanel quantity = new QuantityPanel();
+		
 		// 뒤로가기 버튼 구현
 		JButton calcEscapeBtn = new CalcEscapeButton();
 
@@ -74,8 +77,13 @@ public class CalculationMain extends JFrame {
 		JButton leftBtn = new LeftButton();
 		JButton rightBtn = new RightButton();
 		
-		add(titleBar);
+		// 주문 리스트 ----
+		add(quantity);
+		add(alldelete);
+		add(partdelete);
 		add(menuList);
+		
+		add(titleBar);
 		add(coffeeBtn);
 		add(coffeePanel);
 		add(nonCoffeeBtn);

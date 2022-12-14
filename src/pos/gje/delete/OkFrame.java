@@ -1,9 +1,9 @@
-package pos.gje.delet;
+package pos.gje.delete;
 
 import javax.swing.JFrame;
 
-import pos.gje.delet.component.CompletionBtn;
-import pos.gje.delet.panel.OkPanel;
+import pos.gje.delete.component.CompletionBtn;
+import pos.gje.delete.panel.OkPanel;
 
 public class OkFrame extends JFrame{
 
