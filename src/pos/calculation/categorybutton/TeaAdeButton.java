@@ -51,10 +51,30 @@ public class TeaAdeButton extends JButton {
 				nonCoffeePanel.setVisible(false);
 				frappeBiendedPanel.setVisible(false);
 				teaAdePanel.setVisible(true);
+				setBtnEnabled();
 			}
 			
 		
 		});
 		
+	}
+	public void setBtnDisabled() {
+		try {
+			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/티, 에이드 비활성 버튼.png"));
+			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
+			setIcon(new ImageIcon(scale));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void setBtnEnabled() {
+		try {
+			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/티, 에이드 버튼.png"));
+			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
+			setIcon(new ImageIcon(scale));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

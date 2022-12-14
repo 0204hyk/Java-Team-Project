@@ -38,7 +38,6 @@ public class FrappeBlendedButton extends JButton {
 			setIcon(new ImageIcon(scale));
 		} catch (IOException e) {
 			e.printStackTrace();
-
 		}
 
 		setBounds(1020, 110, 160, 100);
@@ -54,10 +53,33 @@ public class FrappeBlendedButton extends JButton {
 				teaAdePanel.setVisible(false);
 				nonCoffeePanel.setVisible(false);
 				frappeBiendedPanel.setVisible(true);
+				setBtnEnabeld();
 			}
 
 
 		});
 
+	}
+	
+	public void setBtnDisabled() {
+		try {
+			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/프라페, 블랜디드 비활성 버튼.png"));
+			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
+			setIcon(new ImageIcon(scale));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void setBtnEnabeld() {
+		try {
+			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/프라페, 블랜디드 버튼.png"));
+			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
+			setIcon(new ImageIcon(scale));
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
 	}
 }

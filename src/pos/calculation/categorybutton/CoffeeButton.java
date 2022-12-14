@@ -30,7 +30,7 @@ public class CoffeeButton extends JButton{
 	JPanel coffeePanel;
 	JPanel teaAdePanel;
 	JPanel frappeBiendedPanel;
-	
+
 	
 	public CoffeeButton() {
 		
@@ -38,7 +38,6 @@ public class CoffeeButton extends JButton{
 	
 	
 	public CoffeeButton(JPanel nonCoffeePanel, JPanel coffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
-		
 		this.coffeePanel = coffeePanel;
 		this.nonCoffeePanel =  nonCoffeePanel;
 		this.teaAdePanel = teaAdePanel;
@@ -71,19 +70,16 @@ public class CoffeeButton extends JButton{
 				setBtnEnabled();
 			}
 
-			
-			
-			
 		});	
 
 	
 	}
 	
-	public void setBtnDisabled() {
+	public void setBtnDisabled(JButton coffeeBtn) {
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/카페 카테고리 비활성 버튼.png"));
 			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
-			setIcon(new ImageIcon(scale));
+			coffeeBtn.setIcon(new ImageIcon(scale));
 		} catch (IOException e) {
 			e.printStackTrace();
 
