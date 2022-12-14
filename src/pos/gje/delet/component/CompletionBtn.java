@@ -37,7 +37,7 @@ public class CompletionBtn extends JButton implements ActionListener{
 		}
 		
 		addActionListener(this);
-		setBounds(150, 120, 100, 50); // 위치 및 사이즈 조절
+		setBounds(150, 115, 100, 50); // 위치 및 사이즈 조절
 		setContentAreaFilled(false);
 		setBorderPainted(false); 
 		setOpaque(false);	

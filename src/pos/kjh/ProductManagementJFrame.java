@@ -24,6 +24,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import pos.PosFrame;
+import pos.gje.delet.DeletFrame;
+import pos.gje.modify.ModifyFrame;
+
 public class ProductManagementJFrame extends JFrame {
 
 	TopPanel tp = new TopPanel();
@@ -77,6 +81,33 @@ public class ProductManagementJFrame extends JFrame {
 
 		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
 				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55);
+		
+		backBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new PosFrame();
+			}
+		});
+		
+		deleteBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new DeletFrame();
+				
+			}
+		});
+		
+		modifyBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new ModifyFrame();
+				
+			}
+		});
 
 		add(serchBtn);
 		add(backBtn);

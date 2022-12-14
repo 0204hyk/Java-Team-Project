@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -69,7 +70,12 @@ public class MenuAddFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				try {
+					new AddFix();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 
@@ -100,49 +106,46 @@ public class MenuAddFrame extends JFrame{
 		
 		return closeBtn;
 	}
-	
-//	public JRadioButton category(String name) {
-//		
-//		JRadioButton categoryName = new JRadioButton(name);
-//
-//		return categoryName;
-//	}
-	
+
 
 	
 	public MenuAddFrame() throws IOException {
-		
+
+		ButtonGroup categoryBtnGroup = new ButtonGroup();
+
 		JRadioButton coffee = new JRadioButton("Coffee");
 		coffee.setBounds(180, 305, 90, 70);
 		coffee.setFont(coffee.getFont().deriveFont(20.0f));
 		coffee.setBorderPainted(false);
 		coffee.setContentAreaFilled(false);
 		coffee.setFocusPainted(false);
-		
+
 		JRadioButton nonCoffee = new JRadioButton("Non Coffee");
 		nonCoffee.setBounds(280, 305, 140, 70);
 		nonCoffee.setFont(coffee.getFont().deriveFont(20.0f));
 		nonCoffee.setBorderPainted(false);
 		nonCoffee.setContentAreaFilled(false);
 		nonCoffee.setFocusPainted(false);
-		
+
 		JRadioButton teaAde = new JRadioButton("Tea, Ade");
 		teaAde.setBounds(420, 305, 110, 70);
 		teaAde.setFont(coffee.getFont().deriveFont(20.0f));
 		teaAde.setBorderPainted(false);
 		teaAde.setContentAreaFilled(false);
 		teaAde.setFocusPainted(false);
-		
+
 		JRadioButton frappeBlended = new JRadioButton("Frappe, Blended");
 		frappeBlended.setBounds(540, 305, 190, 70);
 		frappeBlended.setFont(coffee.getFont().deriveFont(20.0f));
 		frappeBlended.setBorderPainted(false);
 		frappeBlended.setContentAreaFilled(false);
 		frappeBlended.setFocusPainted(false);
-		
-		
-		
-		
+
+		categoryBtnGroup.add(frappeBlended);
+		categoryBtnGroup.add(teaAde);
+		categoryBtnGroup.add(nonCoffee);
+		categoryBtnGroup.add(coffee);
+
 		icon = new ImageIcon("images/PosImages/상품 관리 이미지/메뉴 추가 창 기본 틀.png");
 
 		JPanel background = new JPanel() {
@@ -153,16 +156,16 @@ public class MenuAddFrame extends JFrame{
 				super.paintComponent(g);
 			}
 		};
-		
+
 		scrollPane = new JScrollPane(background);
 		setContentPane(scrollPane);
-		
-			
+
+
 		background.add(fixBtn());
 
 		background.setBounds(0, 0, 900, 480);
-		
-		
+
+
 		add(close());
 		add(priceAdd());
 		add(nameAdd());
@@ -171,9 +174,10 @@ public class MenuAddFrame extends JFrame{
 		add(nonCoffee);
 		add(coffee);
 		add(background);
-		
-		
+
+
 		background.setLayout(null);	
+
 		setLayout(null);
 		setUndecorated(true);
 		setResizable(false);

@@ -16,7 +16,7 @@ public class CheckFrame extends JFrame{
 		add(new OkBtn(this));
 		add(new CheckPanel());
 		
-		setUndecorated(true); 
+		setUndecorated(true); // 타이틀바 없애기
 		getContentPane().setBackground(Color.WHITE); // 배경색
 		setSize(400, 200); // 프레임 사이즈
 		setLayout(null); // 레이아웃
