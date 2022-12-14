@@ -40,7 +40,7 @@ public class Step2 extends JFrame {
 		add(wi.makeLabel("notsave.png", 245,248,158,141));
 		add(wi.makeButton("card.png", 73,519,158,141));
 		add(wi.makeButton("point.png", 245,519,158,141));
-
+ 
 
 		add(wi.makeButton("pay.png", 324, 771, 192, 67));
 		add(wi.makeButton("cancel.png", 113, 771, 192, 67));

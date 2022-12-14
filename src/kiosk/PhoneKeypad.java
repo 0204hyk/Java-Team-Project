@@ -3,6 +3,7 @@ package kiosk;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 
@@ -18,16 +19,35 @@ public class PhoneKeypad extends JButton implements ActionListener {
 
 	public PhoneKeypad(int i, JTextArea ta, int x, int y) {
 		this.ta = ta;
-		this.i = i;
-		
-		wi.makeButton(i + ".png", x, y, 96, 71);
-		this.addActionListener(this);
+		this.i = i + 1;
+
+		setIcon(new ImageIcon(wi.readImage(root + "/" + i + ".png", 96, 71)));
+		setBounds(x, y, 96, 71);
+		setBorderPainted(false);
+		setContentAreaFilled(false);
+		setPressedIcon(new ImageIcon(wi.readImage(root + " Selected/" + i + ".png", 96, 71)));
+		addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println(i);
-		ta.append("" + i);
+		if (i == 11) {
+			ta.append("0");
+		} else if (i == 10 || i == 12) {
+			ta.append("");
+		} else {
+			ta.append("" + i);
+		}
+
+		int len = ta.getText().length();
+
+		if (i == 12) {
+			if (len > 0) {
+				String text = ta.getText().substring(0, len - 1);
+				ta.setText(text);
+			}
+		}
+
 	}
 
 }
