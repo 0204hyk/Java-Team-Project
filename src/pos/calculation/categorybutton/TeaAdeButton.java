@@ -35,7 +35,7 @@ public class TeaAdeButton extends JButton {
 		
 		// 기본적으로 버튼이 비활성화 되어 있다.
 		setIcon(new ImageIcon(tool.getScaledImage(
-				"images/PosImages/계산 파트 이미지/티, 에이드 비활성 버튼.png", 160, 100)));
+				"images/PosImages/계산 파트 이미지/티 카테고리 비활성화 버튼.png", 160, 100)));
 		
 		setBounds(866, 110, 160, 100);
 		setBorderPainted(false);
@@ -60,11 +60,11 @@ public class TeaAdeButton extends JButton {
 	}
 	public void setBtnDisabled() {
 		setIcon(new ImageIcon(tool.getScaledImage(
-				"images/PosImages/계산 파트 이미지/티, 에이드 비활성 버튼.png", 160, 100)));
+				"images/PosImages/계산 파트 이미지/티 카테고리 비활성화 버튼.png", 160, 100)));
 	}
 	
 	public void setBtnEnabled() {
 		setIcon(new ImageIcon(tool.getScaledImage(
-				"images/PosImages/계산 파트 이미지/티, 에이드 버튼.png", 160, 100)));
+				"images/PosImages/계산 파트 이미지/티 카테고리 버튼.png", 160, 100)));
 	}
 }

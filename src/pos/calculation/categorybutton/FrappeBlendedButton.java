@@ -33,7 +33,7 @@ public class FrappeBlendedButton extends JButton {
 
 		// 기본적으로 버튼이 비활성화 되어 있다.
 		setIcon(new ImageIcon(tool.getScaledImage(
-				"images/PosImages/계산 파트 이미지/프라페, 블랜디드 비활성 버튼.png", 160, 100)));
+				"images/PosImages/계산 파트 이미지/프라페 비활성 버튼.png", 160, 100)));
 		setBounds(1020, 110, 160, 100);
 		setBorderPainted(false);
 		setContentAreaFilled(false);
@@ -57,11 +57,11 @@ public class FrappeBlendedButton extends JButton {
 	
 	public void setBtnDisabled() {
 		setIcon(new ImageIcon(tool.getScaledImage(
-				"images/PosImages/계산 파트 이미지/프라페, 블랜디드 비활성 버튼.png", 160, 100)));
+				"images/PosImages/계산 파트 이미지/프라페 비활성 버튼.png", 160, 100)));
 	}
 	
 	public void setBtnEnabeld() {
 		setIcon(new ImageIcon(tool.getScaledImage(
-				"images/PosImages/계산 파트 이미지/프라페, 블랜디드 버튼.png", 160, 100)));
+				"images/PosImages/계산 파트 이미지/프라페 버튼.png", 160, 100)));
 	}
 }
