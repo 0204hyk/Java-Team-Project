@@ -20,9 +20,9 @@ public class Options extends JFrame {
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setVisible(true);
 		getContentPane().setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
+		
 	}
 
 	public void defaults() {
