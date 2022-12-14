@@ -12,6 +12,7 @@ import org.jfree.chart.ChartPanel;
 
 import pos.DigitalClock;
 import pos.ImageScaledTool;
+import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.chart.SalesChart;
@@ -32,10 +33,13 @@ public class SalesCheckMainFrame extends JFrame {
 	public SalesCheckMainFrame() {
 		
 		// 매출요약 상단 메뉴바 생성.
-		JLabel centerTitle = new DigitalClock();
-		centerTitle.setBounds(375, 10, 400, 30);
-		JPanel title = new TitleImage();
-		title.add(centerTitle);
+		JPanel title = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+				"images/PosImages/상단 메뉴바.png", 1200, 60));
+		title.setBounds(0 ,0, 1200, 60);
+		// 현재 시간 출력
+		JLabel clock = new DigitalClock();
+		clock.setBounds(375, 10, 400, 30);
+		title.add(clock);
 		
 		// 매출요약 차트 구현
 		SalesChart chart = new SalesChart("", "");

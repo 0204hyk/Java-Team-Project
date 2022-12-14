@@ -13,13 +13,12 @@ import javax.swing.JScrollPane;
 import pos.ImageScaledTool;
 
 public class ReceiptListPanel extends JPanel{
-	Image image = ImageScaledTool.getScaledImage(
-			"images/PosImages/영수증 조회 이미지/날짜별 영수증 리스트 기본 틀.png", 500, 550);
 
 	// 패널 배경 넣기
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
-		g.drawImage(image, 0, 0, d.width, d.height, null);
+		ImageIcon image = new ImageIcon("images/PosImages/영수증 조회 이미지/날짜별 영수증 리스트 기본 틀.png");
+		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 	
 	public ReceiptListPanel() {

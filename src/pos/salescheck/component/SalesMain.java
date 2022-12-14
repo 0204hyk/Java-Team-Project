@@ -6,11 +6,7 @@ public class SalesMain extends JFrame {
 
 	public SalesMain() {
 		
-		
-		
-		
-		
-		
+
 		setLayout(null);
 		setLocationRelativeTo(null);
 		setSize(1200, 800);
@@ -18,8 +14,6 @@ public class SalesMain extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
-	public static void main(String[] args) {
-		
-	}
+	
 
 }
