@@ -35,7 +35,8 @@ public class NonCoffeeButton extends JButton{
 		this.frappeBiendedPanel = frappeBiendedPanel;
 
 		// 기본적으로 버튼이 비활성화 되어 있다.
-		setIcon(new ImageIcon(tool.getScaledImage("images/PosImages/계산 파트 이미지/논커피 비활성 버튼.png", 160, 100)));
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/계산 파트 이미지/논커피 비활성 버튼.png", 160, 100)));
 		setBounds(713, 110, 160, 100);
 		setBorderPainted(false);
 		setContentAreaFilled(false);

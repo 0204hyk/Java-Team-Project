@@ -31,7 +31,8 @@ public class CoffeeButton extends JButton{
 
 		
 		// 기본적으로 버튼이 활성화 되어있다.
-		setIcon(new ImageIcon(tool.getScaledImage("images/PosImages/계산 파트 이미지/카페 카테고리 버튼.png", 160, 100)));
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/계산 파트 이미지/카페 카테고리 버튼.png", 160, 100)));
 		setBounds(560, 110, 160, 100);
 		setBorderPainted(false);
 		setContentAreaFilled(false);
