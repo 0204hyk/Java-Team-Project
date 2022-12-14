@@ -62,8 +62,8 @@ public class AddFix extends JFrame{
 		
 //		setLayout(null);
 		setSize(400, 200);
-		setUndecorated(true);
 		setResizable(false);
+		setUndecorated(true);
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
