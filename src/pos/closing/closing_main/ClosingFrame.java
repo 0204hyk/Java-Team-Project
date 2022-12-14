@@ -34,7 +34,7 @@ public class ClosingFrame extends JFrame {
 		// 결제 수단 이미지 패널
 		JPanel panelA = new ClosingImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/마감 이미지/현금 & 카드 결제 금액 확인 틀.png", 400, 100));
-		panelA.setBounds(120, 80, 400, 100);
+		panelA.setBounds(120, 90, 400, 100);
 		
 		JLabel label1 = new EmptyLabel();
 		label1.setLocation(265, 14);
@@ -48,48 +48,52 @@ public class ClosingFrame extends JFrame {
 		// 현금 시제 이미지 패널
 		JPanel panelB = new ClosingImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/마감 이미지/현금 시제 기본 틀.png", 400, 430));
-		panelB.setBounds(120, 230, 400, 430);
+		panelB.setBounds(120, 220, 400, 430);
 		
-//		EmptyLabel[] labels = new EmptyLabel[8];
-//		int locationY = 60;
-//		for (int i = 0; i < 8; ++i) {
-//			labels[i] = new EmptyLabel();
-//			labels[i].setLocation(265, locationY);
-//			panelB.add(labels[i]);
-//			locationY += 46;
-//		}
+		EmptyLabel[] labels = new EmptyLabel[9];
+		int locationY = 54;
+		for (int i = 0; i < 9; ++i) {
+			labels[i] = new EmptyLabel();
+			labels[i].setLocation(265, locationY);
+			panelB.add(labels[i]);
+			locationY += 42;
+		}
 		
-		JLabel count50000 = new EmptyLabel();
-		count50000.setLocation(265, 61);
-		panelB.add(count50000);
-		
-		JLabel count10000 = new EmptyLabel();
-		count10000.setLocation(265, 107);
-		panelB.add(count10000);
-		
-		JLabel count1000 = new EmptyLabel();
-		count1000.setLocation(265, 154);
-		panelB.add(count1000);
-		
-		JLabel count500 = new EmptyLabel();
-		count500.setLocation(265, 200);
-		panelB.add(count500);
-
-		JLabel count100 = new EmptyLabel();
-		count100.setLocation(265, 247);
-		panelB.add(count100);
-		
-		JLabel count50 = new EmptyLabel();
-		count50.setLocation(265, 293);
-		panelB.add(count50);
-		
-		JLabel count10 = new EmptyLabel();
-		count10.setLocation(265, 340);
-		panelB.add(count10);
-
-		JLabel countAll = new EmptyLabel();
-		countAll.setLocation(265, 386);
-		panelB.add(countAll);
+//		JLabel count50000 = new EmptyLabel();
+//		count50000.setLocation(265, 54);
+//		panelB.add(count50000);
+//		
+//		JLabel count10000 = new EmptyLabel();
+//		count10000.setLocation(265, 96);
+//		panelB.add(count10000);
+//		
+//		JLabel count5000 = new EmptyLabel();
+//		count5000.setLocation(265, 138);
+//		panelB.add(count5000);
+//		
+//		JLabel count1000 = new EmptyLabel();
+//		count1000.setLocation(265, 154);
+//		panelB.add(count1000);
+//		
+//		JLabel count500 = new EmptyLabel();
+//		count500.setLocation(265, 200);
+//		panelB.add(count500);
+//
+//		JLabel count100 = new EmptyLabel();
+//		count100.setLocation(265, 247);
+//		panelB.add(count100);
+//		
+//		JLabel count50 = new EmptyLabel();
+//		count50.setLocation(265, 293);
+//		panelB.add(count50);
+//		
+//		JLabel count10 = new EmptyLabel();
+//		count10.setLocation(265, 340);
+//		panelB.add(count10);
+//
+//		JLabel countAll = new EmptyLabel();
+//		countAll.setLocation(265, 386);
+//		panelB.add(countAll);
 
 		
 		// 마감 내역 이미지 패널
