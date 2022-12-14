@@ -48,8 +48,8 @@ public class PosFrame extends JFrame {
 		setLayout(null);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
 
 	}
 }
