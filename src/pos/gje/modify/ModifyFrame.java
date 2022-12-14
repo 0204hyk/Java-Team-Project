@@ -11,7 +11,6 @@ import pos.gje.modify.panel.listPanel;
 
 public class ModifyFrame extends JFrame{
 
-	
 	public ModifyFrame() {
 		setTitle("ModifyFrame");
 			

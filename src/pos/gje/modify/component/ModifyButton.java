@@ -14,7 +14,6 @@ import javax.swing.JButton;
 import pos.gje.modify.CheckFrame;
 
 public class ModifyButton extends JButton implements ActionListener{
-
 	// 수정 버튼 
 	public ModifyButton () {
 		try {
@@ -42,7 +41,6 @@ public class ModifyButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		new CheckFrame();
-		
 	} 
 	
 

@@ -12,7 +12,7 @@ public class listPanel extends JPanel{
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
 		ImageIcon image = new ImageIcon
-				("images/PosImages/상품 관리 이미지/메뉴 리스트 기본 틀.png");
+				("images/PosImages/상품 관리 이미지/메뉴 리스트 기본 틀2.png");
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 	

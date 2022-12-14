@@ -16,7 +16,7 @@ public class DeletCheckPanel extends JPanel{
 	}	
 	
 	public DeletCheckPanel() {
-		setBounds(0, 0, 500, 251); // Panel 틀
+		setBounds(0, 0, 500, 250); // Panel 틀
 		setLayout(null); 
 	}	     
 }

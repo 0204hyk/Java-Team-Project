@@ -29,6 +29,7 @@ import pos.ImageScaledTool;
 import pos.PosFrame;
 import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.gje.delet.DeletFrame;
+import pos.gje.modify.CheckFrame;
 import pos.gje.modify.ModifyFrame;
 
 public class ProductManagementJFrame extends JFrame {

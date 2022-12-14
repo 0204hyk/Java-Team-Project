@@ -60,7 +60,7 @@ public class AddFix extends JFrame{
 		
 		background.setLayout(null);	
 		
-		setLayout(null);
+//		setLayout(null);
 		setSize(400, 200);
 		setUndecorated(true);
 		setResizable(false);
