@@ -27,12 +27,12 @@ import javax.swing.JTextField;
 public class ProductManagementJFrame extends JFrame {
 
 	TopPanel tp = new TopPanel();
-	JButton btn = new JButton();
+	
 
 	public ProductManagementJFrame() throws IOException {
 		
-		add(labelImage("PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
-		add(labelImage("PosImages/상품 관리 이미지/메뉴 리스트 기본 틀.png", 48, 190, 1100, 400));
+		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
+		add(labelImage("images/PosImages/상품 관리 이미지/메뉴 리스트 기본 틀.png", 48, 190, 1100, 400));
 		serch();
 		buttons();
 	}
@@ -44,8 +44,12 @@ public class ProductManagementJFrame extends JFrame {
 		serch.setOpaque(false);
 		serch.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		
+		
+		
 		return serch;
 	}
+	
+	
 	
 	public static JLabel labelImage(String image, int a, int b, int c, int d) throws IOException {
 		JLabel l = new JLabel();
@@ -59,20 +63,20 @@ public class ProductManagementJFrame extends JFrame {
 	}
 
 	public JButton buttons() throws IOException {
-		JButton serchBtn = btnImage("PosImages/상품 관리 이미지/검색 버튼.png", 
-				"PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50);
+		JButton serchBtn = btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", 
+				"images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50);
 
-		JButton backBtn = btnImage("PosImages/상품 관리 이미지/돌아가기 버튼.png",
-				"PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 690, 110, 55);
+		JButton backBtn = btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png",
+				"images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 690, 110, 55);
 
-		JButton deleteBtn = btnImage("PosImages/상품 관리 이미지/삭제 버튼.png",
-				"PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55);
+		JButton deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
+				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55);
 
-		JButton modifyBtn = btnImage("PosImages/상품 관리 이미지/수정 시작 버튼.png",
-				"PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 900, 620, 120, 55);
+		JButton modifyBtn = btnImage("images/PosImages/상품 관리 이미지/수정 시작 버튼.png",
+				"images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 900, 620, 120, 55);
 
-		JButton addBtn = btnImage("PosImages/상품 관리 이미지/추가 시작 버튼.png",
-				"PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55);
+		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
+				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55);
 
 		add(serchBtn);
 		add(backBtn);
@@ -94,6 +98,9 @@ public class ProductManagementJFrame extends JFrame {
 				}
 			}
 		});
+		
+		
+		
 
 		add(addBtn);
 		setLayout(null);
@@ -101,6 +108,7 @@ public class ProductManagementJFrame extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setBackground(new Color(64, 64, 64));
+		//setUndecorated(true);
 		setLocationRelativeTo(null);
 		setResizable(false);
 

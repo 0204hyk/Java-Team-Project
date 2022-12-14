@@ -4,13 +4,21 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -18,14 +26,14 @@ public class TopPanel extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
-		ImageIcon image = new ImageIcon("PosImages/상품 관리 이미지/상단바 이미지.png");
+		ImageIcon image = new ImageIcon("images/PosImages/상품 관리 이미지/상단바 이미지.png");
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	
 	}
 
 	
-	public TopPanel() {
-		
+	public TopPanel() throws IOException {
+		set();
 			Calendar cal = Calendar.getInstance();
 
 			String time = (cal.get(Calendar.YEAR) + "년 " +
@@ -61,11 +69,12 @@ public class TopPanel extends JPanel{
 		date.setFont(date.getFont().deriveFont(15.0f));
 		add(date, "Center");
 		
-		setBounds(0, 0, 1200, 50);
+		
 	}
 
+
 	public void set() {
-		
+		setBounds(0, 0, 1200, 50);
 	}
 	
 
