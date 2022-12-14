@@ -28,7 +28,7 @@ public class SalesSearchButton extends JButton {
 
 		// 검색버튼 위치 설정.
 
-		setBounds(750, 90, 100, 50);
+		setBounds(450, 90, 100, 50);
 		setBorder(null);
 		
 		

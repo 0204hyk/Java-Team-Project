@@ -16,7 +16,7 @@ public class TitleLabel extends JLabel {
 		setText("2022년 12월 매출");
 		setForeground(Color.WHITE);
 		setFont(new Font("맑은 고딕", Font.PLAIN, 30));
-		setBounds(770, 195, 300, 100);
+		setBounds(745, 150, 300, 100);
 		
 	}
 }
