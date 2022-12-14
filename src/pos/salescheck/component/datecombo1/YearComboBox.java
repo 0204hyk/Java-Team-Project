@@ -23,13 +23,11 @@ public class YearComboBox extends JComboBox  {
 	// 매출요약 년도 콤보박스 생성.
 	Calendar now = Calendar.getInstance();
 	int year = now.get(Calendar.YEAR);
-	int selectYear;
 	
 	public YearComboBox() {
 		for (int i = year - 10; i <= year; ++i) {
 			addItem(i);
 		}
-		
 		
 		setPreferredSize(new Dimension(40, 40));
 		setSelectedItem(year);
