@@ -23,9 +23,21 @@ public class ProductManagementJFrame extends JFrame {
 
 	TopPanel tp = new TopPanel();
 	
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> refs/remotes/origin/kjh
 	public ProductManagementJFrame() throws IOException {
+<<<<<<< HEAD
 		buttons(this);
+=======
+		
+		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
+		add(labelImage("images/PosImages/상품 관리 이미지/메뉴 리스트 기본 틀.png", 48, 190, 1100, 400));
+		serch();
+		buttons();
+>>>>>>> refs/remotes/origin/kjh
 	}
 	
 	public void buttons(ProductManagementJFrame f) throws IOException {
@@ -37,6 +49,7 @@ public class ProductManagementJFrame extends JFrame {
 		serch.setOpaque(false);
 		serch.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		
+<<<<<<< HEAD
 		add(serch);
 		
 		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
@@ -50,6 +63,43 @@ public class ProductManagementJFrame extends JFrame {
 		
 		
 		add(btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", "images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50));
+=======
+		
+		
+		return serch;
+	}
+	
+	
+	
+	public static JLabel labelImage(String image, int a, int b, int c, int d) throws IOException {
+		JLabel l = new JLabel();
+		BufferedImage bufferedlImage = ImageIO.read(new File(image));
+		Image lImage = bufferedlImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
+		l.setIcon(new ImageIcon(lImage));
+		l.setBounds(a, b, c, d);
+
+		return l;
+
+	}
+
+	public JButton buttons() throws IOException {
+		JButton serchBtn = btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", 
+				"images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50);
+
+		JButton backBtn = btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png",
+				"images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 690, 110, 55);
+
+		JButton deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
+				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55);
+
+		JButton modifyBtn = btnImage("images/PosImages/상품 관리 이미지/수정 시작 버튼.png",
+				"images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 900, 620, 120, 55);
+
+		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
+				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55);
+
+		add(serchBtn);
+>>>>>>> refs/remotes/origin/kjh
 		add(backBtn);
 		add(deletBtn);
 		add(modifyBtn);
@@ -70,6 +120,7 @@ public class ProductManagementJFrame extends JFrame {
 			}
 		});
 		
+<<<<<<< HEAD
 		modifyBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -94,11 +145,18 @@ public class ProductManagementJFrame extends JFrame {
 			}
 		});
 		
+=======
+		
+		
+
+		add(addBtn);
+>>>>>>> refs/remotes/origin/kjh
 		setLayout(null);
 		setSize(1200, 800);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setBackground(new Color(64, 64, 64));
+		//setUndecorated(true);
 		setLocationRelativeTo(null);
 		setResizable(false);
 	}
