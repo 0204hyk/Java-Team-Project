@@ -28,11 +28,6 @@ import pos.salescheck.component.title.TitleImage;
 
 public class CalculationMain extends JFrame {
 
-	// 카테고리 버튼들
-
-	private static JButton teaAdeBtn = new JButton("티/에이드");
-	private static JButton frappeBlendedBtn = new JButton("프라페/블렌디드");
-
 	public CalculationMain() {
 		// 메뉴 상단 타이틀 구현
 		JLabel calcCenterTitle = new DigitalClock();
@@ -57,8 +52,7 @@ public class CalculationMain extends JFrame {
 		JPanel coffeePanel = new CoffeeMenu();
 		JPanel teaAdePanel = new TeaAdeMenu();
 		JPanel frappeBiendedPanel = new FrappeBlendedMenu();
-		
-		
+	
 		
 		JButton coffeeBtn = new CoffeeButton(nonCoffeePanel, coffeePanel,
 				teaAdePanel, frappeBiendedPanel);
@@ -77,6 +71,7 @@ public class CalculationMain extends JFrame {
 		add(titleBar);
 		add(menuList);
 		add(coffeeBtn);
+		
 		add(coffeePanel);
 		add(nonCoffeeBtn);
 		add(nonCoffeePanel);
