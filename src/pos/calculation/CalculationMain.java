@@ -46,7 +46,7 @@ public class CalculationMain extends JFrame {
 		// 뒤로가기 버튼 구현
 		JButton calcEscapeBtn = new CalcEscapeButton();
 
-		// 결제버튼 구현
+		// 결제버튼 구현	
 		JButton paymentBtn = new PaymentButton();
 
 		// 메뉴 카테고리 배경 
