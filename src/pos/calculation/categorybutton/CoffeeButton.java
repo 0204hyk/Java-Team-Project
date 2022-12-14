@@ -75,11 +75,11 @@ public class CoffeeButton extends JButton{
 	
 	}
 	
-	public void setBtnDisabled(JButton coffeeBtn) {
+	public void setBtnDisabled() {
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/카페 카테고리 비활성 버튼.png"));
 			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
-			coffeeBtn.setIcon(new ImageIcon(scale));
+			setIcon(new ImageIcon(scale));
 		} catch (IOException e) {
 			e.printStackTrace();
 

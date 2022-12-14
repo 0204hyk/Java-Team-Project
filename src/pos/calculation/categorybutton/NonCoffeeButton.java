@@ -21,7 +21,9 @@ public class NonCoffeeButton extends JButton{
 	JPanel teaAdePanel;
 	JPanel frappeBiendedPanel;
 
-
+	
+	public NonCoffeeButton() {
+	}
 
 	public NonCoffeeButton(JPanel coffeePanel, JPanel nonCoffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
 		this.coffeePanel =  coffeePanel;
@@ -53,6 +55,7 @@ public class NonCoffeeButton extends JButton{
 				frappeBiendedPanel.setVisible(false);
 				nonCoffeePanel.setVisible(true);
 				setBtnEnabled();
+			
 			}
 			
 		});
