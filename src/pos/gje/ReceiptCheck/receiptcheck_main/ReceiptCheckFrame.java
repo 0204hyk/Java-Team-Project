@@ -18,7 +18,6 @@ import pos.gje.ReceiptCheck.refund.RefundFrame;
 
 public class ReceiptCheckFrame extends JFrame{
 	public ReceiptCheckFrame() {		
-		setTitle("영수증 조회");
 		
 		// 상단 메뉴바 설정
 		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
@@ -47,12 +46,13 @@ public class ReceiptCheckFrame extends JFrame{
 		escapeBtn.setLocation(75, 650);
 		add(escapeBtn);
 		
-		getContentPane().setBackground(new Color(64, 64, 64)); // 배경색
+		setTitle("영수증 조회");
 		setSize(1200, 800); // 프레임 사이즈
+		getContentPane().setBackground(new Color(64, 64, 64)); // 배경색
 		setLayout(null); 
-		setVisible(true); 
 		setResizable(false); // 크기 조절 안되게
 		setLocationRelativeTo(null); // 가운데에 뜨게
+		setVisible(true); 
 		setDefaultCloseOperation(EXIT_ON_CLOSE); 
 	}
 	
