@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import pos.ImageScaledTool;
+
 public class TeaAdeButton extends JButton {
 
 	
@@ -20,7 +22,7 @@ public class TeaAdeButton extends JButton {
 	JPanel coffeePanel;
 	JPanel teaAdePanel;
 	JPanel frappeBiendedPanel;
-	
+	ImageScaledTool tool = new ImageScaledTool();
 	
 	public TeaAdeButton(JPanel nonCoffeePanel, JPanel coffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
 		this.coffeePanel = coffeePanel;
@@ -29,13 +31,7 @@ public class TeaAdeButton extends JButton {
 		this.frappeBiendedPanel = frappeBiendedPanel;
 		
 		// 기본적으로 버튼이 비활성화 되어 있다.
-		try {
-			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/티, 에이드 비활성 버튼.png"));
-			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
-			setIcon(new ImageIcon(scale));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		setIcon(new ImageIcon(tool.getScaledImage("images/PosImages/계산 파트 이미지/티, 에이드 비활성 버튼.png", 160, 100)));
 		
 		setBounds(866, 110, 160, 100);
 		setBorderPainted(false);
@@ -59,22 +55,12 @@ public class TeaAdeButton extends JButton {
 		
 	}
 	public void setBtnDisabled() {
-		try {
-			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/티, 에이드 비활성 버튼.png"));
-			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
-			setIcon(new ImageIcon(scale));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/계산 파트 이미지/티, 에이드 비활성 버튼.png", 160, 100)));
 	}
 	
 	public void setBtnEnabled() {
-		try {
-			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/티, 에이드 버튼.png"));
-			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
-			setIcon(new ImageIcon(scale));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/계산 파트 이미지/티, 에이드 버튼.png", 160, 100)));
 	}
 }
