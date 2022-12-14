@@ -54,7 +54,6 @@ public class ProductManagementJFrame extends JFrame {
 	}
 	
 	
-	
 	public static JLabel labelImage(String image, int a, int b, int c, int d) throws IOException {
 		JLabel l = new JLabel();
 		BufferedImage bufferedlImage = ImageIO.read(new File(image));
@@ -130,9 +129,6 @@ public class ProductManagementJFrame extends JFrame {
 			}
 		});
 		
-		
-		
-
 		add(addBtn);
 		setLayout(null);
 		setSize(1200, 800);
