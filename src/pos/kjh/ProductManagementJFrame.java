@@ -1,19 +1,12 @@
 package pos.kjh;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Calendar;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -26,10 +19,8 @@ import javax.swing.JTextField;
 
 import pos.DigitalClock;
 import pos.ImageScaledTool;
-import pos.PosFrame;
 import pos.closing.closing_main.container.ClosingImagePanel;
-import pos.gje.delet.DeletFrame;
-import pos.gje.modify.CheckFrame;
+import pos.gje.delete.DeletFrame;
 import pos.gje.modify.ModifyFrame;
 
 public class ProductManagementJFrame extends JFrame {

@@ -1,4 +1,4 @@
-package pos.gje.delet.panel;
+package pos.gje.delete.panel;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

@@ -19,7 +19,6 @@ import pos.main.main_component.ExitButton;
 
 public class Test {
 	
-	
 	public static void main(String[] args) {
 		new PosFrame();
 	}
