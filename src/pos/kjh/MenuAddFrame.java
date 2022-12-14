@@ -177,7 +177,7 @@ public class MenuAddFrame extends JFrame{
 
 
 		background.setLayout(null);	
-
+		
 		setLayout(null);
 		setUndecorated(true);
 		setResizable(false);
