@@ -23,14 +23,14 @@ public class SalesEscapeButton extends JButton implements ActionListener{
 		this.frame = frame;
 		// 매출요약 < 버튼 이미지 설정
 		setIcon(new ImageIcon(tool.getScaledImage(
-				"Images/PosImages/매출 요약 이미지/돌아가기 버튼.png", 100, 50)));
+				"Images/PosImages/매출 요약 이미지/돌아가기 버튼.png", 180, 80)));
 
 		// 매출요약 < 버튼 눌렀을 때
 		setPressedIcon(new ImageIcon(tool.getScaledImage(
-				"Images/PosImages/매출 요약 이미지/돌아가기 버튼 클릭.png", 100, 50)));
+				"Images/PosImages/매출 요약 이미지/돌아가기 버튼 클릭.png", 180, 80)));
 
 		// < 버튼 위치 지정
-		setBounds(1050, 700, 100, 50);
+		setBounds(940, 670, 180, 80);
 		setBorder(null);
 		
 		

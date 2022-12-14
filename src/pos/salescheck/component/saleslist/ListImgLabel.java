@@ -22,7 +22,7 @@ public class ListImgLabel extends JLabel {
 			e.printStackTrace();
 		}
 
-		setBounds(650, 200, 500, 500);
+		setBounds(620, 155, 500, 500);
 		
 	}
 }
