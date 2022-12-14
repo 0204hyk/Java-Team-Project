@@ -32,9 +32,8 @@ public class CoffeeButton extends JButton{
 	JPanel frappeBiendedPanel;
 	
 	
-	
 	public CoffeeButton() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	
@@ -48,14 +47,14 @@ public class CoffeeButton extends JButton{
 		// 기본적으로 버튼이 활성화 되어 있다.
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/카페 카테고리 버튼.png"));
-			Image scale = image.getScaledInstance(150, 100, Image.SCALE_SMOOTH);
+			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(scale));
 		} catch (IOException e) {
 			e.printStackTrace();
 
 		}
 
-		setBounds(550, 110, 150, 100);
+		setBounds(560, 110, 160, 100);
 		setBorderPainted(false);
 		setContentAreaFilled(false);
 
@@ -83,7 +82,7 @@ public class CoffeeButton extends JButton{
 	public void setBtnDisabled() {
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/카페 카테고리 비활성 버튼.png"));
-			Image scale = image.getScaledInstance(150, 100, Image.SCALE_SMOOTH);
+			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(scale));
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -95,13 +94,15 @@ public class CoffeeButton extends JButton{
 	public void setBtnEnabled() {
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/카페 카테고리 버튼.png"));
-			Image scale = image.getScaledInstance(150, 100, Image.SCALE_SMOOTH);
+			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(scale));
 		} catch (IOException e) {
 			e.printStackTrace();
 
 		}
 	}
+
+
 
 
 }

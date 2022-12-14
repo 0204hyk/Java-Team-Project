@@ -20,24 +20,33 @@ public class FrappeBlendedButton extends JButton {
 	JPanel teaAdePanel;
 	JPanel frappeBiendedPanel;
 	JButton coffeeBtn;
-	
+
 	public FrappeBlendedButton(JButton coffeeBtn) {
 		this.coffeeBtn = coffeeBtn;
 	}
-	
+
 	public FrappeBlendedButton(JPanel nonCoffeePanel, JPanel coffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
 		this.coffeePanel = coffeePanel;
 		this.nonCoffeePanel = nonCoffeePanel;
 		this.teaAdePanel = teaAdePanel;
 		this.frappeBiendedPanel = frappeBiendedPanel;
-		
-		// 이미지 추가예정..
-		
-		setBounds(985, 110, 150, 100);
-		setBackground(Color.WHITE);
-		setText("프라페/블렌디드");
+
+		// 기본적으로 버튼이 활성화 되어 있다.
+		try {
+			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/프라페, 블랜디드 비활성 버튼.png"));
+			Image scale = image.getScaledInstance(160, 100, Image.SCALE_SMOOTH);
+			setIcon(new ImageIcon(scale));
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
+
+		setBounds(1020, 110, 160, 100);
+		setBorderPainted(false);
+		setContentAreaFilled(false);
+	
 		addMouseListener(new MouseAdapter() {
-			
+
 			// 마우스 클릭 시 기존에 나오던 Panel들은 숨긴다.
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -46,9 +55,9 @@ public class FrappeBlendedButton extends JButton {
 				nonCoffeePanel.setVisible(false);
 				frappeBiendedPanel.setVisible(true);
 			}
-		
-	
+
+
 		});
-		
+
 	}
 }
