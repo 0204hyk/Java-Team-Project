@@ -32,7 +32,7 @@ public class OkBtn extends JButton implements ActionListener{
 			e1.printStackTrace();
 		}
 		
-		setBounds(150, 130, 100, 48); // 위치 및 사이즈 조절
+		setBounds(150, 115, 100, 48); // 위치 및 사이즈 조절
 		setContentAreaFilled(false);
 		setBorderPainted(false); 
 		setOpaque(false);
