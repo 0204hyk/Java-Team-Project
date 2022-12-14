@@ -32,6 +32,6 @@ public class LeftButton extends JButton {
 		}
 
 
-		setBounds(1000, 540, 60, 60);
+		setBounds(1030, 540, 60, 60);
 	}
 }

@@ -29,7 +29,7 @@ public class RightButton extends JButton {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		setBounds(1080, 540, 60, 60);
+		setBounds(1100, 540, 60, 60);
 	}
 
 
