@@ -11,30 +11,23 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.ImageScaledTool;
 import pos.salescheck.SalesCheckMainFrame;
 
 public class SalesEscapeButton extends JButton implements ActionListener{
+	
 	SalesCheckMainFrame frame;
+	ImageScaledTool tool = new ImageScaledTool();
 	
 	public SalesEscapeButton(SalesCheckMainFrame frame) {
 		this.frame = frame;
 		// 매출요약 < 버튼 이미지 설정
-		try {
-			BufferedImage image = ImageIO.read(new File("Images/PosImages/매출 요약 이미지/돌아가기 버튼.png"));
-			Image scale = image.getScaledInstance(100, 50, Image.SCALE_SMOOTH);
-			setIcon(new ImageIcon(scale));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"Images/PosImages/매출 요약 이미지/돌아가기 버튼.png", 100, 50)));
 
 		// 매출요약 < 버튼 눌렀을 때
-		try {
-			BufferedImage image = ImageIO.read(new File("Images/PosImages/매출 요약 이미지/돌아가기 버튼 클릭.png"));
-			Image click = image.getScaledInstance(100, 50, Image.SCALE_SMOOTH);
-			setPressedIcon(new ImageIcon(click));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		setPressedIcon(new ImageIcon(tool.getScaledImage(
+				"Images/PosImages/매출 요약 이미지/돌아가기 버튼 클릭.png", 100, 50)));
 
 		// < 버튼 위치 지정
 		setBounds(1050, 700, 100, 50);
