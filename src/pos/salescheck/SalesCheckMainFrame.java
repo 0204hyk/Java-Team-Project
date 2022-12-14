@@ -44,17 +44,17 @@ public class SalesCheckMainFrame extends JFrame {
 		// 매출요약 차트 구현
 		SalesChart chart = new SalesChart("", "");
 		ChartPanel chartPanel = new ChartPanel(chart.barChart);
-		chartPanel.setBounds(50, 200, 500, 500);
+		chartPanel.setBounds(70, 170, 500, 500);
 		
 		// 매출요약 콤보박스 구현
 		JComboBox yearCombo = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
 		JComboBox dayCombo = new DayComboBox();
-		JComboBox dayCombo2 = new DayComboBox2();
-		JComboBox yearCombo2 = new YearComboBox2();
-		JComboBox monthCombo2 = new MonthComboBox2();
-		JLabel between = new JLabel("~");
-		between.setBounds(390, 100, 100, 25);
+//		JComboBox dayCombo2 = new DayComboBox2();
+//		JComboBox yearCombo2 = new YearComboBox2();
+//		JComboBox monthCombo2 = new MonthComboBox2();
+//		JLabel between = new JLabel("~");
+//		between.setBounds(390, 100, 100, 25);
 		
 		// 매출요약 검색 버튼 구현
 		JButton searchBtn = new SalesSearchButton();
@@ -71,12 +71,8 @@ public class SalesCheckMainFrame extends JFrame {
 		
 		add(title);
 		add(yearCombo);
-		add(between);
 		add(monthCombo);
 		add(dayCombo);
-		add(yearCombo2);
-		add(monthCombo2);
-		add(dayCombo2);
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
