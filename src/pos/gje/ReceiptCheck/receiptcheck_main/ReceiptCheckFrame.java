@@ -43,7 +43,7 @@ public class ReceiptCheckFrame extends JFrame{
 		
 		// 돌아가기 버튼
 		ReceiptCheckEscapeButton escapeBtn = new ReceiptCheckEscapeButton(this);
-		escapeBtn.setLocation(75, 650);
+		escapeBtn.setLocation(75, 670);
 		add(escapeBtn);
 		
 		setTitle("영수증 조회");

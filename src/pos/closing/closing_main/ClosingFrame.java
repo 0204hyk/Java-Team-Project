@@ -59,43 +59,6 @@ public class ClosingFrame extends JFrame {
 			locationY += 42;
 		}
 		
-//		JLabel count50000 = new EmptyLabel();
-//		count50000.setLocation(265, 54);
-//		panelB.add(count50000);
-//		
-//		JLabel count10000 = new EmptyLabel();
-//		count10000.setLocation(265, 96);
-//		panelB.add(count10000);
-//		
-//		JLabel count5000 = new EmptyLabel();
-//		count5000.setLocation(265, 138);
-//		panelB.add(count5000);
-//		
-//		JLabel count1000 = new EmptyLabel();
-//		count1000.setLocation(265, 154);
-//		panelB.add(count1000);
-//		
-//		JLabel count500 = new EmptyLabel();
-//		count500.setLocation(265, 200);
-//		panelB.add(count500);
-//
-//		JLabel count100 = new EmptyLabel();
-//		count100.setLocation(265, 247);
-//		panelB.add(count100);
-//		
-//		JLabel count50 = new EmptyLabel();
-//		count50.setLocation(265, 293);
-//		panelB.add(count50);
-//		
-//		JLabel count10 = new EmptyLabel();
-//		count10.setLocation(265, 340);
-//		panelB.add(count10);
-//
-//		JLabel countAll = new EmptyLabel();
-//		countAll.setLocation(265, 386);
-//		panelB.add(countAll);
-
-		
 		// 마감 내역 이미지 패널
 		JPanel panelC = new ClosingImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/마감 이미지/마감 내역 기본 틀.png", 500, 550));

@@ -9,7 +9,7 @@ public class ReceiptCheckTextArea extends JTextArea{
 	public ReceiptCheckTextArea() {
 		JScrollPane scrollPane = new JScrollPane();
 		
-		setBounds(650, 80, 475, 550);
+		setBounds(650, 95, 475, 550);
 		setLineWrap(true);
 		setEditable(false);
 

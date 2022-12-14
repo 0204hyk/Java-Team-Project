@@ -22,11 +22,11 @@ public class RefundButton extends JButton implements ActionListener {
 		this.f2 = f2;
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/환불 버튼.png"));
-			Image scaledImage = bufferedImage.getScaledInstance(230, 60, Image.SCALE_SMOOTH); // 크기 조정
+			Image scaledImage = bufferedImage.getScaledInstance(250, 80, Image.SCALE_SMOOTH); // 크기 조정
 			setIcon(new ImageIcon(scaledImage));
 			
 			BufferedImage bufferedImage2 = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/환불 버튼 클릭.png"));
-			Image scaledImage2 = bufferedImage2.getScaledInstance(230, 60, Image.SCALE_SMOOTH); // 크기 조정
+			Image scaledImage2 = bufferedImage2.getScaledInstance(250, 80, Image.SCALE_SMOOTH); // 크기 조정
 			ImageIcon img = new ImageIcon(scaledImage2);
 			setPressedIcon(img);
 			
@@ -36,7 +36,7 @@ public class RefundButton extends JButton implements ActionListener {
 		
 		addActionListener(this);
 		
-		setBounds(900, 650, 230, 60); // 위치 및 사이즈 조절
+		setBounds(900, 670, 250, 80); // 위치 및 사이즈 조절
 		setContentAreaFilled(false);
 		setBorderPainted(false); 
 		setOpaque(false);
