@@ -18,11 +18,7 @@ public class FrappeBlendedButton extends JButton {
 	JPanel coffeePanel;
 	JPanel teaAdePanel;
 	JPanel frappeBiendedPanel;
-	JButton coffeeBtn;
-
-	public FrappeBlendedButton(JButton coffeeBtn) {
-		this.coffeeBtn = coffeeBtn;
-	}
+	
 
 	public FrappeBlendedButton(JPanel nonCoffeePanel, JPanel coffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
 		this.coffeePanel = coffeePanel;
