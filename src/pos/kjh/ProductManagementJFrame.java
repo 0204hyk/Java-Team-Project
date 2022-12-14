@@ -59,9 +59,7 @@ public class ProductManagementJFrame extends JFrame {
 		serch.setBounds(215, 100, 700, 49);
 		serch.setOpaque(false);
 		serch.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		
-		
-		
+				
 		return serch;
 	}
 	
@@ -138,8 +136,6 @@ public class ProductManagementJFrame extends JFrame {
 				}
 			}
 		});
-		
-		
 		
 
 		add(addBtn);
