@@ -145,8 +145,4 @@ public class ProductManagementJFrame extends JFrame {
 		}
 
 
-
-
-
-
 	}
