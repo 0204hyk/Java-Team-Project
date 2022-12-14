@@ -22,7 +22,9 @@ public class NonCoffeeButton extends JButton{
 	JPanel coffeePanel;
 	JPanel teaAdePanel;
 	JPanel frappeBiendedPanel;
+	
 	ImageScaledTool tool = new ImageScaledTool();
+	
 	
 	
 	public NonCoffeeButton() {

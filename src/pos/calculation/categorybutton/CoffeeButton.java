@@ -23,6 +23,10 @@ public class CoffeeButton extends JButton{
 	ImageScaledTool tool = new ImageScaledTool();
 	
 	
+	public CoffeeButton() {
+		
+	}
+	
 	public CoffeeButton(JPanel nonCoffeePanel, JPanel coffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
 		this.coffeePanel = coffeePanel;
 		this.nonCoffeePanel =  nonCoffeePanel;

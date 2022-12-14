@@ -24,6 +24,9 @@ public class TeaAdeButton extends JButton {
 	JPanel frappeBiendedPanel;
 	ImageScaledTool tool = new ImageScaledTool();
 	
+	public TeaAdeButton() {
+	}
+	
 	public TeaAdeButton(JPanel nonCoffeePanel, JPanel coffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
 		this.coffeePanel = coffeePanel;
 		this.nonCoffeePanel = nonCoffeePanel;
