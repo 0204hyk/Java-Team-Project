@@ -67,8 +67,6 @@ public class CoffeeButton extends JButton{
 			}
 			
 		});	
-
-	
 	}
 	
 
