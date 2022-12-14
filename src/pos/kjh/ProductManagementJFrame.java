@@ -24,16 +24,28 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import pos.DigitalClock;
+import pos.ImageScaledTool;
 import pos.PosFrame;
+import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.gje.delet.DeletFrame;
 import pos.gje.modify.ModifyFrame;
 
 public class ProductManagementJFrame extends JFrame {
 
-	TopPanel tp = new TopPanel();
 	
 
 	public ProductManagementJFrame() throws IOException {
+		// 상단 메뉴바 설정
+		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+				"images/PosImages/상단 메뉴바.png", 1200, 60));
+		titlePanel.setBounds(0 ,0, 1200, 60);
+		// 현재 시간 출력
+		JLabel clock = new DigitalClock();
+		clock.setBounds(375, 10, 400, 30);
+		titlePanel.add(clock);
+		
+		add(titlePanel);
 		
 		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
 		add(labelImage("images/PosImages/상품 관리 이미지/메뉴 리스트 기본 틀.png", 48, 190, 1100, 400));
@@ -52,7 +64,6 @@ public class ProductManagementJFrame extends JFrame {
 		
 		return serch;
 	}
-	
 	
 	
 	public static JLabel labelImage(String image, int a, int b, int c, int d) throws IOException {
@@ -87,7 +98,7 @@ public class ProductManagementJFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new PosFrame();
+//				new PosFrame();
 			}
 		});
 		
@@ -114,8 +125,6 @@ public class ProductManagementJFrame extends JFrame {
 		add(deleteBtn);
 		add(modifyBtn);
 		add(addBtn);
-		add(tp);
-
 
 		addBtn.addActionListener(new ActionListener() {
 

@@ -13,6 +13,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import pos.ImageScaledTool;
+import pos.closing.closing_main.container.ClosingImagePanel;
+
 public class AddFix extends JFrame{
 
 	JScrollPane scrollPane;
@@ -29,8 +32,6 @@ public class AddFix extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				
-				
 			}
 		});
 		
@@ -40,7 +41,7 @@ public class AddFix extends JFrame{
 	public AddFix() throws IOException {
 		
 		icon = new ImageIcon("images/PosImages/상품 관리 이미지/메뉴 추가 완료 안내 창.png");
-
+		
 		JPanel background = new JPanel() {
 			public void paintComponent(Graphics g) {
 				Dimension d = getSize();
@@ -50,7 +51,7 @@ public class AddFix extends JFrame{
 			}
 		};
 		background.setBounds(0, 0, 400, 200);
-		
+				
 		background.add(AddFixButton());
 		
 		scrollPane = new JScrollPane(background);
