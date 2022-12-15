@@ -31,7 +31,7 @@ import pos.salescheck.component.title.TitleImage;
 
 public class SalesCheckMainFrame extends JFrame {
 	
-
+	
 	public SalesCheckMainFrame() {
 		
 		// 매출요약 상단 메뉴바 생성.
