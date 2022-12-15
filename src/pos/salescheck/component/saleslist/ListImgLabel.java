@@ -6,8 +6,15 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
+import org.jfree.data.xy.DefaultTableXYDataset;
 
 public class ListImgLabel extends JLabel {
 
@@ -21,7 +28,8 @@ public class ListImgLabel extends JLabel {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
+	
 		setBounds(620, 155, 500, 500);
 		
 	}

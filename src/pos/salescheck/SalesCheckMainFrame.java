@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 import org.jfree.chart.ChartPanel;
 
@@ -25,6 +26,7 @@ import pos.salescheck.component.datecombo2.YearComboBox2;
 import pos.salescheck.component.saleslist.AmountLabel;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitleLabel;
+import pos.salescheck.component.table.SalesTable;
 import pos.salescheck.component.title.TitleImage;
 
 public class SalesCheckMainFrame extends JFrame {
@@ -64,6 +66,7 @@ public class SalesCheckMainFrame extends JFrame {
 		
 		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();
+		JTable table = new SalesTable();
 		
 		// 매출요약
 		JLabel salesTitle = new TitleLabel();
@@ -77,6 +80,7 @@ public class SalesCheckMainFrame extends JFrame {
 		add(escapeBtn);
 		add(salesTitle);
 		add(amount);
+		add(table);
 		add(list);
 		add(chartPanel);
 		setSize(1200, 800);

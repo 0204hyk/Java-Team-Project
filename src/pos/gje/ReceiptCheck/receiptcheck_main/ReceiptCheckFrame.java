@@ -23,6 +23,7 @@ public class ReceiptCheckFrame extends JFrame{
 		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
 		titlePanel.setBounds(0 ,0, 1200, 60);
+		
 		// 현재 시간 출력
 		JLabel clock = new DigitalClock();
 		clock.setBounds(375, 10, 400, 30);
@@ -52,8 +53,8 @@ public class ReceiptCheckFrame extends JFrame{
 		setLayout(null); 
 		setResizable(false); // 크기 조절 안되게
 		setLocationRelativeTo(null); // 가운데에 뜨게
-		setVisible(true); 
-		setDefaultCloseOperation(EXIT_ON_CLOSE); 
+		setVisible(true); // 보이게
+		setDefaultCloseOperation(EXIT_ON_CLOSE);  
 	}
 	
 }
