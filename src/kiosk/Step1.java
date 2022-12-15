@@ -30,29 +30,8 @@ public class Step1 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new EnterPhoneNum(); // 대조
-				// 포인트 적립 띄우기 - 디자인
-			}
-		});
-
-
-		// 포인트 적립 안함
-		JButton notsave = wi.makeButton("notsave.png", 245, 248, 158, 141);
-		
-		notsave.addActionListener(new ActionListener() {
-			int num = 1;
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (num == 0) {
-					notsave.setIcon(new ImageIcon(wi.readImage(root + "/notsave.png", 158, 141)));
-					num = 1;
-					save.setEnabled(true);
-					
-				} else if (num ==1){
-					notsave.setIcon(new ImageIcon(wi.readImage(root + " Selected/notsave.png", 158, 141)));
-					save.setEnabled(false);
-					num = 0;
-				}
+				JFrame ep = new Step1_EnterPhoneNum(); // 대조
+				ep.add(wi.makeLabel("confirmPoint.png", 187, 42, 70, 20));
 			}
 		});
 
@@ -62,12 +41,37 @@ public class Step1 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame jf = new EnterPhoneNum(); // 열리면 비활성화, 닫히면 원래 떠있던 창이 활성화 되어야한다
-				jf.add(new JLabel("회원 가입")); // 이거 디자인해서 붙이기 
+				// 열리면 비활성화, 닫히면 원래 떠있던 창이 활성화 되어야한다
+				JFrame ep = new Step1_SimpleJoin(); // 대조
+				ep.add(wi.makeLabel("joinText.png", 193, 42, 58, 20));
 				// 바로 포인트 적립 진행 (창 만들어야 함)
+
 			}
 		});
-		
+
+		// 포인트 적립 안함
+		JButton notsave = wi.makeButton("notsave.png", 245, 248, 158, 141);
+
+		notsave.addActionListener(new ActionListener() {
+			int num = 1;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (num == 0) {
+					notsave.setIcon(new ImageIcon(wi.readImage(root + "/notsave.png", 158, 141)));
+					num = 1;
+					save.setEnabled(true);
+					join.setEnabled(true);
+
+				} else if (num == 1) {
+					notsave.setIcon(new ImageIcon(wi.readImage(root + " Selected/notsave.png", 158, 141)));
+					save.setEnabled(false);
+					join.setEnabled(false);
+					num = 0;
+				}
+			}
+		});
+
 		add(save);
 		add(notsave);
 		add(join);
@@ -90,24 +94,23 @@ public class Step1 extends JFrame {
 
 		JButton pay = wi.makeButton("pay.png", 324, 771, 192, 67);
 		pay.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new Step2();
 			}
 		});
-		
-		
+
 		JButton cancel = wi.makeButton("cancel.png", 113, 771, 192, 67);
 		cancel.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				// 장바구니가 유지된 첫 화면으로 돌아가야 됨
 			}
 		});
-		
+
 		add(pay);
 		add(cancel);
 
@@ -119,10 +122,9 @@ public class Step1 extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
 	}
-	
 
 	public static void main(String[] args) {
 		new Step1();
-		
+
 	}
 }
