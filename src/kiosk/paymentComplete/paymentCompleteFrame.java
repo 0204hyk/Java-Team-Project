@@ -1,17 +1,14 @@
 package kiosk.paymentComplete;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+
+import kiosk.tools.WithImage;
 
 public class paymentCompleteFrame extends JFrame {
-	
+	String root = "images/KioskImages/7_1. 영수증 출력 여부, 카드, 결제완료";
+	WithImage wi = new WithImage(root);
 	public paymentCompleteFrame() {
-		setImage();
+		add(wi.makeLabel("payComplete.png", 0,0,414,301));
 		setDisplay();
 	}
 	
@@ -19,26 +16,10 @@ public class paymentCompleteFrame extends JFrame {
 
 		//setUndecorated(true); 
 		setVisible(true);
-		setSize(420, 300);
+		setSize(434, 320);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		
-	}
-	
-	public void setImage() {
-		JLabel label = new JLabel();
-		label.setSize(385, 270);
-		
-		try {
-			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/payCompleteScaled.png"));			
-			label.setIcon(new ImageIcon(logoBufferedImage));
-			
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-		label.setHorizontalAlignment(JLabel.CENTER);
-		add(label);
 	}
 	
 	public static void main(String[] args) {

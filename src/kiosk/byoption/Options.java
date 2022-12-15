@@ -15,14 +15,14 @@ public class Options extends JFrame {
 	public Options() {
 
 		defaults();
-		
+
 		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
-		
+
 	}
 
 	public void defaults() {
@@ -41,72 +41,73 @@ public class Options extends JFrame {
 
 	}
 
-	public void hotAndIce() {
-		add(wi.makeLabel("hot, ice.png", 46, 313, 90, 14));
-		JButton hot = wi.makeButton("hot.png", 34, 336, 79, 73);
-		JButton ice = wi.makeButton("ice.png", 123, 336, 79, 73);
+	public void hotAndIce(int x, int y) {
+
+		add(wi.makeLabel("hot, ice.png", x, y, 90, 14));
+		JButton hot = wi.makeButton("hot.png", x - 10, y + 25, 79, 73);
+		JButton ice = wi.makeButton("ice.png", x + 78, y + 25, 79, 73);
 		add(hot);
 		add(ice);
 		new GroupButtons(hot, ice, "hot", "ice", 79, 73);
 	}
 
-	public void decaffein() {
+	public void decaffein(int x, int y) {
 
-		add(wi.makeLabel("changeDecaffein.png", 251, 309, 114, 17));
-		JButton noDecaffein = wi.makeButton("noDecaffein.png", 238, 337, 79, 73);
-		JButton toDecaffein = wi.makeButton("toDecaffein.png", 327, 337, 79, 73);
+		add(wi.makeLabel("changeDecaffein.png", x, y, 114, 17));
+		JButton noDecaffein = wi.makeButton("noDecaffein.png", x - 10, y + 25, 79, 73);
+		JButton toDecaffein = wi.makeButton("toDecaffein.png", x + 78, y + 25, 79, 73);
 		add(noDecaffein);
 		add(toDecaffein);
 		new GroupButtons(noDecaffein, toDecaffein, "noDecaffein", "toDecaffein", 79, 73);
 	}
 
-	public void cup() {
-		add(wi.makeLabel("selectCup.png", 453, 312, 59, 17));
-		JButton useDisposal = wi.makeButton("useDisposal.png", 446, 337, 79, 73);
-		JButton useTumbler = wi.makeButton("useTumbler.png", 535, 336, 79, 73);
+	public void cup(int x, int y) {
+		add(wi.makeLabel("selectCup.png", x, y, 59, 17));
+		JButton useDisposal = wi.makeButton("useDisposal.png", x - 10, y + 25, 79, 73);
+		JButton useTumbler = wi.makeButton("useTumbler.png", x + 78, y + 25, 79, 73);
 		add(useDisposal);
 		add(useTumbler);
 		new GroupButtons(useDisposal, useTumbler, "useDisposal", "useTumbler", 79, 73);
 	}
 
-	public void sizes() {
-		add(wi.makeLabel("selectSize.png", 44, 446, 97, 17));
-		JButton S = wi.makeButton("S.png", 35, 471, 79, 73);
-		JButton M = wi.makeButton("M.png", 124, 471, 79, 73);
-		JButton L = wi.makeButton("L.png", 214, 471, 79, 73);
+	public void sizes(int x, int y) {
+		add(wi.makeLabel("selectSize.png", x, y, 97, 17));
+		JButton S = wi.makeButton("S.png", x - 10, y + 25, 79, 73);
+		JButton M = wi.makeButton("M.png", x + 78, y + 25, 79, 73);
+		JButton L = wi.makeButton("L.png", x + 166, y + 25, 79, 73);
 		add(S);
 		add(M);
 		add(L);
 		new GroupButtons(S, M, L, "S", "M", "L", 79, 73);
 	}
 
-	public void shot() {
-		add(wi.makeLabel("selectShot.png", 368, 445, 61, 18));
-		JButton noShot = wi.makeButton("noShot.png", 356, 471, 79, 73);
-		JButton oneShot = wi.makeButton("oneShot.png", 445, 471, 79, 73);
-		JButton twoShot = wi.makeButton("twoShot.png", 535, 471, 79, 73);
+	public void shot(int x, int y) {
+		add(wi.makeLabel("selectShot.png", x, y, 61, 18));
+		JButton noShot = wi.makeButton("noShot.png", x - 10, y + 25, 79, 73);
+		JButton oneShot = wi.makeButton("oneShot.png", x + 78, y + 25, 79, 73);
+		JButton twoShot = wi.makeButton("twoShot.png", x + 166, y + 25, 79, 73);
 		add(noShot);
 		add(oneShot);
 		add(twoShot);
 		new GroupButtons(noShot, oneShot, twoShot, "noShot", "oneShot", "twoShot", 79, 73);
 	}
 
-	public void ice() {
-		add(wi.makeLabel("selectIce.png", 45, 589, 77, 17));
-		JButton normalIce = wi.makeButton("normalIce.png", 35, 619, 79, 73);
-		JButton lessIce = wi.makeButton("lessIce.png", 124, 619, 79, 73);
-		JButton noIce = wi.makeButton("noIce.png", 215, 619, 79, 73);
+	public void ice(int x, int y) {
+		add(wi.makeLabel("selectIce.png", x,y, 77, 17));
+		JButton normalIce = wi.makeButton("normalIce.png", x -10, y +25, 79, 73);
+		JButton lessIce = wi.makeButton("lessIce.png", x + 78, y + 25, 79, 73);
+		JButton noIce = wi.makeButton("noIce.png", x + 166, y + 25, 79, 73);
 		add(normalIce);
 		add(lessIce);
 		add(noIce);
 		new GroupButtons(normalIce, lessIce, noIce, "normalIce", "lessIce", "noIce", 79, 73);
 	}
 
-	public void milk() {
-		add(wi.makeLabel("selectMilk.png", 367, 592, 74, 16));
-		JButton basicMilk = wi.makeButton("basicMilk.png", 357, 619, 79, 73);
-		JButton toSoy = wi.makeButton("toSoy.png", 447, 619, 79, 73);
-		JButton toLowfat = wi.makeButton("toLowfat.png", 536, 619, 79, 73);
+	public void milk(int x, int y) {
+		add(wi.makeLabel("selectMilk.png", x,y, 74, 16));
+		JButton basicMilk = wi.makeButton("basicMilk.png", x-10,y+25, 79, 73);
+		JButton toSoy = wi.makeButton("toSoy.png", x + 78, y + 25, 79, 73);
+		JButton toLowfat = wi.makeButton("toLowfat.png", x + 166, y + 25, 79, 73);
 		add(basicMilk);
 		add(toSoy);
 		add(toLowfat);
