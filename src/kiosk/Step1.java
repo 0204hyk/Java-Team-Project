@@ -2,14 +2,9 @@ package kiosk;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,8 +20,7 @@ public class Step1 extends JFrame {
 	JButton notsave;
 	JButton join;
 	static String member_phonenumber;
-
-	static boolean isDone;
+	Step1_EnterPhoneNum ep;
 
 	public Step1() {
 
@@ -36,7 +30,7 @@ public class Step1 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame ep = new Step1_EnterPhoneNum(); // 대조
+				ep = new Step1_EnterPhoneNum(); // 대조
 				ep.add(wi.makeLabel("confirmPoint.png", 187, 42, 70, 20));
 
 			}
@@ -44,16 +38,17 @@ public class Step1 extends JFrame {
 
 		// 간편 가입
 		join = wi.makeButton("join.png", 417, 248, 158, 141);
+
 		join.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Step1_SimpleJoin ep = new Step1_SimpleJoin();
+
+				ep = new Step1_EnterPhoneNum();
 				ep.add(wi.makeLabel("joinText.png", 193, 42, 58, 20));
+				ep.simpleJoin();
 			}
 		});
-
-		System.out.println(Step1_SimpleJoin.isDone);
 
 		// 포인트 적립 안함
 		notsave = wi.makeButton("notsave.png", 245, 248, 158, 141);

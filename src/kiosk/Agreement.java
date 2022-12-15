@@ -1,26 +1,26 @@
 package kiosk;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import database.kiosk.JoinMembership;
+import kiosk.tools.WithImage;
+
 public class Agreement extends JFrame {
 
 	String root = "images/KioskImages/5_3. step1 Agreement";
+	WithImage wi = new WithImage(root);
+	int num = 1;
 
-	public Agreement() {
+	public Agreement(String ph, int point, int currentPoint) {
 		JTextArea agreement = new JTextArea(
 				"[개인정보 수집·이용 동의]\r\n" + "①개인정보의 수집·이용목적\r\n\n" + "포인트 적립, 회원 관리\r\n" + "\r\n" + "②수집하려는 개인정보의 항목\r\n"
 						+ "전화번호\r\n" + "\r\n" + "③개인정보의 보유 및 이용기간(근거법률)\r\n" + "10년\r\n" + "\r\n" + "거래기록\r\n"
@@ -34,19 +34,72 @@ public class Agreement extends JFrame {
 		agreement.setEditable(false);
 		JScrollPane scrollablePane = new JScrollPane();
 		scrollablePane.setViewportView(agreement);
-		scrollablePane.setBounds(52, 77, 347, 390);
+		scrollablePane.setBounds(52, 78, 347, 390);
 		scrollablePane.setBackground(null);
 		scrollablePane.setBorder(null);
 		scrollablePane.setHorizontalScrollBar(null);
 		scrollablePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		add(scrollablePane); // 휠 스크롤이 안됨
 
-		add(makeLabel("frame.png", 30, 30, 400, 631));
-		add(makeLabel("agreementText.png", 118, 505, 263, 21));
-		add(makeButton("checkBox.png", 82, 502, 26, 26));
-		add(makeLabel("check.png", 79, 476, 43, 42));
-		add(makeButton("cancel.png", 95,573,127,60));
-		add(makeButton("join.png", 237, 573, 127, 60));
+		add(wi.makeLabel("agreementText.png", 118, 505, 263, 21));
+
+		JButton cancel = wi.makeButton("cancel.png", 192, 583, 98, 49);
+		cancel.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+
+		JButton join = wi.makeButton("join.png", 302, 583, 96, 49);
+		join.setEnabled(false);
+		join.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new JoinMembership(ph);
+
+				ShowPoint sp = new ShowPoint(ph.substring(7, ph.length()), point, currentPoint + point);
+				sp.joinComplete(); // 환영합니다
+
+				// 취소 버튼
+				sp.cancel.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						sp.dispose();
+						dispose();
+						Step1.setMemberPhone(ph);
+
+					}
+				});
+
+			}
+		});
+
+		JLabel check = wi.makeLabel("check.png", 85, 494, 31, 29);
+		JButton checkBox = wi.makeButton("checkBox.png", 82, 502, 26, 26);
+		check.setVisible(false);
+		checkBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (num == 0) {
+					check.setVisible(false);
+					join.setEnabled(false);
+					num = 1;
+				} else if (num == 1) {
+					check.setVisible(true);
+					join.setEnabled(true);
+					num = 0;
+				}
+			}
+		});
+
+		add(check);
+		add(checkBox);
+		add(cancel);
+		add(join);
 
 		setUndecorated(true);
 		setSize(460, 700);
@@ -55,45 +108,6 @@ public class Agreement extends JFrame {
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(Color.WHITE);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-	}
-
-	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
-		JLabel lb = new JLabel();
-
-		lb.setIcon(new ImageIcon(readImage(root + "/" + detailedRoot, w, h)));
-		lb.setBounds(x, y, w, h);
-
-		return lb;
-	}
-
-	public JButton makeButton(String detailedRoot, int x, int y, int w, int h) {
-		JButton bt = new JButton();
-
-		bt.setIcon(new ImageIcon(readImage(root + "/" + detailedRoot, w, h)));
-		bt.setBounds(x, y, w, h);
-		bt.setBorderPainted(false);
-		bt.setContentAreaFilled(false);
-		bt.setPressedIcon(new ImageIcon(readImage(root + " Selected/" + detailedRoot, w, h)));
-		return bt;
-	}
-
-	public Image readImage(String root, int w, int h) {
-
-		BufferedImage image;
-		Image scaled = null;
-		try {
-			image = ImageIO.read(new File(root));
-			scaled = image.getScaledInstance(w, h, Image.SCALE_SMOOTH);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return scaled;
-	}
-
-	public static void main(String[] args) {
-		new Agreement();
 	}
 
 }

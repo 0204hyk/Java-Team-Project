@@ -94,8 +94,4 @@ public class UsePoint extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	}
-
-	public static void main(String[] args) {
-		new UsePoint("01042361724");
-	}
 }

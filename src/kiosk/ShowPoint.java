@@ -15,8 +15,8 @@ public class ShowPoint extends JFrame {
 	String root = "images/KioskImages/5_2. step1 point";
 	WithImage wi = new WithImage(root);
 
-	JButton dispose;
-	
+	JButton cancel;
+
 	public ShowPoint(String phonenum, int point, int totalpoint) {
 		// 고객 번호
 		JLabel phoneNum = new JLabel(phonenum);
@@ -43,15 +43,15 @@ public class ShowPoint extends JFrame {
 		add(currentPoint);
 
 		// 고정 값 ----------------------------------------------------
-		add(wi.makeLabel("nim.png", 146, 125, 25, 32));
-
+		add(wi.makeLabel("nim.png", 145, 125, 37, 34));
 		add(wi.makeLabel("pointText.png", 213, 450, 88, 28));
 		add(wi.makeLabel("saveAfter.png", 131, 401, 200, 21));
 		add(wi.makeLabel("saveSoon.png", 125, 302, 241, 21));
 		add(wi.makeLabel("box.png", 74, 374, 314, 130));
-		JButton dispose = wi.makeButton("dispose.png", 182,570,96,49);
-		add(dispose);
-		this.dispose = dispose;
+
+		JButton cancel = wi.makeButton("dispose.png", 182, 570, 96, 49);
+		add(cancel);
+		this.cancel = cancel;
 
 		setLayout(null);
 		setSize(461, 710); // 창 크기 이상해서 임시로 늘림
@@ -60,20 +60,16 @@ public class ShowPoint extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
-	public JButton disposeBt() {
-		
-		return dispose;
-	}
 
 	public void hello() {
 		add(wi.makeLabel("hello.png", 60, 172, 278, 50));
 	}
 
-	public void welcome() {
-		add(wi.makeLabel("welcome.png", 60, 172, 278, 50));
+	public void joinComplete() {
+		add(wi.makeLabel("joinComplete.png", 57,173,340,30));
 	}
 
 	public static void main(String[] args) {
-		new ShowPoint("4235", 90, 5000);
+		
 	}
 }
