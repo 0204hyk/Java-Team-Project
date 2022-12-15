@@ -3,7 +3,11 @@ package pos.closing.closing_main.component;
 import java.awt.Color;
 import java.awt.Font;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -13,22 +17,39 @@ import javax.swing.table.TableColumnModel;
 import database.OjdbcConnection;
 
 public class ClosingTable extends JTable {
-	
-	public ClosingTable() {		
-		String [] title = {"시간", "매출"};
-		String [][] value = {{"9시 ~ 10시","30000원"},
-							{"10시 ~ 11시","25000원"},
-							{"11시 ~ 12시", "23400원"},
-							{"12시 ~ 13시", "0원"},
-							{"13시 ~ 14시", "0원"},
-							{"14시 ~ 15시", "0원"},
-							{"15시 ~ 16시", "0원"},
-							{"16시 ~ 17시", "0원"},
-							{"17시 ~ 18시", "0원"},
-							{"18시 ~ 19시", "0원"}};
+
+	String [] title = {"시간", "매출"};
+	DefaultTableModel model = new DefaultTableModel(title, 0);
 		
-		DefaultTableModel model = new DefaultTableModel(value, title);
+	public ClosingTable() {		
+		String query = "SELECT TO_CHAR(saledate, 'HH24'), TO_CHAR(SUM(price), '999,999,999')"
+				+ "FROM sales INNER JOIN payment USING(sales_number)"
+				+ "WHERE TO_CHAR(saledate, 'YYYY-MM-DD') = TO_CHAR(sysdate, 'YYYY-MM-DD')"
+				+ "AND TO_CHAR(saledate, 'HH24') = 11"
+				+ "GROUP BY TO_CHAR(saledate, 'HH24')"
+				+ "ORDER BY TO_CHAR(saledate, 'HH24')";
 		setModel(model);
+		
+		try (
+			Connection conn = OjdbcConnection.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query);		
+			ResultSet rs = pstmt.executeQuery();
+		) {
+//			for (int i = 9; i < 20; ++i) {
+//				pstmt.setInt(1, i);
+//			}
+
+			while(rs.next()) {
+				model.addRow(new Object[] 
+						{rs.getString("TO_CHAR(saledate, 'HH24')"), rs.getString("SUM(price)")});				
+			}
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+
+		model.addRow(new Object[] {1, 2});
 		
 		// 정렬할 테이블의 컬럼모델 가져오기
 		TableColumnModel tcm = getColumnModel();
@@ -39,7 +60,6 @@ public class ClosingTable extends JTable {
 		
 		tcm.getColumn(0).setCellRenderer(dtcr);
 		tcm.getColumn(1).setCellRenderer(dtcr);
-		
 		
 		setRowHeight(50);	// 컬럼 높이 설정
 		setFont(new Font("맑은 고딕", Font.BOLD, 15));
