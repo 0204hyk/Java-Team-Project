@@ -1,6 +1,8 @@
 package database.model;
 
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Sales {
 
@@ -8,12 +10,7 @@ public class Sales {
 	Integer sales_number;
 	String member_phonenumber;
 	Date saleDate;
-	
-	public Sales() {
-	}
-	
-	
-	
+
 
 	public Integer getSales_number() {
 		return sales_number;

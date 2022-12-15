@@ -28,6 +28,8 @@ public class SalesSearchButton extends JButton {
 	JComboBox dayBox;
 
 	String year;
+	String month;
+	String day;
 	
 	public SalesSearchButton() {
 	}
@@ -55,14 +57,16 @@ public class SalesSearchButton extends JButton {
 		
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+				SalesTable table = new SalesTable();
 				year = yearBox.getSelectedItem().toString();
+				month = monthBox.getSelectedItem().toString();
+				day = dayBox.getSelectedItem().toString();
 				
-				monthBox.getSelectedItem().toString();
-				dayBox.getSelectedItem().toString();
 				
 			}
 		});
+	
+
 		
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
