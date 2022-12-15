@@ -1,18 +1,15 @@
 package pos.gje.ReceiptCheck.receiptcheck_main.panel;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
-import pos.ImageScaledTool;
+import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
+import pos.gje.ReceiptCheck.receiptcheck_main.component.ReceiptBtn;
 
-public class ReceiptListPanel extends JPanel{
+public class ReceiptListPanel extends JPanel {
 
 	// 패널 배경 넣기
 	public void paintComponent(Graphics g) {
@@ -21,11 +18,16 @@ public class ReceiptListPanel extends JPanel{
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 	
-	public ReceiptListPanel() {
+	public ReceiptListPanel(ReceiptCheckFrame f) {
+		
+		// i = DB에 저장된 개수 	
+		for (int i = 0; i < 4; ++i){
+			add(new ReceiptBtn(i + 1, f));
+		}
+		
 		setBounds(75, 95, 500, 550); // Panel 틀
+		setLayout(null);
+		setVisible(true);
+		
 	}	       
-	
-
-	
-
 }
