@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.Calendar;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,8 +13,8 @@ import pos.DigitalClock;
 import pos.ImageScaledTool;
 import pos.closing.closing_main.component.ClosingEscapeButton;
 import pos.closing.closing_main.component.ClosingTable;
+import pos.closing.closing_main.component.DailySalesLabel;
 import pos.closing.closing_main.component.DoCloseButton;
-import pos.closing.closing_main.component.TotalAmountLabel;
 import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.closing.closing_main.container.EmptyLabel;
 import pos.closing.closing_message.ClosingMessageFrame;
@@ -73,7 +72,7 @@ public class ClosingFrame extends JFrame {
 		tablePanel.setBounds(3, 55, 488, 435);
 		
 		// 총 금액 라벨
-		TotalAmountLabel totalLabel = new TotalAmountLabel();
+		DailySalesLabel totalLabel = new DailySalesLabel();
 		totalLabel.setLocation(140, 497);
 		
 		panelC.add(tablePanel);

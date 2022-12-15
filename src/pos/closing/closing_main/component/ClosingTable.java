@@ -18,38 +18,42 @@ import database.OjdbcConnection;
 
 public class ClosingTable extends JTable {
 
-	String [] title = {"시간", "매출"};
-	DefaultTableModel model = new DefaultTableModel(title, 0);
+	String [] column = {"시간", "매출"};
+	DefaultTableModel model = new DefaultTableModel(column, 0);
+	String query = "SELECT to_char(saledate, 'HH24'), trim(to_char(sum(price), '999,999,999'))"
+			+ "FROM sales INNER JOIN payment USING(sales_number)"
+			+ "WHERE to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')"
+			+ "AND to_char(saledate, 'HH24') = ?"
+			+ "GROUP BY to_char(saledate, 'HH24')"
+			+ "ORDER BY to_char(saledate, 'HH24')";
 		
-	public ClosingTable() {		
-		String query = "SELECT TO_CHAR(saledate, 'HH24'), TO_CHAR(SUM(price), '999,999,999')"
-				+ "FROM sales INNER JOIN payment USING(sales_number)"
-				+ "WHERE TO_CHAR(saledate, 'YYYY-MM-DD') = TO_CHAR(sysdate, 'YYYY-MM-DD')"
-				+ "AND TO_CHAR(saledate, 'HH24') = 11"
-				+ "GROUP BY TO_CHAR(saledate, 'HH24')"
-				+ "ORDER BY TO_CHAR(saledate, 'HH24')";
+	public ClosingTable() {
+		
 		setModel(model);
 		
 		try (
 			Connection conn = OjdbcConnection.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);		
-			ResultSet rs = pstmt.executeQuery();
 		) {
-//			for (int i = 9; i < 20; ++i) {
-//				pstmt.setInt(1, i);
-//			}
-
-			while(rs.next()) {
-				model.addRow(new Object[] 
-						{rs.getString("TO_CHAR(saledate, 'HH24')"), rs.getString("SUM(price)")});				
+			
+			ResultSet rs = null;
+			
+			for (int i = 10; i < 22; ++i) {
+				pstmt.setInt(1, i);
+				
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					model.addRow(new Object[] 
+							{i + "시 ~ " + (i + 1) + "시", rs.getString(2) + " 원"});				
+				} else {
+					model.addRow(new Object[] {i + "시 ~ " + (i + 1) + "시", "0 원"});
+				}
 			}
 			
-
+			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} 
-
-		model.addRow(new Object[] {1, 2});
 		
 		// 정렬할 테이블의 컬럼모델 가져오기
 		TableColumnModel tcm = getColumnModel();
@@ -65,6 +69,7 @@ public class ClosingTable extends JTable {
 		setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 20));	// 컬럼 헤드 폰트
 		getTableHeader().setBackground(new Color(217, 217, 217));	// 컬럼 헤드 배경색
+		getTableHeader().setResizingAllowed(false);		// 컬럼 헤드 마우스 드래그로 크기 조정 안되게 하기 (컬럼 사이즈 고정)
 		getTableHeader().setReorderingAllowed(false); // 컬럼 헤드 이동 안되게 하기
 		
 		setLayout(null);
