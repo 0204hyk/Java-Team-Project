@@ -4,7 +4,10 @@ import java.awt.GridLayout;
 
 import javax.swing.JPanel;
 
+
 public class NorthPanel extends JPanel {
+	
+
 	
 	public NorthPanel() {
 		panelSetting();

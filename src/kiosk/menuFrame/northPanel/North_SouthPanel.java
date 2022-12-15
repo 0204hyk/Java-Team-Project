@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -13,14 +15,21 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class North_SouthPanel extends JPanel {
+import kiosk.menuFrame.centerPanel.CenterPanel;
+import pos.calculation.categorybutton.FrappeBlendedButton;
 
+public class North_SouthPanel extends JPanel {
+	
 	public North_SouthPanel() {
+		
 
 		categoryButton();
 		setBackground(Color.white);
 	}
 
+	
+	
+	
 	// 카테고리 버튼
 	public void categoryButton() {
 
@@ -84,5 +93,6 @@ public class North_SouthPanel extends JPanel {
 
 			add(categoryButton);
 		}
+		
 	}
 }
