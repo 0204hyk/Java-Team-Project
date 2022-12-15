@@ -35,7 +35,7 @@ public class CancelBtn extends JButton implements ActionListener{
 		}
 		
 		addActionListener(this); 
-		setBounds(300, 175, 100, 50); // 위치 및 사이즈 조절
+		setBounds(280, 155, 100, 50); // 위치 및 사이즈 조절
 		setContentAreaFilled(false);
 		setBorderPainted(false); 
 		setOpaque(false);

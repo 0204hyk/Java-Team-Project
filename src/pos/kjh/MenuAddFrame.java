@@ -71,9 +71,9 @@ public class MenuAddFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
+					String addMenu = "INSERT INTO menu VALUES" + nameAdd();
 					new AddFix();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
