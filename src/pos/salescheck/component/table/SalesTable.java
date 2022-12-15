@@ -20,9 +20,10 @@ public class SalesTable extends JTable {
 		JScrollPane scroll = new JScrollPane(table);
 
 		table.setFont(getFont().deriveFont(20f));
-		scroll.setBounds(0, 0, 400, 300);
+		table.getTableHeader().setFont(new Font("맑은 고딕", Font.PLAIN, 23));
+		scroll.setBounds(0, 0, 450, 300);
 	
-		setBounds(630, 300, 400, 300);
+		setBounds(650, 280, 450, 300);
 
 		add(scroll);
 		
