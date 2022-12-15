@@ -6,8 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Gi7D-19/Documents/카카오톡 받은 파일/BuildPath/Main 브런치 선택/jcommon-1.0.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Gi7D-19/Documents/카카오톡 받은 파일/BuildPath/Main 브런치 선택/jfreechart-1.0.19.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Gi7D-19/Documents/카카오톡 받은 파일/BuildPath/Main 브런치 선택/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="jar/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="jar/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="jar/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
