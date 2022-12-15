@@ -30,15 +30,12 @@ public class ClosingTable extends JTable {
 		// 정렬할 테이블의 컬럼모델 가져오기
 		TableColumnModel tcm = getColumnModel();
 
-		// 0번째 컬럼 왼쪽 정렬 
-		DefaultTableCellRenderer dtcr1 = new DefaultTableCellRenderer();
-		dtcr1.setHorizontalAlignment(SwingConstants.LEFT);
-		tcm.getColumn(0).setCellRenderer(dtcr1);
+		// 컬럼 가운데 정렬 
+		DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
+		dtcr.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		// 1번째 컬럼 오른쪽 정렬
-		DefaultTableCellRenderer dtcr2 = new DefaultTableCellRenderer();
-		dtcr2.setHorizontalAlignment(SwingConstants.RIGHT);
-		tcm.getColumn(1).setCellRenderer(dtcr2);
+		tcm.getColumn(0).setCellRenderer(dtcr);
+		tcm.getColumn(1).setCellRenderer(dtcr);
 		
 		
 		setRowHeight(50);	// 컬럼 높이 설정
