@@ -60,8 +60,8 @@ public class SalesCheckMainFrame extends JFrame {
 //		between.setBounds(390, 100, 100, 25);
 		
 		// 매출요약 검색 버튼 구현
-		JButton searchBtn = new SalesSearchButton();
-		
+		JButton searchBtn = new SalesSearchButton(yearCombo, monthCombo, dayCombo);
+	
 		// 매출요약 뒤로가기 구현
 		JButton escapeBtn = new SalesEscapeButton(this);
 		
@@ -73,6 +73,7 @@ public class SalesCheckMainFrame extends JFrame {
 		JLabel salesTitle = new TitleLabel();
 		JLabel amount = new AmountLabel();
 		
+	
 		add(title);
 		add(yearCombo);
 		add(monthCombo);
@@ -98,7 +99,7 @@ public class SalesCheckMainFrame extends JFrame {
 	public static void main(String[] args) {
 		
 		new SalesCheckMainFrame();
-
+		
 	}
 
 }

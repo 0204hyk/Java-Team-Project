@@ -29,6 +29,7 @@ public class OjdbcConnection {
 		try {
 			return DriverManager.getConnection(url, id, password);
 		} catch (SQLException e) {
+			System.out.println("DB연결 실패");
 			e.printStackTrace();
 			return null;
 		}
