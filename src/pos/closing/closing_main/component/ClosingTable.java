@@ -2,6 +2,7 @@ package pos.closing.closing_main.component;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.sql.Connection;
 
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -9,9 +10,11 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
+import database.OjdbcConnection;
+
 public class ClosingTable extends JTable {
 	
-	public ClosingTable() {
+	public ClosingTable() {		
 		String [] title = {"시간", "매출"};
 		String [][] value = {{"9시 ~ 10시","30000원"},
 							{"10시 ~ 11시","25000원"},
