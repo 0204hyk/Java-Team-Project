@@ -44,7 +44,7 @@ public class SalesChart extends ApplicationFrame {
 
 	private CategoryDataset createDataset() {
 		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-		String sql = "SELECT first_name, salary FROM employees WHERE salary > 11000";
+		String sql = "SELECT s.saleDate, sales_m.total_price FROM sales s INNER JOIN sales_management sales_m USING (sales_number)";
 		
 		try {
 			Connection conn = OjdbcConnection.getConnection();
@@ -52,7 +52,7 @@ public class SalesChart extends ApplicationFrame {
 			ResultSet rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
-				dataset.addValue(rs.getInt("salary"), rs.getString("first_name"), rs.getString("first_name"));
+				dataset.addValue(rs.getInt("total_price"), rs.getString("saleDate"), rs.getString("saleDate"));
 			}
 			
 		} catch (Exception e) {

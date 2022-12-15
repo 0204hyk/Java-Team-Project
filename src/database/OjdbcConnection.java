@@ -8,7 +8,7 @@ public class OjdbcConnection {
 
 	private static String driver = "oracle.jdbc.driver.OracleDriver";
 	private static String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
-	private static String id = "hr";
+	private static String id = "hyCafe";
 	private static String password = "1234";
 	
 	// static 클래스.
@@ -29,6 +29,7 @@ public class OjdbcConnection {
 		try {
 			return DriverManager.getConnection(url, id, password);
 		} catch (SQLException e) {
+			System.out.println("DB연결 실패");
 			e.printStackTrace();
 			return null;
 		}

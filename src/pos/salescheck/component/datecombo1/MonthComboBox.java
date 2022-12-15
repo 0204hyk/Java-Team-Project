@@ -24,6 +24,7 @@ public class MonthComboBox extends JComboBox {
 			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
+				System.out.println(e.getItem());
 			}
 		});
 	}
