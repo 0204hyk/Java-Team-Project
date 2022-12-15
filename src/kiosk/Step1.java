@@ -21,36 +21,42 @@ public class Step1 extends JFrame {
 
 	String root = "images/KioskImages/5. step1";
 	WithImage wi = new WithImage(root);
+	JButton save;
+	JButton notsave;
+	JButton join;
+	static String member_phonenumber;
+
+	static boolean isDone;
 
 	public Step1() {
 
 		// 포인트 적립
-		JButton save = wi.makeButton("save.png", 73, 248, 158, 141);
+		save = wi.makeButton("save.png", 73, 248, 158, 141);
 		save.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFrame ep = new Step1_EnterPhoneNum(); // 대조
 				ep.add(wi.makeLabel("confirmPoint.png", 187, 42, 70, 20));
+
 			}
 		});
 
 		// 간편 가입
-		JButton join = wi.makeButton("join.png", 417, 248, 158, 141);
+		join = wi.makeButton("join.png", 417, 248, 158, 141);
 		join.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// 열리면 비활성화, 닫히면 원래 떠있던 창이 활성화 되어야한다
-				JFrame ep = new Step1_SimpleJoin(); // 대조
+				Step1_SimpleJoin ep = new Step1_SimpleJoin();
 				ep.add(wi.makeLabel("joinText.png", 193, 42, 58, 20));
-				// 바로 포인트 적립 진행 (창 만들어야 함)
-
 			}
 		});
 
+		System.out.println(Step1_SimpleJoin.isDone);
+
 		// 포인트 적립 안함
-		JButton notsave = wi.makeButton("notsave.png", 245, 248, 158, 141);
+		notsave = wi.makeButton("notsave.png", 245, 248, 158, 141);
 
 		notsave.addActionListener(new ActionListener() {
 			int num = 1;
@@ -121,6 +127,23 @@ public class Step1 extends JFrame {
 
 		getContentPane().setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
+	}
+
+	public void saved() {
+		String root = "images/KioskImages/5. step1 Selected";
+		WithImage wi = new WithImage(root);
+		join.setVisible(false);
+		save.setEnabled(false);
+		notsave.setEnabled(false);
+		add(wi.makeLabel("join.png", 417, 248, 158, 141));
+	}
+
+	public static void setMemberPhone(String phonenumber) {
+		member_phonenumber = phonenumber;
+	}
+
+	public static String getMemberPhone() {
+		return member_phonenumber;
 	}
 
 	public static void main(String[] args) {

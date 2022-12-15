@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import database.kiosk.CheckPhoneNum;
@@ -24,22 +25,26 @@ import kiosk.tools.WithImage;
 public class Step1_SimpleJoin extends JFrame {
 
 	// 메뉴 금액의 10프로 가져와야함
-
 	// 회원가입
 	String root = "images/KioskImages/5_1. step1 InputPhone";
 	WithImage wi = new WithImage(root);
 
+	static boolean isDone = false;
+
 	public Step1_SimpleJoin() {
 
-		add(wi.makeLabel("InputText.png", 125, 95, 197, 29));
-		add(wi.makeLabel("010.png", 133, 147, 46, 21));
+		add(wi.makeLabel("InputText.png", 71, 94, 87, 14));
+		add(wi.makeLabel("010.png", 70, 126, 46, 21));
+		JLabel notValid = wi.makeLabel("notValidNum.png", 70, 167, 177, 14);
+		add(notValid);
+		notValid.setVisible(false);
 
 		// 번호 입력하는 곳
 		JTextArea tf = new JTextArea();
 		tf.setOpaque(true);
 		tf.setBackground(Color.WHITE);
 		tf.setBorder(null);
-		tf.setBounds(181, 136, 131, 33);
+		tf.setBounds(119, 115, 140, 33);
 		tf.setFont(new Font("맑은 고딕", Font.BOLD, 28));
 		tf.setForeground(Color.BLACK);
 		add(tf);
@@ -48,7 +53,7 @@ public class Step1_SimpleJoin extends JFrame {
 		int x = 66, y = 213;
 		JTextArea ta = tf;
 		for (int i = 0; i < 12; i++) {
-			add(new PhoneKeypad(i, ta, x, y));
+			add(new PhoneKeypad(root, i, ta, x, y, 96, 71));
 			x += 108;
 			if (i == 2 || i == 5 || i == 8) {
 				x = 66;
@@ -57,7 +62,7 @@ public class Step1_SimpleJoin extends JFrame {
 			}
 		}
 
-		JButton cancel = wi.makeButton("cancel.png", 66, 545, 149, 71);
+		JButton cancel = wi.makeButton("cancel.png", 170, 562, 98, 49);
 		cancel.addActionListener(new ActionListener() {
 
 			@Override
@@ -66,9 +71,8 @@ public class Step1_SimpleJoin extends JFrame {
 			}
 		});
 
-		JButton confirm = wi.makeButton("confirm.png", 229, 545, 149, 71);
+		JButton confirm = wi.makeButton("confirm.png", 280, 562, 96, 49);
 		// 번호가 중복일 경우 -> 그 번호로 포인트 적립 or 아니오
-		// 중복이 아닌 경우 -> 회원 가입 완료를 띄우고 그 번호로 포인트 적립
 
 		confirm.addActionListener(new ActionListener() {
 
@@ -83,27 +87,40 @@ public class Step1_SimpleJoin extends JFrame {
 					// 중복인 경우
 					if (new CheckPhoneNum(ph).check()) {
 
-						System.out.println("폰 번호 중복입니다");
 						WithImage wi = new WithImage("images/KioskImages/5_1_1. step1 번호 중복");
 						JFrame jf = new JFrame();
 
+						// 그 번호로 적립함
 						JButton confirm = wi.makeButton("confirm.png", 247, 138, 89, 38);
 						confirm.addActionListener(new ActionListener() {
 
 							@Override
 							public void actionPerformed(ActionEvent e) {
 
-								new ShowPoint(ph.substring(7, ph.length()), point, currentPoint + point).hello();
-								jf.dispose();
+								ShowPoint sp = new ShowPoint(ph.substring(7, ph.length()), point, currentPoint + point);
+								sp.hello();
+								sp.dispose.addActionListener(new ActionListener() {
+
+									@Override
+									public void actionPerformed(ActionEvent e) {
+										sp.dispose();
+										jf.dispose();
+										dispose();
+										Step1.setMemberPhone(ph);
+
+									}
+								});
 
 							}
 						});
 
+						// 적립 안함
 						JButton cancel = wi.makeButton("cancel.png", 148, 138, 89, 38);
 						cancel.addActionListener(new ActionListener() {
 
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								tf.setText("");
 								jf.dispose();
 
 							}
@@ -112,7 +129,7 @@ public class Step1_SimpleJoin extends JFrame {
 						jf.add(confirm);
 						jf.add(cancel);
 						jf.add(wi.makeLabel("text.png", 38, 51, 281, 44));
-						jf.add(wi.makeLabel("background.png", 0, 0, 379, 213));
+//						jf.add(wi.makeLabel("background.png", 0, 0, 379, 213));
 
 						jf.setUndecorated(true);
 						jf.setLayout(null);
@@ -125,18 +142,30 @@ public class Step1_SimpleJoin extends JFrame {
 					} else if (!new CheckPhoneNum(ph).check()) {
 						System.out.println("중복이 아닙니다");
 						new JoinMembership(ph);
-						new ShowPoint(ph.substring(7, ph.length()), point, currentPoint + point).welcome();
+						ShowPoint sp = new ShowPoint(ph.substring(7, ph.length()), point, currentPoint + point);
+						sp.welcome();
+						sp.dispose.addActionListener(new ActionListener() {
+
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								sp.dispose();
+								dispose();
+								Step1.setMemberPhone(ph);
+
+							}
+						});
+
 					}
 
 				} else {
-					System.out.println("유효하지 않은 번호");
+					notValid.setVisible(true);
 				}
 			}
 		});
 
 		add(cancel);
 		add(confirm);
-		
+
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(null);
 		setSize(460, 700);
@@ -160,6 +189,11 @@ public class Step1_SimpleJoin extends JFrame {
 
 		return scaled;
 
+	}
+
+	public boolean isDone() {
+
+		return isDone();
 	}
 
 	public static void main(String[] args) {

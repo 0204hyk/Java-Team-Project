@@ -13,19 +13,20 @@ public class PhoneKeypad extends JButton implements ActionListener {
 
 	int i;
 	JTextArea ta;
-	String root = "images/KioskImages/5_1. step1 InputPhone";
+	String root;
 
 	WithImage wi = new WithImage(root);
 
-	public PhoneKeypad(int i, JTextArea ta, int x, int y) {
+	public PhoneKeypad(String root, int i, JTextArea ta, int x, int y, int w, int h) {
+		this.root = root;
 		this.ta = ta;
 		this.i = i + 1;
 
-		setIcon(new ImageIcon(wi.readImage(root + "/" + i + ".png", 96, 71)));
-		setBounds(x, y, 96, 71);
+		setIcon(new ImageIcon(wi.readImage(root + "/" + i + ".png", w, h)));
+		setBounds(x, y, w, h);
 		setBorderPainted(false);
 		setContentAreaFilled(false);
-		setPressedIcon(new ImageIcon(wi.readImage(root + " Selected/" + i + ".png", 96, 71)));
+		setPressedIcon(new ImageIcon(wi.readImage(root + " Selected/" + i + ".png", w, h)));
 		addActionListener(this);
 	}
 
