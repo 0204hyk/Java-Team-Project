@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
@@ -21,8 +21,13 @@ import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
 public class ReceiptBtn extends JButton implements ActionListener{
 	int num;
 	String text;
-	List<String> List = new ArrayList<>();
+	List<String> numList = new ArrayList<>();
+	List<String> numList2 = new ArrayList<>();
+	List<String> numList3 = new ArrayList<>();
 	ReceiptCheckFrame f;
+	//public static int colCount;
+	
+	
 	
 	public ReceiptBtn(int num, ReceiptCheckFrame f) {
 		this.num = num;
@@ -44,8 +49,9 @@ public class ReceiptBtn extends JButton implements ActionListener{
 //							rs.getString("member_join"));
 					
 	
-					List.add(rs.getString("member_phonenumber"));						
-				
+					numList.add(rs.getString("member_phonenumber"));
+					numList2.add(rs.getString("member_point"));
+					numList3.add(rs.getString("member_join"));
 					
 				}
 	         
@@ -58,7 +64,7 @@ public class ReceiptBtn extends JButton implements ActionListener{
 	      
 	      y = y * num;
 	      
-	      setText(num + "    " + List.get(num));
+	      setText(num + "    " + numList.get(num));
 	      setFont(new Font("맑은 고딕", Font.PLAIN, 25));	
 	      setBounds(x, y, 300, 50);  setHorizontalAlignment(SwingConstants.LEFT);
 	      setVisible(true);
@@ -74,13 +80,19 @@ public class ReceiptBtn extends JButton implements ActionListener{
 		// JLabel 바꾸기 
 		// 
 		System.out.println(num + " 클릭");
-		System.out.println(List.get(num));
-		changeTextA(List.get(num));
+		System.out.println(numList.get(num));
+		changeTextA(numList.get(num), numList2.get(num), numList3.get(num));
 		
 	}
 	
-	public void changeTextA(String num) {
+	public  JScrollPane changeTextA(String num, String point, String date) {
+		
 		JTextArea a = f.printTextArea;
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportView(a);
+		
+		scrollPane.setFont(new Font("맑은 고딕", Font.PLAIN, 20));	
+		scrollPane.setBounds(640, 95, 500, 550); // Panel 틀
 		
 		a.setText("[영수증]\n"
 				+ "\n"
@@ -89,20 +101,25 @@ public class ReceiptBtn extends JButton implements ActionListener{
 				+ "[주소] 경기도 구리시 건원대로 44 태영빌딩\n"
 				+ "4층 409호\n"
 				+ "[대표자] 김XX		[TEL] 031-555-4449\n"
-				+ "[매출일] " + num + "\n"
+				+ "[매출일] " + date + "\n"
 				+ "[영수증] " + num + "\n"
 				+ "============================================\n"
 				+ " 상 품 명\t\t수 량\t단 가\n"
 				+ "-----------------------------------------------------------------\n"
 				+ num + "\t\t" + num + "\t" + num + "\n"
 				+ "-----------------------------------------------------------------\n"
-				+ "\t\t합 계 금 액   "  + num + "\n"
+				+ "\t\t합 계 금 액   "  + point + "\n"
 				+ "------------------------------------------------------------------\n"
-				+ "\t\t받 을 금 액   "  + num + "\n"
-				+ "\t\t받 은 금 액   "  + num + "\n"
-				+ "\t\t받 은 카 드   " + num + "\n"
+				+ "\t\t받 을 금 액   "  + point + "\n"
+				+ "\t\t받 은 금 액   "  + point + "\n"
+				+ "\t\t받 은 카 드   " + point + "\n"
+				+ "\t\t받 은 카 드   " + point + "\n"
+				+ "\t\t받 은 카 드   " + point + "\n"
+				+ "\t\t받 은 카 드   " + point + "\n"
 				+ "============================================"
 				);
+		
+		return scrollPane;
 	}
 	
 	

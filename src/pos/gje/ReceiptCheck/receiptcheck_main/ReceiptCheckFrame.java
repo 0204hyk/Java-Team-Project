@@ -12,7 +12,6 @@ import pos.DigitalClock;
 import pos.ImageScaledTool;
 import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.OutputButton;
-import pos.gje.ReceiptCheck.receiptcheck_main.component.PrintLabel;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.PrintTextArea;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.ReceiptCheckEscapeButton;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.RefundButton;
@@ -22,7 +21,7 @@ import pos.gje.ReceiptCheck.refund.RefundFrame;
 public class ReceiptCheckFrame extends JFrame{
 	
 	public static JTextArea printTextArea = new PrintTextArea();
-	JScrollPane s = new JScrollPane();
+	//JScrollPane s = new JScrollPane();
 	
 	public ReceiptCheckFrame() {		
 		
@@ -47,10 +46,11 @@ public class ReceiptCheckFrame extends JFrame{
 		add(new OutputButton());
 		
 		// 영수증 출력 
-		//add(printLabel);
-		
-		add(printTextArea);
+		//add(printTextArea);
 
+		//JScrollPane scrollPane = new JScrollPane(printTextArea);
+
+		add(printTextArea);
 		
 		// 돌아가기 버튼
 		ReceiptCheckEscapeButton escapeBtn = new ReceiptCheckEscapeButton(this);
