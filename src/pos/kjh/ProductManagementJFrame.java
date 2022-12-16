@@ -1,12 +1,16 @@
 package pos.kjh;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -15,46 +19,65 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableCellRenderer;
 
-import pos.DigitalClock;
-import pos.ImageScaledTool;
-import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.gje.delete.DeletFrame;
 import pos.gje.modify.ModifyFrame;
 
 public class ProductManagementJFrame extends JFrame {
 
+	private JPanel contenePane;
+	private JTable table;
+	private DefaultTableCellRenderer dcr = new DefaultTableCellRenderer();
 	
-
-	public ProductManagementJFrame() throws IOException {
-		setTitle("상품 관리");
+	
+	
+	static JTextField serchText = new JTextField("키워드를 입력해주세요");
+	
+	public ProductManagementJFrame() throws IOException, SQLException {
 		
-		// 상단 메뉴바 설정
-		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
-				"images/PosImages/상단 메뉴바.png", 1200, 60));
-		titlePanel.setBounds(0 ,0, 1200, 60);
-		// 현재 시간 출력
-		JLabel clock = new DigitalClock();
-		clock.setBounds(375, 10, 400, 30);
-		titlePanel.add(clock);
-		
-		add(titlePanel);
-		
+		add(serch());
 		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
-		add(labelImage("images/PosImages/상품 관리 이미지/메뉴 리스트 기본 틀.png", 48, 190, 1100, 400));
-		serch();
+		add(new MenuListJTable(allMenu()));
+	
 		buttons();
 	}
 	
-	public JTextField serch() {
-		JTextField serch = new JTextField();
+	public String serchMenu(String keyword) {
+	
+		String text = "SELECT DISTINCT menu_number, menu_name, price FROM menu WHERE menu_name LIKE '%" + keyword + "%'";
+		
+		return text;
+	}
+	
+	public String allMenu() {
+		
+		String text = "SELECT DISTINCT menu_number, menu_name, price FROM menu";
+		
+		return text;
+	}
 
-		serch.setBounds(215, 100, 700, 49);
-		serch.setOpaque(false);
-		serch.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-				
-		return serch;
+	
+	public static JTextField serch() {
+		
+		serchText.setBounds(215, 100, 700, 49);
+		serchText.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+//		serchText.setForeground(Color.gray);
+//		serchText.setForeground(Color.black);
+		serchText.setOpaque(false);
+		serchText.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		
+		serchText.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				serchText.setText(null);
+			}
+		});
+		
+		
+		return serchText;
 	}
 	
 	
@@ -85,6 +108,35 @@ public class ProductManagementJFrame extends JFrame {
 		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
 				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55);
 		
+		
+		serchBtn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					add(new MenuListJTable(serchMenu(serch().getText())));
+					new MenuListJTable(allMenu()).setFocusable(false);;
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		serchText.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					add(new MenuListJTable(serchMenu(serch().getText())));
+					
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+			
+		
 		backBtn.addActionListener(new ActionListener() {
 			
 			@Override
@@ -97,6 +149,7 @@ public class ProductManagementJFrame extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				new DeletFrame();
 				
 			}
@@ -111,16 +164,16 @@ public class ProductManagementJFrame extends JFrame {
 			}
 		});
 
-		add(serchBtn);
-		add(backBtn);
-		add(deleteBtn);
-		add(modifyBtn);
-		add(addBtn);
 
 		addBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+//				 table.getColumn(" ").setCellRenderer(dcr);
+//				 JCheckBox box = new JCheckBox();
+//				 box.setHorizontalAlignment(JLabel.CENTER);
+//				 
 				try {
 					new MenuAddFrame();
 				} catch (IOException e1) {
@@ -128,13 +181,19 @@ public class ProductManagementJFrame extends JFrame {
 				}
 			}
 		});
+				
 		
+		add(serchBtn);
+		add(backBtn);
+		add(deleteBtn);
+		add(modifyBtn);
+		add(addBtn);
+			
 		setLayout(null);
 		setSize(1200, 800);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setBackground(new Color(64, 64, 64));
-		//setUndecorated(true);
 		setLocationRelativeTo(null);
 		setResizable(false);
 
@@ -166,7 +225,7 @@ public class ProductManagementJFrame extends JFrame {
 	}
 
 
-		public static void main(String[] args) throws IOException {
+		public static void main(String[] args) throws IOException, SQLException {
 			new ProductManagementJFrame();
 		}
 
