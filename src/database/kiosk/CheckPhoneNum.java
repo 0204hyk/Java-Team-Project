@@ -39,6 +39,4 @@ public class CheckPhoneNum {
 		}
 	}
 
-	public static void main(String[] args) {
-	}
 }
