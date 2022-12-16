@@ -66,7 +66,7 @@ public class SalesCheckMainFrame extends JFrame {
 		
 		// 매출요약
 		JLabel salesTitle = new TitleLabel();
-		JLabel amount = new TotalLabel();
+		JLabel total = new TotalLabel();
 		
 	
 		add(title);
@@ -76,7 +76,7 @@ public class SalesCheckMainFrame extends JFrame {
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
-		add(amount);
+		add(total);
 		add(table);
 		add(list);
 		add(chartPanel);

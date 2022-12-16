@@ -12,6 +12,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -26,10 +27,13 @@ public class SalesTable extends JTable {
 
 	private static String colTitle[] = {"날짜", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0);
-	
+
 	StringBuilder sb = new StringBuilder();
-	TotalLabel total = new TotalLabel();
-	String year, month, day;
+	
+	String year;
+	String month; 
+	String day;
+
 	
 	public SalesTable() {
 		
@@ -43,10 +47,13 @@ public class SalesTable extends JTable {
 		table.setRowHeight(30);
 		table.getTableHeader().setResizingAllowed(false);
 		table.getTableHeader().setReorderingAllowed(false);
+	
 		add(scroll);
 		setBounds(650, 230, 450, 360);
 		setLayout(null);
 		setVisible(true);
+		
+		
 		
 	}
 
@@ -75,11 +82,12 @@ public class SalesTable extends JTable {
 				pstmt.setString(1, new String(sb));
 				
 			try (ResultSet rs = pstmt.executeQuery()) {
-				if(rs.next()) {
+				while(rs.next()) {
 					model.addRow(new Object[] {
 							rs.getDate(1),
 							rs.getString("total_price")});
-					total.setText(
+					TotalLabel setTotal = new TotalLabel();
+					setTotal.setText(
 							rs.getString("total_price"));
 				}
 			}
