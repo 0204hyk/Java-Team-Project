@@ -50,6 +50,18 @@ public class MenuListJTable extends JTable{
 		}
 	}
 	
+//	 DefaultTableCellRenderer dcr = new DefaultTableCellRenderer()
+//	 {
+//	  public Component getTableCellRendererComponent  // 셀렌더러
+//	   (JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+//	  {
+//	   JCheckBox box= new JCheckBox();
+//	   box.setSelected(((Boolean)value).booleanValue());  
+//	   box.setHorizontalAlignment(JLabel.CENTER);
+//	   return box;
+//	  }
+//	 };
+	
 	public MenuListJTable(String sqlCondition) throws SQLException {
 		String sql = sqlCondition;
 
@@ -69,6 +81,14 @@ public class MenuListJTable extends JTable{
 			}
 			
 			JTable table = new JTable(contents);
+			
+//			table.getColumn("").setCellRenderer(dcr);
+//			JCheckBox box = new JCheckBox();
+//			box.setHorizontalAlignment(JLabel.CENTER);
+//			
+//			table.getColumn("").setCellEditor(new DefaultCellEditor(box));;
+			
+			
 			JScrollPane scroll = new JScrollPane(table);
 			
 			table.setFont(getFont().deriveFont(20f));
@@ -77,12 +97,7 @@ public class MenuListJTable extends JTable{
 			scroll.setBounds(0, 0, 1100, 400);
 			
 			
-			DefaultTableCellRenderer dcr = new DefaultTableCellRenderer();
-			table.getColumn("").setCellRenderer(dcr);
-			JCheckBox box = new JCheckBox();
-			box.setHorizontalAlignment(JLabel.CENTER);
 			
-			table.getColumn("").setCellEditor(new DefaultCellEditor(box));;
 			
 //			table.addMouseListener(new MouseAdapter() {
 //				@Override
