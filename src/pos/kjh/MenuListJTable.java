@@ -81,7 +81,7 @@ public class MenuListJTable extends JTable{
 			}
 			
 			JTable table = new JTable(contents);
-			//
+			
 //			table.getColumn("").setCellRenderer(dcr);
 //			JCheckBox box = new JCheckBox();
 //			box.setHorizontalAlignment(JLabel.CENTER);

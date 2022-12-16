@@ -1,36 +1,24 @@
 package pos.kjh;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Calendar;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -95,7 +83,6 @@ public class ProductManagementJFrame extends JFrame {
 		
 		return serchText;
 	}
-	
 	
 	
 	public static JLabel labelImage(String image, int a, int b, int c, int d) throws IOException {
@@ -209,8 +196,6 @@ public class ProductManagementJFrame extends JFrame {
 		add(backBtn);
 		add(deleteBtn);
 		add(modifyBtn);
-		add(addBtn);
-		add(tp);
 		add(addBtn);
 		
 		
