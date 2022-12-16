@@ -26,14 +26,12 @@ public class UsePoint extends JFrame {
 		phoneNum.setFont(new Font("맑은 고딕", Font.BOLD, 36));
 		phoneNum.setForeground(Color.black);
 		phoneNum.setBounds(32, 65, 86, 32);
-		add(phoneNum);
-		
+
 		JLabel currentPoint = new JLabel("" + cp.currentPoint()); // 가져오기
 		currentPoint.setHorizontalAlignment(JLabel.RIGHT);
 		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 34));
 		currentPoint.setForeground(new Color(63, 186, 145));
 		currentPoint.setBounds(100, 260, 100, 35);
-		add(currentPoint);
 
 		JTextArea ta = new JTextArea();
 		ta.setBackground(new Color(242, 242, 242));
@@ -42,19 +40,29 @@ public class UsePoint extends JFrame {
 		ta.setFont(new Font("맑은 고딕", Font.BOLD, 26));
 		ta.setForeground(Color.BLACK);
 		ta.setAlignmentX(CENTER_ALIGNMENT); // 작동안되는듯
-		add(ta);
 
 		add(wi.makeLabel("leftPointText.png", 33, 67, 335, 83));
 		add(wi.makeLabel("byUnitText.png", 88, 329, 269, 16));
 		add(wi.makeLabel("useAll.png", 85, 399, 63, 14));
 		add(wi.makeLabel("usePointBox.png", 171, 383, 105, 46));
-		add(wi.makeButton("use.png", 303, 383, 84, 46));
+
+		JButton use = wi.makeButton("use.png", 303, 383, 84, 46);
+		
+		use.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 디비에서 차감되게 만들기
+				
+				
+			}
+		});
+
 		add(wi.makeLabel("pointText.png", 205, 264, 90, 28));
 		JLabel check = wi.makeLabel("check.png", 60, 381, 28, 27);
-		add(check);
+
 		check.setVisible(false);
 		JButton checkBox = wi.makeButton("checkBox.png", 63, 399, 14, 14);
-		add(checkBox);
 		checkBox.addActionListener(new ActionListener() {
 			int num = 1;
 
@@ -73,8 +81,6 @@ public class UsePoint extends JFrame {
 
 			}
 		});
-		add(wi.makeLabel("currentPointText.png", 163, 214, 121, 22));
-		add(wi.makeLabel("currentPointBox.png", 63, 186, 320, 132));
 
 		int x = 57, y = 455;
 		for (int i = 0; i < 12; i++) {
@@ -86,6 +92,14 @@ public class UsePoint extends JFrame {
 			}
 		}
 
+		add(currentPoint);
+		add(phoneNum);
+		add(ta);
+		add(use);
+		add(check);
+		add(checkBox);
+		add(wi.makeLabel("currentPointText.png", 163, 214, 121, 22));
+		add(wi.makeLabel("currentPointBox.png", 63, 186, 320, 132));
 		setLayout(null);
 		setSize(461, 710); // 창 크기 이상해서 임시로 늘림
 		setVisible(true);
