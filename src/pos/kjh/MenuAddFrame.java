@@ -58,7 +58,7 @@ public class MenuAddFrame extends JFrame{
 	
 	public JButton fixBtn() throws IOException{
 		JButton fixBtn = new JButton();
-
+		
 		BufferedImage bufferedfixBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/메뉴 추가 창 확인 버튼.png"));
 		Image fixBtnImage = bufferedfixBtnImage.getScaledInstance(150,75, Image.SCALE_SMOOTH);
 		fixBtn.setIcon(new ImageIcon(fixBtnImage));
