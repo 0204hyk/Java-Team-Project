@@ -28,7 +28,7 @@ public class SalesTable extends JTable {
 	private static String colTitle[] = {"날짜", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0);
 
-	StringBuilder sb = new StringBuilder();
+	public static StringBuilder sb = new StringBuilder();
 	
 	String year;
 	String month; 
@@ -63,12 +63,7 @@ public class SalesTable extends JTable {
 		this.month = month;
 		this.day = day;
 		
-		
-		sb.append(year);
-		sb.append(month);
-		sb.append(day);
-		
-		
+		String plus = year + month + day;
 		String sql = "SELECT s.saleDate, to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
 				+ "FROM sales s INNER JOIN sales_management sales_m "
 				+ "USING (sales_number) "
@@ -79,7 +74,8 @@ public class SalesTable extends JTable {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 				) {
-				pstmt.setString(1, new String(sb));
+			
+				pstmt.setString(1, plus);
 				
 			try (ResultSet rs = pstmt.executeQuery()) {
 				while(rs.next()) {

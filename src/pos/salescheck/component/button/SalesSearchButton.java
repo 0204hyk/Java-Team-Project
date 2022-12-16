@@ -16,7 +16,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.ui.ApplicationFrame;
+
 import pos.ImageScaledTool;
+import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
@@ -34,7 +38,9 @@ public class SalesSearchButton extends JButton {
 	String year;
 	String month;
 	String day;
-
+	String year2;
+	String month2;
+	String day2;
 	
 	public SalesSearchButton() {
 	}
@@ -67,8 +73,12 @@ public class SalesSearchButton extends JButton {
 				year = String.format("%02d",  yearBox.getSelectedItem());
 				month = String.format("%02d", monthBox.getSelectedItem()); 
 				day = String.format("%02d", dayBox.getSelectedItem());	
+				year2 = String.format("%02d",  yearBox.getSelectedItem());
 				SalesTable table = new SalesTable(year, month, day);
-				
+		
+			
+			
+		
 			}
 		});
 	
