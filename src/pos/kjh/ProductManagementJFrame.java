@@ -55,7 +55,8 @@ public class ProductManagementJFrame extends JFrame {
 		
 		add(serch());
 		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
-		add(new MenuListJTable(serchMenu(serch().getText())));
+		add(new MenuListJTable(allMenu()));
+	
 		buttons();
 	}
 	
@@ -63,6 +64,13 @@ public class ProductManagementJFrame extends JFrame {
 	public String serchMenu(String keyword) {
 	
 		String text = "SELECT DISTINCT menu_number, menu_name, price FROM menu WHERE menu_name LIKE '%" + keyword + "%'";
+		
+		return text;
+	}
+	
+	public String allMenu() {
+		
+		String text = "SELECT DISTINCT menu_number, menu_name, price FROM menu";
 		
 		return text;
 	}
@@ -123,6 +131,7 @@ public class ProductManagementJFrame extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				try {
 					add(new MenuListJTable(serchMenu(serch().getText())));
+					new MenuListJTable(allMenu()).setFocusable(false);;
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -136,8 +145,8 @@ public class ProductManagementJFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					add(new MenuListJTable(serchMenu(serch().getText())));
+					
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				

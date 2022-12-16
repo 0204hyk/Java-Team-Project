@@ -1,8 +1,11 @@
 package pos.kjh;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,10 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import database.OjdbcConnection;
@@ -27,7 +34,7 @@ public class MenuListJTable extends JTable{
 	private static String id = "hyCafe";
 	private static String pw = "1234";
 	
-	private String top[] = {" ", "순번", "메뉴 이름", "금액"};
+	private String top[] = {"", "상품코드", "메뉴 이름", "금액"};
 	
 	private DefaultTableModel contents = new DefaultTableModel(top, 0);
 	
@@ -53,6 +60,7 @@ public class MenuListJTable extends JTable{
 				){
 
 			while (rs.next()) {
+				
 				contents.addRow(new Object[] {
 						rs.getInt("menu_number"),
 						rs.getString("menu_name"),
@@ -62,10 +70,29 @@ public class MenuListJTable extends JTable{
 			
 			JTable table = new JTable(contents);
 			JScrollPane scroll = new JScrollPane(table);
+			
 			table.setFont(getFont().deriveFont(20f));
 			table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 23));
 			table.setRowHeight(35);
 			scroll.setBounds(0, 0, 1100, 400);
+			
+			
+			DefaultTableCellRenderer dcr = new DefaultTableCellRenderer();
+			table.getColumn("").setCellRenderer(dcr);
+			JCheckBox box = new JCheckBox();
+			box.setHorizontalAlignment(JLabel.CENTER);
+			
+			table.getColumn("").setCellEditor(new DefaultCellEditor(box));;
+			
+//			table.addMouseListener(new MouseAdapter() {
+//				@Override
+//				public void mousePressed(MouseEvent e) {
+//					int row = table.getSelectedRow();
+//					
+//				}
+//			});
+			
+			
 			setBounds(48, 190, 1100, 400);
 			add(scroll);
 			setLayout(null);
