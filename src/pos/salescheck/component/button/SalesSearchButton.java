@@ -1,6 +1,10 @@
 package pos.salescheck.component.button;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -30,9 +34,12 @@ public class SalesSearchButton extends JButton {
 	String year;
 	String month;
 	String day;
+
 	
 	public SalesSearchButton() {
 	}
+	
+	
 
 	public SalesSearchButton(JComboBox yearBox, JComboBox monthBox, JComboBox dayBox) {
 		this.yearBox = yearBox;
@@ -53,20 +60,18 @@ public class SalesSearchButton extends JButton {
 		setBounds(450, 90, 100, 50);
 		setBorder(null);
 		
-		addMouseListener(new MouseAdapter() {
-		
+		addActionListener(new ActionListener() {
+			
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				SalesTable table = new SalesTable();
-				year = yearBox.getSelectedItem().toString();
-				month = monthBox.getSelectedItem().toString();
-				day = dayBox.getSelectedItem().toString();
-				
+			public void actionPerformed(ActionEvent e) {
+				year = String.format("%02d",  yearBox.getSelectedItem());
+				month = String.format("%02d", monthBox.getSelectedItem()); 
+				day = String.format("%02d", dayBox.getSelectedItem());	
+				SalesTable table = new SalesTable(year, month, day);
 				
 			}
 		});
 	
-
 		
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
