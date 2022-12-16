@@ -1,4 +1,4 @@
-package pos.closing.closing_main.container;
+package pos.closing.closing_main.component;
 
 import java.awt.Font;
 

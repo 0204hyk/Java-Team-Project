@@ -5,12 +5,11 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import pos.DigitalClock;
+import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.OutputButton;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.PrintTextArea;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.ReceiptCheckEscapeButton;
@@ -26,7 +25,7 @@ public class ReceiptCheckFrame extends JFrame{
 	public ReceiptCheckFrame() {		
 		
 		// 상단 메뉴바 설정
-		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
 		titlePanel.setBounds(0 ,0, 1200, 60);
 		

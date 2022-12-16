@@ -10,13 +10,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import pos.DigitalClock;
+import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.closing.closing_main.component.ClosingEscapeButton;
 import pos.closing.closing_main.component.ClosingTable;
 import pos.closing.closing_main.component.DailySalesLabel;
 import pos.closing.closing_main.component.DoCloseButton;
-import pos.closing.closing_main.container.ClosingImagePanel;
-import pos.closing.closing_main.container.EmptyLabel;
 import pos.closing.closing_message.ClosingMessageFrame;
 
 public class ClosingFrame extends JFrame {
@@ -25,7 +24,7 @@ public class ClosingFrame extends JFrame {
 	public ClosingFrame() {
 		
 		// 상단 메뉴바 설정
-		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
 		titlePanel.setBounds(0 ,0, 1200, 60);
 		// 현재 시간 출력
@@ -62,7 +61,7 @@ public class ClosingFrame extends JFrame {
 //		}
 		
 		// 마감 내역 이미지 패널
-		JPanel panelC = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+		JPanel panelC = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/마감 이미지/마감 내역 기본 틀2.png", 1000, 550));
 		panelC.setBounds(100, 100, 1000, 550);
 		

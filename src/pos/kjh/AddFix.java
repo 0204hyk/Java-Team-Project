@@ -13,10 +13,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.closing.closing_main.container.ClosingImagePanel;
 
-public class AddFix extends JFrame{
+public class AddFix extends JFrame {
 
 	JScrollPane scrollPane;
 	ImageIcon icon;
@@ -40,28 +40,18 @@ public class AddFix extends JFrame{
 	
 	public AddFix() throws IOException {
 		
-		icon = new ImageIcon("images/PosImages/상품 관리 이미지/메뉴 추가 완료 안내 창.png");
+		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
+				"images/PosImages/상품 관리 이미지/메뉴 추가 완료 안내 창.png", 400, 200));
 		
-		JPanel background = new JPanel() {
-			public void paintComponent(Graphics g) {
-				Dimension d = getSize();
-				g.drawImage(icon.getImage(), 0, 0, d.width, d.height,null);
-			}
-		};
-		background.setOpaque(false); 
-		background.setBounds(0, 0, 400, 200);
-		background.add(AddFixButton());
+		background.add(AddFixButton());	
 		
-		scrollPane = new JScrollPane(background);
-		setContentPane(scrollPane);
-		
-		
-		background.setLayout(null);
+		add(background);
 		
 //		setLayout(null);
 		setSize(400, 200);
 		setResizable(false);
 		setUndecorated(true);
+		setBackground(new Color(0, 0, 0, 0));	// 패널 배경 투명하게 하기
 		setLocationRelativeTo(null);
 		setVisible(true);
 		

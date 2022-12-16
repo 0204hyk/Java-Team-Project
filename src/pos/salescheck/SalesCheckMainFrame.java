@@ -12,8 +12,8 @@ import javax.swing.JTable;
 import org.jfree.chart.ChartPanel;
 
 import pos.DigitalClock;
+import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.chart.SalesChart;
@@ -32,7 +32,7 @@ public class SalesCheckMainFrame extends JFrame {
 		setTitle("매출 요약");
 		
 		// 매출요약 상단 메뉴바 생성.
-		JPanel title = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+		JPanel title = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
 		title.setBounds(0 ,0, 1200, 60);
 		// 현재 시간 출력
