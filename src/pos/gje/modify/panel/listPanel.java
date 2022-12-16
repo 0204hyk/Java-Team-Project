@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 public class listPanel extends JPanel{
 
@@ -16,7 +18,16 @@ public class listPanel extends JPanel{
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 	
+//	public JTextField modify() {
+//		JTextField textNum = new JTextField();
+//		
+//		
+//		return ;
+//	}
+	
+	
 	public listPanel() {
+		
 		
 		setBounds(20, 90, 770, 310); // Panel 틀
 		setLayout(null); 

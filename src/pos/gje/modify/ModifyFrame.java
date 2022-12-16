@@ -30,6 +30,9 @@ public class ModifyFrame extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE); // 종료 했을 때
 	}
 	
+	
+	
+	
 	public static void main(String[] args) {
 		new ModifyFrame();
 	
