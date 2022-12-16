@@ -1,9 +1,7 @@
 package pos.kjh;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +14,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -32,6 +29,9 @@ public class MenuAddFrame extends JFrame{
 	
 	JScrollPane scrollPane;
 	ImageIcon icon;
+	JTextField nameField = nameAdd();
+	JFormattedTextField priceField = priceAdd();
+	AddFix addfix = new AddFix(this);
 	
 	public JTextField nameAdd() {
 		JTextField menuName = new JTextField();
@@ -47,7 +47,7 @@ public class MenuAddFrame extends JFrame{
 	// 숫자만 입력 받는 텍스트 필드
 	public JFormattedTextField priceAdd() {
 		JFormattedTextField menuPrice = new JFormattedTextField(new NumberFormatter());
-
+				
 		menuPrice.setBounds(190, 213, 700, 49);
 		menuPrice.setOpaque(false);
 		menuPrice.setFont(new Font("맑은 고딕", Font.BOLD, 20));
@@ -78,12 +78,8 @@ public class MenuAddFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					String addMenu = "INSERT INTO menu VALUES" + nameAdd();
-					new AddFix();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+				String addMenu = "INSERT INTO menu VALUES";
+				addfix.setVisible(true);
 			}
 		});
 
@@ -111,14 +107,12 @@ public class MenuAddFrame extends JFrame{
 			}
 		});
 
-		
 		return closeBtn;
 	}
 
 
-	
 	public MenuAddFrame() throws IOException {
-
+		
 		// 카테고리 분류
 		ButtonGroup categoryBtnGroup = new ButtonGroup();
 
@@ -155,60 +149,75 @@ public class MenuAddFrame extends JFrame{
 		categoryBtnGroup.add(teaAde);
 		categoryBtnGroup.add(nonCoffee);
 		categoryBtnGroup.add(coffee);
-
-		
 		
 		
 		// 옵션 분류
-		JCheckBox option1 = new JCheckBox("hot & ice");
-		option1.setBounds(180, 350, 110, 70);
-		option1.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		ButtonGroup optionBtnGroup = new ButtonGroup();
+		JRadioButton option1 = new JRadioButton("모든 옵션");
+		option1.setBounds(180, 370, 150, 35);
+		option1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option1.setBorderPainted(false);
 		option1.setContentAreaFilled(false);
 		option1.setFocusPainted(false);
+		option1.setSelected(true);
 
-		JCheckBox option2 = new JCheckBox("디카페인");
-		option2.setBounds(300, 350, 110, 70);
-		option2.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		JRadioButton option2 = new JRadioButton("우유 X");
+		option2.setBounds(180, 400, 150, 35);
+		option2.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option2.setBorderPainted(false);
 		option2.setContentAreaFilled(false);
 		option2.setFocusPainted(false);
 
-		JCheckBox option3 = new JCheckBox("사이즈");
-		option3.setBounds(420, 350, 110, 70);
-		option3.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		JRadioButton option3 = new JRadioButton("Ice Only");
+		option3.setBounds(180, 430, 150, 35);
+		option3.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option3.setBorderPainted(false);
 		option3.setContentAreaFilled(false);
 		option3.setFocusPainted(false);
 
-		JCheckBox option4 = new JCheckBox("컵 선택");
-		option4.setBounds(540, 350, 110, 70);
-		option4.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		JRadioButton option4 = new JRadioButton("Ice Only, 우유 X");
+		option4.setBounds(330, 370, 180, 35);
+		option4.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option4.setBorderPainted(false);
 		option4.setContentAreaFilled(false);
 		option4.setFocusPainted(false);
 		
-		JCheckBox option5 = new JCheckBox("얼음 선택");
-		option5.setBounds(180, 380, 120, 70);
-		option5.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		JRadioButton option5 = new JRadioButton("샷, 사이즈");
+		option5.setBounds(330, 400, 150, 35);
+		option5.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option5.setBorderPainted(false);
 		option5.setContentAreaFilled(false);
 		option5.setFocusPainted(false);
 		
-		JCheckBox option6 = new JCheckBox("샷 추가");
-		option6.setBounds(300, 380, 110, 70);
-		option6.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		JRadioButton option6 = new JRadioButton("디카페인, 샷, 사이즈");
+		option6.setBounds(330, 430, 210, 35);
+		option6.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option6.setBorderPainted(false);
 		option6.setContentAreaFilled(false);
 		option6.setFocusPainted(false);
 		
-		JCheckBox option7 = new JCheckBox("우유 선택");
-		option7.setBounds(420, 380, 120, 70);
-		option7.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		JRadioButton option7 = new JRadioButton("디카페인 X");
+		option7.setBounds(550, 370, 150, 35);
+		option7.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option7.setBorderPainted(false);
 		option7.setContentAreaFilled(false);
 		option7.setFocusPainted(false);		
 		
+		JRadioButton option8 = new JRadioButton("Ice Only, 샷, 사이즈");
+		option8.setBounds(550, 400, 210, 35);
+		option8.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		option8.setBorderPainted(false);
+		option8.setContentAreaFilled(false);
+		option8.setFocusPainted(false);		
+
+		optionBtnGroup.add(option1);
+		optionBtnGroup.add(option2);
+		optionBtnGroup.add(option3);
+		optionBtnGroup.add(option4);
+		optionBtnGroup.add(option5);
+		optionBtnGroup.add(option6);
+		optionBtnGroup.add(option7);
+		optionBtnGroup.add(option8);
 
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상품 관리 이미지/메뉴 추가 창 기본 틀.png", 900, 550));
@@ -217,10 +226,10 @@ public class MenuAddFrame extends JFrame{
 		add(background);
 		background.setSize(900, 550);
 		
-
+		
 		add(close());
-		add(priceAdd());
-		add(nameAdd());
+		add(nameField);
+		add(priceField);
 		add(frappeBlended);
 		add(teaAde);
 		add(nonCoffee);
@@ -232,9 +241,8 @@ public class MenuAddFrame extends JFrame{
 		add(option5);
 		add(option6);
 		add(option7);
+		add(option8);
 		add(background);
-
-
 		
 		setLayout(null);
 		setUndecorated(true);
