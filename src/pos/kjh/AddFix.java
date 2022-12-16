@@ -46,19 +46,17 @@ public class AddFix extends JFrame{
 			public void paintComponent(Graphics g) {
 				Dimension d = getSize();
 				g.drawImage(icon.getImage(), 0, 0, d.width, d.height,null);
-				setOpaque(false); 
-				super.paintComponent(g);
 			}
 		};
+		background.setOpaque(false); 
 		background.setBounds(0, 0, 400, 200);
-				
 		background.add(AddFixButton());
 		
 		scrollPane = new JScrollPane(background);
 		setContentPane(scrollPane);
 		
 		
-		background.setLayout(null);	
+		background.setLayout(null);
 		
 //		setLayout(null);
 		setSize(400, 200);

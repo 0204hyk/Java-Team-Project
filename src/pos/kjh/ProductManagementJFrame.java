@@ -28,6 +28,8 @@ public class ProductManagementJFrame extends JFrame {
 	
 
 	public ProductManagementJFrame() throws IOException {
+		setTitle("상품 관리");
+		
 		// 상단 메뉴바 설정
 		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
@@ -88,7 +90,6 @@ public class ProductManagementJFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-//				new PosFrame();
 			}
 		});
 		
@@ -123,7 +124,6 @@ public class ProductManagementJFrame extends JFrame {
 				try {
 					new MenuAddFrame();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}

@@ -29,6 +29,7 @@ public class SalesCheckMainFrame extends JFrame {
 	
 	
 	public SalesCheckMainFrame() {
+		setTitle("매출 요약");
 		
 		// 매출요약 상단 메뉴바 생성.
 		JPanel title = new ClosingImagePanel(ImageScaledTool.getScaledImage(

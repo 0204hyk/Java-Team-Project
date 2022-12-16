@@ -4,14 +4,16 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.Calendar;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import pos.DigitalClock;
 import pos.ImageScaledTool;
 import pos.closing.closing_main.component.ClosingEscapeButton;
+import pos.closing.closing_main.component.ClosingTable;
+import pos.closing.closing_main.component.DailySalesLabel;
 import pos.closing.closing_main.component.DoCloseButton;
 import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.closing.closing_main.container.EmptyLabel;
@@ -63,7 +65,19 @@ public class ClosingFrame extends JFrame {
 		JPanel panelC = new ClosingImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/마감 이미지/마감 내역 기본 틀.png", 500, 550));
 		panelC.setBounds(600, 100, 500, 550);
-
+		
+		// 시간대별 매출 테이블
+		ClosingTable closingTable = new ClosingTable();
+		JScrollPane tablePanel = new JScrollPane(closingTable);
+		tablePanel.setBounds(3, 55, 488, 435);
+		
+		// 총 금액 라벨
+		DailySalesLabel totalLabel = new DailySalesLabel();
+		totalLabel.setLocation(140, 497);
+		
+		panelC.add(tablePanel);
+		panelC.add(totalLabel);
+		
 		// 오늘 일자 출력
 		Calendar now = Calendar.getInstance();
 		String date = "  " + now.get(Calendar.YEAR) + "-" + (now.get(Calendar.MONTH) + 1) 
@@ -84,6 +98,7 @@ public class ClosingFrame extends JFrame {
 		ClosingEscapeButton escapeBtn = new ClosingEscapeButton(this);
 		escapeBtn.setLocation(80, 670);
 
+		
 		add(titlePanel);
 		add(panelA);
 		add(panelB);
