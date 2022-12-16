@@ -90,7 +90,6 @@ public class ProductManagementJFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-//				new PosFrame();
 			}
 		});
 		
@@ -125,7 +124,6 @@ public class ProductManagementJFrame extends JFrame {
 				try {
 					new MenuAddFrame();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
