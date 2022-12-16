@@ -11,8 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.gje.delet.DeletFrame;
-import pos.gje.delet.OkFrame;
+import pos.gje.delete.DeletFrame;
+import pos.gje.delete.OkFrame;
 
 public class OkBtn extends JButton implements ActionListener{
 	// 첫번째 창 확인 버튼 

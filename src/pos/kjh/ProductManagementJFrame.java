@@ -1,25 +1,16 @@
 package pos.kjh;
 
 import java.awt.Color;
-<<<<<<< HEAD
-=======
 import java.awt.Font;
->>>>>>> refs/remotes/origin/kjh
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-<<<<<<< HEAD
-=======
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
->>>>>>> refs/remotes/origin/kjh
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-<<<<<<< HEAD
-=======
 import java.sql.SQLException;
->>>>>>> refs/remotes/origin/kjh
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -32,31 +23,12 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 
-import pos.DigitalClock;
-import pos.ImageScaledTool;
-import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.gje.delete.DeletFrame;
 import pos.gje.modify.ModifyFrame;
 
 public class ProductManagementJFrame extends JFrame {
 
 	
-<<<<<<< HEAD
-
-	public ProductManagementJFrame() throws IOException {
-		setTitle("상품 관리");
-		
-		// 상단 메뉴바 설정
-		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
-				"images/PosImages/상단 메뉴바.png", 1200, 60));
-		titlePanel.setBounds(0 ,0, 1200, 60);
-		// 현재 시간 출력
-		JLabel clock = new DigitalClock();
-		clock.setBounds(375, 10, 400, 30);
-		titlePanel.add(clock);
-		
-		add(titlePanel);
-=======
 	private JPanel contenePane;
 	private JTable table;
 	private DefaultTableCellRenderer dcr = new DefaultTableCellRenderer();
@@ -66,7 +38,6 @@ public class ProductManagementJFrame extends JFrame {
 	static JTextField serchText = new JTextField("키워드를 입력해주세요");
 	
 	public ProductManagementJFrame() throws IOException, SQLException {
->>>>>>> refs/remotes/origin/kjh
 		
 		add(serch());
 		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
@@ -76,13 +47,6 @@ public class ProductManagementJFrame extends JFrame {
 	}
 	
 
-<<<<<<< HEAD
-		serch.setBounds(215, 100, 700, 49);
-		serch.setOpaque(false);
-		serch.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-				
-		return serch;
-=======
 	public String serchMenu(String keyword) {
 	
 		String text = "SELECT DISTINCT menu_number, menu_name, price FROM menu WHERE menu_name LIKE '%" + keyword + "%'";
@@ -116,7 +80,6 @@ public class ProductManagementJFrame extends JFrame {
 		
 		
 		return serchText;
->>>>>>> refs/remotes/origin/kjh
 	}
 	
 	
@@ -203,16 +166,6 @@ public class ProductManagementJFrame extends JFrame {
 			}
 		});
 
-<<<<<<< HEAD
-		add(serchBtn);
-		add(backBtn);
-		add(deleteBtn);
-		add(modifyBtn);
-		add(addBtn);
-=======
-		
-
->>>>>>> refs/remotes/origin/kjh
 
 		addBtn.addActionListener(new ActionListener() {
 
@@ -231,10 +184,6 @@ public class ProductManagementJFrame extends JFrame {
 			}
 		});
 		
-<<<<<<< HEAD
-=======
-		
-		
 		add(serchBtn);
 		add(backBtn);
 		add(deleteBtn);
@@ -242,7 +191,6 @@ public class ProductManagementJFrame extends JFrame {
 		add(addBtn);
 		
 		
->>>>>>> refs/remotes/origin/kjh
 		setLayout(null);
 		setSize(1200, 800);
 		setVisible(true);

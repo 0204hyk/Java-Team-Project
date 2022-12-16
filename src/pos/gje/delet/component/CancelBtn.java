@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.gje.delet.DeletFrame;
+import pos.gje.delete.DeletFrame;
 
 public class CancelBtn extends JButton implements ActionListener{
 

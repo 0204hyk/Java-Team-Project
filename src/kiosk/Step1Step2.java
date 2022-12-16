@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 
 import kiosk.cardPut.CardPutFrame;
-import kiosk.paymentComplete.PaymentCompleteFrame;
 import kiosk.tools.WithImage;
 
 public class Step1Step2 extends JFrame {
@@ -125,7 +124,7 @@ public class Step1Step2 extends JFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						cp.dispose();
-						new PaymentCompleteFrame();
+//						new PaymentCompleteFrame();
 						timer.stop();
 						// 적립 업데이트 해주기
 					}
