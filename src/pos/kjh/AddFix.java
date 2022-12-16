@@ -25,7 +25,7 @@ public class AddFix extends JFrame {
 	
 	public JButton AddFixButton() throws IOException {
 		JButton addFixBtn = prjf.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png", 
-				"images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼 클릭.png", 150,115,100,50);
+				"images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼 클릭.png", 140,110,120,60);
 		
 		addFixBtn.addActionListener(new ActionListener() {
 			
