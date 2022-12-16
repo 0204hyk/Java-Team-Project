@@ -55,7 +55,6 @@ public class PaymentCompleteFrame extends JFrame {
 					count--;
 				} else {
 					timer.cancel();
-					System.out.println("종료");
 				}
 			}
 		};

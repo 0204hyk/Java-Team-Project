@@ -2,6 +2,7 @@ package kiosk;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,8 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-import kiosk.cardPut.CardPutFrame;
-import kiosk.paymentComplete.PaymentCompleteFrame;
 import kiosk.tools.WithImage;
 
 public class Step1Step2 extends JFrame {
@@ -47,28 +46,19 @@ public class Step1Step2 extends JFrame {
 		setLocationRelativeTo(null);
 	}
 
-	public void saved() {
-		// 이게 뭐지?
-		String root = "images/KioskImages/5. step1 Selected";
-		WithImage wi = new WithImage(root);
-		join.setVisible(false);
-		save.setEnabled(false);
-		notsave.setEnabled(false);
-		add(wi.makeLabel("join.png", 417, 248, 158, 141));
-	}
-
 	public void buttons() {
 		JButton home = wi.makeButton("home.png", 542, 44, 52, 52);
 
 		// 포인트 적립
-		save = wi.makeButton("save.png", 73, 248, 158, 141);
+		save = wi.makeButton("save2.png", 73, 248, 158, 141);
+//		save.setDisabledIcon(new ImageIcon(wi.readImage("/save da.png", 158, 141)));
 		save.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ep = new Step1_EnterPhoneNum();
 				ep.add(wi.makeLabel("confirmPoint.png", 187, 42, 70, 20));
-				ep.showPoint(); // 끝나면 나머지 두개 비활성화 시키기
+				ep.showPoint();
 
 			}
 		});
@@ -106,7 +96,7 @@ public class Step1Step2 extends JFrame {
 					join.setEnabled(false);
 					step2Abled();
 					num = 0;
-					
+
 				}
 			}
 		});
@@ -114,25 +104,40 @@ public class Step1Step2 extends JFrame {
 		// 카드 사용
 		card = wi.makeButton("card.png", 73, 519, 158, 141);
 		card.addActionListener(new ActionListener() {
+			int num = 1;
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame cp = new CardPutFrame();
-				// 시간이 좀 지나면 자동으로 결제 완료
+				if (num == 0) {
+					cardActive.setVisible(false);
+					card.setVisible(true);
+					point.setEnabled(true);
+					num = 1;
+				} else if (num == 1) {
+					cardActive.setVisible(true);
+					point.setEnabled(false);
+					num = 0;
 
-				timer = new Timer(3000, new ActionListener() {
+				}
 
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						cp.dispose();
-						new PaymentCompleteFrame();
-						timer.stop();
-						// 적립 업데이트 해주기
-					}
-				});
-				timer.start();
 			}
 		});
+
+		// 자동종료
+		// JFrame cp = new CardPutFrame();
+		// 시간이 좀 지나면 자동으로 결제 완료
+
+//		timer = new Timer(3000, new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				cp.dispose();
+//				new PaymentCompleteFrame();
+//				timer.stop();
+//				// 적립 업데이트 해주기
+//			}
+//		});
+//		timer.start();
 
 		// 포인트 사용
 		point = wi.makeButton("point.png", 245, 519, 158, 141);
@@ -144,7 +149,8 @@ public class Step1Step2 extends JFrame {
 					new UsePoint(Step1Step2.getMemberPhone());
 				} catch (NullPointerException e1) {
 					// 번호입력창 띄우기
-					new Step2_PointWithNoID();
+					Step2_PointWithNoID sp = new Step2_PointWithNoID();
+					sp.add(wi.makeLabel("confirmPoint.png", 187, 42, 70, 20));
 				}
 			}
 		});
@@ -165,7 +171,6 @@ public class Step1Step2 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
 				// 장바구니가 유지된 첫 화면으로 돌아가야 됨
 			}
 		});
@@ -202,23 +207,19 @@ public class Step1Step2 extends JFrame {
 		joinActive = wi.makeLabel("join.png", 417, 248, 158, 141);
 		cardActive = wi.makeLabel("card.png", 73, 519, 158, 141);
 		pointActive = wi.makeLabel("point.png", 245, 519, 158, 141);
-		
+
 		setVisibleEnabled(saveActive);
 		setVisibleEnabled(joinActive);
 		setVisibleEnabled(cardActive);
 		setVisibleEnabled(pointActive);
 	}
 
-	public void enabled(JButton bt) {
-		// 받은 버튼을 제외한 버튼을 비활성화
-
-	}
-
 	public void setVisibleEnabled(JLabel lb) {
 		add(lb);
 		lb.setVisible(false);
-		
+
 	}
+
 	public static void completeUsingPoint() {
 		save.setVisible(false);
 		saveActive.setVisible(true);
@@ -227,7 +228,7 @@ public class Step1Step2 extends JFrame {
 		step2Abled();
 
 	}
-	
+
 	public static void completeJoin() {
 		save.setEnabled(false);
 		notsave.setEnabled(false);
@@ -235,6 +236,11 @@ public class Step1Step2 extends JFrame {
 		joinActive.setVisible(true);
 		step2Abled();
 
+	}
+
+	public void cardActive() {
+		card.setVisible(false);
+		cardActive.setVisible(true);
 	}
 
 	public void step2Disabled() {

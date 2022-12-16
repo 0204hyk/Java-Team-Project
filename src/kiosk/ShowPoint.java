@@ -70,6 +70,6 @@ public class ShowPoint extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new ShowPoint("01231223",2,1);
+		new ShowPoint("1333",2,1);
 	}
 }

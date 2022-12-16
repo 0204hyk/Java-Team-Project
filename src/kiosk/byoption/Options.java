@@ -36,8 +36,7 @@ public class Options extends JFrame {
 		add(wi.makeButton("minus.png", 311, 755, 18, 18));
 		add(wi.makeButton("plus.png", 410, 755, 18, 18));
 
-		add(wi.makeButton("put.png", 204, 819, 192, 68));
-		add(wi.makeButton("pay.png", 415, 819, 192, 68));
+		add(wi.makeButton("put.png", 400,819,192,68));
 
 	}
 
@@ -93,8 +92,8 @@ public class Options extends JFrame {
 	}
 
 	public void ice(int x, int y) {
-		add(wi.makeLabel("selectIce.png", x,y, 77, 17));
-		JButton normalIce = wi.makeButton("normalIce.png", x -10, y +25, 79, 73);
+		add(wi.makeLabel("selectIce.png", x, y, 77, 17));
+		JButton normalIce = wi.makeButton("normalIce.png", x - 10, y + 25, 79, 73);
 		JButton lessIce = wi.makeButton("lessIce.png", x + 78, y + 25, 79, 73);
 		JButton noIce = wi.makeButton("noIce.png", x + 166, y + 25, 79, 73);
 		add(normalIce);
@@ -104,16 +103,13 @@ public class Options extends JFrame {
 	}
 
 	public void milk(int x, int y) {
-		add(wi.makeLabel("selectMilk.png", x,y, 74, 16));
-		JButton basicMilk = wi.makeButton("basicMilk.png", x-10,y+25, 79, 73);
+		add(wi.makeLabel("selectMilk.png", x, y, 74, 16));
+		JButton basicMilk = wi.makeButton("basicMilk.png", x - 10, y + 25, 79, 73);
 		JButton toSoy = wi.makeButton("toSoy.png", x + 78, y + 25, 79, 73);
 		JButton toLowfat = wi.makeButton("toLowfat.png", x + 166, y + 25, 79, 73);
 		add(basicMilk);
 		add(toSoy);
 		add(toLowfat);
 		new GroupButtons(basicMilk, toSoy, toLowfat, "basicMilk", "toSoy", "toLowfat", 79, 73);
-	}
-
-	public static void main(String[] args) {
 	}
 }
