@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class NorthPanel extends JPanel {
 	
@@ -27,7 +29,7 @@ public class NorthPanel extends JPanel {
 	JPanel nsp = new JPanel();
 	private JLabel logo = new JLabel();
 	private JButton homeButton = new JButton();
-	
+	Font font = new Font("맑은 고딕", Font.BOLD, 15);
 
 	public JPanel North_NorthPanel() {
 		
@@ -393,8 +395,8 @@ public class NorthPanel extends JPanel {
 		
 		JButton[] coffee = new JButton[10];
 		
-		JButton americano = new JButton();
 		JButton espresso = new JButton();
+		JButton americano = new JButton();
 		JButton cafeLatte = new JButton();
 		JButton cafeMocha = new JButton();
 		JButton dolceLatte = new JButton();
@@ -404,8 +406,8 @@ public class NorthPanel extends JPanel {
 		JButton coldBrew = new JButton();
 		JButton coldBrewLatte = new JButton();
 
-		coffee[0] = americano;
-		coffee[1] = espresso;
+		coffee[0] = espresso;
+		coffee[1] = americano;
 		coffee[2] = cafeLatte;
 		coffee[3] = cafeMocha;
 		coffee[4] = dolceLatte;
@@ -434,11 +436,16 @@ public class NorthPanel extends JPanel {
 						.read(new File("images/KioskImages/menu/coffee selected/" + coffeeCount + ".png"));
 				coffee[i].setPressedIcon(new ImageIcon(clcikedBufferedImage));
 
-				System.out.println("hi!");
+		
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
+			coffee[i].setVerticalTextPosition(JButton.CENTER);
+			coffee[i].setHorizontalTextPosition(JButton.CENTER);
+			coffee[i].setText("3500원");
+			coffee[i].setFont(font);
+			coffee[i].setForeground(new Color(32, 31, 81));
+			
 			coffee[i].setBorderPainted(false);
 			coffee[i].setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 			coffee[i].setOpaque(false);
@@ -446,6 +453,13 @@ public class NorthPanel extends JPanel {
 			coffeePanel.add(coffee[i]);
 			
 		}
+			coffee[0].addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+				}
+			});
 
 	}
 
@@ -492,7 +506,7 @@ public class NorthPanel extends JPanel {
 						.read(new File("images/KioskImages/menu/noncoffee selected/" + count + ".png"));
 				noncoffee[i].setPressedIcon(new ImageIcon(clcikedBufferedImage));
 
-				System.out.println("hi!");
+			
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -549,7 +563,7 @@ public class NorthPanel extends JPanel {
 						.read(new File("images/KioskImages/menu/ade selected/" + count + ".png"));
 				ade[i].setPressedIcon(new ImageIcon(clcikedBufferedImage));
 
-				System.out.println("hi!");
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -606,7 +620,7 @@ public class NorthPanel extends JPanel {
 						.read(new File("images/KioskImages/menu/frappe selected/" + count + ".png"));
 				frappe[i].setPressedIcon(new ImageIcon(clcikedBufferedImage));
 
-				System.out.println("hi!");
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
