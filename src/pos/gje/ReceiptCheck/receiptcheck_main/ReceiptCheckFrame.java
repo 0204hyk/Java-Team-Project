@@ -5,18 +5,24 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import pos.DigitalClock;
 import pos.ImageScaledTool;
 import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.OutputButton;
+import pos.gje.ReceiptCheck.receiptcheck_main.component.PrintTextArea;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.ReceiptCheckEscapeButton;
-import pos.gje.ReceiptCheck.receiptcheck_main.component.ReceiptCheckTextArea;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.RefundButton;
 import pos.gje.ReceiptCheck.receiptcheck_main.panel.ReceiptListPanel;
 import pos.gje.ReceiptCheck.refund.RefundFrame;
 
 public class ReceiptCheckFrame extends JFrame{
+	
+	public static JTextArea printTextArea = new PrintTextArea();
+	//JScrollPane s = new JScrollPane();
+	
 	public ReceiptCheckFrame() {		
 		
 		// 상단 메뉴바 설정
@@ -30,9 +36,9 @@ public class ReceiptCheckFrame extends JFrame{
 		titlePanel.add(clock);
 		
 		add(titlePanel);
-		
+	
 		// 영수증 목록 (Panel)
-		add(new ReceiptListPanel());
+		add(new ReceiptListPanel(this));
 		
 		// 버튼
 		RefundFrame refundFrame = new RefundFrame(this);
@@ -40,7 +46,11 @@ public class ReceiptCheckFrame extends JFrame{
 		add(new OutputButton());
 		
 		// 영수증 출력 
-		add(new ReceiptCheckTextArea());
+		//add(printTextArea);
+
+		//JScrollPane scrollPane = new JScrollPane(printTextArea);
+
+		add(printTextArea);
 		
 		// 돌아가기 버튼
 		ReceiptCheckEscapeButton escapeBtn = new ReceiptCheckEscapeButton(this);
@@ -56,5 +66,7 @@ public class ReceiptCheckFrame extends JFrame{
 		setVisible(true); // 보이게
 		setDefaultCloseOperation(EXIT_ON_CLOSE);  
 	}
-	
+	public static void main(String[] args) {
+		new ReceiptCheckFrame();
+	}
 }

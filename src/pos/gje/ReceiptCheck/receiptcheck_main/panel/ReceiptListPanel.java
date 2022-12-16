@@ -1,18 +1,21 @@
 package pos.gje.ReceiptCheck.receiptcheck_main.panel;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Image;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
-import pos.ImageScaledTool;
+import database.OjdbcConnection;
+import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
+import pos.gje.ReceiptCheck.receiptcheck_main.component.ReceiptBtn;
 
-public class ReceiptListPanel extends JPanel{
+public class ReceiptListPanel extends JPanel {
 
 	// 패널 배경 넣기
 	public void paintComponent(Graphics g) {
@@ -21,11 +24,36 @@ public class ReceiptListPanel extends JPanel{
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 	
-	public ReceiptListPanel() {
-		setBounds(75, 95, 500, 550); // Panel 틀
+	public ReceiptListPanel(ReceiptCheckFrame f) {
+		
+		
+		String query = "SELECT * FROM membership ";
+		
+	      try (Connection conn = OjdbcConnection.getConnection();
+	            PreparedStatement pstmt = conn.prepareStatement(query);
+	      ) {
+
+	    	  ResultSet rs = pstmt.executeQuery();
+
+				while (rs.next()) {
+					ResultSetMetaData rsmd = rs.getMetaData();
+					// 열의 개수
+					int colCount = rsmd.getColumnCount();
+
+					for (int i = 0; i < colCount; ++i){
+						add(new ReceiptBtn(i + 1, f));
+					}
+					// i = DB에 저장된 개수 	
+					setBounds(75, 95, 500, 550); // Panel 틀
+					setLayout(null);
+					
+					setVisible(true);
+					
+				}
+	         
+	      } catch (SQLException e) {
+	         System.out.println(" 오류");
+	         e.printStackTrace();
+	      }  
 	}	       
-	
-
-	
-
 }
