@@ -37,6 +37,6 @@ public class DailySalesLabel extends JLabel {
 		
 		setSize(300, 30);
 		setHorizontalAlignment(JLabel.RIGHT);
-		setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		setFont(new Font("맑은 고딕", Font.BOLD, 32));
 	}
 }
