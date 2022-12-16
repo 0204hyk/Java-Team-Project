@@ -1,24 +1,16 @@
 package pos.salescheck.component.table;
 
-import java.awt.Dimension;
 import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import database.OjdbcConnection;
-import database.model.SalesAndSalesManagement;
-import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.saleslist.TotalLabel;
 
 

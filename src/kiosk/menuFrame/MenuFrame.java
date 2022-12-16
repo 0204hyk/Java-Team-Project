@@ -6,10 +6,12 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
+import javax.swing.border.Border;
 
 import kiosk.menuFrame.centerPanel.CenterPanel;
 import kiosk.menuFrame.eastPanel.EastPanel;
 import kiosk.menuFrame.northPanel.NorthPanel;
+import kiosk.menuFrame.northPanel.North_SouthPanel;
 import kiosk.menuFrame.southPanel.SouthPanel;
 import kiosk.menuFrame.westPanel.WestPanel;
 
@@ -19,13 +21,15 @@ public class MenuFrame extends JFrame{
 	public MenuFrame()  {
 			
 		panelSetting();
+		
 		setDisplay();
 		
 	}
 	
 	public void panelSetting() {
 		add(new NorthPanel(), BorderLayout.NORTH);
-		add(new CenterPanel(), BorderLayout.CENTER);	
+		//add(new CenterPanel(), BorderLayout.CENTER);	
+		add(new North_SouthPanel().panel(), BorderLayout.CENTER);
 		add(new SouthPanel(), BorderLayout.SOUTH);
 		add(new WestPanel(), BorderLayout.WEST);
 		add(new EastPanel(), BorderLayout.EAST);
@@ -38,7 +42,7 @@ public class MenuFrame extends JFrame{
 	
 	public void setDisplay() {
 		
-		setUndecorated(true); //테두리제거
+		//setUndecorated(true); //테두리제거
 		setBackground(Color.white);
 		setVisible(true);
 		setSize(650, 950);

@@ -27,7 +27,6 @@ import pos.gje.delete.DeletFrame;
 import pos.gje.modify.ModifyFrame;
 
 public class ProductManagementJFrame extends JFrame {
-
 	private JPanel contenePane;
 	private JTable table;
 	private DefaultTableCellRenderer dcr = new DefaultTableCellRenderer();
@@ -181,14 +180,12 @@ public class ProductManagementJFrame extends JFrame {
 				}
 			}
 		});
-				
 		
 		add(serchBtn);
 		add(backBtn);
 		add(deleteBtn);
 		add(modifyBtn);
 		add(addBtn);
-			
 		setLayout(null);
 		setSize(1200, 800);
 		setVisible(true);
