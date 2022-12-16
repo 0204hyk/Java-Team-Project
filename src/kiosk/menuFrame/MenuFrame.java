@@ -18,6 +18,9 @@ import kiosk.menuFrame.westPanel.WestPanel;
 //메뉴프레임
 public class MenuFrame extends JFrame{
 
+	NorthPanel np = new NorthPanel();
+	
+	
 	public MenuFrame()  {
 			
 		panelSetting();
@@ -27,9 +30,10 @@ public class MenuFrame extends JFrame{
 	}
 	
 	public void panelSetting() {
-		add(new NorthPanel(), BorderLayout.NORTH);
+		
+		add(np, BorderLayout.NORTH);
 		//add(new CenterPanel(), BorderLayout.CENTER);	
-		add(new North_SouthPanel().panel(), BorderLayout.CENTER);
+		add(np.panel(), BorderLayout.CENTER);
 		add(new SouthPanel(), BorderLayout.SOUTH);
 		add(new WestPanel(), BorderLayout.WEST);
 		add(new EastPanel(), BorderLayout.EAST);
@@ -42,7 +46,7 @@ public class MenuFrame extends JFrame{
 	
 	public void setDisplay() {
 		
-		//setUndecorated(true); //테두리제거
+		setUndecorated(true); //테두리제거
 		setBackground(Color.white);
 		setVisible(true);
 		setSize(650, 950);
