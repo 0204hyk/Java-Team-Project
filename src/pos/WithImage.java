@@ -11,16 +11,18 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 public class WithImage {
+
 	String root = "";
 
 	public WithImage(String root) {
+
 		this.root = root;
 	}
 
 	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
 		JLabel lb = new JLabel();
 
-		lb.setIcon(new ImageIcon(readImage(root + "/" + detailedRoot, w, h)));
+		lb.setIcon(new ImageIcon(readImage(root + detailedRoot + ".png", w, h)));
 		lb.setBounds(x, y, w, h);
 
 		return lb;
@@ -29,11 +31,11 @@ public class WithImage {
 	public JButton makeButton(String detailedRoot, int x, int y, int w, int h) {
 		JButton bt = new JButton();
 
-		bt.setIcon(new ImageIcon(readImage(root +  detailedRoot + ".png", w, h)));
+		bt.setIcon(new ImageIcon(readImage(root + detailedRoot + ".png", w, h)));
 		bt.setBounds(x, y, w, h);
 		bt.setBorderPainted(false);
 		bt.setContentAreaFilled(false);
-		bt.setPressedIcon(new ImageIcon(readImage(root + detailedRoot +" 클릭.png", w, h)));
+		bt.setPressedIcon(new ImageIcon(readImage(root + detailedRoot + " 클릭.png", w, h)));
 
 		return bt;
 	}
