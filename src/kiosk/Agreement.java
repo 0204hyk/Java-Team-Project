@@ -63,14 +63,15 @@ public class Agreement extends JFrame {
 				ShowPoint sp = new ShowPoint(ph.substring(7, ph.length()), point, currentPoint + point);
 				sp.joinComplete(); // 환영합니다
 
-				// 취소 버튼
-				sp.cancel.addActionListener(new ActionListener() {
+				// 닫기 버튼
+				sp.ok.addActionListener(new ActionListener() {
 
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						sp.dispose();
 						dispose();
-						Step1.setMemberPhone(ph);
+						Step1Step2.setMemberPhone(ph);
+						Step1Step2.completeJoin();
 
 					}
 				});
@@ -110,4 +111,9 @@ public class Agreement extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
+	
+	public static void main(String[] args) {
+		new Agreement("01042361724", 23,329);
+		
+	}
 }

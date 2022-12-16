@@ -82,7 +82,8 @@ public class Step2_PointWithNoID extends JFrame {
 				// 유효한 휴대폰 번호인지 확인
 				if (Pattern.matches("01[016-9]\\d{4}\\d{4}", ph)) {
 					if (new CheckPhoneNum(ph).check()) {
-						Step1.setMemberPhone(ph);
+						Step1Step2.setMemberPhone(ph);
+						dispose();
 						new UsePoint(ph);
 					} else {
 						// 없다고하기

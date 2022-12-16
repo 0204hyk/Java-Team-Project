@@ -104,14 +104,15 @@ public class Step1_EnterPhoneNum extends JFrame {
 						ShowPoint sp = new ShowPoint(ph.substring(7, ph.length()), point, currentPoint + point);
 						sp.hello(); // 안녕하세요
 
-						// 취소 버튼
-						sp.cancel.addActionListener(new ActionListener() {
+						// 닫기 버튼
+						sp.ok.addActionListener(new ActionListener() {
 
 							@Override
 							public void actionPerformed(ActionEvent e) {
 								sp.dispose();
 								dispose();
-								Step1.setMemberPhone(ph);
+								Step1Step2.setMemberPhone(ph);
+								Step1Step2.completeUsingPoint();
 
 							}
 						});
@@ -179,14 +180,15 @@ public class Step1_EnterPhoneNum extends JFrame {
 
 								ShowPoint sp = new ShowPoint(ph.substring(7, ph.length()), point, currentPoint + point);
 								sp.hello();
-								sp.cancel.addActionListener(new ActionListener() {
+								sp.ok.addActionListener(new ActionListener() {
 
 									@Override
 									public void actionPerformed(ActionEvent e) {
 										sp.dispose();
 										jf.dispose();
 										dispose();
-										Step1.setMemberPhone(ph);
+										Step1Step2.setMemberPhone(ph);
+										Step1Step2.completeJoin();
 
 									}
 								});
@@ -221,6 +223,7 @@ public class Step1_EnterPhoneNum extends JFrame {
 					} else if (!new CheckPhoneNum(ph).check()) {
 			
 						new Agreement(ph, point, currentPoint);
+						dispose();
 					}
 
 				} else {

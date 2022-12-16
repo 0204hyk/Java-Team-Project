@@ -20,19 +20,19 @@ public class UsePoint extends JFrame {
 
 	public UsePoint(String phonenumber) {
 
-		CheckPoint cp = new CheckPoint(Step1.getMemberPhone());
+		CheckPoint cp = new CheckPoint(Step1Step2.getMemberPhone());
 
-		JLabel phoneNum = new JLabel(phonenumber.substring(7, phonenumber.length())); // 고객 휴대폰 번호 입력 - 나중에 get으로 가져오기
+		JLabel phoneNum = new JLabel(phonenumber.substring(7, phonenumber.length()));
 		phoneNum.setFont(new Font("맑은 고딕", Font.BOLD, 36));
 		phoneNum.setForeground(Color.black);
 		phoneNum.setBounds(32, 65, 86, 32);
 		add(phoneNum);
-
-		JLabel currentPoint = new JLabel(""+cp.currentPoint()); // 가져오기
+		
+		JLabel currentPoint = new JLabel("" + cp.currentPoint()); // 가져오기
+		currentPoint.setHorizontalAlignment(JLabel.RIGHT);
 		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 34));
 		currentPoint.setForeground(new Color(63, 186, 145));
-		currentPoint.setBounds(140, 260, 200, 35);
-		currentPoint.setHorizontalTextPosition(SwingConstants.RIGHT);
+		currentPoint.setBounds(100, 260, 100, 35);
 		add(currentPoint);
 
 		JTextArea ta = new JTextArea();
@@ -41,7 +41,7 @@ public class UsePoint extends JFrame {
 		ta.setBounds(185, 386, 80, 30);
 		ta.setFont(new Font("맑은 고딕", Font.BOLD, 26));
 		ta.setForeground(Color.BLACK);
-		ta.setAlignmentX(CENTER_ALIGNMENT); //작동안되는듯
+		ta.setAlignmentX(CENTER_ALIGNMENT); // 작동안되는듯
 		add(ta);
 
 		add(wi.makeLabel("leftPointText.png", 33, 67, 335, 83));
@@ -49,7 +49,7 @@ public class UsePoint extends JFrame {
 		add(wi.makeLabel("useAll.png", 85, 399, 63, 14));
 		add(wi.makeLabel("usePointBox.png", 171, 383, 105, 46));
 		add(wi.makeButton("use.png", 303, 383, 84, 46));
-		add(wi.makeLabel("pointText.png",205,264,90,28));
+		add(wi.makeLabel("pointText.png", 205, 264, 90, 28));
 		JLabel check = wi.makeLabel("check.png", 60, 381, 28, 27);
 		add(check);
 		check.setVisible(false);
@@ -93,5 +93,9 @@ public class UsePoint extends JFrame {
 		getContentPane().setBackground(Color.WHITE);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+	}
+
+	public static void main(String[] args) {
+		new UsePoint("01042361724");
 	}
 }

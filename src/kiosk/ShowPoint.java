@@ -15,7 +15,7 @@ public class ShowPoint extends JFrame {
 	String root = "images/KioskImages/5_2. step1 point";
 	WithImage wi = new WithImage(root);
 
-	JButton cancel;
+	JButton ok;
 
 	public ShowPoint(String phonenum, int point, int totalpoint) {
 		// 고객 번호
@@ -51,7 +51,7 @@ public class ShowPoint extends JFrame {
 
 		JButton cancel = wi.makeButton("dispose.png", 182, 570, 96, 49);
 		add(cancel);
-		this.cancel = cancel;
+		this.ok = cancel;
 
 		setLayout(null);
 		setSize(461, 710); // 창 크기 이상해서 임시로 늘림
@@ -70,6 +70,6 @@ public class ShowPoint extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		
+		new ShowPoint("01231223",2,1);
 	}
 }
