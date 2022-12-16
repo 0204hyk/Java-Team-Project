@@ -159,10 +159,9 @@ public class MenuAddFrame extends JFrame{
 
 		scrollPane = new JScrollPane(background);
 		setContentPane(scrollPane);
-
+		
 
 		background.add(fixBtn());
-
 		background.setBounds(0, 0, 900, 480);
 
 
@@ -176,7 +175,7 @@ public class MenuAddFrame extends JFrame{
 		add(background);
 
 
-		background.setLayout(null);	
+		background.setLayout(null);
 		
 		setLayout(null);
 		setUndecorated(true);

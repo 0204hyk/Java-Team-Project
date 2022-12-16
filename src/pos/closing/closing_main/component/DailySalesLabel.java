@@ -15,7 +15,8 @@ public class DailySalesLabel extends JLabel {
 	
 	String query = "SELECT trim(to_char(sum(price), '999,999,999')) "
 			+ "FROM sales INNER JOIN payment USING (sales_number)"
-			+ "WHERE to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')";
+			+ "WHERE to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')"
+			+ "AND to_char(saledate, 'HH24') BETWEEN 10 AND 21";
 	
 	public DailySalesLabel() {
 		
