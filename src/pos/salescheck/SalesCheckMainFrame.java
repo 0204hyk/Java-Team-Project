@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 import org.jfree.chart.ChartPanel;
 
@@ -19,17 +20,14 @@ import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
-import pos.salescheck.component.datecombo2.DayComboBox2;
-import pos.salescheck.component.datecombo2.MonthComboBox2;
-import pos.salescheck.component.datecombo2.YearComboBox2;
-import pos.salescheck.component.saleslist.AmountLabel;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitleLabel;
-import pos.salescheck.component.title.TitleImage;
+import pos.salescheck.component.saleslist.TotalLabel;
+import pos.salescheck.component.table.SalesTable;
 
 public class SalesCheckMainFrame extends JFrame {
 	
-
+	
 	public SalesCheckMainFrame() {
 		
 		// 매출요약 상단 메뉴바 생성.
@@ -57,18 +55,20 @@ public class SalesCheckMainFrame extends JFrame {
 //		between.setBounds(390, 100, 100, 25);
 		
 		// 매출요약 검색 버튼 구현
-		JButton searchBtn = new SalesSearchButton();
-		
+		JButton searchBtn = new SalesSearchButton(yearCombo, monthCombo, dayCombo);
+	
 		// 매출요약 뒤로가기 구현
 		JButton escapeBtn = new SalesEscapeButton(this);
 		
 		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();
+		JTable table = new SalesTable();
 		
 		// 매출요약
 		JLabel salesTitle = new TitleLabel();
-		JLabel amount = new AmountLabel();
+		JLabel amount = new TotalLabel();
 		
+	
 		add(title);
 		add(yearCombo);
 		add(monthCombo);
@@ -77,6 +77,7 @@ public class SalesCheckMainFrame extends JFrame {
 		add(escapeBtn);
 		add(salesTitle);
 		add(amount);
+		add(table);
 		add(list);
 		add(chartPanel);
 		setSize(1200, 800);
@@ -93,7 +94,7 @@ public class SalesCheckMainFrame extends JFrame {
 	public static void main(String[] args) {
 		
 		new SalesCheckMainFrame();
-
+		
 	}
 
 }

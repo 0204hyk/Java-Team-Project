@@ -31,6 +31,7 @@ public class YearComboBox extends JComboBox  {
 		
 		setPreferredSize(new Dimension(40, 40));
 		setSelectedItem(year);
+		
 		setBounds(90, 100, 100, 25);
 	}
 }

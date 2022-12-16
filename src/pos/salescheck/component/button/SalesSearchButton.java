@@ -1,6 +1,12 @@
 package pos.salescheck.component.button;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -8,14 +14,37 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 import pos.ImageScaledTool;
+import pos.salescheck.component.datecombo1.DayComboBox;
+import pos.salescheck.component.datecombo1.MonthComboBox;
+import pos.salescheck.component.datecombo1.YearComboBox;
+import pos.salescheck.component.table.SalesTable;
 
 public class SalesSearchButton extends JButton {
 
 	ImageScaledTool tool = new ImageScaledTool();
+
+	
+	JComboBox yearBox;
+	JComboBox monthBox;
+	JComboBox dayBox;
+
+	String year;
+	String month;
+	String day;
+
 	
 	public SalesSearchButton() {
+	}
+	
+	
+
+	public SalesSearchButton(JComboBox yearBox, JComboBox monthBox, JComboBox dayBox) {
+		this.yearBox = yearBox;
+		this.monthBox = monthBox;
+		this.dayBox = dayBox;
 		
 		// 매출요약 검색 버튼 이미지 설정.
 		setIcon(new ImageIcon(tool.getScaledImage(
@@ -31,6 +60,18 @@ public class SalesSearchButton extends JButton {
 		setBounds(450, 90, 100, 50);
 		setBorder(null);
 		
+		addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				year = String.format("%02d",  yearBox.getSelectedItem());
+				month = String.format("%02d", monthBox.getSelectedItem()); 
+				day = String.format("%02d", dayBox.getSelectedItem());	
+				SalesTable table = new SalesTable(year, month, day);
+				
+			}
+		});
+	
 		
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기

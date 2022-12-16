@@ -5,11 +5,16 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 
-public class AmountLabel extends JLabel {
+public class TotalLabel extends JLabel {
 
-	public AmountLabel() {
-		
-		setText("5,482,100원");
+	String total;
+	
+	
+	public TotalLabel() {
+	}
+	public TotalLabel(String total) {
+		this.total = total;
+		setText(total);
 		setFont(new Font("맑은 고딕", Font.PLAIN, 30));
 		setBounds(830, 560, 300, 100);
 		
