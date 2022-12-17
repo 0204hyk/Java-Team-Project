@@ -20,8 +20,8 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
 import database.OjdbcConnection;
-import pos.salescheck.SalesCheckMainFrame;
 import pos.salescheck.component.table.SalesTable;
+import pos.salescheck.component.type.SalesDayCheckMain;
 
 /*
  	JFreeChart 
@@ -34,7 +34,7 @@ public class SalesChart extends ApplicationFrame  {
 	public static JFreeChart barChart;
 
 	StringBuilder sb = new StringBuilder();
-	SalesCheckMainFrame main;
+	SalesDayCheckMain main;
 	String year;
 	String month;
 	String day;

@@ -1,4 +1,4 @@
-package pos.salescheck;
+package pos.salescheck.component.type;
 
 import java.awt.Color;
 
@@ -26,35 +26,28 @@ import pos.salescheck.component.saleslist.TitleLabel;
 import pos.salescheck.component.saleslist.TotalLabel;
 import pos.salescheck.component.table.SalesTable;
 
-public class SalesCheckMainFrame extends JFrame {
+public class SalesDayCheckMain extends JFrame {
 	
 	
-	public SalesCheckMainFrame() {
+	public SalesDayCheckMain() {
 		
 		// 매출요약 상단 메뉴바 생성.
 		JPanel title = new ClosingImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
 		title.setBounds(0 ,0, 1200, 60);
+		
 		// 현재 시간 출력
 		JLabel clock = new DigitalClock();
 		clock.setBounds(375, 10, 400, 30);
 		title.add(clock);
 		
-		// 매출요약 차트 구현
-		//SalesChart chart = new SalesChart("", "");
+		// 일 매출요약 차트 구현
 		DayChart chart = new DayChart();
-//		ChartPanel chartPanel = new ChartPanel(chart);
-//		chartPanel.setBounds(70, 170, 500, 500);
 		
 		// 매출요약 콤보박스 구현
 		JComboBox yearCombo = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
 		JComboBox dayCombo = new DayComboBox();
-//		JComboBox dayCombo2 = new DayComboBox2();
-//		JComboBox yearCombo2 = new YearComboBox2();
-//		JComboBox monthCombo2 = new MonthComboBox2();
-//		JLabel between = new JLabel("~");
-//		between.setBounds(390, 100, 100, 25);
 		
 		// 매출요약 검색 버튼 구현
 		JButton searchBtn = new SalesSearchButton(yearCombo, monthCombo, dayCombo);
@@ -82,7 +75,6 @@ public class SalesCheckMainFrame extends JFrame {
 		add(table);
 		add(list);
 		add(chart);
-		//add(chartPanel);
 		setSize(1200, 800);
 		getContentPane().setBackground(new Color(64, 64, 64));
 		setLayout(null);

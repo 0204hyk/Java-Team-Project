@@ -12,14 +12,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.ImageScaledTool;
-import pos.salescheck.SalesCheckMainFrame;
+import pos.salescheck.component.type.SalesDayCheckMain;
 
 public class SalesEscapeButton extends JButton implements ActionListener{
 	
-	SalesCheckMainFrame frame;
+	SalesDayCheckMain frame;
 	ImageScaledTool tool = new ImageScaledTool();
 	
-	public SalesEscapeButton(SalesCheckMainFrame frame) {
+	public SalesEscapeButton(SalesDayCheckMain frame) {
 		this.frame = frame;
 		// 매출요약 < 버튼 이미지 설정
 		setIcon(new ImageIcon(tool.getScaledImage(

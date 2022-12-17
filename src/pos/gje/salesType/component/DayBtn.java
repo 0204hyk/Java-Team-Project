@@ -12,8 +12,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import pos.salescheck.SalesCheckMainFrame;
 import pos.salescheck.component.chart.DayChart;
+import pos.salescheck.component.type.SalesDayCheckMain;
 
 public class DayBtn extends JButton implements ActionListener{
 	
@@ -43,7 +43,7 @@ public class DayBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new SalesCheckMainFrame();
+		new SalesDayCheckMain();
 	}
 	
 
