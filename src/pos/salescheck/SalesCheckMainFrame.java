@@ -20,14 +20,10 @@ import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
-import pos.salescheck.component.datecombo2.DayComboBox2;
-import pos.salescheck.component.datecombo2.MonthComboBox2;
-import pos.salescheck.component.datecombo2.YearComboBox2;
-import pos.salescheck.component.saleslist.AmountLabel;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitleLabel;
+import pos.salescheck.component.saleslist.TotalLabel;
 import pos.salescheck.component.table.SalesTable;
-import pos.salescheck.component.title.TitleImage;
 
 public class SalesCheckMainFrame extends JFrame {
 	
@@ -70,7 +66,7 @@ public class SalesCheckMainFrame extends JFrame {
 		
 		// 매출요약
 		JLabel salesTitle = new TitleLabel();
-		JLabel amount = new AmountLabel();
+		JLabel total = new TotalLabel();
 		
 	
 		add(title);
@@ -80,7 +76,7 @@ public class SalesCheckMainFrame extends JFrame {
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
-		add(amount);
+		add(total);
 		add(table);
 		add(list);
 		add(chartPanel);
