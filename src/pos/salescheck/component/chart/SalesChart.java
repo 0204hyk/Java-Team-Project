@@ -38,9 +38,10 @@ public class SalesChart extends ApplicationFrame  {
 	String year;
 	String month;
 	String day;
+	String hap;
+	
+	
 
-	
-	
 
 	public SalesChart (String applicationTitle, String chartTitle) {
 		super(applicationTitle);
@@ -48,23 +49,18 @@ public class SalesChart extends ApplicationFrame  {
 	
 		barChart = ChartFactory.createBarChart(chartTitle, "", "", createDataset(),
 				PlotOrientation.VERTICAL, true, true, false);
-
-		
-		
-		//		ChartPanel chartPanel = new ChartPanel(barChart);
-		//		chartPanel.setPreferredSize(new Dimension(650, 500));
-		//		setContentPane(chartPanel);	
 	}
 
 
 
 	public CategoryDataset createDataset() {
+	
 		
 		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		String sql = "SELECT s.saleDate, sales_m.total_price AS total_price "
 				+ "FROM sales s INNER JOIN sales_management sales_m "
 				+ "USING (sales_number)"
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMMDD') = ?";
+				+ "WHERE TO_CHAR(s.saleDate, 'YYYY') = ?";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -72,7 +68,7 @@ public class SalesChart extends ApplicationFrame  {
 
 				) {
 			
-			pstmt.setString(1, new String());
+			pstmt.setString(1, year);
 			try (ResultSet rs = pstmt.executeQuery()) {
 
 				while (rs.next()) {

@@ -16,6 +16,7 @@ import pos.ImageScaledTool;
 import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
+import pos.salescheck.component.chart.BarChart;
 import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
@@ -40,9 +41,10 @@ public class SalesCheckMainFrame extends JFrame {
 		title.add(clock);
 		
 		// 매출요약 차트 구현
-		SalesChart chart = new SalesChart("", "");
-		ChartPanel chartPanel = new ChartPanel(chart.barChart);
-		chartPanel.setBounds(70, 170, 500, 500);
+		//SalesChart chart = new SalesChart("", "");
+		BarChart chart = new BarChart();
+//		ChartPanel chartPanel = new ChartPanel(chart);
+//		chartPanel.setBounds(70, 170, 500, 500);
 		
 		// 매출요약 콤보박스 구현
 		JComboBox yearCombo = new YearComboBox();
@@ -79,7 +81,8 @@ public class SalesCheckMainFrame extends JFrame {
 		add(total);
 		add(table);
 		add(list);
-		add(chartPanel);
+		add(chart);
+		//add(chartPanel);
 		setSize(1200, 800);
 		getContentPane().setBackground(new Color(64, 64, 64));
 		setLayout(null);

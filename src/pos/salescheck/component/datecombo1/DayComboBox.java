@@ -13,6 +13,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 
+import pos.salescheck.component.chart.BarChart;
 import pos.salescheck.component.table.SalesTable;
 
 public class DayComboBox extends JComboBox {
@@ -35,6 +36,9 @@ public class DayComboBox extends JComboBox {
 			public void itemStateChanged(ItemEvent e) {
 				SalesTable table = new SalesTable();
 				table.model.setNumRows(0);
+			
+				
+				
 			}
 		});
 		
