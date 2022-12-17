@@ -29,7 +29,7 @@ import pos.salescheck.component.table.SalesTable;
 
  */
 
-public class SalesChart extends ApplicationFrame {
+public class SalesChart extends ApplicationFrame  {
 
 	public static JFreeChart barChart;
 
@@ -38,7 +38,7 @@ public class SalesChart extends ApplicationFrame {
 	String year;
 	String month;
 	String day;
-	
+
 	
 	
 
@@ -49,6 +49,8 @@ public class SalesChart extends ApplicationFrame {
 		barChart = ChartFactory.createBarChart(chartTitle, "", "", createDataset(),
 				PlotOrientation.VERTICAL, true, true, false);
 
+		
+		
 		//		ChartPanel chartPanel = new ChartPanel(barChart);
 		//		chartPanel.setPreferredSize(new Dimension(650, 500));
 		//		setContentPane(chartPanel);	
