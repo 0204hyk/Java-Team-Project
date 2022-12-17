@@ -25,7 +25,7 @@ public class DigitalClock extends JLabel implements Runnable{
 			String now = cal.get(Calendar.YEAR)+"년 "+
 					(cal.get(Calendar.MONTH)+1)+"월 "+
 					cal.get(Calendar.DATE)+"일 "+
-					cal.get(Calendar.HOUR)+"시 "+
+					cal.get(Calendar.HOUR_OF_DAY)+"시 "+
 					cal.get(Calendar.MINUTE)+"분 "+
 					cal.get(Calendar.SECOND)+"초";
 			setText(now);

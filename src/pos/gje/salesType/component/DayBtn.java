@@ -12,6 +12,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import pos.salescheck.SalesCheckMainFrame;
+import pos.salescheck.component.chart.DayChart;
+
 public class DayBtn extends JButton implements ActionListener{
 	
 	public DayBtn() {
@@ -40,7 +43,7 @@ public class DayBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("일 매출 클릭 ");
+		new SalesCheckMainFrame();
 	}
 	
 

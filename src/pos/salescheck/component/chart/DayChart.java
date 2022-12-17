@@ -23,7 +23,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import database.OjdbcConnection;
 
-public class BarChart extends JPanel {
+public class DayChart extends JPanel {
 
 
     public static DefaultCategoryDataset dataset;
@@ -34,7 +34,7 @@ public class BarChart extends JPanel {
     public static String hap;
     
     
-    public BarChart() {
+    public DayChart() {
         CategoryDataset datasetResult = createDataset();
         JFreeChart chart = createChart(datasetResult);
         
@@ -42,10 +42,11 @@ public class BarChart extends JPanel {
         panel.setPreferredSize(new Dimension(500, 500));
         add(panel);
         setBounds(50, 150, 500, 500);
+     
         
     }
     
-    public BarChart(String year, String month, String day) {
+    public DayChart(String year, String month, String day) {
     	this.year = year;
     	this.month = month;
     	this.day = day;

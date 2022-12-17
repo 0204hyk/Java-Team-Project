@@ -43,8 +43,8 @@ public class SalesSummaryButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-//		new SalesTypeFrame();
-		new SalesCheckMainFrame();
+		new SalesTypeFrame();
+		//new SalesCheckMainFrame();
 	}
 
 }

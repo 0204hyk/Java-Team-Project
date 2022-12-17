@@ -20,7 +20,8 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 
 import pos.ImageScaledTool;
-import pos.salescheck.component.chart.BarChart;
+
+import pos.salescheck.component.chart.DayChart;
 import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
@@ -76,7 +77,7 @@ public class SalesSearchButton extends JButton {
 				day = String.format("%02d", dayBox.getSelectedItem());	
 				
 				SalesTable table = new SalesTable(year, month, day);
-				BarChart chart = new BarChart(year, month, day);
+				DayChart chart = new DayChart(year, month, day);
 			
 			
 			

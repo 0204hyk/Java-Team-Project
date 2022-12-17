@@ -40,9 +40,4 @@ public class SalesTypeFrame extends JFrame{
 	}
 	
 
-	
-	public static void main(String[] args) {
-		new SalesTypeFrame();
-	}
-
 }

@@ -16,7 +16,7 @@ import pos.ImageScaledTool;
 import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
-import pos.salescheck.component.chart.BarChart;
+import pos.salescheck.component.chart.DayChart;
 import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
@@ -42,7 +42,7 @@ public class SalesCheckMainFrame extends JFrame {
 		
 		// 매출요약 차트 구현
 		//SalesChart chart = new SalesChart("", "");
-		BarChart chart = new BarChart();
+		DayChart chart = new DayChart();
 //		ChartPanel chartPanel = new ChartPanel(chart);
 //		chartPanel.setBounds(70, 170, 500, 500);
 		
@@ -94,10 +94,10 @@ public class SalesCheckMainFrame extends JFrame {
 
 
 
-	public static void main(String[] args) {
-		
-		new SalesCheckMainFrame();
-		
-	}
+//	public static void main(String[] args) {
+//		
+//		new SalesCheckMainFrame();
+//		
+//	}
 
 }
