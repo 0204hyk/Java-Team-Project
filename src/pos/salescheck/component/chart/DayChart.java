@@ -28,9 +28,9 @@ public class DayChart extends JPanel {
 
     public static DefaultCategoryDataset dataset;
 
-    public static String year;
-    public static String month;
-    public static String day;
+    String year;
+    String month;
+    String day;
     public static String hap;
     
     
@@ -46,6 +46,7 @@ public class DayChart extends JPanel {
         
     }
     
+ // SalesSearchButton에서 year, month, day 값을 가져온 후 차트에 대입
     public DayChart(String year, String month, String day) {
     	this.year = year;
     	this.month = month;

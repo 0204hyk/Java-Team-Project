@@ -16,7 +16,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import database.OjdbcConnection;
 
-public class MonthChart extends JPanel {
+public class YearChart extends JPanel {
 	
 	public static DefaultCategoryDataset dataset;
 
@@ -25,28 +25,21 @@ public class MonthChart extends JPanel {
     String day;
     public static String hap;
     
-    public MonthChart() {
-    	CategoryDataset datasetResult = createDataset();
-        JFreeChart chart = createChart(datasetResult);
-        
-        ChartPanel panel = new ChartPanel(chart);
-        panel.setPreferredSize(new Dimension(500, 500));
-        add(panel);
-        setBounds(50, 150, 500, 500);
+    public YearChart() {
+    	  CategoryDataset datasetResult = createDataset();
+          JFreeChart chart = createChart(datasetResult);
+          ChartPanel panel = new ChartPanel(chart);
+          panel.setPreferredSize(new Dimension(500, 500));
+          add(panel);
+          setBounds(50, 150, 500, 500);
 	}
     
-    // SalesSearchButton에서 year와 month 값을 가져온 후 차트에 대입
-    public MonthChart(String year, String month) {
+    public YearChart(String year) {
     	this.year = year;
-    	this.month = month;
-    
-    
-    	hap = year + month;
-    	System.out.println(hap);
     	String sql = "SELECT s.saleDate, sales_m.total_price AS total_price "
 				+ "FROM sales s INNER JOIN sales_management sales_m "
 				+ "USING (sales_number)"
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ?";
+				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMMDD') = ?";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -54,7 +47,7 @@ public class MonthChart extends JPanel {
 
 				) {
 			
-			pstmt.setString(1, hap);
+			pstmt.setString(1, year);
 			try (ResultSet rs = pstmt.executeQuery()) {
 
 				while (rs.next()) {
@@ -64,6 +57,7 @@ public class MonthChart extends JPanel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+    	
     }
     
     private static CategoryDataset createDataset() {
@@ -71,20 +65,25 @@ public class MonthChart extends JPanel {
 
         return dataset;
     }
-
+    
+    
     private static JFreeChart createChart(CategoryDataset dataset) {
 
         JFreeChart chart = ChartFactory.createBarChart(
-                "hyCafe",         
+                "hyCafe",        
                 "",               
                 "",                  
                 dataset,                 
                 PlotOrientation.VERTICAL, 
-                true,                     
                 true,                    
+                true,                     
                 false                    
                 );
 
+
         return chart;
     }
+    
+    
+
 }
