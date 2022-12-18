@@ -1,5 +1,6 @@
 package kiosk.menuFrame.northPanel;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,18 +19,36 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import kiosk.byoption.All_1;
+import kiosk.byoption.NoDecaf_7;
+import kiosk.byoption.NoHotMilk_4;
+import kiosk.byoption.NoHot_3;
+import kiosk.byoption.NoMilk_2;
+import kiosk.byoption.OnlyDecafShotCup_6;
+import kiosk.byoption.OnlyShotCup_5;
+import kiosk.byoption.OnlyShotIceCup_8;
+import kiosk.menuFrame.eastPanel.EastPanel;
+
 public class NorthPanel extends JPanel {
 	
 	JPanel North_NorthPanel = new JPanel();
 	JPanel panel = new JPanel();
+	JPanel nsp = new JPanel();
+	
+	
+	CardLayout card = new CardLayout();
+
 	JPanel coffeePanel = new JPanel();
+	JPanel coffeePanel2 = new JPanel();
 	JPanel nonCoffeePanel = new JPanel();
 	JPanel adePanel = new JPanel();
 	JPanel frappePanel = new JPanel();
-	JPanel nsp = new JPanel();
+
 	private JLabel logo = new JLabel();
 	private JButton homeButton = new JButton();
+	
 	Font font = new Font("맑은 고딕", Font.BOLD, 15);
+	int count = 0;
 
 	public JPanel North_NorthPanel() {
 		
@@ -95,10 +114,6 @@ public class NorthPanel extends JPanel {
 		
 	}
 
-	int count = 0;
-	
-	CardLayout card = new CardLayout();
-	
 	public void setPanel() {
 		FlowLayout flow = new FlowLayout(); 
 		
@@ -107,6 +122,9 @@ public class NorthPanel extends JPanel {
 		
 		coffeePanel.setLayout(flow);
 		coffeePanel.setBackground(Color.white);
+		
+		coffeePanel2.setLayout(flow);
+		coffeePanel2.setBackground(Color.white);
 		
 		nonCoffeePanel.setLayout(flow);
 		nonCoffeePanel.setBackground(Color.white);
@@ -117,8 +135,8 @@ public class NorthPanel extends JPanel {
 		frappePanel.setLayout(flow);
 		frappePanel.setBackground(Color.white);
 		
-		coffeePanel.setVisible(true);
-		nonCoffeePanel.setVisible(true);
+
+		
 	}
 	
 	public JPanel North_SouthPanel() {
@@ -219,6 +237,7 @@ public class NorthPanel extends JPanel {
 							.read(new File("images/KioskImages/3_메뉴선택/menuImages/10.png"));
 					category[9].setIcon(new ImageIcon(bufferedImage10));
 
+					
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
@@ -254,10 +273,27 @@ public class NorthPanel extends JPanel {
 							.read(new File("images/KioskImages/3_메뉴선택/menuImages/10.png"));
 					category[9].setIcon(new ImageIcon(bufferedImage10));
 					
+					nextButton.setEnabled(true);
+					prevButton.setEnabled(true);
+					
+					nextButton.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							card.show(panel, "coffee2");
+						}
+					});
+
+					prevButton.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							card.show(panel, "coffee");
+						}
+					});
+
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
-				System.out.println("hi2");
+
 			
 
 				card.show(panel, "coffee");
@@ -291,12 +327,17 @@ public class NorthPanel extends JPanel {
 							.read(new File("images/KioskImages/3_메뉴선택/menuImages/10.png"));
 					category[9].setIcon(new ImageIcon(bufferedImage10));
 
+					nextButton.setEnabled(false);
+					prevButton.setEnabled(false);
+					
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
 				
-				System.out.println("hi8");
 				card.show(panel, "nonCoffee");
+				
+				
+				
 			}
 			
 		});
@@ -325,6 +366,9 @@ public class NorthPanel extends JPanel {
 							.read(new File("images/KioskImages/3_메뉴선택/menuImages/10.png"));
 					category[9].setIcon(new ImageIcon(bufferedImage10));
 
+					nextButton.setEnabled(false);
+					prevButton.setEnabled(false);
+					
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
@@ -359,6 +403,9 @@ public class NorthPanel extends JPanel {
 							.read(new File("images/KioskImages/3_메뉴선택/menuImages/9.png"));
 					category[8].setIcon(new ImageIcon(bufferedImage10));
 
+					nextButton.setEnabled(false);
+					prevButton.setEnabled(false);
+					
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
@@ -369,28 +416,6 @@ public class NorthPanel extends JPanel {
 
 	}
 			
-	public JPanel panel() {
-		
-		setPanel();
-
-		adePanel();
-		coffeePanel();
-		noncoffeePanel();
-		frappePanel();
-		
-		
-		panel.setLayout(card);
-
-		panel.add(coffeePanel, "coffee");
-		panel.add(nonCoffeePanel, "nonCoffee");
-		panel.add(adePanel, "ade");
-		panel.add(frappePanel, "frappe");
-	
-		//panel.setBackground(Color.white);
-		
-		return panel;
-	}
-
 	public void coffeePanel() {
 		
 		JButton[] coffee = new JButton[10];
@@ -450,6 +475,49 @@ public class NorthPanel extends JPanel {
 			coffee[i].setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 			coffee[i].setOpaque(false);
 
+			int menu = i;
+			coffee[i].addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+
+					switch (menu) {
+					case 0:
+						new NoMilk_2();
+						break;
+					case 1:
+						new NoMilk_2();
+						break;
+					case 2:
+						new All_1();
+						break;
+					case 3:
+						new All_1();
+						break;
+					case 4:
+						new All_1();
+						break;
+					case 5:
+						new All_1();
+						break;
+					case 6:
+						new All_1();
+						break;
+					case 7:
+						new All_1();
+						break;
+					case 8:
+						new NoHotMilk_4();
+						break;
+					case 9:
+						new NoHot_3();
+						break;
+
+					}
+
+				}
+			});
+			
 			coffeePanel.add(coffee[i]);
 			
 		}
@@ -461,6 +529,62 @@ public class NorthPanel extends JPanel {
 				}
 			});
 
+	}
+
+	public void coffeePanel2() {
+		
+		JButton[] coffee2 = new JButton[9];
+
+		JButton coldBrewLatte = new JButton();
+		JButton blank1 = new JButton();
+		JButton blank2 = new JButton();
+		JButton blank3 = new JButton();
+		JButton blank4 = new JButton();
+		JButton blank5 = new JButton();
+		JButton blank6 = new JButton();
+		JButton blank7 = new JButton();
+		JButton blank8 = new JButton();
+		
+		coffee2[0] = coldBrewLatte;
+		coffee2[1] = blank1;
+		coffee2[2] = blank2;
+		coffee2[3] = blank3;
+		coffee2[4] = blank4;
+		coffee2[5] = blank5;
+		coffee2[6] = blank6;
+		coffee2[7] = blank7;
+		coffee2[8] = blank8;
+		
+		int coffeeCount=0;
+		
+		for (int i = 0; i < 9; i++) {
+
+			coffee2[i].setContentAreaFilled(false);
+			coffee2[i].setFocusPainted(false);
+
+			try {
+				coffeeCount += 1;
+
+				BufferedImage menuBufferedImage = ImageIO
+						.read(new File("images/KioskImages/menu/coffee unselected/coffee2/" + coffeeCount + ".png"));
+
+				coffee2[i].setIcon(new ImageIcon(menuBufferedImage));
+
+				BufferedImage clcikedBufferedImage = ImageIO
+						.read(new File("images/KioskImages/menu/coffee selected/coffee2/" + coffeeCount + ".png"));
+				coffee2[i].setPressedIcon(new ImageIcon(clcikedBufferedImage));
+
+		
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			coffee2[i].setBorderPainted(false);
+			coffee2[i].setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
+			coffee2[i].setOpaque(false);
+			coffeePanel2.add(coffee2[i]);
+			
+		}
 	}
 
 	public void noncoffeePanel() {
@@ -515,6 +639,34 @@ public class NorthPanel extends JPanel {
 			noncoffee[i].setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 			noncoffee[i].setOpaque(false);
 
+			int menu = i;
+			noncoffee[i].addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+
+					switch (menu) {
+					case 0:
+						new NoDecaf_7();
+						break;
+					case 1:
+						new NoDecaf_7();
+						break;
+					case 2:
+						new NoDecaf_7();
+						break;
+					case 3:
+						new NoDecaf_7();
+						break;
+					case 4:
+						new NoDecaf_7();
+						break;
+					}
+				}
+			});
+			
+			
+			
 			nonCoffeePanel.add(noncoffee[i]);
 
 		}
@@ -571,7 +723,28 @@ public class NorthPanel extends JPanel {
 			ade[i].setBorderPainted(false);
 			ade[i].setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 			ade[i].setOpaque(false);
+			
+			int menu = i;
+			ade[i].addActionListener(new ActionListener() {
 
+				@Override
+				public void actionPerformed(ActionEvent e) {
+
+					switch (menu) {
+					case 0:
+						new OnlyShotIceCup_8();
+						break;
+					case 1:
+						new OnlyShotIceCup_8();
+						break;
+					case 2:
+						new OnlyShotIceCup_8();
+						break;
+					}
+
+				}
+			});
+			
 			adePanel.add(ade[i]);
 			
 		}
@@ -629,12 +802,163 @@ public class NorthPanel extends JPanel {
 			frappe[i].setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
 			frappe[i].setOpaque(false);
 
+			int menu = i;
+			frappe[i].addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+
+					switch (menu) {
+					case 0:
+						new OnlyShotCup_5();
+						break;
+					case 1:
+						new OnlyShotCup_5();
+						break;
+					case 2:
+						new OnlyShotCup_5();
+						break;
+					case 3:
+						new OnlyShotCup_5();
+						break;
+					case 4:
+						new OnlyShotCup_5();
+						break;
+					case 5:
+						new OnlyShotCup_5();
+						break;
+					case 6:
+						new OnlyDecafShotCup_6();
+						break;
+					case 7:
+						new OnlyDecafShotCup_6();
+						break;
+					case 8:
+						new OnlyDecafShotCup_6();
+						break;
+
+					}
+
+				}
+			});
+			
 			frappePanel.add(frappe[i]);
 
 		}
 	}
 	
+	JPanel eastPanel = new JPanel();
+	JButton nextButton = new JButton();
+	JButton blankButton = new JButton();
 
-	
-	
+	public JPanel panel() {
+
+		setPanel();
+
+		adePanel();
+		coffeePanel();
+		noncoffeePanel();
+		frappePanel();
+		coffeePanel2();
+
+		panel.setLayout(card);
+
+		panel.add(frappePanel, "frappe");
+		panel.add(coffeePanel, "coffee");
+		panel.add(coffeePanel2, "coffee2");
+		panel.add(nonCoffeePanel, "nonCoffee");
+		panel.add(adePanel, "ade");
+
+		// panel.setBackground(Color.white);
+
+		return panel;
+	}
+
+	public JPanel eastPanel() {
+		eastPanel.setLayout(new BorderLayout());
+		eastPanel.setBackground(Color.white);
+		nextButton.setContentAreaFilled(false);
+		nextButton.setFocusPainted(false);
+
+		try {
+			BufferedImage logoBufferedImage = ImageIO.read(new File("images/KioskImages/3_메뉴선택/nextButtonScaled.png"));
+			nextButton.setIcon(new ImageIcon(logoBufferedImage));
+
+			BufferedImage pressedBufferedImage = ImageIO
+					.read(new File("images/KioskImages/3_메뉴선택/nextButtonPressedScaled.png"));
+			nextButton.setPressedIcon(new ImageIcon(pressedBufferedImage));
+
+			nextButton.setBorderPainted(false);
+			nextButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
+			nextButton.setOpaque(false);
+			nextButton.setPreferredSize(new Dimension(40, 40));
+
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+		try {
+			BufferedImage BufferedImage = ImageIO
+					.read(new File("images/KioskImages/3_메뉴선택/menuImages/buttonBlank.png"));
+			blankButton.setIcon(new ImageIcon(BufferedImage));
+
+			blankButton.setPreferredSize(new Dimension(10, 10)); // (동쪽 버튼옆 여백 지정)
+			blankButton.setBorderPainted(false);
+			blankButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
+			blankButton.setOpaque(false);
+
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+		eastPanel.add(nextButton, BorderLayout.WEST);
+		eastPanel.add(blankButton, BorderLayout.EAST);
+		return eastPanel;
+	}
+
+	JPanel westPanel = new JPanel();
+	JButton prevButton = new JButton();
+
+	public JPanel westPanel() {
+
+		westPanel.setLayout(new BorderLayout());
+		westPanel.setBackground(Color.white);
+
+		try {
+			BufferedImage logoBufferedImage = ImageIO.read(new File("images/KioskImages/3_메뉴선택/prevButtonScaled.png"));
+			prevButton.setIcon(new ImageIcon(logoBufferedImage));
+
+			BufferedImage pressedBufferedImage = ImageIO
+					.read(new File("images/KioskImages/3_메뉴선택/prevButtonPressedScaled.png"));
+			prevButton.setPressedIcon(new ImageIcon(pressedBufferedImage));
+			prevButton.setContentAreaFilled(false);
+			prevButton.setFocusPainted(false);
+			prevButton.setPreferredSize(new Dimension(40, 40));
+			prevButton.setBorderPainted(false);
+			prevButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
+			prevButton.setOpaque(false);
+
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+
+		// Borderlayout 사용하여 옆쪽 여백주기위해서 공백버튼
+		JButton button2 = new JButton();
+		try {
+			BufferedImage BufferedImage = ImageIO
+					.read(new File("images/KioskImages/3_메뉴선택/menuImages/buttonBlank.png"));
+			button2.setIcon(new ImageIcon(BufferedImage));
+
+			button2.setPreferredSize(new Dimension(10, 10)); // (서쪽 버튼옆 여백 지정)
+			button2.setBorderPainted(false);
+			button2.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
+			button2.setOpaque(false);
+
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+		westPanel.add(prevButton, BorderLayout.EAST);
+		westPanel.add(button2, BorderLayout.WEST);
+
+		return westPanel;
+	}
+
 }

@@ -35,18 +35,17 @@ public class MenuFrame extends JFrame{
 		//add(new CenterPanel(), BorderLayout.CENTER);	
 		add(np.panel(), BorderLayout.CENTER);
 		add(new SouthPanel(), BorderLayout.SOUTH);
-		add(new WestPanel(), BorderLayout.WEST);
-		add(new EastPanel(), BorderLayout.EAST);
+		add(np.westPanel(), BorderLayout.WEST);
+		add(np.eastPanel(), BorderLayout.EAST);
 		
 		setBackground(Color.white);
 		
 	}
 	
-	
-	
+
 	public void setDisplay() {
 		
-		setUndecorated(true); //테두리제거
+		//setUndecorated(true); //테두리제거
 		setBackground(Color.white);
 		setVisible(true);
 		setSize(650, 950);
