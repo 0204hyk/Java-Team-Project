@@ -77,7 +77,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				hotAndIce = "hot";
+				hotAndIce = "Hot";
 			}
 		});
 
@@ -85,7 +85,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				hotAndIce = "ice";
+				hotAndIce = "Ice";
 			}
 		});
 
@@ -106,7 +106,7 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				decaffein = "noDecaffein";
+				decaffein = "NoDecaffein";
 
 			}
 		});
@@ -199,7 +199,7 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				shot = "noShot";
+				shot = "NoShot";
 			}
 		});
 		
@@ -207,7 +207,7 @@ public class Options extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				shot = "oneShot";
+				shot = "OneShot";
 			}
 		});
 		
@@ -215,7 +215,7 @@ public class Options extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				shot = "twoShot";
+				shot = "TwoShot";
 			}
 		});
 	}
@@ -269,7 +269,7 @@ public class Options extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				milk = "basic";
+				milk = "Basic";
 			}
 		});
 		
