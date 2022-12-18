@@ -57,6 +57,7 @@ public class RefundFrame extends JFrame {
 
 		confirm.addActionListener(new ActionListener() {
 			JLabel lb = wi.makeLabel("카드를 꽂아주세요", 0, 0, 401, 255);
+
 			// 정보 확인 후 꺼져야됨
 			@Override
 			public void actionPerformed(ActionEvent e) {

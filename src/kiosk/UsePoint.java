@@ -30,39 +30,37 @@ public class UsePoint extends JFrame {
 		JLabel currentPoint = new JLabel("" + cp.currentPoint()); // 가져오기
 		currentPoint.setHorizontalAlignment(JLabel.RIGHT);
 		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 34));
-		currentPoint.setForeground(new Color(63, 186, 145));
+		currentPoint.setForeground(new Color(15, 11, 65));
 		currentPoint.setBounds(100, 260, 100, 35);
 
 		JTextArea ta = new JTextArea();
 		ta.setBackground(new Color(242, 242, 242));
 		ta.setBorder(null);
-		ta.setBounds(185, 386, 80, 30);
+		ta.setBounds(185, 370, 80, 30);
 		ta.setFont(new Font("맑은 고딕", Font.BOLD, 26));
 		ta.setForeground(Color.BLACK);
 		ta.setAlignmentX(CENTER_ALIGNMENT); // 작동안되는듯
 
 		add(wi.makeLabel("leftPointText.png", 33, 67, 335, 83));
-		add(wi.makeLabel("byUnitText.png", 88, 329, 269, 16));
-		add(wi.makeLabel("useAll.png", 85, 399, 63, 14));
-		add(wi.makeLabel("usePointBox.png", 171, 383, 105, 46));
+		add(wi.makeLabel("useAll.png", 85, 384, 63, 14));
+		add(wi.makeLabel("usePointBox.png", 171, 368, 105, 46));
 
-		JButton use = wi.makeButton("use.png", 303, 383, 84, 46);
-		
+		JButton use = wi.makeButton("use.png", 290, 368, 97, 46);
+
 		use.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 디비에서 차감되게 만들기
-				
-				
+
 			}
 		});
 
 		add(wi.makeLabel("pointText.png", 205, 264, 90, 28));
-		JLabel check = wi.makeLabel("check.png", 60, 381, 28, 27);
+		JLabel check = wi.makeLabel("check.png", 61, 366, 28, 27);
 
 		check.setVisible(false);
-		JButton checkBox = wi.makeButton("checkBox.png", 63, 399, 14, 14);
+		JButton checkBox = wi.makeButton("checkBox.png", 64, 384, 14, 14);
 		checkBox.addActionListener(new ActionListener() {
 			int num = 1;
 
@@ -74,15 +72,14 @@ public class UsePoint extends JFrame {
 					num = 1;
 				} else if (num == 1) {
 					check.setVisible(true);
-					int point = cp.currentPoint() - cp.currentPoint() % 100;
-					ta.setText("" + point);
+					ta.setText("" + cp.currentPoint());
 					num = 0;
 				}
 
 			}
 		});
 
-		int x = 57, y = 455;
+		int x = 57, y = 439;
 		for (int i = 0; i < 12; i++) {
 			add(new PhoneKeypad(root, i, ta, x, y, 106, 42));
 			x += 113;
@@ -98,8 +95,9 @@ public class UsePoint extends JFrame {
 		add(use);
 		add(check);
 		add(checkBox);
-		add(wi.makeLabel("currentPointText.png", 163, 214, 121, 22));
-		add(wi.makeLabel("currentPointBox.png", 63, 186, 320, 132));
+		add(wi.makeLabel("currentPointText.png", 163, 215, 121, 22));
+		add(wi.makeLabel("currentPointBox.png", 64, 188, 320, 132));
+		
 		setLayout(null);
 		setSize(461, 710); // 창 크기 이상해서 임시로 늘림
 		setVisible(true);
