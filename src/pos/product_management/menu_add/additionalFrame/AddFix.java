@@ -1,8 +1,6 @@
-package pos.kjh;
+package pos.product_management.menu_add.additionalFrame;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -15,6 +13,8 @@ import javax.swing.JScrollPane;
 
 import pos.ImagePanel;
 import pos.ImageScaledTool;
+import pos.kjh.ProductManagementJFrame;
+import pos.product_management.menu_add.MenuAddFrame;
 
 public class AddFix extends JFrame {
 
@@ -55,7 +55,6 @@ public class AddFix extends JFrame {
 		setUndecorated(true);
 		setBackground(new Color(0, 0, 0, 0));	// 패널 배경 투명하게 하기
 		setLocationRelativeTo(null);
-		
 
 	}
 }

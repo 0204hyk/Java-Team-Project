@@ -1,4 +1,4 @@
-package pos.kjh;
+package pos.product_management.menu_add;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -24,14 +24,31 @@ import javax.swing.text.NumberFormatter;
 
 import pos.ImagePanel;
 import pos.ImageScaledTool;
+import pos.product_management.menu_add.additionalFrame.AddFix;
+import pos.product_management.menu_add.component.MenuAddButton;
 
 public class MenuAddFrame extends JFrame{
 	
 	JScrollPane scrollPane;
 	ImageIcon icon;
-	JTextField nameField = nameAdd();
-	JFormattedTextField priceField = priceAdd();
+	public JTextField nameField = nameAdd();
+	public JFormattedTextField priceField = priceAdd();
 	AddFix addfix = new AddFix(this);
+	
+	public JRadioButton coffee;
+	public JRadioButton nonCoffee;
+	public JRadioButton ade;
+	public JRadioButton frappe;
+	 
+	public JRadioButton option1;
+	public JRadioButton option2;
+	public JRadioButton option3;
+	public JRadioButton option4;
+	public JRadioButton option5;
+	public JRadioButton option6;
+	public JRadioButton option7;		
+	public JRadioButton option8;		
+
 	
 	public JTextField nameAdd() {
 		JTextField menuName = new JTextField();
@@ -54,36 +71,6 @@ public class MenuAddFrame extends JFrame{
 		menuPrice.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		
 		return menuPrice;
-	}
-	
-	public JButton fixBtn() throws IOException{
-		JButton fixBtn = new JButton();
-		
-		BufferedImage bufferedfixBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/메뉴 추가 창 확인 버튼.png"));
-		Image fixBtnImage = bufferedfixBtnImage.getScaledInstance(150,75, Image.SCALE_SMOOTH);
-		fixBtn.setIcon(new ImageIcon(fixBtnImage));
-		fixBtn.setBounds(720, 450, 150, 75);
-
-		fixBtn.setBorderPainted(false);
-		fixBtn.setContentAreaFilled(false);
-		fixBtn.setFocusPainted(false);
-
-		BufferedImage bufferedBtnClickImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/메뉴 추가 창 확인 버튼 클릭.png"));
-		Image btnClickImage = bufferedBtnClickImage.getScaledInstance(150,75, Image.SCALE_SMOOTH);
-		Icon btnClickIcon = new ImageIcon(btnClickImage);
-		
-		fixBtn.setPressedIcon(btnClickIcon);
-		
-		fixBtn.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String addMenu = "INSERT INTO menu VALUES";
-				addfix.setVisible(true);
-			}
-		});
-
-		return fixBtn;
 	}
 	
 	public JButton close() throws IOException {
@@ -116,7 +103,7 @@ public class MenuAddFrame extends JFrame{
 		// 카테고리 분류
 		ButtonGroup categoryBtnGroup = new ButtonGroup();
 
-		JRadioButton coffee = new JRadioButton("Coffee");
+		coffee = new JRadioButton("Coffee");
 		coffee.setBounds(180, 290, 90, 70);
 		coffee.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		coffee.setBorderPainted(false);
@@ -124,36 +111,37 @@ public class MenuAddFrame extends JFrame{
 		coffee.setFocusPainted(false);
 		coffee.setSelected(true);
 
-		JRadioButton nonCoffee = new JRadioButton("Non Coffee");
+		nonCoffee = new JRadioButton("Non Coffee");
 		nonCoffee.setBounds(280, 290, 140, 70);
 		nonCoffee.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		nonCoffee.setBorderPainted(false);
 		nonCoffee.setContentAreaFilled(false);
 		nonCoffee.setFocusPainted(false);
 
-		JRadioButton teaAde = new JRadioButton("Tea, Ade");
-		teaAde.setBounds(420, 290, 110, 70);
-		teaAde.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		teaAde.setBorderPainted(false);
-		teaAde.setContentAreaFilled(false);
-		teaAde.setFocusPainted(false);
+		ade = new JRadioButton("Tea, Ade");
+		ade.setBounds(420, 290, 110, 70);
+		ade.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		ade.setBorderPainted(false);
+		ade.setContentAreaFilled(false);
+		ade.setFocusPainted(false);
 
-		JRadioButton frappeBlended = new JRadioButton("Frappe, Blended");
-		frappeBlended.setBounds(540, 290, 190, 70);
-		frappeBlended.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		frappeBlended.setBorderPainted(false);
-		frappeBlended.setContentAreaFilled(false);
-		frappeBlended.setFocusPainted(false);
+		frappe = new JRadioButton("Frappe, Blended");
+		frappe.setBounds(540, 290, 190, 70);
+		frappe.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		frappe.setBorderPainted(false);
+		frappe.setContentAreaFilled(false);
+		frappe.setFocusPainted(false);
 
-		categoryBtnGroup.add(frappeBlended);
-		categoryBtnGroup.add(teaAde);
+		categoryBtnGroup.add(frappe);
+		categoryBtnGroup.add(ade);
 		categoryBtnGroup.add(nonCoffee);
 		categoryBtnGroup.add(coffee);
 		
 		
 		// 옵션 분류
 		ButtonGroup optionBtnGroup = new ButtonGroup();
-		JRadioButton option1 = new JRadioButton("모든 옵션");
+		
+		option1 = new JRadioButton("모든 옵션");
 		option1.setBounds(180, 370, 150, 35);
 		option1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option1.setBorderPainted(false);
@@ -161,49 +149,49 @@ public class MenuAddFrame extends JFrame{
 		option1.setFocusPainted(false);
 		option1.setSelected(true);
 
-		JRadioButton option2 = new JRadioButton("우유 X");
+		option2 = new JRadioButton("우유 X");
 		option2.setBounds(180, 400, 150, 35);
 		option2.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option2.setBorderPainted(false);
 		option2.setContentAreaFilled(false);
 		option2.setFocusPainted(false);
 
-		JRadioButton option3 = new JRadioButton("Ice Only");
+		option3 = new JRadioButton("Ice Only");
 		option3.setBounds(180, 430, 150, 35);
 		option3.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option3.setBorderPainted(false);
 		option3.setContentAreaFilled(false);
 		option3.setFocusPainted(false);
 
-		JRadioButton option4 = new JRadioButton("Ice Only, 우유 X");
+		option4 = new JRadioButton("Ice Only, 우유 X");
 		option4.setBounds(330, 370, 180, 35);
 		option4.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option4.setBorderPainted(false);
 		option4.setContentAreaFilled(false);
 		option4.setFocusPainted(false);
 		
-		JRadioButton option5 = new JRadioButton("샷, 사이즈");
+		option5 = new JRadioButton("샷, 사이즈");
 		option5.setBounds(330, 400, 150, 35);
 		option5.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option5.setBorderPainted(false);
 		option5.setContentAreaFilled(false);
 		option5.setFocusPainted(false);
 		
-		JRadioButton option6 = new JRadioButton("디카페인, 샷, 사이즈");
+		option6 = new JRadioButton("디카페인, 샷, 사이즈");
 		option6.setBounds(330, 430, 210, 35);
 		option6.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option6.setBorderPainted(false);
 		option6.setContentAreaFilled(false);
 		option6.setFocusPainted(false);
 		
-		JRadioButton option7 = new JRadioButton("디카페인 X");
+		option7 = new JRadioButton("디카페인 X");
 		option7.setBounds(550, 370, 150, 35);
 		option7.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option7.setBorderPainted(false);
 		option7.setContentAreaFilled(false);
 		option7.setFocusPainted(false);		
 		
-		JRadioButton option8 = new JRadioButton("Ice Only, 샷, 사이즈");
+		option8 = new JRadioButton("Ice Only, 샷, 사이즈");
 		option8.setBounds(550, 400, 210, 35);
 		option8.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		option8.setBorderPainted(false);
@@ -222,7 +210,9 @@ public class MenuAddFrame extends JFrame{
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상품 관리 이미지/메뉴 추가 창 기본 틀.png", 900, 550));
 		
-		background.add(fixBtn());	
+		MenuAddButton menuAddButton = new MenuAddButton(this, addfix);
+		
+		background.add(menuAddButton);	
 		add(background);
 		background.setSize(900, 550);
 		
@@ -230,10 +220,10 @@ public class MenuAddFrame extends JFrame{
 		add(close());
 		add(nameField);
 		add(priceField);
-		add(frappeBlended);
-		add(teaAde);
-		add(nonCoffee);
 		add(coffee);
+		add(nonCoffee);
+		add(ade);
+		add(frappe);
 		add(option1);
 		add(option2);
 		add(option3);

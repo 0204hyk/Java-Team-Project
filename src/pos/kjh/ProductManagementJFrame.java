@@ -25,6 +25,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 import pos.gje.delete.DeletFrame;
 import pos.gje.modify.ModifyFrame;
+import pos.product_management.menu_add.MenuAddFrame;
 
 public class ProductManagementJFrame extends JFrame {
 	private JPanel contenePane;

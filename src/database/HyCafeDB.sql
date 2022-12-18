@@ -66,3 +66,5 @@ CREATE TABLE payment(
     payment_type number(1),
     price number(10)
 );
+
+select * from tabs;
