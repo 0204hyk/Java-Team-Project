@@ -18,12 +18,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
+import pos.salescheck.component.table.SalesMonthTable;
+import pos.salescheck.component.table.SalesYearTable;
+
 public class YearComboBox extends JComboBox  {
 
 	// 매출요약 년도 콤보박스 생성.
 	Calendar now = Calendar.getInstance();
 	int year = now.get(Calendar.YEAR);
-	int selectYear;
+
 	
 	public YearComboBox() {
 		for (int i = year - 10; i <= year; ++i) {
@@ -31,7 +34,14 @@ public class YearComboBox extends JComboBox  {
 		}
 
 		setSelectedItem(year);
-		
 		setBounds(90, 100, 100, 25);
+		addItemListener(new ItemListener() {
+			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				SalesYearTable table = new SalesYearTable();
+				table.model.setNumRows(0);
+			}
+		});
 	}
 }

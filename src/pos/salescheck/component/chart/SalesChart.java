@@ -20,7 +20,7 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
 import database.OjdbcConnection;
-import pos.salescheck.component.table.SalesTable;
+import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.type.SalesDayCheckMain;
 
 /*

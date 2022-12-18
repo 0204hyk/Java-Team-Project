@@ -39,7 +39,7 @@ public class YearChart extends JPanel {
     	String sql = "SELECT s.saleDate, sales_m.total_price AS total_price "
 				+ "FROM sales s INNER JOIN sales_management sales_m "
 				+ "USING (sales_number)"
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMMDD') = ?";
+				+ "WHERE TO_CHAR(s.saleDate, 'YYYY') = ?";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();

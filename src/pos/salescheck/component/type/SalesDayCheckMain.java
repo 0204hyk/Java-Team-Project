@@ -24,11 +24,11 @@ import pos.salescheck.component.datecombo1.YearComboBox;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitleLabel;
 import pos.salescheck.component.saleslist.TotalLabel;
-import pos.salescheck.component.table.SalesTable;
+import pos.salescheck.component.table.SalesDayTable;
 
 public class SalesDayCheckMain extends JFrame {
 	
-	
+	// 일별 매출
 	public SalesDayCheckMain() {
 		
 		// 매출요약 상단 메뉴바 생성.
@@ -57,7 +57,7 @@ public class SalesDayCheckMain extends JFrame {
 		
 		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();
-		JTable table = new SalesTable();
+		JTable table = new SalesDayTable();
 		
 		// 매출요약
 		JLabel salesTitle = new TitleLabel();

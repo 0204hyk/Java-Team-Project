@@ -16,7 +16,7 @@ import javax.swing.JComboBox;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 
-import pos.salescheck.component.table.SalesTable;
+import pos.salescheck.component.table.SalesDayTable;
 
 public class DayComboBox extends JComboBox {
 
@@ -35,7 +35,7 @@ public class DayComboBox extends JComboBox {
 		addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				SalesTable table = new SalesTable();
+				SalesDayTable table = new SalesDayTable();
 				table.model.setNumRows(0);
 			
 			
