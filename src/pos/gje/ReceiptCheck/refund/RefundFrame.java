@@ -51,7 +51,7 @@ public class RefundFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				System.exit(0); //나중에 dispose로 바꿔주기
 			}
 		});
 
@@ -72,9 +72,7 @@ public class RefundFrame extends JFrame {
 
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						lb = wi.makeLabel("환불 완료", 0, 0, 401, 255);
-						inputCard.add(lb);
-//						inputCard.dispose(); //카드 넣고 환불 완료 창 띄워기
+						inputCard.dispose(); //카드 넣고 환불 완료 창 띄워기
 					}
 				});
 				timer.start();
@@ -97,6 +95,7 @@ public class RefundFrame extends JFrame {
 		setResizable(false); // 크기 조절 안되게
 		setLocationRelativeTo(null); // 가운데에 뜨게
 		setVisible(true);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
 

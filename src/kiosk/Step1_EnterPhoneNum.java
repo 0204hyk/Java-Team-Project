@@ -100,11 +100,10 @@ public class Step1_EnterPhoneNum extends JFrame {
 				// 유효한 휴대폰 번호인지 확인
 				if (Pattern.matches("01[016-9]\\d{4}\\d{4}", ph)) {
 					if (new CheckPhoneNum(ph).check()) {
+						notValidNum.setVisible(false);
 						// 적립예정 포인트 보여주기
 						ShowPoint sp = new ShowPoint(ph.substring(7, ph.length()), point, currentPoint + point);
-						// 안녕하세요 문구
 						sp.hello();
-
 						// 닫기 버튼
 						sp.ok.addActionListener(new ActionListener() {
 
@@ -119,6 +118,7 @@ public class Step1_EnterPhoneNum extends JFrame {
 						});
 					} else {
 						// 없다고하기
+						notValidNum.setVisible(false);
 						JFrame jf = new JFrame();
 						String root = "images/KioskImages/5_1. step1 없는 회원";
 						WithImage wi = new WithImage(root);
@@ -168,7 +168,7 @@ public class Step1_EnterPhoneNum extends JFrame {
 				if (Pattern.matches("01[016-9]\\d{4}\\d{4}", ph)) {
 					// 중복인 경우
 					if (new CheckPhoneNum(ph).check()) {
-
+						notValidNum.setVisible(false);
 						WithImage wi = new WithImage("images/KioskImages/5_1_1. step1 번호 중복");
 						JFrame jf = new JFrame();
 
@@ -222,7 +222,7 @@ public class Step1_EnterPhoneNum extends JFrame {
 
 					// 휴대폰 번호가 중복이 아닌 경우 -> 바로 가입 후 포인트 적립
 					} else if (!new CheckPhoneNum(ph).check()) {
-
+						notValidNum.setVisible(false);
 						new Agreement(ph, point, currentPoint);
 						dispose();
 					}

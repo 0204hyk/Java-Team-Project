@@ -1,6 +1,8 @@
 package kiosk.byoption;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,11 +14,19 @@ public class Options extends JFrame {
 	String root = "images/KioskImages/4. detailedOption";
 	WithImage wi = new WithImage(root);
 
+	String hotAndIce;
+	String decaffein;
+	String cup;
+	String sizes;
+	String shot;
+	String ice;
+	String milk;
+
 	public Options() {
 
 		defaults();
 
-		setUndecorated(true);
+//		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,8 +45,24 @@ public class Options extends JFrame {
 		add(wi.makeButton("minus.png", 457, 763, 18, 18));
 		add(wi.makeButton("plus.png", 556, 763, 18, 18));
 
-		add(wi.makeButton("put.png", 415, 813, 192, 68));
+		//415 813
+		JButton put = wi.makeButton("put.png", 200, 200, 192, 68);
 
+		add(put);
+		put.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				System.out.println(hotAndIce);
+				System.out.println(decaffein);
+				System.out.println(cup);
+				System.out.println(sizes);
+				System.out.println(shot);
+				System.out.println(ice);
+				System.out.println(milk);
+			}
+		});
 	}
 
 	public void hotAndIce(int x, int y) {
@@ -46,6 +72,23 @@ public class Options extends JFrame {
 		JButton ice = wi.makeButton("ice.png", x + 257, y - 20, 78, 54);
 		add(hot);
 		add(ice);
+
+		hot.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				hotAndIce = "hot";
+			}
+		});
+
+		ice.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				hotAndIce = "ice";
+			}
+		});
+
 		new GroupButtons(hot, ice, "hot", "ice", 78, 54);
 	}
 
@@ -57,6 +100,27 @@ public class Options extends JFrame {
 		add(noDecaffein);
 		add(toDecaffein);
 		new GroupButtons(noDecaffein, toDecaffein, "noDecaffein", "toDecaffein", 78, 54);
+
+		noDecaffein.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				decaffein = "noDecaffein";
+
+			}
+		});
+
+		toDecaffein.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				decaffein = "Decaffein";// TODO Auto-generated method stub
+
+			}
+		});
+
 	}
 
 	public void cup(int x, int y) {
@@ -66,6 +130,22 @@ public class Options extends JFrame {
 		add(useDisposal);
 		add(useTumbler);
 		new GroupButtons(useDisposal, useTumbler, "useDisposal", "useTumbler", 78, 54);
+
+		useDisposal.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cup = "Disposal";
+			}
+		});
+
+		useTumbler.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cup = "Tumbler";
+			}
+		});
 	}
 
 	public void sizes(int x, int y) {
@@ -77,6 +157,31 @@ public class Options extends JFrame {
 		add(M);
 		add(L);
 		new GroupButtons(S, M, L, "S", "M", "L", 78, 54);
+
+		S.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				sizes = "S";
+			}
+		});
+
+		M.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				sizes = "M";
+			}
+		});
+
+		L.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				sizes = "L";
+			}
+		});
 	}
 
 	public void shot(int x, int y) {
@@ -88,6 +193,31 @@ public class Options extends JFrame {
 		add(oneShot);
 		add(twoShot);
 		new GroupButtons(noShot, oneShot, twoShot, "noShot", "oneShot", "twoShot", 78, 54);
+		
+		noShot.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				shot = "noShot";
+			}
+		});
+		
+		oneShot.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				shot = "oneShot";
+			}
+		});
+		
+		twoShot.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				shot = "twoShot";
+			}
+		});
 	}
 
 	public void ice(int x, int y) {
@@ -99,6 +229,30 @@ public class Options extends JFrame {
 		add(lessIce);
 		add(noIce);
 		new GroupButtons(normalIce, lessIce, noIce, "normalIce", "lessIce", "noIce", 78, 54);
+		
+		normalIce.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ice = "Normal";
+			}
+		});
+		
+		lessIce.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ice = "Less";
+			}
+		});
+		
+		noIce.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ice = "None";
+			}
+		});
 	}
 
 	public void milk(int x, int y) {
@@ -110,5 +264,29 @@ public class Options extends JFrame {
 		add(toSoy);
 		add(toLowfat);
 		new GroupButtons(basicMilk, toSoy, toLowfat, "basicMilk", "toSoy", "toLowfat", 78, 54);
+		
+		basicMilk.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				milk = "basic";
+			}
+		});
+		
+		toSoy.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				milk ="Soy";
+			}
+		});
+		
+		toLowfat.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				milk="Lowfat";
+			}
+		});
 	}
 }

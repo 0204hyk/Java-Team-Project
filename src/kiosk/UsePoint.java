@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,6 +16,7 @@ import database.kiosk.CheckPoint;
 import kiosk.tools.WithImage;
 
 public class UsePoint extends JFrame {
+
 	String root = "images/KioskImages/5_4. step2 usePoint";
 	WithImage wi = new WithImage(root);
 
@@ -27,7 +29,7 @@ public class UsePoint extends JFrame {
 		phoneNum.setForeground(Color.black);
 		phoneNum.setBounds(32, 65, 86, 32);
 
-		JLabel currentPoint = new JLabel("" + cp.currentPoint()); // 가져오기
+		JLabel currentPoint = new JLabel("" + cp.currentPoint());
 		currentPoint.setHorizontalAlignment(JLabel.RIGHT);
 		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 34));
 		currentPoint.setForeground(new Color(15, 11, 65));
@@ -50,16 +52,22 @@ public class UsePoint extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// 디비에서 차감되게 만들기
+				if (Integer.parseInt(ta.getText()) > cp.currentPoint()) {
+					System.out.println("갖고 있는 포인트보다 적게 입력해주세요"); // 빨간 글씨로 띄워주기
+				} else {
+					dispose();
+					System.out.println("통과");
+					Step1Step2.pointActive();
+				}
 
 			}
 		});
 
 		add(wi.makeLabel("pointText.png", 205, 264, 90, 28));
 		JLabel check = wi.makeLabel("check.png", 61, 366, 28, 27);
-		
+
 		check.setVisible(false);
-		
+
 		JButton checkBox = wi.makeButton("checkBox.png", 64, 384, 14, 14);
 		checkBox.addActionListener(new ActionListener() {
 			int num = 1;
@@ -72,8 +80,8 @@ public class UsePoint extends JFrame {
 					ta.setText("");
 				} else if (num == 1) {
 					num = 0;
-					check.setVisible(true);
-					ta.setText("??"+cp.currentPoint());
+					ta.setText("" + cp.currentPoint());
+					check.setVisible(true); // 티몬과 품바 숨쉬는 것 쁘리덤
 				}
 
 			}
@@ -97,17 +105,14 @@ public class UsePoint extends JFrame {
 		add(wi.makeLabel("currentPointText.png", 163, 215, 121, 22));
 		add(wi.makeLabel("currentPointBox.png", 64, 188, 320, 132));
 		add(ta);
-		
+
 		setLayout(null);
 		setSize(461, 710); // 창 크기 이상해서 임시로 늘림
 		setVisible(true);
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(Color.WHITE);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
 
-	public static void main(String[] args) {
-		new UsePoint("01042361724");
-	}
 }

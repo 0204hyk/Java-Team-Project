@@ -235,6 +235,11 @@ public class Step1Step2 extends JFrame {
 		cardActive.setVisible(true);
 	}
 
+	public static void pointActive() {
+		point.setVisible(false);
+		pointActive.setVisible(true);
+	}
+	
 	public void step2Disabled() {
 		card.setEnabled(false);
 		point.setEnabled(false);
