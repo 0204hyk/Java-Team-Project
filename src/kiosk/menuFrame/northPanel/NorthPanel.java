@@ -27,7 +27,6 @@ import kiosk.byoption.NoMilk_2;
 import kiosk.byoption.OnlyDecafShotCup_6;
 import kiosk.byoption.OnlyShotCup_5;
 import kiosk.byoption.OnlyShotIceCup_8;
-import kiosk.menuFrame.eastPanel.EastPanel;
 
 public class NorthPanel extends JPanel {
 	

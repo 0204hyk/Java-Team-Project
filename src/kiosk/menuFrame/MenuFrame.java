@@ -9,11 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.border.Border;
 
 import kiosk.menuFrame.centerPanel.CenterPanel;
-import kiosk.menuFrame.eastPanel.EastPanel;
 import kiosk.menuFrame.northPanel.NorthPanel;
 import kiosk.menuFrame.northPanel.North_SouthPanel;
 import kiosk.menuFrame.southPanel.SouthPanel;
-import kiosk.menuFrame.westPanel.WestPanel;
+
 
 //메뉴프레임
 public class MenuFrame extends JFrame{
