@@ -13,9 +13,10 @@ public class OnlyShotCup_5 {
 
 	public OnlyShotCup_5() {
 		
-		op.cup(44, 330);
-		op.shot(300, 330);
+		op.cup(78, 269);
+		op.shot(78, 339);
 		op.setVisible(true);
+		
 	}
 
 	public static void main(String[] args) {

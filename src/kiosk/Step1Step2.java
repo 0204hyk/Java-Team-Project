@@ -50,8 +50,7 @@ public class Step1Step2 extends JFrame {
 		JButton home = wi.makeButton("home.png", 542, 44, 52, 52);
 
 		// 포인트 적립
-		save = wi.makeButton("save2.png", 73, 248, 158, 141);
-//		save.setDisabledIcon(new ImageIcon(wi.readImage("/save da.png", 158, 141)));
+		save = wi.makeButton("save.png", 88, 248, 158, 141);
 		save.addActionListener(new ActionListener() {
 
 			@Override
@@ -64,7 +63,7 @@ public class Step1Step2 extends JFrame {
 		});
 
 		// 간편 가입
-		join = wi.makeButton("join.png", 417, 248, 158, 141);
+		join = wi.makeButton("join.png", 420, 248, 158, 141);
 		join.addActionListener(new ActionListener() {
 
 			@Override
@@ -77,7 +76,7 @@ public class Step1Step2 extends JFrame {
 		});
 
 		// 포인트 적립 안함
-		notsave = wi.makeButton("notsave.png", 245, 248, 158, 141);
+		notsave = wi.makeButton("notsave.png", 254, 248, 158, 141);
 		notsave.addActionListener(new ActionListener() {
 			int num = 1;
 
@@ -102,7 +101,7 @@ public class Step1Step2 extends JFrame {
 		});
 
 		// 카드 사용
-		card = wi.makeButton("card.png", 73, 519, 158, 141);
+		card = wi.makeButton("card.png", 89, 519, 158, 141);
 		card.addActionListener(new ActionListener() {
 			int num = 1;
 
@@ -140,7 +139,7 @@ public class Step1Step2 extends JFrame {
 //		timer.start();
 
 		// 포인트 사용
-		point = wi.makeButton("point.png", 245, 519, 158, 141);
+		point = wi.makeButton("point.png", 254, 519, 158, 141);
 		point.addActionListener(new ActionListener() {
 
 			@Override
@@ -189,24 +188,17 @@ public class Step1Step2 extends JFrame {
 	public void labels() {
 
 		add(wi.makeLabel("hy.png", 52, 25, 60, 83));
-
-		JLabel step1 = new JLabel("Step1. 적립");
-		step1.setBounds(52, 208, 150, 30);
-		step1.setFont(new Font("맑은 고딕", Font.BOLD, 17));
-		add(step1);
-
-		JLabel step2 = new JLabel("Step2. 결제 방식");
-		step2.setBounds(52, 478, 150, 30);
-		step2.setFont(new Font("맑은 고딕", Font.BOLD, 17));
-		add(step2);
+		
+		add(wi.makeLabel("step1.png", 89,201,240,22));
+		add(wi.makeLabel("step2.png", 89,473,119,22));
 
 		String root = "images/KioskImages/5. step1 Selected";
 		WithImage wi = new WithImage(root);
 
-		saveActive = wi.makeLabel("save.png", 73, 248, 158, 141);
-		joinActive = wi.makeLabel("join.png", 417, 248, 158, 141);
-		cardActive = wi.makeLabel("card.png", 73, 519, 158, 141);
-		pointActive = wi.makeLabel("point.png", 245, 519, 158, 141);
+		saveActive = wi.makeLabel("save.png", 88, 248, 158, 141);
+		joinActive = wi.makeLabel("join.png", 420, 248, 158, 141);
+		cardActive = wi.makeLabel("card.png", 89, 519, 158, 141);
+		pointActive = wi.makeLabel("point.png", 254, 519, 158, 141);
 
 		setVisibleEnabled(saveActive);
 		setVisibleEnabled(joinActive);

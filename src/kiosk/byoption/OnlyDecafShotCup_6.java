@@ -13,10 +13,13 @@ public class OnlyDecafShotCup_6 {
 
 	public OnlyDecafShotCup_6() {
 
-		op.decaffein(44, 315);
-		op.cup(300, 315);
-		op.shot(44, 445);
+		op.decaffein(78, 269);
+		op.cup(78, 339);
+		op.shot(78, 409);
 		op.setVisible(true);
+		
+		
+
 	}
 
 	public static void main(String[] args) {
