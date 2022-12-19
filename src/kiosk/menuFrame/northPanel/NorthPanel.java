@@ -18,7 +18,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import database.kiosk.GetImage;
 import kiosk.byoption.All_1;
 import kiosk.byoption.NoDecaf_7;
 import kiosk.byoption.NoHotMilk_4;
@@ -27,6 +26,7 @@ import kiosk.byoption.NoMilk_2;
 import kiosk.byoption.OnlyDecafShotCup_6;
 import kiosk.byoption.OnlyShotCup_5;
 import kiosk.byoption.OnlyShotIceCup_8;
+import kiosk.byoption.TopImage;
 import kiosk.tools.WithImage;
 
 public class NorthPanel extends JPanel {
@@ -473,50 +473,36 @@ public class NorthPanel extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 
-					
-//					coffee[0] = espresso;
-//					coffee[1] = americano;
-//					coffee[2] = cafeLatte;
-//					coffee[3] = cafeMocha;
-//					coffee[4] = dolceLatte;
-//					coffee[5] = vanillaLatte;
-//					coffee[6] = caramelMacchiato ;
-//					coffee[7] = HazelnutLatte;
-//					coffee[8] = coldBrew;
-//					coffee[9] = coldBrewLatte;
-
 					switch (menu) {
 					case 0:
-//						new NoMilk_2();
-						
-						new GetImage("에스프레소");
+						new NoMilk_2(new TopImage("에스프레소"));
 						break;
 					case 1:
-//						new NoMilk_2();
+						new NoMilk_2(new TopImage("아메리카노"));
 						break;
 					case 2:
-						new All_1();
+						new All_1(new TopImage("카페라떼"));
 						break;
 					case 3:
-						new All_1();
+						new All_1(new TopImage("카페모카"));
 						break;
 					case 4:
-						new All_1();
+						new All_1(new TopImage("카페모카"));
 						break;
 					case 5:
-						new All_1();
+						new All_1(new TopImage("바닐라 라떼"));
 						break;
 					case 6:
-						new All_1();
+						new All_1(new TopImage("카라멜 마끼아또"));
 						break;
 					case 7:
-						new All_1();
+						new All_1(new TopImage("헤이즐넛 라떼"));
 						break;
 					case 8:
-						new NoHotMilk_4();
+						new NoHotMilk_4(new TopImage("콜드브루"));
 						break;
 					case 9:
-						new NoHot_3();
+						new NoHot_3(new TopImage("콜드브루 라떼"));
 						break;
 
 					}
@@ -651,21 +637,27 @@ public class NorthPanel extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 
+//					
+//					noncoffee[0] = sweetPotatoLatte;
+//					noncoffee[1] = greenTeaLatte;
+//					noncoffee[2] = fiveGrainLatte;
+//					noncoffee[3] = chocolateLatte;
+//					noncoffee[4] = pistachioLatte;
 					switch (menu) {
 					case 0:
-						new NoDecaf_7();
+						new NoDecaf_7(new TopImage("고구마 라떼"));
 						break;
 					case 1:
-						new NoDecaf_7();
+						new NoDecaf_7(new TopImage("녹차 라떼"));
 						break;
 					case 2:
-						new NoDecaf_7();
+						new NoDecaf_7(new TopImage("오곡 라떼"));
 						break;
 					case 3:
-						new NoDecaf_7();
+						new NoDecaf_7(new TopImage("초코 라떼"));
 						break;
 					case 4:
-						new NoDecaf_7();
+						new NoDecaf_7(new TopImage("피스타치오 라떼"));
 						break;
 					}
 				}
@@ -738,13 +730,13 @@ public class NorthPanel extends JPanel {
 
 					switch (menu) {
 					case 0:
-						new OnlyShotIceCup_8();
+						new OnlyShotIceCup_8(new TopImage("레몬 에이드"));
 						break;
 					case 1:
-						new OnlyShotIceCup_8();
+						new OnlyShotIceCup_8(new TopImage("자몽 에이드"));
 						break;
 					case 2:
-						new OnlyShotIceCup_8();
+						new OnlyShotIceCup_8(new TopImage("청포도 에이드"));
 						break;
 					}
 
@@ -815,32 +807,33 @@ public class NorthPanel extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 
 					switch (menu) {
+
 					case 0:
-						new OnlyShotCup_5();
+						new OnlyShotCup_5(new TopImage("그린티 프라페"));
 						break;
 					case 1:
-						new OnlyShotCup_5();
+						new OnlyShotCup_5(new TopImage("딸기 젤라또 프라페"));
 						break;
 					case 2:
-						new OnlyShotCup_5();
+						new OnlyShotCup_5(new TopImage("레드 애플 프라페"));
 						break;
 					case 3:
-						new OnlyShotCup_5();
+						new OnlyShotCup_5(new TopImage("애플 망고 프라페"));
 						break;
 					case 4:
-						new OnlyShotCup_5();
+						new OnlyShotCup_5(new TopImage("초코칩 프라페"));
 						break;
 					case 5:
-						new OnlyShotCup_5();
+						new OnlyShotCup_5(new TopImage("초콜릿 쿠키 젤라또 프라페"));
 						break;
 					case 6:
-						new OnlyDecafShotCup_6();
+						new OnlyDecafShotCup_6(new TopImage("콜드브루 모카 프라페"));
 						break;
 					case 7:
-						new OnlyDecafShotCup_6();
+						new OnlyDecafShotCup_6(new TopImage("콜드브루 카라멜 프라페"));
 						break;
 					case 8:
-						new OnlyDecafShotCup_6();
+						new OnlyDecafShotCup_6(new TopImage("콜드브루 프라페"));
 						break;
 
 					}

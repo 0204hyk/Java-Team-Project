@@ -36,19 +36,40 @@ public class Options extends JFrame {
 	}
 
 	public void defaults() {
-		add(new TotalCups());
+		TotalCups tc= new TotalCups();
+		add(tc);
 
 		add(wi.makeLabel("hy.png", 53, 24, 60, 83));
 		add(wi.makeButton("home.png", 543, 44, 52, 52));
 
-		add(wi.makeButton("minus.png", 457, 763, 18, 18));
-		add(wi.makeButton("plus.png", 556, 763, 18, 18));
+		JButton minus = wi.makeButton("minus.png", 394,161,32,32);
 
-		// 415 813
-		
-		JButton put = wi.makeButton("put.png", 333,817,192,68);
+		minus.addActionListener(new ActionListener() {
 
-		add(put);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				if (tc.cup > 0) {
+					tc.setCup(tc.cup - 1);
+				} else if (tc.cup == 0) {
+					tc.setCup(tc.cup);
+				}
+			}
+		});
+
+		JButton plus = wi.makeButton("plus.png",519,161,32,32);
+
+		plus.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tc.setCup(tc.cup + 1);
+
+			}
+		});
+
+		JButton put = wi.makeButton("put.png", 333, 817, 192, 68);
+
 		put.addActionListener(new ActionListener() {
 
 			@Override
@@ -63,21 +84,23 @@ public class Options extends JFrame {
 				System.out.println(milk);
 			}
 		});
-		
-		JButton cancel = wi.makeButton("cancel.png", 124,815,192,68);
-		add(cancel);
-		
+
+		JButton cancel = wi.makeButton("cancel.png", 124, 815, 192, 68);
+
 		cancel.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
+
+		add(minus);
+		add(plus);
+		add(put);
+		add(cancel);
 	}
 
-	
-	
 	public void hotAndIce(int x, int y) {
 
 		add(wi.makeLabel("hot, ice.png", x, y, 45, 16));

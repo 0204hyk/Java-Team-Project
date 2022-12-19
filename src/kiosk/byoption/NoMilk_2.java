@@ -9,21 +9,23 @@ public class NoMilk_2 {
 	WithImage wi = new WithImage(root);
 	Options op = new Options();
 
-	public NoMilk_2(JPanel jp) {
+	public NoMilk_2(JPanel topImage) {
+		int x = 78;
+		int y = 295;
 
-		op.hotAndIce(78, 269);
-		op.sizes(78, 339);
-		op.decaffein(78, 409);
-		op.cup(78, 479);
-		op.ice(78, 549);
-		op.shot(78, 620);
-		op.add(jp);
+		op.hotAndIce(x, y);
+		op.sizes(x, y + 70);
+		op.decaffein(x, y + 140);
+		op.cup(x, y + 210);
+		op.ice(x, y + 280);
+		op.shot(x, y + 350);
+		op.add(topImage);
 		op.setVisible(true);
 	}
 
 	public static void main(String[] args) {
 
-		new NoMilk_2(new TopImage("카페라떼"));
+		new NoMilk_2(new TopImage("아메리카노"));
 	}
 
 }
