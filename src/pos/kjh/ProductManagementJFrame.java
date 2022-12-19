@@ -19,53 +19,65 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableCellRenderer;
 
-import pos.gje.delete.DeletFrame;
+import pos.DigitalClock;
+import pos.ImagePanel;
+import pos.ImageScaledTool;
 import pos.gje.modify.ModifyFrame;
 import pos.product_management.menu_add.MenuAddFrame;
 
 public class ProductManagementJFrame extends JFrame {
-	private JPanel contenePane;
-	private JTable table;
-	private DefaultTableCellRenderer dcr = new DefaultTableCellRenderer();
-	
-	
+
+	MenuListJTable mj;
 	
 	static JTextField serchText = new JTextField("키워드를 입력해주세요");
 	
+	
 	public ProductManagementJFrame() throws IOException, SQLException {
+		// 상단 메뉴바 설정
+		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
+				"images/PosImages/상단 메뉴바.png", 1200, 60));
+		titlePanel.setBounds(0 ,0, 1200, 60);
+		// 현재 시간 출력
+		JLabel clock = new DigitalClock();
+		clock.setBounds(375, 10, 400, 30);
+		titlePanel.add(clock);
+		
+		add(titlePanel);		
 		
 		add(serch());
+		
 		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
-		add(new MenuListJTable(allMenu()));
-	
+		
+		mj = new MenuListJTable(allMenu());
+		add(mj);
+		
 		buttons();
 	}
 	
+
+	// 원하는 디비 불러오는 메서드
 	public String serchMenu(String keyword) {
 	
-		String text = "SELECT DISTINCT menu_number, menu_name, price FROM menu WHERE menu_name LIKE '%" + keyword + "%'";
+		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu WHERE menu_name LIKE '%" + keyword + "%'";
 		
 		return text;
 	}
 	
+	// 모든 디비 불러오는 메서드
 	public String allMenu() {
 		
-		String text = "SELECT DISTINCT menu_number, menu_name, price FROM menu";
+		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu";
 		
 		return text;
 	}
 
 	
+	// 검색창에 텍스트 입력하는 메서드
 	public static JTextField serch() {
-		
 		serchText.setBounds(215, 100, 700, 49);
 		serchText.setFont(new Font("맑은 고딕", Font.BOLD, 18));
-//		serchText.setForeground(Color.gray);
-//		serchText.setForeground(Color.black);
 		serchText.setOpaque(false);
 		serchText.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		
@@ -81,6 +93,7 @@ public class ProductManagementJFrame extends JFrame {
 	}
 	
 	
+	// 라벨로 이미지 붙이는 메서드
 	public static JLabel labelImage(String image, int a, int b, int c, int d) throws IOException {
 		JLabel l = new JLabel();
 		BufferedImage bufferedlImage = ImageIO.read(new File(image));
@@ -92,7 +105,8 @@ public class ProductManagementJFrame extends JFrame {
 
 	}
 
-	public JButton buttons() throws IOException {
+	// 상품목록에 있는 버튼들
+	public JButton buttons() throws IOException, SQLException {
 		JButton serchBtn = btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", 
 				"images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50);
 
@@ -109,25 +123,41 @@ public class ProductManagementJFrame extends JFrame {
 				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55);
 		
 		
+		// 검색 버튼
 		serchBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
 				try {
-					add(new MenuListJTable(serchMenu(serch().getText())));
-					new MenuListJTable(allMenu()).setFocusable(false);;
+					if (serch().getText() == null) {
+						mj.setVisible(true);
+					}
+					else {
+						mj.setVisible(false);
+						mj.contents.setNumRows(0);
+						add(new MenuListJTable(serchMenu(serch().getText())));
+					};
+				
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
 		});
 		
+		// 텍스트 창
 		serchText.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					add(new MenuListJTable(serchMenu(serch().getText())));
+					if (serch().getText() == null) {
+						mj.setVisible(true);
+					}
+					else {
+						mj.setCellEditor(null);
+						mj.contents.setNumRows(0);
+						add(new MenuListJTable(serchMenu(serch().getText())));
+					};
 					
 				} catch (SQLException e1) {
 					e1.printStackTrace();
@@ -137,6 +167,7 @@ public class ProductManagementJFrame extends JFrame {
 		});
 			
 		
+		// 돌아가기 버튼
 		backBtn.addActionListener(new ActionListener() {
 			
 			@Override
@@ -145,35 +176,43 @@ public class ProductManagementJFrame extends JFrame {
 			}
 		});
 		
+		
+		// 삭제 버튼
 		deleteBtn.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				new DeletFrame();
+				try {
+					mj.delete();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
 				
 			}
 		});
 		
+		// 수정 버튼
 		modifyBtn.addActionListener(new ActionListener() {
+			
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				new ModifyFrame();
 				
 			}
 		});
 
-
+		// 추가 버튼
 		addBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-//				 table.getColumn(" ").setCellRenderer(dcr);
-//				 JCheckBox box = new JCheckBox();
-//				 box.setHorizontalAlignment(JLabel.CENTER);
-//				 
+
 				try {
 					new MenuAddFrame();
 				} catch (IOException e1) {
@@ -181,12 +220,12 @@ public class ProductManagementJFrame extends JFrame {
 				}
 			}
 		});
-		
 		add(serchBtn);
 		add(backBtn);
 		add(deleteBtn);
 		add(modifyBtn);
 		add(addBtn);
+		
 		setLayout(null);
 		setSize(1200, 800);
 		setVisible(true);
@@ -198,8 +237,9 @@ public class ProductManagementJFrame extends JFrame {
 		return addBtn;
 	}
 
+	
 
-		
+	// 버튼에 이미지 붙이는 메서드
 	public static JButton btnImage(String image, String clickImage, int a, int b, int c, int d) throws IOException {
 
 		JButton btn = new JButton();

@@ -13,10 +13,11 @@ public class OnlyShotIceCup_8 {
 
 	public OnlyShotIceCup_8() {
 
-		op.sizes(44, 315);
-		op.shot(367, 315);
-		op.cup(44, 445);
+		op.sizes(78, 269);
+		op.shot(78, 339);
+		op.cup(78, 409);
 		op.setVisible(true);
+		
 	}
 
 	public static void main(String[] args) {

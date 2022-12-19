@@ -15,13 +15,14 @@ import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.kjh.ProductManagementJFrame;
 import pos.product_management.menu_add.MenuAddFrame;
+import pos.product_management.menu_add.panel.AddBackgroundImagePanel;
 import pos.product_management.menu_modify.MenuModifyFrame;
 
 public class AddFix extends JFrame {
 	ImageIcon icon;
 	
 	ProductManagementJFrame prjf;
-	MenuAddFrame menuAddFrame;
+	AddBackgroundImagePanel panel;
 	
 	public JButton AddFixButton() throws IOException {
 		JButton addFixBtn = prjf.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png", 
@@ -31,16 +32,16 @@ public class AddFix extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				menuAddFrame.nameField.setText(null);
-				menuAddFrame.priceField.setText(null);
+				panel.nameField.setText(null);
+				panel.priceField.setText(null);
 			}
 		});
 		
 		return addFixBtn;
 	}
 	
-	public AddFix(MenuAddFrame menuAddFrame) throws IOException {
-		this.menuAddFrame = menuAddFrame;
+	public AddFix(AddBackgroundImagePanel panel) throws IOException {
+		this.panel = panel;
 		
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상품 관리 이미지/메뉴 추가 완료 안내 창.png", 400, 200));

@@ -39,7 +39,7 @@ public class ReceiptCheckFrame extends JFrame{
 	
 		
 		
-		RefundFrame refundFrame = new RefundFrame(this);
+		RefundFrame refundFrame = new RefundFrame();
 		RefundButton refundButton = new RefundButton(this, refundFrame);
 		OutputButton outfutButton = new OutputButton();
 		

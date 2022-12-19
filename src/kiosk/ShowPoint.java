@@ -37,7 +37,7 @@ public class ShowPoint extends JFrame {
 		// 누적 포인트
 		JLabel currentPoint = new JLabel("" + totalpoint);
 		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 33));
-		currentPoint.setForeground(new Color(63, 186, 145));
+		currentPoint.setForeground(new Color(15, 11, 65));
 		currentPoint.setBounds(110, 448, 100, 28);
 		currentPoint.setHorizontalAlignment(SwingConstants.RIGHT);
 		add(currentPoint);
@@ -66,10 +66,10 @@ public class ShowPoint extends JFrame {
 	}
 
 	public void joinComplete() {
-		add(wi.makeLabel("joinComplete.png", 57,173,340,30));
+		add(wi.makeLabel("joinComplete.png", 57, 173, 340, 30));
 	}
 
 	public static void main(String[] args) {
-		new ShowPoint("01231223",2,1);
+		new ShowPoint("1333", 2, 1);
 	}
 }

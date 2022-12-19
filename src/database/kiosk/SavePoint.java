@@ -19,11 +19,10 @@ public class SavePoint {
 			pstmt.setString(2, phonenumber);
 			
 			pstmt.executeQuery();
-			System.out.println("포인트 업뎃 완");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("뭔가 오류");
 		}
 	}
+	
 }

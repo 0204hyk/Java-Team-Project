@@ -10,6 +10,6 @@ public class TotalCups extends JLabel {
 		super("2잔");
 		setFont(new Font("맑은 고딕", Font.PLAIN, 19));
 		setForeground(Color.black);
-		setBounds(356, 755, 33, 20);
+		setBounds(502, 755, 30, 30);
 	}
 }

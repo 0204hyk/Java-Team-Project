@@ -29,7 +29,7 @@ public class Step2_PointWithNoID extends JFrame {
 
 	public Step2_PointWithNoID() {
 
-		add(wi.makeLabel("InputText.png", 71, 94, 87, 14));
+		add(wi.makeLabel("phoneNum.png", 71, 94, 87, 14));
 		add(wi.makeLabel("010.png", 70, 126, 46, 21));
 		JLabel notValidNum = wi.makeLabel("notValidNum.png", 70, 169, 177, 14);
 		add(notValidNum);
@@ -76,8 +76,6 @@ public class Step2_PointWithNoID extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				String ph = "010" + ta.getText();
-				int point = 100;
-				int currentPoint = new CheckPoint(ph).currentPoint();
 
 				// 유효한 휴대폰 번호인지 확인
 				if (Pattern.matches("01[016-9]\\d{4}\\d{4}", ph)) {

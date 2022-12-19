@@ -23,7 +23,6 @@ public class JoinMembership {
 			pstmt.setString(1, ph);
 			pstmt.setString(2, today.toString());
 			pstmt.executeQuery();
-			System.out.println("횐갑완");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
