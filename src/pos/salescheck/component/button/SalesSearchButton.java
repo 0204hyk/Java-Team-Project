@@ -1,36 +1,17 @@
 package pos.salescheck.component.button;
 
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.ui.ApplicationFrame;
-
 import pos.ImageScaledTool;
-
-
-
 import pos.salescheck.component.chart.DayChart;
 import pos.salescheck.component.chart.MonthChart;
-
 import pos.salescheck.component.chart.YearChart;
 import pos.salescheck.component.combobox.DayComboBox;
 import pos.salescheck.component.combobox.MonthComboBox;
 import pos.salescheck.component.combobox.YearComboBox;
-import pos.salescheck.component.main.SalesMonthCheckMain;
 import pos.salescheck.component.saleslist.TitlePanel;
 import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.table.SalesMonthTable;
@@ -136,7 +117,6 @@ public class SalesSearchButton extends JButton {
 		
 		// 검색 버튼 액션
 		addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 콤보박스의 값을 String으로 변환 후 각 변수에 저장.
@@ -148,13 +128,11 @@ public class SalesSearchButton extends JButton {
 				SalesDayTable table = new SalesDayTable(year, month, day);
 				DayChart chart = new DayChart(year, month, day);
 				TitlePanel title = new TitlePanel(year, month, day);
-
 			}
 		});
 		
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);	
-		
 	}
 }
