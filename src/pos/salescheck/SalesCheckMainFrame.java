@@ -40,10 +40,7 @@ public class SalesCheckMainFrame extends JFrame {
 		title.add(clock);
 		
 		// 매출요약 차트 구현
-		SalesChart chart = new SalesChart("", "");
-		ChartPanel chartPanel = new ChartPanel(chart.barChart);
-		chartPanel.setBounds(70, 170, 500, 500);
-		
+	
 		// 매출요약 콤보박스 구현
 		JComboBox yearCombo = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
@@ -79,7 +76,7 @@ public class SalesCheckMainFrame extends JFrame {
 		add(total);
 		add(table);
 		add(list);
-		add(chartPanel);
+		
 		setSize(1200, 800);
 		getContentPane().setBackground(new Color(64, 64, 64));
 		setLayout(null);
