@@ -35,9 +35,6 @@ public class SalesDayTable extends JTable {
 
 	
 	public SalesDayTable() {
-		
-	
-		
 		JTable table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
 		table.setFont(getFont().deriveFont(23f));
@@ -51,11 +48,7 @@ public class SalesDayTable extends JTable {
 		setBounds(650, 230, 450, 360);
 		setLayout(null);
 		setVisible(true);
-		
-		
-		
 	}
-
 	
 	public SalesDayTable(String year, String month, String day) {
 		this.year = year;
