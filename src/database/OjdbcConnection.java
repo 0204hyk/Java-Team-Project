@@ -11,6 +11,7 @@ public class OjdbcConnection {
 	private static String id = "hyCafe";
 	private static String password = "1234";
 	
+	// 학원 컴퓨터 : 127.0.0.1
 	// static 클래스.
 	static {
 		try {

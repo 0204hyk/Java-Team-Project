@@ -36,6 +36,7 @@ public class RefundButton extends JButton implements ActionListener {
 		
 		addActionListener(this);
 		
+		setEnabled(false);
 		setBounds(900, 670, 250, 80); // 위치 및 사이즈 조절
 		setContentAreaFilled(false);
 		setBorderPainted(false); 

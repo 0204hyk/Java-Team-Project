@@ -22,6 +22,7 @@ public class ReceiptCheckFrame extends JFrame{
 	public static JTextArea printTextArea = new PrintTextArea();
 	//JScrollPane s = new JScrollPane();
 	
+	
 	public ReceiptCheckFrame() {		
 		
 		// 상단 메뉴바 설정
@@ -36,12 +37,18 @@ public class ReceiptCheckFrame extends JFrame{
 		
 		add(titlePanel);
 	
-		// 영수증 목록 (Panel)
-		add(new List().scroll);
-		// 버튼
+		
+		
 		RefundFrame refundFrame = new RefundFrame(this);
-		add(new RefundButton(this, refundFrame));
-		add(new OutputButton());
+		RefundButton refundButton = new RefundButton(this, refundFrame);
+		OutputButton outfutButton = new OutputButton();
+		
+		// 영수증 목록 (Panel)
+		add(new List(outfutButton, refundButton).scroll);
+		
+		// 버튼
+		add(refundButton);
+		add(outfutButton);
 		
 		// 영수증 출력 
 		add(new PrintScroll());

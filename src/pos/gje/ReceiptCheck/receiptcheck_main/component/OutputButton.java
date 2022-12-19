@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 public class OutputButton extends JButton implements ActionListener{
 
@@ -29,16 +30,31 @@ public class OutputButton extends JButton implements ActionListener{
 		}
 
 		
+		setEnabled(false);
 		setBounds(630, 670, 250, 80);
 		setContentAreaFilled(false);
 		setBorderPainted(false);
 		setOpaque(false);
+		addActionListener(this);
+		
 		
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("기능구현X");
+//		JFrame f = new JFrame();
+//		
+//		
+//		
+//		f.setSize(400, 300);
+//		f.getContentPane().setBackground(new Color(64, 64, 64)); // 배경색
+//		f.setLayout(null); 
+//		f.setResizable(false); // 크기 조절 안되게
+//		f.setLocationRelativeTo(null); // 가운데에 뜨게
+//		f.setVisible(true);
+//		
+		
+		JOptionPane.showMessageDialog(null, "영수증 출력 완료");
 	}
 	
 

@@ -14,12 +14,14 @@ import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 import database.OjdbcConnection;
+import pos.gje.ReceiptCheck.receiptcheck_main.component.OutputButton;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.PrintScroll;
+import pos.gje.ReceiptCheck.receiptcheck_main.component.RefundButton;
 
 // 리스트
 public class List {
 
-	static private String[] top = {"순서", "영수증번호"};
+	static private String[] top = {" ", "영수증번호"};
 	public static DefaultTableModel contents = new DefaultTableModel(top, 0); // 테이블 안에 들어가는 데이터 값을 채워넣음
 	public static JTable table; 
 	public static JScrollPane scroll;
@@ -27,10 +29,12 @@ public class List {
 	static ArrayList<String> point = new ArrayList<>();
 	static ArrayList<String> date = new ArrayList<>();
 	static int num = 1;
+	boolean a = false;
+
 	
-	public List() {
+	public List(OutputButton out, RefundButton refund) {
 		
-		String query = "SELECT * FROM membership ";
+		String query = "SELECT * FROM membership "; // 
 		
 		try (Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(query);
@@ -59,13 +63,15 @@ public class List {
 		scroll.setBounds(75, 95, 500, 550);
 		
 		// 크기 조정 
-		table.getColumn("순서").setPreferredWidth(20);
+		table.getColumn(" ").setPreferredWidth(20);
 		table.getColumn("영수증번호").setPreferredWidth(450);
 
 		// 수정 안되게 만들기
 		table.getTableHeader().setReorderingAllowed(false);
         table.getTableHeader().setResizingAllowed(false);
 
+        // 높이
+        table.setRowHeight(25);
 	
 		table.addMouseListener(new MouseAdapter() {
 			@Override
@@ -77,9 +83,20 @@ public class List {
 				
 				// 영수증을 프린틑하는 메소드에 값을 넣는다 
 				changeTextA(n, d);
+				out.setEnabled(true);
+				refund.setEnabled(true);
+				//select(1);
 			}
 		});
 		
+		//select(0);
+	}
+	
+	// 클릭이 됐을 때 출력 버튼이 활성화 되어야함. 
+	static boolean select (int num) {
+		boolean a = num == 1 ? true : false;
+		
+		return a;
 	}
 	
 	public void changeTextA(String num, String point) {
@@ -94,13 +111,13 @@ public class List {
 				+ "[대표자] 김XX		[TEL] 031-555-4449\n"
 				+ "[매출일] " + point + "\n"
 				+ "[영수증] " + num + "\n"
-				+ "====================================\n"
+				+ "=====================================\n"
 				+ " 상 품 명\t\t수 량\t단 가\n"
-				+ "-----------------------------------------------------------------\n"
+				+ "--------------------------------------------------------------------\n"
 				+ num + "\t\t" + num + "\t" + num + "\n"
-				+ "-----------------------------------------------------------------\n"
+				+ "--------------------------------------------------------------------\n"
 				+ "\t\t합 계 금 액   "  + num + "\n"
-				+ "------------------------------------------------------------------\n"
+				+ "--------------------------------------------------------------------\n"
 				+ "\t\t받 을 금 액   "  + num + "\n"
 				+ "\t\t받 은 금 액   "  + num + "\n"
 				+ "\t\t받 은 카 드   " + num + "\n"
@@ -111,4 +128,7 @@ public class List {
 				);
 	}
 	
+	public static void main(String[] args) {
+		
+	}
 }
