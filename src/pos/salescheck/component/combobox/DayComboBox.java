@@ -1,4 +1,4 @@
-package pos.salescheck.component.datecombo1;
+package pos.salescheck.component.combobox;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;

@@ -27,10 +27,9 @@ import pos.salescheck.component.chart.DayChart;
 import pos.salescheck.component.chart.MonthChart;
 
 import pos.salescheck.component.chart.YearChart;
-
-import pos.salescheck.component.datecombo1.DayComboBox;
-import pos.salescheck.component.datecombo1.MonthComboBox;
-import pos.salescheck.component.datecombo1.YearComboBox;
+import pos.salescheck.component.combobox.DayComboBox;
+import pos.salescheck.component.combobox.MonthComboBox;
+import pos.salescheck.component.combobox.YearComboBox;
 import pos.salescheck.component.main.SalesMonthCheckMain;
 import pos.salescheck.component.saleslist.TitlePanel;
 import pos.salescheck.component.table.SalesDayTable;

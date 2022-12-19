@@ -1,4 +1,4 @@
-package pos.salescheck.component.datecombo1;
+package pos.salescheck.component.combobox;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;

@@ -15,7 +15,7 @@ import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.chart.YearChart;
-import pos.salescheck.component.datecombo1.YearComboBox;
+import pos.salescheck.component.combobox.YearComboBox;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitlePanel;
 import pos.salescheck.component.saleslist.TotalLabel;
