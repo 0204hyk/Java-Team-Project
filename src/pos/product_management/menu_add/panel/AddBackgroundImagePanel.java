@@ -3,10 +3,17 @@ package pos.product_management.menu_add.panel;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -186,11 +193,28 @@ public class AddBackgroundImagePanel extends JPanel{
 		
 		try {
 			MenuAddButton menuAddBtn = new MenuAddButton(this, new AddFix(this));
+			
+			JButton closeBtn = new JButton();
+			BufferedImage bufferedcloseBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/닫기 버튼.png"));
+			Image closeBtnImage = bufferedcloseBtnImage.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+			closeBtn.setIcon(new ImageIcon(closeBtnImage));
+			closeBtn.setBounds(840,10,50,50);
+			closeBtn.setBorderPainted(false);
+			closeBtn.setContentAreaFilled(false);
+			closeBtn.setFocusPainted(false);
+			closeBtn.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					frame.dispose();
+				}
+			});
+
+			add(closeBtn);
 			add(menuAddBtn);	
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		
 		add(nameField);
 		add(priceField);
 		add(coffee);

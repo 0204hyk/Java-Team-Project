@@ -19,7 +19,11 @@ import database.OjdbcConnection;
 public class ClosingTable extends JTable {
 
 	String [] column = {"시간", "매출"};
-	DefaultTableModel model = new DefaultTableModel(column, 0);
+	DefaultTableModel model = new DefaultTableModel(column, 0) {
+        public boolean isCellEditable(int i, int c) {
+            return false;
+        }
+	};
 	String query = "SELECT to_char(saledate, 'HH24'), trim(to_char(sum(price), '999,999,999'))"
 			+ "FROM sales INNER JOIN payment USING(sales_number)"
 			+ "WHERE to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')"
@@ -57,7 +61,7 @@ public class ClosingTable extends JTable {
 		
 		// 정렬할 테이블의 컬럼모델 가져오기
 		TableColumnModel tcm = getColumnModel();
-
+		
 		// 컬럼 가운데 정렬 
 		DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
 		dtcr.setHorizontalAlignment(SwingConstants.CENTER);
@@ -71,6 +75,7 @@ public class ClosingTable extends JTable {
 		getTableHeader().setBackground(new Color(217, 217, 217));	// 컬럼 헤드 배경색
 		getTableHeader().setResizingAllowed(false);		// 컬럼 헤드 마우스 드래그로 크기 조정 안되게 하기 (컬럼 사이즈 고정)
 		getTableHeader().setReorderingAllowed(false); // 컬럼 헤드 이동 안되게 하기
+		
 		
 		setLayout(null);
 
