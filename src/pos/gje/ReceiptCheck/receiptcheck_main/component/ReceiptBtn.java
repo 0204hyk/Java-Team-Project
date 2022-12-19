@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
@@ -26,8 +26,6 @@ public class ReceiptBtn extends JButton implements ActionListener{
 	List<String> numList3 = new ArrayList<>();
 	ReceiptCheckFrame f;
 	//public static int colCount;
-	
-	
 	
 	public ReceiptBtn(int num, ReceiptCheckFrame f) {
 		this.num = num;
@@ -52,9 +50,7 @@ public class ReceiptBtn extends JButton implements ActionListener{
 					numList.add(rs.getString("member_phonenumber"));
 					numList2.add(rs.getString("member_point"));
 					numList3.add(rs.getString("member_join"));
-					
 				}
-	         
 	      } catch (SQLException e) {
 	         System.out.println(" 오류");
 	         e.printStackTrace();
@@ -81,18 +77,13 @@ public class ReceiptBtn extends JButton implements ActionListener{
 		// 
 		System.out.println(num + " 클릭");
 		System.out.println(numList.get(num));
-		changeTextA(numList.get(num), numList2.get(num), numList3.get(num));
+		changeTextA(numList.get(num), numList2.get(num), numList3.get(num)); // 영수증에 들어가야 하는 값 전달
 		
 	}
 	
-	public  JScrollPane changeTextA(String num, String point, String date) {
-		
-		JTextArea a = f.printTextArea;
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportView(a);
-		
-		scrollPane.setFont(new Font("맑은 고딕", Font.PLAIN, 20));	
-		scrollPane.setBounds(640, 95, 500, 550); // Panel 틀
+	// 버튼에 대한 값을 받아온다 
+	public void changeTextA(String num, String point, String date) {
+		JTextArea a = PrintScroll.p;
 		
 		a.setText("[영수증]\n"
 				+ "\n"
@@ -103,7 +94,7 @@ public class ReceiptBtn extends JButton implements ActionListener{
 				+ "[대표자] 김XX		[TEL] 031-555-4449\n"
 				+ "[매출일] " + date + "\n"
 				+ "[영수증] " + num + "\n"
-				+ "============================================\n"
+				+ "====================================\n"
 				+ " 상 품 명\t\t수 량\t단 가\n"
 				+ "-----------------------------------------------------------------\n"
 				+ num + "\t\t" + num + "\t" + num + "\n"
@@ -115,11 +106,9 @@ public class ReceiptBtn extends JButton implements ActionListener{
 				+ "\t\t받 은 카 드   " + point + "\n"
 				+ "\t\t받 은 카 드   " + point + "\n"
 				+ "\t\t받 은 카 드   " + point + "\n"
-				+ "\t\t받 은 카 드   " + point + "\n"
-				+ "============================================"
+				
+				+ "====================================="
 				);
-		
-		return scrollPane;
 	}
 	
 	
