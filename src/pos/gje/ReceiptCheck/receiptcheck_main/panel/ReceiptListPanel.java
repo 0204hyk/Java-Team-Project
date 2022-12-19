@@ -46,7 +46,6 @@ public class ReceiptListPanel extends JPanel {
 					// i = DB에 저장된 개수 	
 					setBounds(75, 95, 500, 550); // Panel 틀
 					setLayout(null);
-					
 					setVisible(true);
 					
 				}

@@ -15,7 +15,6 @@ import pos.gje.ReceiptCheck.receiptcheck_main.component.PrintScroll;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.PrintTextArea;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.ReceiptCheckEscapeButton;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.RefundButton;
-import pos.gje.ReceiptCheck.receiptcheck_main.panel.ReceiptListPanel;
 import pos.gje.ReceiptCheck.refund.RefundFrame;
 
 public class ReceiptCheckFrame extends JFrame{
@@ -38,8 +37,7 @@ public class ReceiptCheckFrame extends JFrame{
 		add(titlePanel);
 	
 		// 영수증 목록 (Panel)
-		add(new ReceiptListPanel(this));
-		
+		add(new List().scroll);
 		// 버튼
 		RefundFrame refundFrame = new RefundFrame(this);
 		add(new RefundButton(this, refundFrame));
