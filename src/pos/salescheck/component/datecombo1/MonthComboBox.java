@@ -7,6 +7,9 @@ import java.util.Calendar;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
+import pos.salescheck.component.table.SalesDayTable;
+import pos.salescheck.component.table.SalesMonthTable;
+
 public class MonthComboBox extends JComboBox {
 	
 	// 매출요약 월 콤보박스 생성.
@@ -24,7 +27,8 @@ public class MonthComboBox extends JComboBox {
 			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				System.out.println(e.getItem());
+				SalesMonthTable table = new SalesMonthTable();
+				table.model.setNumRows(0);
 			}
 		});
 	}

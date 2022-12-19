@@ -1,44 +1,27 @@
 package pos.salescheck.component.table;
 
-import java.awt.Dimension;
 import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import database.OjdbcConnection;
-import database.model.SalesAndSalesManagement;
-import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.saleslist.TotalLabel;
 
-
-public class SalesTable extends JTable {
-
+public class SalesMonthTable extends JTable {
+	
 	private static String colTitle[] = {"날짜", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0);
-
-	public static StringBuilder sb = new StringBuilder();
 	
 	String year;
 	String month; 
-	String day;
-
 	
-	public SalesTable() {
-		
-	
-		
+	public SalesMonthTable() {
 		JTable table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
 		table.setFont(getFont().deriveFont(23f));
@@ -52,23 +35,19 @@ public class SalesTable extends JTable {
 		setBounds(650, 230, 450, 360);
 		setLayout(null);
 		setVisible(true);
-		
-		
-		
 	}
 
 	
-	public SalesTable(String year, String month, String day) {
+	public SalesMonthTable(String year, String month) {
 		this.year = year;
 		this.month = month;
-		this.day = day;
 		
-		String plus = year + month + day;
+		String plus = year + month;
 		String sql = "SELECT s.saleDate, to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
 				+ "FROM sales s INNER JOIN sales_management sales_m "
 				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMMDD') = ? GROUP BY s.saleDate";
-
+				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ? GROUP BY s.saleDate";
+		
 		try (
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -93,3 +72,4 @@ public class SalesTable extends JTable {
 		
 	}
 }
+
