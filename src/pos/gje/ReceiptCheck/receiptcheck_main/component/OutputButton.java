@@ -1,5 +1,6 @@
 package pos.gje.ReceiptCheck.receiptcheck_main.component;
 
+import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +11,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
 public class OutputButton extends JButton implements ActionListener{
 
@@ -42,19 +43,21 @@ public class OutputButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-//		JFrame f = new JFrame();
-//		
-//		
-//		
-//		f.setSize(400, 300);
-//		f.getContentPane().setBackground(new Color(64, 64, 64)); // 배경색
-//		f.setLayout(null); 
-//		f.setResizable(false); // 크기 조절 안되게
-//		f.setLocationRelativeTo(null); // 가운데에 뜨게
-//		f.setVisible(true);
-//		
+		JFrame f = new JFrame();
 		
-		JOptionPane.showMessageDialog(null, "영수증 출력 완료");
+		
+		
+		
+		
+		f.setSize(500, 250);
+		f.getContentPane().setBackground(new Color(64, 64, 64)); // 배경색
+		f.setLayout(null); 
+		f.setResizable(false); // 크기 조절 안되게
+		f.setLocationRelativeTo(null); // 가운데에 뜨게
+		f.setVisible(true);
+
+		
+		//JOptionPane.showMessageDialog(null, "영수증 출력 완료");
 	}
 	
 

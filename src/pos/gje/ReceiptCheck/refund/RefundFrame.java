@@ -31,7 +31,8 @@ public class RefundFrame extends JFrame {
 		confirm.setOpaque(true);
 
 		check.setVisible(false);
-
+		
+		
 		checkBox.addActionListener(new ActionListener() {
 			int num = 1;
 
@@ -94,13 +95,12 @@ public class RefundFrame extends JFrame {
 		setLayout(null);
 		setResizable(false); // 크기 조절 안되게
 		setLocationRelativeTo(null); // 가운데에 뜨게
-		setVisible(true);
+		setVisible(false);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
 
 	public static void main(String[] args) {
-		new RefundFrame();
 
 	}
 }
