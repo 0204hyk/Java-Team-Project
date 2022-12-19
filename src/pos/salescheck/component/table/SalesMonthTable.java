@@ -61,9 +61,6 @@ public class SalesMonthTable extends JTable {
 					model.addRow(new Object[] {
 							rs.getDate(1),
 							rs.getString("total_price")});
-					TotalLabel setTotal = new TotalLabel();
-					setTotal.setText(
-							rs.getString("total_price"));
 				}
 			}
 		} catch (SQLException e) {

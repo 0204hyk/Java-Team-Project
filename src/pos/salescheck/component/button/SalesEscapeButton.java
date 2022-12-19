@@ -10,6 +10,9 @@ import pos.salescheck.component.main.SalesDayCheckMain;
 import pos.salescheck.component.main.SalesMonthCheckMain;
 import pos.salescheck.component.main.SalesYearCheckMain;
 import pos.salescheck.component.saleslist.TitlePanel;
+import pos.salescheck.component.table.SalesDayTable;
+import pos.salescheck.component.table.SalesMonthTable;
+import pos.salescheck.component.table.SalesYearTable;
 
 public class SalesEscapeButton extends JButton {
 
@@ -40,11 +43,13 @@ public class SalesEscapeButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				yearFrame.dispose();
 				
 				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
 				TitlePanel panel = new TitlePanel();
 				panel.text.setText("");
+				SalesYearTable table = new SalesYearTable();
+				table.model.setNumRows(0);
+				yearFrame.dispose();
 			}
 		});
 	}
@@ -68,11 +73,13 @@ public class SalesEscapeButton extends JButton {
 		addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				monthFrame.dispose();
 				
 				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
 				TitlePanel panel = new TitlePanel();
 				panel.text.setText("");
+				SalesMonthTable table = new SalesMonthTable();
+				table.model.setNumRows(0);
+				monthFrame.dispose();
 			}
 		});
 	}
@@ -97,11 +104,12 @@ public class SalesEscapeButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dayFrame.dispose();
-				
 				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
 				TitlePanel panel = new TitlePanel();
 				panel.text.setText("");
+				SalesDayTable table = new SalesDayTable();
+				table.model.setNumRows(0);
+				dayFrame.dispose();
 			}
 		});
 	}
