@@ -62,7 +62,7 @@ public class SalesYearCheckMain extends JFrame {
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
-		add(total);
+		//add(total);
 		add(table);
 		add(list);
 		add(chart);

@@ -70,7 +70,7 @@ public class SalesDayCheckMain extends JFrame {
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
-		add(total);
+		//add(total);
 		add(table);
 		add(list);
 		add(chart);
@@ -82,13 +82,4 @@ public class SalesDayCheckMain extends JFrame {
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
-
-
-
-//	public static void main(String[] args) {
-//		
-//		new SalesCheckMainFrame();
-//		
-//	}
-
 }

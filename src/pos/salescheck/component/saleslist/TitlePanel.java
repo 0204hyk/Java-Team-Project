@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import pos.salescheck.component.type.SalesDayCheckMain;
 
-
+// 매출요약 테이블 타이틀
 
 public class TitlePanel extends JPanel {
 
@@ -31,10 +31,28 @@ public class TitlePanel extends JPanel {
 		add(text);
 
 	}
+	
+	
+	// 매출 테이블 타이틀 년 생성
+	public TitlePanel(String year) {
+		this.year = year;
+		
+		text.setText(year + "년");
+		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		text.setForeground(Color.WHITE);
+	}
 
+	// 매출 테이블 타이틀 년, 월 생성
+	public TitlePanel(String year, String month) {
+		this.year = year;
+		this.month = month;
+		
+		text.setText(year + "년 " + month + "월 ");
+		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		text.setForeground(Color.WHITE);
+	}
 
-
-
+	// 매출 테이블 타이틀 년, 월, 일 생성
 	public TitlePanel(String year, String month, String day) {
 		this.year = year;
 		this.month = month;

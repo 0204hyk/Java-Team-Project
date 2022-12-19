@@ -40,13 +40,9 @@ import pos.salescheck.component.type.SalesMonthCheckMain;
 public class SalesSearchButton extends JButton {
 
 	ImageScaledTool tool = new ImageScaledTool();
-
-
 	JComboBox yearBox;
 	JComboBox monthBox;
 	JComboBox dayBox;
-
-
 	String year;
 	String month;
 	String day;
@@ -70,9 +66,13 @@ public class SalesSearchButton extends JButton {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				// 콤보박스의 값을 String으로 변환 후 변수에 저장.
 				year = String.format("%02d",  yearBox.getSelectedItem());
+				
+				// String변환 값을 각 생성자에 전달
 				SalesYearTable table = new SalesYearTable(year);
 				YearChart chart = new YearChart(year);
+				TitlePanel title = new TitlePanel(year);
 			}
 		});
 		
@@ -98,10 +98,14 @@ public class SalesSearchButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				// 콤보박스의 값을 String으로 변환 후 각 변수에 저장.
 				year = String.format("%02d",  yearBox.getSelectedItem());
-				month = String.format("%02d", monthBox.getSelectedItem()); 
+				month = String.format("%02d", monthBox.getSelectedItem());
+				
+				// String변환 값을 각 생성자에 전달
 				SalesMonthTable table = new SalesMonthTable(year, month);
 				MonthChart chart = new MonthChart(year, month);
+				TitlePanel title = new TitlePanel(year, month);
 
 			}
 		});
@@ -130,27 +134,28 @@ public class SalesSearchButton extends JButton {
 
 		setBounds(450, 90, 100, 50);
 		setBorder(null);
-
+		
+		// 검색 버튼 액션
 		addActionListener(new ActionListener() {
 
 			@Override
-
 			public void actionPerformed(ActionEvent e) {
-
+				// 콤보박스의 값을 String으로 변환 후 각 변수에 저장.
 				year = String.format("%02d",  yearBox.getSelectedItem());
 				month = String.format("%02d", monthBox.getSelectedItem()); 
 				day = String.format("%02d", dayBox.getSelectedItem());	
+				
+				// String변환 값을 각 생성자에 전달
 				SalesDayTable table = new SalesDayTable(year, month, day);
 				DayChart chart = new DayChart(year, month, day);
-				TitlePanel label = new TitlePanel(year, month, day);
-				
+				TitlePanel title = new TitlePanel(year, month, day);
+
 			}
 		});
-
-
+		
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);	
-
+		
 	}
 }
