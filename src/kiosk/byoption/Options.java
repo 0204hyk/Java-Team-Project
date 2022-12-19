@@ -36,7 +36,6 @@ public class Options extends JFrame {
 	}
 
 	public void defaults() {
-		add(new TopImage());
 		add(new TotalCups());
 
 		add(wi.makeLabel("hy.png", 53, 24, 60, 83));

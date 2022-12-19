@@ -11,8 +11,8 @@ import database.OjdbcConnection;
 import kiosk.tools.WithImage;
 
 public class GetImage {
-	String result;
 
+	String result= "";
 	public GetImage(String menu) {
 
 		String query = "SELECT * FROM menu WHERE menu_name = ?";
@@ -31,7 +31,13 @@ public class GetImage {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 
+	}
+	
+	public String getImageName() {
+		
+		return result;
 	}
 	
 }

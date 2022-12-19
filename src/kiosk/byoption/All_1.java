@@ -16,6 +16,7 @@ public class All_1 {
 		op.hotAndIce(78,269);
 		op.sizes(78,339);
 		op.decaffein(78, 409);
+		
 		op.cup(78,479);
 		op.ice(78,549);
 		op.shot(78,620);

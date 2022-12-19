@@ -17,8 +17,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
+import database.kiosk.GetImage;
 import kiosk.byoption.All_1;
 import kiosk.byoption.NoDecaf_7;
 import kiosk.byoption.NoHotMilk_4;
@@ -473,12 +473,26 @@ public class NorthPanel extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 
+					
+//					coffee[0] = espresso;
+//					coffee[1] = americano;
+//					coffee[2] = cafeLatte;
+//					coffee[3] = cafeMocha;
+//					coffee[4] = dolceLatte;
+//					coffee[5] = vanillaLatte;
+//					coffee[6] = caramelMacchiato ;
+//					coffee[7] = HazelnutLatte;
+//					coffee[8] = coldBrew;
+//					coffee[9] = coldBrewLatte;
+
 					switch (menu) {
 					case 0:
-						new NoMilk_2();
+//						new NoMilk_2();
+						
+						new GetImage("에스프레소");
 						break;
 					case 1:
-						new NoMilk_2();
+//						new NoMilk_2();
 						break;
 					case 2:
 						new All_1();

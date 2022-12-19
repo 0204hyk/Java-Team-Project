@@ -19,6 +19,15 @@ public class WithImage {
 		this.root = root;
 	}
 
+	public JLabel setMenuImage(String root) {
+		JLabel lb = new JLabel();
+
+		lb.setIcon(new ImageIcon(readImage(root, 100, 100)));
+		lb.setBounds(234, 127, 100, 100);
+
+		return lb;
+	}
+
 	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
 		JLabel lb = new JLabel();
 

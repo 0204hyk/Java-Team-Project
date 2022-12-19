@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import database.kiosk.GetImage;
 import kiosk.tools.WithImage;
 
 public class TopImage extends JPanel {
@@ -14,9 +15,14 @@ public class TopImage extends JPanel {
 	WithImage wi = new WithImage(root);
 
 	String image = "";
-	public TopImage() {
+	public TopImage(String menu) {
 
-		add(wi.makeLabel("에스프레소.png", 20, 0, 90, 110)); // 커피 사진
+		menu = "에스프레소";
+		add(wi.setMenuImage(menu)); // 커피 사진
+		
+		GetImage gi = new GetImage(menu);
+		System.out.println(gi.getImageName());
+		
 
 		JLabel nameKor = new JLabel("카페 라떼"); // 커피 이름 한글
 		nameKor.setFont(new Font("맑은 고딕", Font.BOLD, 20));
