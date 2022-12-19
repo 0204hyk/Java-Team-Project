@@ -43,11 +43,11 @@ public class SalesMonthTable extends JTable {
 		this.month = month;
 		
 		String plus = year + month;
-		String sql = "SELECT to_char(s.saleDate, 'YYYYMM'), to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
+		String sql = "SELECT to_char(s.saleDate, 'YYYY-MM'), to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
 				+ "FROM sales s INNER JOIN sales_management sales_m "
 				+ "USING (sales_number) "
 				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ? "
-				+ "GROUP BY to_char(s.saleDate, 'YYYYMM')";
+				+ "GROUP BY to_char(s.saleDate, 'YYYY-MM')";
 		
 		try (
 				Connection conn = OjdbcConnection.getConnection();
