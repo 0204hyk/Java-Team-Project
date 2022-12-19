@@ -45,8 +45,8 @@ public class Options extends JFrame {
 		add(wi.makeButton("minus.png", 457, 763, 18, 18));
 		add(wi.makeButton("plus.png", 556, 763, 18, 18));
 
-		//415 813
-		JButton put = wi.makeButton("put.png", 200, 200, 192, 68);
+		// 415 813
+		JButton put = wi.makeButton("put.png", 368,813, 192, 68);
 
 		add(put);
 		put.addActionListener(new ActionListener() {
@@ -193,26 +193,26 @@ public class Options extends JFrame {
 		add(oneShot);
 		add(twoShot);
 		new GroupButtons(noShot, oneShot, twoShot, "noShot", "oneShot", "twoShot", 78, 54);
-		
+
 		noShot.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
 				shot = "NoShot";
 			}
 		});
-		
+
 		oneShot.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				shot = "OneShot";
 			}
 		});
-		
+
 		twoShot.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				shot = "TwoShot";
@@ -229,25 +229,25 @@ public class Options extends JFrame {
 		add(lessIce);
 		add(noIce);
 		new GroupButtons(normalIce, lessIce, noIce, "normalIce", "lessIce", "noIce", 78, 54);
-		
+
 		normalIce.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ice = "Normal";
 			}
 		});
-		
+
 		lessIce.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ice = "Less";
 			}
 		});
-		
+
 		noIce.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ice = "None";
@@ -264,28 +264,28 @@ public class Options extends JFrame {
 		add(toSoy);
 		add(toLowfat);
 		new GroupButtons(basicMilk, toSoy, toLowfat, "basicMilk", "toSoy", "toLowfat", 78, 54);
-		
+
 		basicMilk.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				milk = "Basic";
 			}
 		});
-		
+
 		toSoy.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				milk ="Soy";
+				milk = "Soy";
 			}
 		});
-		
+
 		toLowfat.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				milk="Lowfat";
+				milk = "Lowfat";
 			}
 		});
 	}
