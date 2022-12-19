@@ -10,8 +10,6 @@ import pos.gje.modify.panel.CheckPanel;
 public class CheckFrame extends JFrame{
 	
 	public CheckFrame() {
-
-		
 		
 		add(new OkBtn(this));
 		add(new CheckPanel());

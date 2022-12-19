@@ -12,12 +12,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.gje.modify.ModifyFrame;
+import pos.kjh.ProductManagementJFrame;
 
 public class ModifyEscapeBtn extends JButton implements ActionListener{
-
-	ModifyFrame f;
-	public ModifyEscapeBtn(ModifyFrame f) {
-		this.f = f;
+	ProductManagementJFrame mainFrame;
+	ModifyFrame modifyFrame;
+	public ModifyEscapeBtn(ProductManagementJFrame mainFrame, ModifyFrame modifyFrame) {
+		this.mainFrame = mainFrame;
+		this.modifyFrame = modifyFrame;
 		try {
 			File file = new File("images/PosImages/상품 관리 이미지/닫기 버튼.png");
 			BufferedImage bufferedImage = ImageIO.read(file);
@@ -36,8 +38,8 @@ public class ModifyEscapeBtn extends JButton implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		f.dispose();
-		
+		mainFrame.setEnabled(true);
+		modifyFrame.dispose();
 	}
 	
 	

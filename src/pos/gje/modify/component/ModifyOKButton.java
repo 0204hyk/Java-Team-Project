@@ -12,13 +12,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.gje.modify.CheckFrame;
+import pos.kjh.ProductManagementJFrame;
 
-public class ModifyButton extends JButton implements ActionListener{
+public class ModifyOKButton extends JButton implements ActionListener{
 	// 수정 버튼 
-	CheckFrame frame;
+		CheckFrame additionalframe;
 	
-	public ModifyButton (CheckFrame frame) {
-		this.frame = frame;
+	public ModifyOKButton (CheckFrame additionalframe) {
+		this.additionalframe = additionalframe;
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/메뉴 수정 확인 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(150, 75, Image.SCALE_SMOOTH); // 크기 조정
@@ -43,7 +44,7 @@ public class ModifyButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		frame.setVisible(true);
+		additionalframe.setVisible(true);
 	} 
 	
 

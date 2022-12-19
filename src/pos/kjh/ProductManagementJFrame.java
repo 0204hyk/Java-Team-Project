@@ -26,10 +26,11 @@ import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.gje.modify.ModifyFrame;
 import pos.product_management.menu_add.MenuAddFrame;
+import pos.product_management.menu_main.component.ModifyButton;
 
 public class ProductManagementJFrame extends JFrame {
 
-	MenuListJTable mj;
+	public MenuListJTable mj;
 	
 	static JTextField serchText = new JTextField("키워드를 입력해주세요");
 	
@@ -116,9 +117,6 @@ public class ProductManagementJFrame extends JFrame {
 		JButton deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
 				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55);
 
-		JButton modifyBtn = btnImage("images/PosImages/상품 관리 이미지/수정 시작 버튼.png",
-				"images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 900, 620, 120, 55);
-
 		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
 				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55);
 		
@@ -195,17 +193,6 @@ public class ProductManagementJFrame extends JFrame {
 			}
 		});
 		
-		// 수정 버튼
-		modifyBtn.addActionListener(new ActionListener() {
-			
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				new ModifyFrame();
-				
-			}
-		});
 
 		// 추가 버튼
 		addBtn.addActionListener(new ActionListener() {
@@ -223,7 +210,7 @@ public class ProductManagementJFrame extends JFrame {
 		add(serchBtn);
 		add(backBtn);
 		add(deleteBtn);
-		add(modifyBtn);
+		add(new ModifyButton(this));
 		add(addBtn);
 		
 		setLayout(null);

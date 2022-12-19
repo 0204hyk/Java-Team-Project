@@ -9,6 +9,7 @@ import java.sql.SQLException;
 
 import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -69,6 +70,7 @@ public class ClosingTable extends JTable {
 		tcm.getColumn(0).setCellRenderer(dtcr);
 		tcm.getColumn(1).setCellRenderer(dtcr);
 		
+		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);	// 행 한개만 선택 가능
 		setRowHeight(50);	// 컬럼 높이 설정
 		setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 25));	// 컬럼 헤드 폰트
