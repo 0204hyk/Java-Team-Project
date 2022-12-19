@@ -20,16 +20,14 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 
 import pos.ImageScaledTool;
-<<<<<<< HEAD
-import pos.salescheck.component.chart.DTOHAP;
-import pos.salescheck.component.chart.SalesChart;
-=======
+
+
 
 import pos.salescheck.component.chart.DayChart;
 import pos.salescheck.component.chart.MonthChart;
-import pos.salescheck.component.chart.SalesChart;
+
 import pos.salescheck.component.chart.YearChart;
->>>>>>> branch 'kbc' of https://github.com/0204hyk/Java-Team-Project.git
+
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
