@@ -25,7 +25,7 @@ import pos.salescheck.component.saleslist.TotalLabel;
 
 public class SalesDayTable extends JTable {
 
-	private static String colTitle[] = {"날짜", "매출액"};
+	private static String colTitle[] = {"시간", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0);
 
 	
@@ -56,10 +56,19 @@ public class SalesDayTable extends JTable {
 		this.day = day;
 		
 		String plus = year + month + day;
-		String sql = "SELECT s.saleDate, to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
-				+ "FROM sales s INNER JOIN sales_management sales_m "
-				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMMDD') = ? GROUP BY s.saleDate";
+//		String sql = "SELECT s.saleDate, to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
+//				+ "FROM sales s INNER JOIN sales_management sales_m "
+//				+ "USING (sales_number) "
+//				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMMDD') = ? GROUP BY s.saleDate";
+		String sql = "SELECT to_char(saledate, 'HH24'), trim(to_char(sum(price), '999,999,999')) AS total "
+				+ "FROM sales INNER JOIN payment USING(sales_number) "
+				+ "WHERE to_char(saledate, 'YYYYMMDD') = ? "
+				+ "AND to_char(saledate, 'HH24') = ? "
+				+ "GROUP BY to_char(saledate, 'HH24') "
+				+ "ORDER BY to_char(saledate, 'HH24')";
+		
+		
+		
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -67,16 +76,32 @@ public class SalesDayTable extends JTable {
 			
 				) {
 			
+			ResultSet rs = null;
+			for (int i = 10; i < 22; ++i) {
 				pstmt.setString(1, plus);
-				
-			try (ResultSet rs = pstmt.executeQuery()) {
-				while(rs.next()) {
+				pstmt.setInt(2, i);
+				rs = pstmt.executeQuery();
+				if (rs.next()) {
 					model.addRow(new Object[] {
-							rs.getDate(1),
-							rs.getString("total_price")});
-
+							i + "시 ~ " + (i + 1) + "시", rs.getString("total") + "원" 
+					});
+				} else {
+					model.addRow(new Object[] {
+							i + "시 ~ " + (i + 1) + "시", "0 원"
+					});
 				}
 			}
+			rs.close();
+//				pstmt.setString(1, plus);
+//				
+//			try (ResultSet rs = pstmt.executeQuery()) {
+//				while(rs.next()) {
+//					model.addRow(new Object[] {
+//							rs.getDate(1),
+//							rs.getString("total_price")});
+//
+//				}
+//			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
