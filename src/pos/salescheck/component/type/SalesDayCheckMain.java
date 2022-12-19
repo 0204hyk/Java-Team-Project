@@ -21,7 +21,7 @@ import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
 import pos.salescheck.component.saleslist.ListImgLabel;
-import pos.salescheck.component.saleslist.TitleLabel;
+import pos.salescheck.component.saleslist.TitlePanel;
 import pos.salescheck.component.saleslist.TotalLabel;
 import pos.salescheck.component.table.SalesDayTable;
 
@@ -59,7 +59,7 @@ public class SalesDayCheckMain extends JFrame {
 		JTable table = new SalesDayTable();
 		
 		// 매출요약
-		JPanel salesTitle = new TitleLabel();
+		JPanel salesTitle = new TitlePanel();
 		JLabel total = new TotalLabel();
 		
 	

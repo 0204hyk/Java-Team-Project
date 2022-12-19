@@ -31,7 +31,7 @@ import pos.salescheck.component.chart.YearChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
-import pos.salescheck.component.saleslist.TitleLabel;
+import pos.salescheck.component.saleslist.TitlePanel;
 import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.table.SalesMonthTable;
 import pos.salescheck.component.table.SalesYearTable;
@@ -139,11 +139,10 @@ public class SalesSearchButton extends JButton {
 
 				year = String.format("%02d",  yearBox.getSelectedItem());
 				month = String.format("%02d", monthBox.getSelectedItem()); 
-
 				day = String.format("%02d", dayBox.getSelectedItem());	
 				SalesDayTable table = new SalesDayTable(year, month, day);
 				DayChart chart = new DayChart(year, month, day);
-				TitleLabel label = new TitleLabel(year, month, day);
+				TitlePanel label = new TitlePanel(year, month, day);
 				
 			}
 		});

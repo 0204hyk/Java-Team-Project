@@ -13,7 +13,7 @@ import pos.salescheck.component.type.SalesDayCheckMain;
 
 
 
-public class TitleLabel extends JPanel {
+public class TitlePanel extends JPanel {
 
 	String year;
 	String month;
@@ -23,7 +23,7 @@ public class TitleLabel extends JPanel {
 	static JLabel text = new JLabel();
 
 
-	public TitleLabel() {
+	public TitlePanel() {
 
 		setBounds(710, 180, 315, 45);
 		setBackground(new Color(16, 41, 64));
@@ -35,7 +35,7 @@ public class TitleLabel extends JPanel {
 
 
 
-	public TitleLabel(String year, String month, String day) {
+	public TitlePanel(String year, String month, String day) {
 		this.year = year;
 		this.month = month;
 		this.day = day;

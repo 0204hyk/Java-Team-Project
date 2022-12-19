@@ -17,7 +17,7 @@ import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.chart.YearChart;
 import pos.salescheck.component.datecombo1.YearComboBox;
 import pos.salescheck.component.saleslist.ListImgLabel;
-import pos.salescheck.component.saleslist.TitleLabel;
+import pos.salescheck.component.saleslist.TitlePanel;
 import pos.salescheck.component.saleslist.TotalLabel;
 import pos.salescheck.component.table.SalesMonthTable;
 import pos.salescheck.component.table.SalesYearTable;
@@ -54,7 +54,7 @@ public class SalesYearCheckMain extends JFrame {
 		JTable table = new SalesYearTable();
 
 		// 매출요약
-		JPanel salesTitle = new TitleLabel();
+		JPanel salesTitle = new TitlePanel();
 		JLabel total = new TotalLabel();
 		
 		add(title);
