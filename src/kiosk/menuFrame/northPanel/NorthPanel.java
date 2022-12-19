@@ -55,7 +55,6 @@ public class NorthPanel extends JPanel {
 
 	public JPanel North_NorthPanel() {
 		
-		
 		North_NorthPanel.setLayout(null);
 		logo();
 		homeButton();
@@ -487,7 +486,7 @@ public class NorthPanel extends JPanel {
 						new All_1(new TopImage("카페모카"));
 						break;
 					case 4:
-						new All_1(new TopImage("카페모카"));
+						new All_1(new TopImage("돌체라떼"));
 						break;
 					case 5:
 						new All_1(new TopImage("바닐라 라떼"));
@@ -637,12 +636,6 @@ public class NorthPanel extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 
-//					
-//					noncoffee[0] = sweetPotatoLatte;
-//					noncoffee[1] = greenTeaLatte;
-//					noncoffee[2] = fiveGrainLatte;
-//					noncoffee[3] = chocolateLatte;
-//					noncoffee[4] = pistachioLatte;
 					switch (menu) {
 					case 0:
 						new NoDecaf_7(new TopImage("고구마 라떼"));

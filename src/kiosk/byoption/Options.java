@@ -36,34 +36,38 @@ public class Options extends JFrame {
 	}
 
 	public void defaults() {
-		TotalCups tc= new TotalCups();
+		TotalCups tc = new TotalCups();
 		add(tc);
 
 		add(wi.makeLabel("hy.png", 53, 24, 60, 83));
 		add(wi.makeButton("home.png", 543, 44, 52, 52));
 
-		JButton minus = wi.makeButton("minus.png", 394,161,32,32);
+		JButton minus = wi.makeButton("minus.png", 420, 170, 32, 32);
 
 		minus.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				if (tc.cup > 0) {
+				if (tc.cup > 1) {
 					tc.setCup(tc.cup - 1);
-				} else if (tc.cup == 0) {
+				} else if (tc.cup < 1) {
 					tc.setCup(tc.cup);
 				}
 			}
 		});
 
-		JButton plus = wi.makeButton("plus.png",519,161,32,32);
+		JButton plus = wi.makeButton("plus.png", 533, 170, 32, 32);
 
 		plus.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if (tc.cup > 0) {
 				tc.setCup(tc.cup + 1);
+				} else if (tc.cup > 98) {
+					tc.setCup(tc.cup);
+				}
 
 			}
 		});

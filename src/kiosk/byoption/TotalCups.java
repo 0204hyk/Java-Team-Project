@@ -11,10 +11,10 @@ public class TotalCups extends JLabel {
 
 	public TotalCups() {
 		setText("1잔");
-		setFont(new Font("맑은 고딕", Font.PLAIN, 19));
+		setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		setForeground(Color.black);
-		setHorizontalTextPosition(JLabel.CENTER);
-		setBounds(446, 166, 50, 30);
+		setHorizontalAlignment(JLabel.CENTER);
+		setBounds(462, 170, 60, 30);
 	}
 
 	public void setCup(int cup) {

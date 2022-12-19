@@ -41,8 +41,6 @@ public class Agreement extends JFrame {
 //		scrollablePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		add(scrollablePane); // 휠 스크롤이 안됨
 
-		add(wi.makeLabel("agreementText.png", 118, 505, 263, 21));
-
 		JButton cancel = wi.makeButton("cancel.png", 192, 583, 98, 49);
 		cancel.addActionListener(new ActionListener() {
 
@@ -80,7 +78,7 @@ public class Agreement extends JFrame {
 		});
 
 		JLabel check = wi.makeLabel("check.png", 85, 494, 31, 29);
-		JButton checkBox = wi.makeButton("checkBox.png", 82, 502, 26, 26);
+		JButton checkBox = wi.makeButton("checkBox.png", 82, 502, 303, 26);
 		check.setVisible(false);
 		checkBox.addActionListener(new ActionListener() {
 			@Override
@@ -111,9 +109,8 @@ public class Agreement extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
-	
 	public static void main(String[] args) {
-		new Agreement("01042361724", 23,329);
-		
+		new Agreement("01042361724", 23, 329);
+
 	}
 }
