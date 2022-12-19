@@ -143,42 +143,39 @@ public class MenuListJTable extends JTable{
 			table.setFont(getFont().deriveFont(20f));
 			table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 23));
 			table.setRowHeight(35);
+			table.getColumnModel().getColumn(0).setPreferredWidth(10);
+			table.getColumnModel().getColumn(1).setPreferredWidth(600);
+			table.getColumnModel().getColumn(2).setPreferredWidth(90);
 			scroll.setBounds(0, 0, 1100, 400);
-
+			
+			// 테이블 수정 불가하게 설정
+			table.getTableHeader().setReorderingAllowed(false);
+			table.getTableHeader().setResizingAllowed(false);
+			
 			table.addMouseListener(new MouseAdapter() {
 
-	
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					//	menuName = (table.getValueAt(table.getSelectedRow(), 1)).toString();
+						
+					
+					/*
+						int[] selectedrows = table.getSelectedRows();
+						menuName = "";
+						for (int i = 0; i < selectedrows.length; i++)
+						{
+							
+							//int colcnt = MenuListJTable.table.getSelectedColumnCount();
+							//MenuListJTable.quantity = colcnt;
+							menuName = table.getValueAt(selectedrows[i], 1).toString() + " ";
+						}*/
 
-					int[] selectedrows = table.getSelectedRows();
-
-					for (int i = 0; i < selectedrows.length; i++)
-					{
-						//int colcnt = MenuListJTable.table.getSelectedColumnCount();
-						//MenuListJTable.quantity = colcnt;
-						menuName += table.getValueAt(selectedrows[i], 1).toString() + " ";
-					}
-
-					//	 menuName.substring(4, menuName.length());
-
-					System.out.println(menuName);
+						//	 menuName.substring(4, menuName.length());
+					
+					menuName = (table.getValueAt(table.getSelectedRow(), 1)).toString();
+						//System.out.println(menuName);
 				}
 				
-				
 			});
-			
-			
-//			table.addKeyListener(new KeyAdapter() {
-//				
-//				@Override
-//				public void keyPressed(KeyEvent e) {
-//					e.getKeyChar();
-//				}
-//				
-//			});
-
 
 
 			//			TableColumn checkBoxColumn = MenuListJTable.table.getColumnModel().getColumn(0);
