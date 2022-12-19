@@ -71,9 +71,6 @@ public class CenterPanel extends JPanel{
 							.read(new File("images/KioskImages/menu/coffee selected/" + count + ".png"));
 					menuButton.setPressedIcon(new ImageIcon(clcikedBufferedImage));
 					
-					//System.out.println("hi!");
-					
-					
 				}else if (nsp.categoryNum  == 8) {
 
 					BufferedImage menuBufferedImage = ImageIO

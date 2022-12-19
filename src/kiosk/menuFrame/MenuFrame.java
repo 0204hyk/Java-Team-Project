@@ -1,16 +1,11 @@
 package kiosk.menuFrame;
 
-
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
-import javax.swing.border.Border;
 
-import kiosk.menuFrame.centerPanel.CenterPanel;
 import kiosk.menuFrame.northPanel.NorthPanel;
-import kiosk.menuFrame.northPanel.North_SouthPanel;
 import kiosk.menuFrame.southPanel.SouthPanel;
 
 
@@ -23,7 +18,6 @@ public class MenuFrame extends JFrame{
 	public MenuFrame()  {
 			
 		panelSetting();
-		
 		setDisplay();
 		
 	}

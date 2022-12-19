@@ -17,24 +17,26 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
+import database.kiosk.GetImage;
 import kiosk.byoption.All_1;
 import kiosk.byoption.NoDecaf_7;
 import kiosk.byoption.NoHotMilk_4;
 import kiosk.byoption.NoHot_3;
-import kiosk.byoption.NoMilk_2;
 import kiosk.byoption.OnlyDecafShotCup_6;
 import kiosk.byoption.OnlyShotCup_5;
 import kiosk.byoption.OnlyShotIceCup_8;
-
+import kiosk.tools.WithImage;
 
 public class NorthPanel extends JPanel {
+	
+	String root = "images/KioskImages/3. 메뉴선택";
+	WithImage wi = new WithImage(root);
+	
 	
 	JPanel North_NorthPanel = new JPanel();
 	JPanel panel = new JPanel();
 	JPanel nsp = new JPanel();
-	
 	
 	CardLayout card = new CardLayout();
 
@@ -63,18 +65,7 @@ public class NorthPanel extends JPanel {
 	
 	public void logo() {
 		
-		logo.setBounds(52, 25, 60, 83);
-		
-		
-		try {
-			BufferedImage logoBufferedImage2 =
-			ImageIO.read(new File("images/KioskImages/3_메뉴선택/logoScaled.png"));			
-			logo.setIcon(new ImageIcon(logoBufferedImage2));
-			
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-		North_NorthPanel.add(logo);
+		North_NorthPanel.add(wi.makeButton("hy.png", 53,24,60,83));
 		
 	}
 	
@@ -481,12 +472,26 @@ public class NorthPanel extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 
+					
+//					coffee[0] = espresso;
+//					coffee[1] = americano;
+//					coffee[2] = cafeLatte;
+//					coffee[3] = cafeMocha;
+//					coffee[4] = dolceLatte;
+//					coffee[5] = vanillaLatte;
+//					coffee[6] = caramelMacchiato ;
+//					coffee[7] = HazelnutLatte;
+//					coffee[8] = coldBrew;
+//					coffee[9] = coldBrewLatte;
+
 					switch (menu) {
 					case 0:
-						new NoMilk_2();
+//						new NoMilk_2();
+						
+						new GetImage("에스프레소");
 						break;
 					case 1:
-						new NoMilk_2();
+//						new NoMilk_2();
 						break;
 					case 2:
 						new All_1();

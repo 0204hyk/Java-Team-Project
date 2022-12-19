@@ -39,8 +39,7 @@ public class ReceiptCheckFrame extends JFrame{
 		// 영수증 목록 (Panel)
 		add(new List().scroll);
 		// 버튼
-		RefundFrame refundFrame = new RefundFrame(this);
-		add(new RefundButton(this, refundFrame));
+		add(new RefundButton(this, new RefundFrame()));
 		add(new OutputButton());
 		
 		// 영수증 출력 

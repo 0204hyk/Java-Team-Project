@@ -13,13 +13,14 @@ public class NoDecaf_7 {
 
 	public NoDecaf_7() {
 
-		op.hotAndIce(44, 315);
-		op.cup(367, 315);
-		op.sizes(44, 445);
-		op.shot(367, 445);
-		op.ice(44, 585);
-		op.milk(367, 585);
+		op.hotAndIce(78,269);
+		op.sizes(78, 339);
+		op.cup(78, 409);
+		op.ice(78, 479);
+		op.shot(78, 549);
+		op.milk(78, 620);
 		op.setVisible(true);
+		
 	}
 
 	public static void main(String[] args) {

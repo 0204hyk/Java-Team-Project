@@ -38,7 +38,7 @@ public class Agreement extends JFrame {
 		scrollablePane.setBackground(null);
 		scrollablePane.setBorder(null);
 		scrollablePane.setHorizontalScrollBar(null);
-		scrollablePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+//		scrollablePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		add(scrollablePane); // 휠 스크롤이 안됨
 
 		add(wi.makeLabel("agreementText.png", 118, 505, 263, 21));
