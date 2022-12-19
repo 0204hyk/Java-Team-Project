@@ -1,4 +1,4 @@
-package pos.salescheck.component.datecombo1;
+package pos.salescheck.component.combobox;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -6,6 +6,9 @@ import java.util.Calendar;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+
+import pos.salescheck.component.table.SalesDayTable;
+import pos.salescheck.component.table.SalesMonthTable;
 
 public class MonthComboBox extends JComboBox {
 	
@@ -19,13 +22,16 @@ public class MonthComboBox extends JComboBox {
 		}
 		setSelectedItem(month);
 		setBounds(210, 100, 100, 25);
+
 		
 		addItemListener(new ItemListener() {
 			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				System.out.println(e.getItem());
+				SalesMonthTable table = new SalesMonthTable();
+				table.model.setNumRows(0);
 			}
 		});
+
 	}
 }

@@ -1,4 +1,4 @@
-package pos.salescheck.component.datecombo1;
+package pos.salescheck.component.combobox;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -13,7 +13,10 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 
-import pos.salescheck.component.table.SalesTable;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+
+import pos.salescheck.component.table.SalesDayTable;
 
 public class DayComboBox extends JComboBox {
 
@@ -30,13 +33,17 @@ public class DayComboBox extends JComboBox {
 
 		// 콤보박스 선택 시 table 리스트 초기화
 		addItemListener(new ItemListener() {
-			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				SalesTable table = new SalesTable();
+				SalesDayTable table = new SalesDayTable();
 				table.model.setNumRows(0);
+			
+			
 			}
+			
 		});
+
+		
 		
 		setBounds(320, 100, 100, 25);
 		

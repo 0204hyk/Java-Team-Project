@@ -11,6 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.salescheck.component.main.SalesMonthCheckMain;
+
 public class MonthBtn extends JButton implements ActionListener{
 
 	public MonthBtn() {
@@ -37,7 +39,7 @@ public class MonthBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("월 매출 클릭");
+		new SalesMonthCheckMain();
 		
 	}
 }
