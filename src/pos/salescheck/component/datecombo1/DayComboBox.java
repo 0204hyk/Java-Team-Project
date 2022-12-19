@@ -26,14 +26,7 @@ public class DayComboBox extends JComboBox {
 			addItem(i);
 		}
 
-		// 콤보박스 선택 시 선택 i값 추출
-		addItemListener(new ItemListener() {
-			
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				System.out.println(e.getItem());
-			}
-		});
+	
 		
 		setBounds(320, 100, 100, 25);
 		

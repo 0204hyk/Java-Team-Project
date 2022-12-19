@@ -19,13 +19,6 @@ public class MonthComboBox extends JComboBox {
 		}
 		setSelectedItem(month);
 		setBounds(210, 100, 100, 25);
-		
-		addItemListener(new ItemListener() {
-			
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				System.out.println(e.getItem());
-			}
-		});
+	
 	}
 }

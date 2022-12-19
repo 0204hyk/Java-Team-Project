@@ -17,7 +17,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import database.OjdbcConnection;
-import database.model.SalesAndSalesManagement;
 import pos.salescheck.component.button.SalesSearchButton;
 
 
@@ -32,6 +31,8 @@ public class SalesTable extends JTable {
 	
 	String year, month, day;
 
+	
+	
 	public SalesTable() {
 		
 	
@@ -66,6 +67,7 @@ public class SalesTable extends JTable {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 				) {
+			
 				pstmt.setString(1, new String(sb));
 				
 			try (ResultSet rs = pstmt.executeQuery()) {

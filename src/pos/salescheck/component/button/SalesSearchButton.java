@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 
 import pos.ImageScaledTool;
+import pos.salescheck.component.chart.DTOHAP;
+import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
@@ -27,10 +29,12 @@ public class SalesSearchButton extends JButton {
 	JComboBox monthBox;
 	JComboBox dayBox;
 
-	String year;
-	String month;
-	String day;
-
+	public static String year;
+	public static String month;
+	public static String day;
+	public static String hap;
+	
+	SalesChart chart;
 	
 	public SalesSearchButton() {
 	}
@@ -60,12 +64,15 @@ public class SalesSearchButton extends JButton {
 		
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				SalesTable table = new SalesTable(year, month, day);
 				year = String.format("%02d",  yearBox.getSelectedItem());
 				month = String.format("%02d", monthBox.getSelectedItem()); 
 				day = String.format("%02d", dayBox.getSelectedItem());
+				hap = year + month + day;
+				System.out.println(hap);
+				DTOHAP a = new DTOHAP();
+				a.setHap(year + month + day);	
+				SalesTable table = new SalesTable(year, month, day);
 	
-				
 			}
 		});
 	
