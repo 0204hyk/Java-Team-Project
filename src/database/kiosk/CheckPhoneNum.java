@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import database.OjdbcConnection;
 
 public class CheckPhoneNum {
+	
 	String result;
 
 	public CheckPhoneNum(String phonenumber) {

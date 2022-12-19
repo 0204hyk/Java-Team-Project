@@ -13,12 +13,12 @@ public class NoHot_3 {
 
 	public NoHot_3() {
 
-		op.decaffein(44, 315);
-		op.cup(367, 315);
-		op.sizes(44, 445);
-		op.shot(367, 445);
-		op.ice(44, 585);
-		op.milk(367, 585);
+		op.sizes(78,269);
+		op.decaffein(78, 339);
+		op.cup(78,409);
+		op.ice(78,479);
+		op.shot(78,549);
+		op.milk(78,620);
 		op.setVisible(true);
 	}
 

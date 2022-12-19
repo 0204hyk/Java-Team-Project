@@ -25,7 +25,6 @@ public class CheckPoint {
 					point = rs.getInt("member_point");
 				}
 			}
-			System.out.println(point);
 
 		} catch (SQLException e) {
 			e.printStackTrace();

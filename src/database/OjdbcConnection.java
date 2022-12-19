@@ -19,7 +19,6 @@ public class OjdbcConnection {
 			e.printStackTrace();
 		}
 		
-		
 	}
 	
 	public OjdbcConnection() {
