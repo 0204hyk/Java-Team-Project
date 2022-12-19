@@ -49,10 +49,13 @@ public class SalesMonthTable extends JTable {
 //				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ? "
 //				+ "GROUP BY to_char(s.saleDate, 'YYYY-MM')";
 		
-		String sql = "SELECT to_char(s.saleDate, 'YYYY-MM-DD'), to_char(p.price, '999,999,999') AS price "
+		String sql = 
+				"SELECT to_char(s.saleDate, 'YYYY-MM-DD'), sum(p.price) AS price "
 				+ "FROM sales s INNER JOIN PAYMENT p "
 				+ "USING (sales_number)"
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ?";
+				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ?"
+				+ "GROUP BY to_char(s.saledate, 'YYYY-MM-DD')"
+				+ "ORDER BY to_char(s.saledate, 'YYYY-MM-DD')";
 		
 		try (
 				Connection conn = OjdbcConnection.getConnection();

@@ -36,10 +36,12 @@ public class YearChart extends JPanel {
     
     public YearChart(String year) {
     	this.year = year;
-    	String sql = "SELECT s.saleDate, sales_m.total_price AS total_price "
-				+ "FROM sales s INNER JOIN sales_management sales_m "
-				+ "USING (sales_number)"
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYY') = ?";
+    	String sql = "SELECT to_char(s.saledate, 'YYYY-MM'), sum(p.price) AS total " 
+				+ "FROM sales s INNER JOIN PAYMENT p "
+				+ "USING (sales_number) "
+				+ "WHERE TO_CHAR(s.saledate, 'YYYY') = ? "
+				+ "GROUP BY to_char(s.saledate, 'YYYY-MM')"
+				+ "ORDER BY to_char(s.saledate, 'YYYY-MM')";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -51,7 +53,7 @@ public class YearChart extends JPanel {
 			try (ResultSet rs = pstmt.executeQuery()) {
 
 				while (rs.next()) {
-					dataset.addValue(rs.getInt("total_price"), rs.getDate(1), rs.getDate(1));
+					dataset.addValue(rs.getInt("total"), rs.getString(1), rs.getString(1));
 				}
 			}
 		} catch (Exception e) {
