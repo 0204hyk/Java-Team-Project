@@ -11,6 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.salescheck.component.type.SalesYearCheckMain;
+
 public class YearBtn extends JButton implements ActionListener{
 	
 	public YearBtn() {
@@ -37,7 +39,7 @@ public class YearBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("연 매출 클릭");
+		new SalesYearCheckMain();
 		
 	}
 }
