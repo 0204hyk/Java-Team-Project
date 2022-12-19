@@ -57,12 +57,23 @@ public class List {
 		scroll = new JScrollPane(table);
 		scroll.setBounds(75, 95, 500, 550);
 		
+		// 크기 조정 
+		table.getColumn("순서").setPreferredWidth(20);
+		table.getColumn("영수증번호").setPreferredWidth(450);
+
+		// 수정 안되게 만들기
+		table.getTableHeader().setReorderingAllowed(false);
+        table.getTableHeader().setResizingAllowed(false);
+
+	
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// 선택한 Row의 순서를 int타입으로 변경 (table 은 1부터 시작하기 때문에 - 1 을 해줘야 List에 담긴 값을 정확히 불러올 수 있다.
+				// 선택한 Row의 순서를 int 타입으로 변경 
+				//(table 은 1부터 시작하기 때문에 - 1 을 해줘야 List에 담긴 값을 정확히 불러올 수 있다.
 				String d = date.get((int)(table.getValueAt(table.getSelectedRow(), 0)) - 1);
 				String n = (table.getValueAt(table.getSelectedRow(), 1)).toString();
+				
 				// 영수증을 프린틑하는 메소드에 값을 넣는다 
 				changeTextA(n, d);
 			}
