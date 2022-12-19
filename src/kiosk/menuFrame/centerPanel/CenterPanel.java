@@ -242,7 +242,7 @@ public class CenterPanel extends JPanel{
 		}
 	}
 
-	public void fraffe(int categoryNum) {
+	public void frappe(int categoryNum) {
 		count = 0;
 
 		for (int i = 0; i < 9; i++) {
