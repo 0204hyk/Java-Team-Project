@@ -20,7 +20,6 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 
 import pos.ImageScaledTool;
-import pos.salescheck.component.chart.SalesChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
