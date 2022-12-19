@@ -48,10 +48,11 @@ public class MonthChart extends JPanel {
 //				+ "USING (sales_number)"
 //				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ?";
     	
-    	String sql = "SELECT s.saleDate, p.price AS price "
-				+ "FROM sales s INNER JOIN PAYMENT p "
-				+ "USING (sales_number)"
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ?";
+    	String sql = "SELECT to_char(s.saledate, 'YYYY-MM-DD'), sum(p.price) AS total "
+    			+ "FROM sales s INNER JOIN PAYMENT p "
+    			+ "USING (sales_number) "
+    			+ "WHERE TO_CHAR(s.saledate, 'YYYYMM') = ?"
+    			+ "GROUP BY to_char(s.saledate, 'YYYY-MM-DD')";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -63,7 +64,7 @@ public class MonthChart extends JPanel {
 			try (ResultSet rs = pstmt.executeQuery()) {
 
 				while (rs.next()) {
-					dataset.addValue(rs.getInt("price"), rs.getDate(1), rs.getDate(1));
+					dataset.addValue(rs.getInt("total"), rs.getDate(1), rs.getDate(1));
 				}
 			}
 		} catch (Exception e) {
