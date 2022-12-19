@@ -47,23 +47,11 @@ public class SalesSearchButton extends JButton {
 	JComboBox monthBox;
 	JComboBox dayBox;
 
-<<<<<<< HEAD
-	public static String year;
-	public static String month;
-	public static String day;
-	public static String hap;
-	
-	SalesChart chart;
-	
-=======
+
 	String year;
 	String month;
 	String day;
-	String year2;
-	String month2;
-	String day2;
 
->>>>>>> branch 'kbc' of https://github.com/0204hyk/Java-Team-Project.git
 	public SalesSearchButton() {
 		
 	}
