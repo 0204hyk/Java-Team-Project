@@ -39,8 +39,7 @@ public class SalesYearTable extends JTable {
 	
 	public SalesYearTable(String year) {
 		this.year = year;
-		String plus = year;
-	
+		
 		
 		String sql = "SELECT to_char(s.saleDate, 'YYYY'), "
 				+ "to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
@@ -54,7 +53,7 @@ public class SalesYearTable extends JTable {
 			
 				) {
 			
-				pstmt.setString(1, plus);
+				pstmt.setString(1, year);
 				
 			try (ResultSet rs = pstmt.executeQuery()) {
 				while(rs.next()) {
@@ -65,8 +64,6 @@ public class SalesYearTable extends JTable {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		
+		}	
 	}
-	
 }
