@@ -22,6 +22,7 @@ public class MonthComboBox extends JComboBox {
 		}
 		setSelectedItem(month);
 		setBounds(210, 100, 100, 25);
+
 		
 		addItemListener(new ItemListener() {
 			
@@ -31,5 +32,6 @@ public class MonthComboBox extends JComboBox {
 				table.model.setNumRows(0);
 			}
 		});
+
 	}
 }

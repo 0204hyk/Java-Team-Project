@@ -21,8 +21,11 @@ import org.jfree.ui.ApplicationFrame;
 
 import pos.ImageScaledTool;
 
+
+
 import pos.salescheck.component.chart.DayChart;
 import pos.salescheck.component.chart.MonthChart;
+
 import pos.salescheck.component.chart.YearChart;
 
 import pos.salescheck.component.datecombo1.DayComboBox;
@@ -43,12 +46,10 @@ public class SalesSearchButton extends JButton {
 	JComboBox monthBox;
 	JComboBox dayBox;
 
+
 	String year;
 	String month;
 	String day;
-	String year2;
-	String month2;
-	String day2;
 
 	public SalesSearchButton() {
 		
@@ -133,9 +134,12 @@ public class SalesSearchButton extends JButton {
 		addActionListener(new ActionListener() {
 
 			@Override
+
 			public void actionPerformed(ActionEvent e) {
+
 				year = String.format("%02d",  yearBox.getSelectedItem());
 				month = String.format("%02d", monthBox.getSelectedItem()); 
+
 				day = String.format("%02d", dayBox.getSelectedItem());	
 				SalesDayTable table = new SalesDayTable(year, month, day);
 				DayChart chart = new DayChart(year, month, day);
