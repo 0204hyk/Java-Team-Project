@@ -26,7 +26,7 @@ public class Options extends JFrame {
 
 		defaults();
 
-//		setUndecorated(true);
+		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -46,7 +46,8 @@ public class Options extends JFrame {
 		add(wi.makeButton("plus.png", 556, 763, 18, 18));
 
 		// 415 813
-		JButton put = wi.makeButton("put.png", 368,813, 192, 68);
+		
+		JButton put = wi.makeButton("put.png", 333,817,192,68);
 
 		add(put);
 		put.addActionListener(new ActionListener() {
@@ -63,8 +64,21 @@ public class Options extends JFrame {
 				System.out.println(milk);
 			}
 		});
+		
+		JButton cancel = wi.makeButton("cancel.png", 124,815,192,68);
+		add(cancel);
+		
+		cancel.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 	}
 
+	
+	
 	public void hotAndIce(int x, int y) {
 
 		add(wi.makeLabel("hot, ice.png", x, y, 45, 16));

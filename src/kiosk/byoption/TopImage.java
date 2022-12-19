@@ -10,12 +10,13 @@ import javax.swing.SwingConstants;
 import kiosk.tools.WithImage;
 
 public class TopImage extends JPanel {
-	String root = "images/KioskImages/menu/ade/";
+	String root = "images/KioskImages/menu/coffee/";
 	WithImage wi = new WithImage(root);
 
+	String image = "";
 	public TopImage() {
 
-		add(wi.makeLabel("자몽 에이드.png", 20, 0, 90, 110)); // 커피 사진
+		add(wi.makeLabel("에스프레소.png", 20, 0, 90, 110)); // 커피 사진
 
 		JLabel nameKor = new JLabel("카페 라떼"); // 커피 이름 한글
 		nameKor.setFont(new Font("맑은 고딕", Font.BOLD, 20));

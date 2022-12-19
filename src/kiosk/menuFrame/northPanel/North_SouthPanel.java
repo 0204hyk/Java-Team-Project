@@ -37,9 +37,6 @@ public class North_SouthPanel extends JPanel {
 		//coffeePanel();
 		setBackground(Color.white);
 	}
-
-	
-	
 	
 	// 카테고리 버튼
 	public void categoryButton() {
