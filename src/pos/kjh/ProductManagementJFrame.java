@@ -18,24 +18,33 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import pos.DigitalClock;
+import pos.ImagePanel;
+import pos.ImageScaledTool;
 import pos.gje.modify.ModifyFrame;
 import pos.product_management.menu_add.MenuAddFrame;
 
 public class ProductManagementJFrame extends JFrame {
 
-	TopPanel tp = new TopPanel();
 	MenuListJTable mj;
 	
 	static JTextField serchText = new JTextField("키워드를 입력해주세요");
 	
 	
 	public ProductManagementJFrame() throws IOException, SQLException {
+		// 상단 메뉴바 설정
+		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
+				"images/PosImages/상단 메뉴바.png", 1200, 60));
+		titlePanel.setBounds(0 ,0, 1200, 60);
+		// 현재 시간 출력
+		JLabel clock = new DigitalClock();
+		clock.setBounds(375, 10, 400, 30);
+		titlePanel.add(clock);
 		
-		//setContentPane(new MenuListJTable(allMenu()));
-		
-		pack();
+		add(titlePanel);		
 		
 		add(serch());
 		
