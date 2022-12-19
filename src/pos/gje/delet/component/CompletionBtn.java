@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.gje.delet.DeletFrame;
+import pos.gje.delet.DeleteFrame;
 import pos.gje.delet.OkFrame;
 
 public class CompletionBtn extends JButton implements ActionListener{

@@ -11,13 +11,13 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.gje.delet.DeletFrame;
+import pos.gje.delet.DeleteFrame;
 
 public class CancelBtn extends JButton implements ActionListener{
 
-	DeletFrame f;
+	DeleteFrame f;
 	
-	public CancelBtn(DeletFrame f) {
+	public CancelBtn(DeleteFrame f) {
 		this.f = f;
 		
 		try {
