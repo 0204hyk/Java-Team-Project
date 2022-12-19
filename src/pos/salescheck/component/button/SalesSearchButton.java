@@ -147,27 +147,16 @@ public class SalesSearchButton extends JButton {
 		addActionListener(new ActionListener() {
 
 			@Override
-<<<<<<< HEAD
-			public void mouseClicked(MouseEvent e) {
-=======
+
 			public void actionPerformed(ActionEvent e) {
->>>>>>> branch 'kbc' of https://github.com/0204hyk/Java-Team-Project.git
+
 				year = String.format("%02d",  yearBox.getSelectedItem());
 				month = String.format("%02d", monthBox.getSelectedItem()); 
-<<<<<<< HEAD
-				day = String.format("%02d", dayBox.getSelectedItem());
-				hap = year + month + day;
-				System.out.println(hap);
-				DTOHAP a = new DTOHAP();
-				a.setHap(year + month + day);	
-				SalesTable table = new SalesTable(year, month, day);
-	
-=======
+
 				day = String.format("%02d", dayBox.getSelectedItem());	
 				SalesDayTable table = new SalesDayTable(year, month, day);
 				DayChart chart = new DayChart(year, month, day);
 
->>>>>>> branch 'kbc' of https://github.com/0204hyk/Java-Team-Project.git
 			}
 		});
 
