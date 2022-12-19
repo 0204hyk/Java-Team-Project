@@ -24,8 +24,8 @@ public class DeleteCheckPanel extends JPanel{
 		
 		JLabel menuName = new JLabel();
 
+		menuName.setText("[" + MenuListJTable.menuName + "]");
 		menuName.setHorizontalAlignment(JLabel.CENTER);
-		menuName.setText("[ " + MenuListJTable.menuName + " ]");
 		menuName.setLocation(125, 50);
 		menuName.setSize(250, 50);
 		

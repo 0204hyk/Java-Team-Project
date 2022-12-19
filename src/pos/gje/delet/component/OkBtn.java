@@ -20,7 +20,6 @@ import pos.kjh.ProductManagementJFrame;
 public class OkBtn extends JButton implements ActionListener{
 	// 삭제하시겠습니까 확인 버튼
 	DeleteFrame f;
-	MenuListJTable m;
 	
 	public OkBtn(DeleteFrame f) {
 		this.f = f;
@@ -46,10 +45,10 @@ public class OkBtn extends JButton implements ActionListener{
 				f.setVisible(false);
 				
 				// 디비에서 데이터 없애기
-				//m.deleteDB(m.table.getValueAt(m.table.getSelectedRow(), 1).toString());
+				MenuListJTable.deleteDB(MenuListJTable.menuName.toString());
 				
 				// JTable에서 선택행 삭제하기
-				int index = m.table.getSelectedRow();
+				int index = MenuListJTable.table.getSelectedRow();
 				MenuListJTable.contents.removeRow(index);
 				new OkFrame();
 				

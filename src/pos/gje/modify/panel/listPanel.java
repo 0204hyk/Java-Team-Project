@@ -18,12 +18,6 @@ public class listPanel extends JPanel{
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 	
-//	public JTextField modify() {
-//		JTextField textNum = new JTextField();
-//		
-//		
-//		return ;
-//	}
 	
 	
 	public listPanel() {

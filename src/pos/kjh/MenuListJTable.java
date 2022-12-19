@@ -8,6 +8,9 @@ import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeEvent;
@@ -49,17 +52,17 @@ public class MenuListJTable extends JTable{
 	private static String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
 	private static String id = "hyCafe";
 	private static String pw = "1234";
-	
+
 	private static String top[] = {"상품코드", "메뉴 이름", "금액"};;
 	public static JTable table;
 	public static String menuName;
 	public static int quantity;
 	public static JPanel panel;
-	
+
 	// JTable 내용 값
 	public static DefaultTableModel contents = new DefaultTableModel(top, 0);
-	
-	
+
+
 	static {
 		try {
 			Class.forName(driver);
@@ -71,41 +74,48 @@ public class MenuListJTable extends JTable{
 	// JTable 선택값 삭제 메서드
 	public void delete() throws IOException {
 
-		 int index = table.getSelectedRow();
-        if(index < 0){
-        	// 아무것도 선택 안하면 뜨는 창
-        	new NotSelectedFrame();
-        }else{
-        	// 삭제 메뉴 확인 창
-        	new DeleteFrame();
-        	
-        	
-        }
-    }
+		int index = table.getSelectedRow();
+		if(index < 0){
+			// 아무것도 선택 안하면 뜨는 창
+			new NotSelectedFrame();
+		}else{
+			// 삭제 메뉴 확인 창
+			new DeleteFrame();
 
-	
+
+		}
+	}
+
+
 	// 선택된 메뉴 DB에서 삭제하는 메서드
-	public void deleteDB(String keyword) {
-		String sql = "DELETE FROM menu WHERE menu_name Like '" + keyword + "'";
-		
+	public static void deleteDB(String keyword) {
+		String sql = "DELETE FROM menu WHERE menu_name = ?";
+
 		try (
 				Connection conn = DriverManager.getConnection(url, id, pw);
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-				ResultSet rs = pstmt.executeQuery();
+
 				){
-			
+
+			pstmt.setString(1, keyword);
+			ResultSet rs = pstmt.executeQuery();
+
+
+			rs.close();
+			pstmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
-	
+
 
 	// JTable로 DB값 불러오는 메서드
 	public MenuListJTable(String sqlCondition) throws SQLException {
 		String sql = sqlCondition;
-		
+
 
 		try (
 				Connection conn = DriverManager.getConnection(url, id, pw);
@@ -122,59 +132,76 @@ public class MenuListJTable extends JTable{
 				});
 
 			}
-			
+
 			table = new JTable(contents);
-			
-			//panel = new JPanel(new BorderLayout());
 			JScrollPane scroll = new JScrollPane(table);
+			//panel = new JPanel(new BorderLayout());
+			
 			//panel.add(scroll, "Center");
 
-			
+
 			table.setFont(getFont().deriveFont(20f));
 			table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 23));
 			table.setRowHeight(35);
-			table.getColumnModel().getColumn(0).setPreferredWidth(25);
-			table.getColumnModel().getColumn(1).setPreferredWidth(250);
-			table.getColumnModel().getColumn(2).setPreferredWidth(100);
 			scroll.setBounds(0, 0, 1100, 400);
-			
+
 			table.addMouseListener(new MouseAdapter() {
+
+	
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					menuName = "" + table.getValueAt(table.getSelectedRow(), 1);
-					
-					/*
-					 int[] selectedrows = table.getSelectedRows();
-		  		        
-		  	            for (int i = 0; i < selectedrows.length; i++)
-		  	           {
-		  	            	//int colcnt = MenuListJTable.table.getSelectedColumnCount();
-		  	            	//MenuListJTable.quantity = colcnt;
-		  	            	menuName =  table.getValueAt(selectedrows[i], 1).toString();
-		  	           }*/
-					
-					
+					//	menuName = (table.getValueAt(table.getSelectedRow(), 1)).toString();
+
+					int[] selectedrows = table.getSelectedRows();
+
+					for (int i = 0; i < selectedrows.length; i++)
+					{
+						//int colcnt = MenuListJTable.table.getSelectedColumnCount();
+						//MenuListJTable.quantity = colcnt;
+						menuName += table.getValueAt(selectedrows[i], 1).toString() + " ";
+					}
+
+					//	 menuName.substring(4, menuName.length());
+
+					System.out.println(menuName);
 				}
+				
+				
 			});
 			
 			
-			
-//			TableColumn checkBoxColumn = MenuListJTable.table.getColumnModel().getColumn(0);
-//			checkBoxColumn.setCellRenderer(new TableCell());
-//			checkBoxColumn.setCellEditor(new TableCell());
-			
+//			table.addKeyListener(new KeyAdapter() {
+//				
+//				@Override
+//				public void keyPressed(KeyEvent e) {
+//					e.getKeyChar();
+//				}
+//				
+//			});
+
+
+
+			//			TableColumn checkBoxColumn = MenuListJTable.table.getColumnModel().getColumn(0);
+			//			checkBoxColumn.setCellRenderer(new TableCell());
+			//			checkBoxColumn.setCellEditor(new TableCell());
+
 			rs.close();
 			pstmt.close();
 			conn.close();
-			
+
 			table.setLayout(null);
 			setBounds(48, 190, 1100, 400);
 			add(scroll);
 			setLayout(null);
 			setVisible(true);
 		}
+
 	}
-	
+}
+
+
+
+
 //	public static int getQuantity() {
 //		
 //		return quantity;
@@ -185,31 +212,31 @@ public class MenuListJTable extends JTable{
 //		return menuName;
 //	}
 
-	
-	
-	/*
+
+
+/*
 class TableCell extends AbstractCellEditor implements TableCellEditor, TableCellRenderer{
-		
+
 		private final JPanel componentPanel;
 		JCheckBox cb;
-		
+
 		public TableCell() {
 			componentPanel = new JPanel(new GridBagLayout());
 			componentPanel.setOpaque(false);
 			cb = new JCheckBox();
 			cb.setOpaque(false);
-			
+
 			componentPanel.add(cb);
 			cb.setHorizontalAlignment(JLabel.CENTER);
-			
+
 			cb.addActionListener(e -> {
 				int colcnt = MenuListJTable.table.getSelectedColumnCount();
 				MenuListJTable.menuName = "" + MenuListJTable.table.getValueAt(MenuListJTable.table.getSelectedRow(), 2);
 				MenuListJTable.quantity = colcnt;
 			});
-		
+
 		}
-		
+
 		@Override
 		public Object getCellEditorValue() {
 			return Boolean.valueOf(cb.isSelected());
@@ -217,7 +244,7 @@ class TableCell extends AbstractCellEditor implements TableCellEditor, TableCell
 		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
 				int row, int column) {
-			
+
 			return cb;
 		}
 		@Override
@@ -226,11 +253,11 @@ class TableCell extends AbstractCellEditor implements TableCellEditor, TableCell
 
 			return componentPanel;
 		}
-		
+
 	}*/
-	
 
-	
 
-	
-}
+
+
+
+
