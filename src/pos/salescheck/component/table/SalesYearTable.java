@@ -40,7 +40,7 @@ public class SalesYearTable extends JTable {
 	public SalesYearTable(String year) {
 		this.year = year;
 		String plus = year;
-		System.out.println(plus);
+	
 		
 		String sql = "SELECT s.saleDate, to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
 				+ "FROM sales s INNER JOIN sales_management sales_m "
