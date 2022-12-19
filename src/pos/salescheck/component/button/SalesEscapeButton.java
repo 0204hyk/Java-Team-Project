@@ -12,9 +12,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.ImageScaledTool;
-import pos.salescheck.component.type.SalesDayCheckMain;
-import pos.salescheck.component.type.SalesMonthCheckMain;
-import pos.salescheck.component.type.SalesYearCheckMain;
+import pos.salescheck.component.main.SalesDayCheckMain;
+import pos.salescheck.component.main.SalesMonthCheckMain;
+import pos.salescheck.component.main.SalesYearCheckMain;
 
 public class SalesEscapeButton extends JButton {
 

@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.salescheck.component.type.SalesMonthCheckMain;
+import pos.salescheck.component.main.SalesMonthCheckMain;
 
 public class MonthBtn extends JButton implements ActionListener{
 

@@ -1,4 +1,4 @@
-package pos.salescheck.component.type;
+package pos.salescheck.component.main;
 
 import java.awt.Color;
 
@@ -14,19 +14,23 @@ import pos.ImageScaledTool;
 import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
-import pos.salescheck.component.chart.YearChart;
+import pos.salescheck.component.chart.MonthChart;
+import pos.salescheck.component.datecombo1.DayComboBox;
+import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitlePanel;
 import pos.salescheck.component.saleslist.TotalLabel;
+import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.table.SalesMonthTable;
-import pos.salescheck.component.table.SalesYearTable;
 
-public class SalesYearCheckMain extends JFrame {
+public class SalesMonthCheckMain extends JFrame {
 
-	// 년 매출 
-	public SalesYearCheckMain() {
-		
+	
+	
+	// 월별 매출
+	public SalesMonthCheckMain() {
+
 		// 매출요약 상단 메뉴바 생성.
 		JPanel title = new ClosingImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
@@ -36,29 +40,33 @@ public class SalesYearCheckMain extends JFrame {
 		JLabel clock = new DigitalClock();
 		clock.setBounds(375, 10, 400, 30);
 		title.add(clock);
-		
-		// 년 매출 요약 차트 
-		YearChart chart = new YearChart();
-		
-		// 매출요약 콤보박스 
+
+		// 월 매출 요약 차트
+		MonthChart chart = new MonthChart();
+
+		// 매출요약 콤보박스 구현
 		JComboBox yearCombo = new YearComboBox();
-		
-		// 매출요약 검색 버튼
-		JButton searchBtn = new SalesSearchButton(yearCombo);
-		
-		// 매출요약 뒤로가기
+		JComboBox monthCombo = new MonthComboBox();
+	
+
+		// 매출요약 검색 버튼 구현
+		JButton searchBtn = new SalesSearchButton(yearCombo, monthCombo);
+
+		// 매출요약 뒤로가기 구현
 		JButton escapeBtn = new SalesEscapeButton(this);
-		
+
 		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();
-		JTable table = new SalesYearTable();
+		JTable table = new SalesMonthTable();
 
 		// 매출요약
 		JPanel salesTitle = new TitlePanel();
 		JLabel total = new TotalLabel();
 		
+		
 		add(title);
 		add(yearCombo);
+		add(monthCombo);
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
@@ -75,5 +83,4 @@ public class SalesYearCheckMain extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	}
-
 }

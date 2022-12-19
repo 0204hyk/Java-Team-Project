@@ -1,4 +1,4 @@
-package pos.salescheck.component.type;
+package pos.salescheck.component.main;
 
 import java.awt.Color;
 

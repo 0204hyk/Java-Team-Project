@@ -9,7 +9,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pos.salescheck.component.type.SalesDayCheckMain;
+
+import pos.salescheck.component.main.SalesDayCheckMain;
 
 // 매출요약 테이블 타이틀
 

@@ -31,11 +31,11 @@ import pos.salescheck.component.chart.YearChart;
 import pos.salescheck.component.datecombo1.DayComboBox;
 import pos.salescheck.component.datecombo1.MonthComboBox;
 import pos.salescheck.component.datecombo1.YearComboBox;
+import pos.salescheck.component.main.SalesMonthCheckMain;
 import pos.salescheck.component.saleslist.TitlePanel;
 import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.table.SalesMonthTable;
 import pos.salescheck.component.table.SalesYearTable;
-import pos.salescheck.component.type.SalesMonthCheckMain;
 
 public class SalesSearchButton extends JButton {
 
