@@ -22,9 +22,7 @@ public class MonthComboBox extends JComboBox {
 		}
 		setSelectedItem(month);
 		setBounds(210, 100, 100, 25);
-<<<<<<< HEAD
-	
-=======
+
 		
 		addItemListener(new ItemListener() {
 			
@@ -34,6 +32,6 @@ public class MonthComboBox extends JComboBox {
 				table.model.setNumRows(0);
 			}
 		});
->>>>>>> branch 'kbc' of https://github.com/0204hyk/Java-Team-Project.git
+
 	}
 }
