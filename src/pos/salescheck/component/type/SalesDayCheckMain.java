@@ -59,7 +59,7 @@ public class SalesDayCheckMain extends JFrame {
 		JTable table = new SalesDayTable();
 		
 		// 매출요약
-		JLabel salesTitle = new TitleLabel();
+		JPanel salesTitle = new TitleLabel();
 		JLabel total = new TotalLabel();
 		
 	

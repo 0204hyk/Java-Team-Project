@@ -53,7 +53,7 @@ public class DayChart extends JPanel {
     	this.day = day;
     
     	hap = year + month + day;
-    	System.out.println(hap);
+   
     	String sql = "SELECT s.saleDate, sales_m.total_price AS total_price "
 				+ "FROM sales s INNER JOIN sales_management sales_m "
 				+ "USING (sales_number)"

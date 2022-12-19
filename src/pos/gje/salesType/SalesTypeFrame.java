@@ -1,5 +1,7 @@
 package pos.gje.salesType;
 
+import java.awt.Color;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,7 +31,7 @@ public class SalesTypeFrame extends JFrame{
 		add(new DayBtn());
 		add(new MonthBtn());
 		add(new YearBtn());
-		
+		getContentPane().setBackground(new Color(64, 64, 64));	// 프레임 백그라운드 컬러 설정
 		setUndecorated(true); // 타이틀바 없애기
 		setSize(1200, 800); // 프레임 사이즈
 		setLayout(null); 

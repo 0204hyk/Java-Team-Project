@@ -60,7 +60,7 @@ public class SalesMonthCheckMain extends JFrame {
 		JTable table = new SalesMonthTable();
 
 		// 매출요약
-		JLabel salesTitle = new TitleLabel();
+		JPanel salesTitle = new TitleLabel();
 		JLabel total = new TotalLabel();
 		
 		
