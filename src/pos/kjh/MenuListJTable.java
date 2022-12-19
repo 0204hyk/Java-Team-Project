@@ -35,12 +35,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 import database.OjdbcConnection;
 import pos.gje.delet.DeleteFrame;
@@ -59,8 +62,11 @@ public class MenuListJTable extends JTable{
 	public static int quantity;
 	public static JPanel panel;
 
+
+
 	// JTable 내용 값
 	public static DefaultTableModel contents = new DefaultTableModel(top, 0);
+	public DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
 
 
 	static {
@@ -112,8 +118,12 @@ public class MenuListJTable extends JTable{
 	}
 
 
+
+
 	// JTable로 DB값 불러오는 메서드
 	public MenuListJTable(String sqlCondition) throws SQLException {
+		
+
 		String sql = sqlCondition;
 
 
@@ -134,20 +144,25 @@ public class MenuListJTable extends JTable{
 			}
 
 			table = new JTable(contents);
+
 			JScrollPane scroll = new JScrollPane(table);
-			//panel = new JPanel(new BorderLayout());
-			
-			//panel.add(scroll, "Center");
+
 
 
 			table.setFont(getFont().deriveFont(20f));
-			table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 23));
+			table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 21));
+			
+			
 			table.setRowHeight(35);
 			table.getColumnModel().getColumn(0).setPreferredWidth(10);
 			table.getColumnModel().getColumn(1).setPreferredWidth(600);
 			table.getColumnModel().getColumn(2).setPreferredWidth(90);
-			scroll.setBounds(0, 0, 1100, 400);
+			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			
+			
+
+			scroll.setBounds(0, 0, 1100, 400);
+
 			// 테이블 수정 불가하게 설정
 			table.getTableHeader().setReorderingAllowed(false);
 			table.getTableHeader().setResizingAllowed(false);
@@ -156,31 +171,29 @@ public class MenuListJTable extends JTable{
 
 				@Override
 				public void mouseClicked(MouseEvent e) {
-						
-					
-					/*
-						int[] selectedrows = table.getSelectedRows();
-						menuName = "";
-						for (int i = 0; i < selectedrows.length; i++)
-						{
-							
-							//int colcnt = MenuListJTable.table.getSelectedColumnCount();
-							//MenuListJTable.quantity = colcnt;
-							menuName = table.getValueAt(selectedrows[i], 1).toString() + " ";
-						}*/
-
-						//	 menuName.substring(4, menuName.length());
-					
 					menuName = (table.getValueAt(table.getSelectedRow(), 1)).toString();
-						//System.out.println(menuName);
 				}
-				
+
 			});
 
+			
+			// 테이블 내용 가운데 정렬하기
+			DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer(); 
+			dtcr.setHorizontalAlignment(SwingConstants.CENTER); // 렌더러의 가로정렬을 CENTER로
 
-			//			TableColumn checkBoxColumn = MenuListJTable.table.getColumnModel().getColumn(0);
-			//			checkBoxColumn.setCellRenderer(new TableCell());
-			//			checkBoxColumn.setCellEditor(new TableCell());
+			TableColumnModel tcm = table.getColumnModel() ; // 정렬할 테이블의 컬럼모델을 가져옴
+
+			//전체 열에 지정
+			for(int i = 0 ; i < tcm.getColumnCount() ; i++){
+				tcm.getColumn(i).setCellRenderer(dtcr);
+			}
+
+			//		      //특정 열에 지정
+			//		      tcm.getColumn(0).setCellRenderer(dtcr);  
+			//		      tcm.getColumn(4).setCellRenderer(dtcr);
+
+			
+
 
 			rs.close();
 			pstmt.close();
@@ -192,69 +205,6 @@ public class MenuListJTable extends JTable{
 			setLayout(null);
 			setVisible(true);
 		}
-
 	}
+
 }
-
-
-
-
-//	public static int getQuantity() {
-//		
-//		return quantity;
-//	}
-//	
-//	public static String getMenuName() {
-//		
-//		return menuName;
-//	}
-
-
-
-/*
-class TableCell extends AbstractCellEditor implements TableCellEditor, TableCellRenderer{
-
-		private final JPanel componentPanel;
-		JCheckBox cb;
-
-		public TableCell() {
-			componentPanel = new JPanel(new GridBagLayout());
-			componentPanel.setOpaque(false);
-			cb = new JCheckBox();
-			cb.setOpaque(false);
-
-			componentPanel.add(cb);
-			cb.setHorizontalAlignment(JLabel.CENTER);
-
-			cb.addActionListener(e -> {
-				int colcnt = MenuListJTable.table.getSelectedColumnCount();
-				MenuListJTable.menuName = "" + MenuListJTable.table.getValueAt(MenuListJTable.table.getSelectedRow(), 2);
-				MenuListJTable.quantity = colcnt;
-			});
-
-		}
-
-		@Override
-		public Object getCellEditorValue() {
-			return Boolean.valueOf(cb.isSelected());
-		}
-		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
-				int row, int column) {
-
-			return cb;
-		}
-		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
-				int column) {
-
-			return componentPanel;
-		}
-
-	}*/
-
-
-
-
-
-

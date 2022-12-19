@@ -25,78 +25,91 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
+import pos.DigitalClock;
+import pos.ImageScaledTool;
 import pos.PosFrame;
+import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.gje.delet.DeleteFrame;
 import pos.gje.delet.panel.DeleteCheckPanel;
 import pos.gje.modify.ModifyFrame;
 
 public class ProductManagementJFrame extends JFrame {
 
-	TopPanel tp = new TopPanel();
-	
-	MenuListJTable mj;
-	
+	static MenuListJTable mj;
+
 	static JTextField serchText = new JTextField("키워드를 입력해주세요");
-	
-	
+
+
 	public ProductManagementJFrame() throws IOException, SQLException {
+
+		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+				"images/PosImages/상단 메뉴바.png", 1200, 60));
+		titlePanel.setBounds(0 ,0, 1200, 60);
+		// 현재 시간 출력
+		JLabel clock = new DigitalClock();
+		clock.setBounds(375, 10, 400, 30);
+		titlePanel.add(clock);
 		
-		//setContentPane(new MenuListJTable(allMenu()));
 		
-		pack();
-		
+		add(titlePanel);
+
 		add(serch());
 		
 		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
+
+		
 		
 		mj = new MenuListJTable(allMenu());
 		add(mj);
 		
+
 		buttons();
 	}
-	
+
 
 	// 원하는 디비 불러오는 메서드
 	public String serchMenu(String keyword) {
-	
+
 		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu WHERE menu_name LIKE '%" + keyword + "%'";
-		
-		return text;
-	}
-	
-	// 모든 디비 불러오는 메서드
-	public String allMenu() {
-		
-		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu";
-		
+
 		return text;
 	}
 
-	
+	// 모든 디비 불러오는 메서드
+	public String allMenu() {
+
+		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu";
+
+		return text;
+	}
+
+
 	// 검색창에 텍스트 입력하는 메서드
 	public static JTextField serch() {
 		serchText.setBounds(215, 100, 700, 49);
 		serchText.setFont(new Font("맑은 고딕", Font.BOLD, 18));
 		serchText.setOpaque(false);
 		serchText.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		
+
 		serchText.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				serchText.setText(null);
 			}
 		});
-		
-		
+
+
 		return serchText;
 	}
-	
-	
+
+
 	// 라벨로 이미지 붙이는 메서드
 	public static JLabel labelImage(String image, int a, int b, int c, int d) throws IOException {
 		JLabel l = new JLabel();
@@ -115,23 +128,23 @@ public class ProductManagementJFrame extends JFrame {
 				"images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50);
 
 		JButton backBtn = btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png",
-				"images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 690, 110, 55);
+				"images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 680, 120, 65);
 
 		JButton deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
-				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1030, 620, 120, 55);
+				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1027, 620, 130, 65);
 
 		JButton modifyBtn = btnImage("images/PosImages/상품 관리 이미지/수정 시작 버튼.png",
-				"images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 900, 620, 120, 55);
+				"images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 880, 620, 130, 65);
 
 		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
-				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 770, 620, 120, 55);
-		
-		
+				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 733, 620, 130, 65);
+
+
 		// 검색 버튼
 		serchBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				try {
 					if (serch().getText() == null) {
 						mj.setVisible(true);
@@ -141,16 +154,16 @@ public class ProductManagementJFrame extends JFrame {
 						mj.contents.setNumRows(0);
 						add(new MenuListJTable(serchMenu(serch().getText())));
 					};
-				
+
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
 			}
 		});
-		
+
 		// 텍스트 창
 		serchText.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -162,57 +175,57 @@ public class ProductManagementJFrame extends JFrame {
 						mj.contents.setNumRows(0);
 						add(new MenuListJTable(serchMenu(serch().getText())));
 					};
-					
+
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
-				
+
 			}
 		});
-			
-		
+
+
 		// 돌아가기 버튼
 		backBtn.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				new PosFrame();
 			}
 		});
-		
-		
+
+
 		// 삭제 버튼
 		deleteBtn.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				try {
 					mj.delete();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
-				
+
+
+
 			}
 		});
-		
+
 		// 수정 버튼
 		modifyBtn.addActionListener(new ActionListener() {
-			
-			
+
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
 				new ModifyFrame();
-				
+
 			}
 		});
 
-		
+
 
 		// 추가 버튼
 		addBtn.addActionListener(new ActionListener() {
@@ -227,13 +240,13 @@ public class ProductManagementJFrame extends JFrame {
 				}
 			}
 		});
-	
+
 		add(serchBtn);
 		add(backBtn);
 		add(deleteBtn);
 		add(modifyBtn);
 		add(addBtn);
-		
+
 		setLayout(null);
 		setSize(1200, 800);
 		setVisible(true);
@@ -245,7 +258,7 @@ public class ProductManagementJFrame extends JFrame {
 		return addBtn;
 	}
 
-	
+
 
 	// 버튼에 이미지 붙이는 메서드
 	public static JButton btnImage(String image, String clickImage, int a, int b, int c, int d) throws IOException {
@@ -269,11 +282,13 @@ public class ProductManagementJFrame extends JFrame {
 
 		return btn;
 	}
+	
+	
 
-
-		public static void main(String[] args) throws IOException, SQLException {
-			new ProductManagementJFrame();
-		}
-
-
+	public static void main(String[] args) throws IOException, SQLException {
+		new ProductManagementJFrame();
 	}
+
+	
+
+}
