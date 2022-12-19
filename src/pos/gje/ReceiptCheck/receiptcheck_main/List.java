@@ -38,7 +38,7 @@ public class List {
 			ResultSet rs = pstmt.executeQuery();
 			int num = 1;
 			while (rs.next()) {
-				// 영수증에 관한 값을 List에 저장
+				// 영수증에 관한 값을 List에 저장 (현재 영수증 테이블에 값이 없엉서 멤버십 테이블로 대신함)
 				number.add(rs.getString("member_phonenumber"));
 				point.add(rs.getString("member_point"));
 				date.add(rs.getString("member_join"));
@@ -53,6 +53,7 @@ public class List {
 			e.printStackTrace();
 		}
 		
+		// 만든 테이블 스크롤에 붙이기
 		table = new JTable(contents);
 		scroll = new JScrollPane(table);
 		scroll.setBounds(75, 95, 500, 550);
