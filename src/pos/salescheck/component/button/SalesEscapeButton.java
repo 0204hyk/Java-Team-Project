@@ -37,8 +37,6 @@ public class SalesEscapeButton extends JButton {
 		// < 버튼 위치 지정
 		setBounds(940, 670, 180, 80);
 		setBorder(null);
-
-
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);
@@ -48,11 +46,8 @@ public class SalesEscapeButton extends JButton {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				yearFrame.dispose();
-
 			}
 		});
-		
-
 	}
 
 	public SalesEscapeButton(SalesMonthCheckMain monthFrame) {
@@ -68,23 +63,16 @@ public class SalesEscapeButton extends JButton {
 		// < 버튼 위치 지정
 		setBounds(940, 670, 180, 80);
 		setBorder(null);
-
-
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);
-
 		addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				monthFrame.dispose();
-
 			}
 		});
 	}
-
-
 
 	public SalesEscapeButton(SalesDayCheckMain dayFrame) {
 		this.dayFrame = dayFrame;
@@ -99,21 +87,15 @@ public class SalesEscapeButton extends JButton {
 		// < 버튼 위치 지정
 		setBounds(940, 670, 180, 80);
 		setBorder(null);
-
-
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);
-
 		addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dayFrame.dispose();
-
 			}
 		});
 	}
-
-
 }
