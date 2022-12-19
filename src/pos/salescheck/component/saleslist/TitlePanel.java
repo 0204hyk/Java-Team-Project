@@ -21,7 +21,7 @@ public class TitlePanel extends JPanel {
 	String day;
 
 
-	static JLabel text = new JLabel();
+	public static JLabel text = new JLabel();
 
 
 	public TitlePanel() {

@@ -15,7 +15,7 @@ import pos.salescheck.component.saleslist.TotalLabel;
 
 public class SalesYearTable extends JTable {
 	
-	private static String colTitle[] = {"날짜", "매출액"};
+	private static String colTitle[] = {"선택 연도", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0);
 
 	
@@ -39,13 +39,13 @@ public class SalesYearTable extends JTable {
 	
 	public SalesYearTable(String year) {
 		this.year = year;
-		String plus = year;
-	
 		
-		String sql = "SELECT s.saleDate, to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
+		
+		String sql = "SELECT to_char(s.saleDate, 'YYYY'), "
+				+ "to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
 				+ "FROM sales s INNER JOIN sales_management sales_m "
 				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYY') = ? GROUP BY s.saleDate";
+				+ "WHERE TO_CHAR(s.saleDate, 'YYYY') = ? GROUP BY to_char(s.saleDate, 'YYYY')";
 		
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -53,22 +53,17 @@ public class SalesYearTable extends JTable {
 			
 				) {
 			
-				pstmt.setString(1, plus);
+				pstmt.setString(1, year);
 				
 			try (ResultSet rs = pstmt.executeQuery()) {
 				while(rs.next()) {
 					model.addRow(new Object[] {
-							rs.getDate(1),
+							rs.getString(1),
 							rs.getString("total_price")});
-					TotalLabel setTotal = new TotalLabel();
-					setTotal.setText(
-							rs.getString("total_price"));
 				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		
+		}	
 	}
-	
 }

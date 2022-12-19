@@ -44,6 +44,7 @@ public class DayComboBox extends JComboBox {
 		});
 
 		
+		
 		setBounds(320, 100, 100, 25);
 		
 	}
