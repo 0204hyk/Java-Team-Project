@@ -30,7 +30,7 @@ public class TitleLabel extends JPanel {
 		setOpaque(true);
 	
 		setForeground(new Color(0, 0, 0, 0));
-		
+	
 		add(text);
 
 	}
