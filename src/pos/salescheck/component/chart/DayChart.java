@@ -87,7 +87,7 @@ public class DayChart extends JPanel {
     private static JFreeChart createChart(CategoryDataset dataset) {
 
         JFreeChart chart = ChartFactory.createBarChart(
-                "hyCafe",         // chart title
+                "HyCafe",         // chart title
                 "",               // domain axis label
                 "",                  // range axis label
                 dataset,                  // data

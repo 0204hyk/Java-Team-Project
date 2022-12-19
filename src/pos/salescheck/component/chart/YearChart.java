@@ -70,7 +70,7 @@ public class YearChart extends JPanel {
     private static JFreeChart createChart(CategoryDataset dataset) {
 
         JFreeChart chart = ChartFactory.createBarChart(
-                "hyCafe",        
+                "HyCafe",        
                 "",               
                 "",                  
                 dataset,                 
