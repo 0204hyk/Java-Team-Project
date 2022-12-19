@@ -1,7 +1,6 @@
 package pos.product_management.menu_add.component;
 
 import java.awt.Image;
-import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -10,6 +9,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 
 import database.OjdbcConnection;
 import pos.product_management.menu_add.MenuAddFrame;
-import pos.product_management.menu_add.additionalFrame.AddFix;
+import pos.product_management.menu_add.additional_frame.AddFix;
 
 public class MenuAddButton extends JButton implements ActionListener{
 	
@@ -45,7 +45,6 @@ public class MenuAddButton extends JButton implements ActionListener{
 			Icon btnClickIcon = new ImageIcon(btnClickImage);
 			setPressedIcon(btnClickIcon);
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -56,13 +55,19 @@ public class MenuAddButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 				// 메뉴 넘버, 메뉴 이름, 카테고리 넘버, 옵션 카테고리 넘버, 가격 순
-		String query = "INSERT INTO menu VALUES ((SELECT MAX(menu_number)+1 FROM menu a),?,?,?,?)";
+		String query = "INSERT INTO menu VALUES ((SELECT MAX(menu_number)+1 FROM menu m),?,?,?,?)";
 		
 		try (
 			Connection conn = OjdbcConnection.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
 		) {
-			pstmt.setString(1, mainFrame.nameField.getText());
+			if (!mainFrame.nameField.getText().equals("")) {
+				pstmt.setString(1, mainFrame.nameField.getText());				
+			} else {
+				JOptionPane.showMessageDialog(null, "메뉴 이름을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
+				return;
+			};
+			
 			if (mainFrame.coffee.isSelected()) {
 				pstmt.setInt(2, 2);
 			} else if (mainFrame.nonCoffee.isSelected()) {
@@ -89,22 +94,25 @@ public class MenuAddButton extends JButton implements ActionListener{
 				pstmt.setInt(3, 7);
 			} else {
 				pstmt.setInt(3, 8);
-			};
+			};			
 			
-			String[] prices = mainFrame.priceField.getText().split(","); 
-			String result = "";
-			
-			for (String price : prices) {
-				 result += price;
+			if (!mainFrame.priceField.getText().equals("")) {
+				String[] prices = mainFrame.priceField.getText().split(","); 
+				String result = "";
+				for (String price : prices) {
+					result += price;
+				}
+				pstmt.setInt(4, Integer.parseInt(result));								
+			} else {
+				JOptionPane.showMessageDialog(null, "가격을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
+				return;
 			}
-			
-			pstmt.setInt(4, Integer.parseInt(result));
 			
 			pstmt.executeUpdate();
 			additionalFrame.setVisible(true);
 		} catch (SQLException e1) {
-			JOptionPane.showMessageDialog(null, "메뉴 추가 실패", "Warning", JOptionPane.ERROR_MESSAGE);
-			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null, "중복된 이름의 메뉴가 존재합니다", "Message", JOptionPane.INFORMATION_MESSAGE);
+//			e1.printStackTrace();
 		}
 		
 	}

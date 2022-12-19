@@ -24,6 +24,12 @@ CREATE TABLE menu(
     price number(5)
 );
 
+ALTER TABLE menu MODIFY (
+    menu_name VARCHAR(40)
+    CONSTRAINT menu_name_uk UNIQUE
+    CONSTRAINT menu_name_nn NOT NULL
+);
+
 --관리자정보 (id 1개만사용)
 CREATE TABLE manager(
     manager_id VARCHAR2(16),

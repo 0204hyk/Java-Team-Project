@@ -1,4 +1,4 @@
-package pos.product_management.menu_add;
+package pos.product_management.menu_modify;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -23,15 +23,18 @@ import javax.swing.text.NumberFormatter;
 
 import pos.ImagePanel;
 import pos.ImageScaledTool;
+import pos.product_management.menu_add.MenuAddFrame;
 import pos.product_management.menu_add.additional_frame.AddFix;
 import pos.product_management.menu_add.component.MenuAddButton;
+import pos.product_management.menu_modify.additional_frame.ModifyAdditionalFrame;
+import pos.product_management.menu_modify.component.MenuModifyButton;
 
-public class MenuAddFrame extends JFrame{
+public class MenuModifyFrame extends JFrame{
 	
 	ImageIcon icon;
 	public JTextField nameField = nameAdd();
 	public JFormattedTextField priceField = priceAdd();
-	AddFix addfix = new AddFix(this);
+	ModifyAdditionalFrame additionalFrame = new ModifyAdditionalFrame();
 	
 	public JRadioButton coffee;
 	public JRadioButton nonCoffee;
@@ -96,7 +99,7 @@ public class MenuAddFrame extends JFrame{
 	}
 
 
-	public MenuAddFrame() throws IOException {
+	public MenuModifyFrame() throws IOException {
 		
 		// 카테고리 분류
 		ButtonGroup categoryBtnGroup = new ButtonGroup();
@@ -206,11 +209,11 @@ public class MenuAddFrame extends JFrame{
 		optionBtnGroup.add(option8);
 
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
-				"images/PosImages/상품 관리 이미지/메뉴 추가 창 기본 틀.png", 900, 550));
+				"images/PosImages/상품 관리 이미지/메뉴 수정 창 기본 틀.png", 900, 550));
 		
-		MenuAddButton menuAddBtn = new MenuAddButton(this, addfix);
+		MenuModifyButton modifyBtn = new MenuModifyButton(this, additionalFrame);
 		
-		background.add(menuAddBtn);	
+		background.add(modifyBtn);
 		background.setSize(900, 550);
 		
 		
@@ -244,6 +247,6 @@ public class MenuAddFrame extends JFrame{
 
 
 	public static void main(String[] args) throws IOException {
-		new MenuAddFrame();
+		new MenuModifyFrame();
 	}
 }
