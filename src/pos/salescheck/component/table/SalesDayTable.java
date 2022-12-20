@@ -108,6 +108,7 @@ public class SalesDayTable extends JTable {
 				}
 			}
 			rs.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
