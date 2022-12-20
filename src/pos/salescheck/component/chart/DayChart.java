@@ -84,14 +84,14 @@ public class DayChart extends JPanel {
 	private static JFreeChart createChart(CategoryDataset dataset) {
 
 		JFreeChart chart = ChartFactory.createBarChart(
-				"HyCafe",         // chart title
+				"HyCafe",        
 				"",               // domain axis label
 				"",                  // range axis label
 				dataset,                  // data
 				PlotOrientation.VERTICAL, // orientation
 				true,                     // include legend
-				true,                     // tooltips?
-				false                     // URLs?
+				true,                     // tooltips
+				false                     // URLs
 				);
 
 		return chart;
