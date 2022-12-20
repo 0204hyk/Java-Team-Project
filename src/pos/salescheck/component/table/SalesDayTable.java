@@ -92,16 +92,7 @@ public class SalesDayTable extends JTable {
 				}
 			}
 			rs.close();
-//				pstmt.setString(1, plus);
-//				
-//			try (ResultSet rs = pstmt.executeQuery()) {
-//				while(rs.next()) {
-//					model.addRow(new Object[] {
-//							rs.getDate(1),
-//							rs.getString("total_price")});
-//
-//				}
-//			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
