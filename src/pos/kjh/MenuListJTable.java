@@ -44,7 +44,6 @@ public class MenuListJTable extends JTable{
 		}
 	}
 
-
 	// 선택된 메뉴 DB에서 삭제하는 메서드
 	public static void deleteDB(String keyword) {
 		String sql = "DELETE FROM menu WHERE menu_name = ?";
