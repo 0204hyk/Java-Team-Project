@@ -18,7 +18,7 @@ import pos.salescheck.component.chart.YearChart;
 import pos.salescheck.component.combobox.YearComboBox;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitlePanel;
-import pos.salescheck.component.saleslist.TotalLabel;
+import pos.salescheck.component.saleslist.TotalPanel;
 import pos.salescheck.component.table.SalesMonthTable;
 import pos.salescheck.component.table.SalesYearTable;
 
@@ -55,14 +55,14 @@ public class SalesYearCheckMain extends JFrame {
 
 		// 매출요약
 		JPanel salesTitle = new TitlePanel();
-		JLabel total = new TotalLabel();
+		JPanel total = new TotalPanel();
 		
 		add(title);
 		add(yearCombo);
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
-		//add(total);
+		add(total);
 		add(table);
 		add(list);
 		add(chart);

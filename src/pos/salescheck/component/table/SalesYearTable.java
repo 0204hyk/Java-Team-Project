@@ -8,10 +8,12 @@ import java.sql.SQLException;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import database.OjdbcConnection;
-import pos.salescheck.component.saleslist.TotalLabel;
+
 
 public class SalesYearTable extends JTable {
 	
@@ -23,14 +25,22 @@ public class SalesYearTable extends JTable {
 	
 	public SalesYearTable() {
 		JTable table = new JTable(model);
+		
+		// 컬럼 가운데 정렬
+		DefaultTableCellRenderer renderer =  
+          (DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer();
+		renderer.setHorizontalAlignment(SwingConstants.CENTER);
+		table.getTableHeader().setDefaultRenderer(renderer);
+	
 		JScrollPane scroll = new JScrollPane(table);
 		table.setFont(getFont().deriveFont(23f));
 		table.getTableHeader().setFont(new Font("맑은 고딕", Font.PLAIN, 23));
 		scroll.setBounds(0, 0, 450, 360);
 		table.setRowHeight(30);
+		
 		table.getTableHeader().setResizingAllowed(false);
 		table.getTableHeader().setReorderingAllowed(false);
-	
+		
 		add(scroll);
 		setBounds(650, 230, 450, 360);
 		setLayout(null);
@@ -41,7 +51,7 @@ public class SalesYearTable extends JTable {
 		this.year = year;
 		
 		
-		String sql = "SELECT to_char(s.saledate, 'YYYY-MM'), sum(p.price) AS total " 
+		String sql = "SELECT to_char(s.saledate, 'YYYY-MM'), to_char(sum(p.price), '999,999,999') AS total " 
 				+ "FROM sales s INNER JOIN PAYMENT p "
 				+ "USING (sales_number) "
 				+ "WHERE TO_CHAR(s.saledate, 'YYYY') = ? "
@@ -60,7 +70,7 @@ public class SalesYearTable extends JTable {
 				while(rs.next()) {
 					model.addRow(new Object[] {
 							rs.getString(1),
-							rs.getString("total")});
+							rs.getString("total") + "원"});
 				}
 			}
 		} catch (SQLException e) {

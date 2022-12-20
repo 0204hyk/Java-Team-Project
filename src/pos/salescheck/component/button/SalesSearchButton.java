@@ -13,6 +13,7 @@ import pos.salescheck.component.combobox.DayComboBox;
 import pos.salescheck.component.combobox.MonthComboBox;
 import pos.salescheck.component.combobox.YearComboBox;
 import pos.salescheck.component.saleslist.TitlePanel;
+import pos.salescheck.component.saleslist.TotalPanel;
 import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.table.SalesMonthTable;
 import pos.salescheck.component.table.SalesYearTable;
@@ -53,6 +54,7 @@ public class SalesSearchButton extends JButton {
 				SalesYearTable table = new SalesYearTable(year);
 				YearChart chart = new YearChart(year);
 				TitlePanel title = new TitlePanel(year);
+				TotalPanel total = new TotalPanel(year);
 			}
 		});
 		
@@ -86,7 +88,7 @@ public class SalesSearchButton extends JButton {
 				SalesMonthTable table = new SalesMonthTable(year, month);
 				MonthChart chart = new MonthChart(year, month);
 				TitlePanel title = new TitlePanel(year, month);
-
+				TotalPanel total = new TotalPanel(year, month);
 			}
 		});
 		
@@ -128,6 +130,7 @@ public class SalesSearchButton extends JButton {
 				SalesDayTable table = new SalesDayTable(year, month, day);
 				DayChart chart = new DayChart(year, month, day);
 				TitlePanel title = new TitlePanel(year, month, day);
+				TotalPanel total = new TotalPanel(year, month, day);
 			}
 		});
 		
