@@ -51,7 +51,7 @@ public class ProductManagementButton extends JButton implements ActionListener{
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		} 
 		
 	}
 

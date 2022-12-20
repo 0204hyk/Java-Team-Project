@@ -1,55 +1,116 @@
 package pos.salescheck.component.button;
 
-import java.awt.Image;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import pos.ImageScaledTool;
+import pos.salescheck.component.main.SalesDayCheckMain;
+import pos.salescheck.component.main.SalesMonthCheckMain;
+import pos.salescheck.component.main.SalesYearCheckMain;
+import pos.salescheck.component.saleslist.TitlePanel;
+import pos.salescheck.component.table.SalesDayTable;
+import pos.salescheck.component.table.SalesMonthTable;
+import pos.salescheck.component.table.SalesYearTable;
 
-import pos.salescheck.SalesCheckMainFrame;
+public class SalesEscapeButton extends JButton {
 
-public class SalesEscapeButton extends JButton implements ActionListener{
-	SalesCheckMainFrame frame;
-	
-	public SalesEscapeButton(SalesCheckMainFrame frame) {
-		this.frame = frame;
+	SalesDayCheckMain dayFrame;
+	SalesMonthCheckMain monthFrame;
+	SalesYearCheckMain yearFrame;
+
+	ImageScaledTool tool = new ImageScaledTool();
+
+	public SalesEscapeButton(SalesYearCheckMain yearFrame) {
+		this.yearFrame = yearFrame;
 		// 매출요약 < 버튼 이미지 설정
-		try {
-			BufferedImage image = ImageIO.read(new File("Images/PosImages/매출 요약 이미지/돌아가기 버튼.png"));
-			Image scale = image.getScaledInstance(100, 50, Image.SCALE_SMOOTH);
-			setIcon(new ImageIcon(scale));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"Images/PosImages/매출 요약 이미지/돌아가기 버튼.png", 180, 80)));
 
 		// 매출요약 < 버튼 눌렀을 때
-		try {
-			BufferedImage image = ImageIO.read(new File("Images/PosImages/매출 요약 이미지/돌아가기 버튼 클릭.png"));
-			Image click = image.getScaledInstance(100, 50, Image.SCALE_SMOOTH);
-			setPressedIcon(new ImageIcon(click));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		setPressedIcon(new ImageIcon(tool.getScaledImage(
+				"Images/PosImages/매출 요약 이미지/돌아가기 버튼 클릭.png", 180, 80)));
 
 		// < 버튼 위치 지정
-		setBounds(1050, 700, 100, 50);
+		setBounds(940, 670, 180, 80);
 		setBorder(null);
-		
-		
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);
 		
-		addActionListener(this);
+		addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
+				TitlePanel panel = new TitlePanel();
+				panel.text.setText("");
+				SalesYearTable table = new SalesYearTable();
+				table.model.setNumRows(0);
+				yearFrame.dispose();
+			}
+		});
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		frame.dispose();
+	public SalesEscapeButton(SalesMonthCheckMain monthFrame) {
+		this.monthFrame = monthFrame;
+		// 매출요약 < 버튼 이미지 설정
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"Images/PosImages/매출 요약 이미지/돌아가기 버튼.png", 180, 80)));
+
+		// 매출요약 < 버튼 눌렀을 때
+		setPressedIcon(new ImageIcon(tool.getScaledImage(
+				"Images/PosImages/매출 요약 이미지/돌아가기 버튼 클릭.png", 180, 80)));
+
+		// < 버튼 위치 지정
+		setBounds(940, 670, 180, 80);
+		setBorder(null);
+		setContentAreaFilled(false);	// 버튼 배경 지우기
+		setBorderPainted(false);	// 버튼 테두리 지우기
+		setFocusable(false);
+		addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
+				TitlePanel panel = new TitlePanel();
+				panel.text.setText("");
+				SalesMonthTable table = new SalesMonthTable();
+				table.model.setNumRows(0);
+				monthFrame.dispose();
+			}
+		});
+	}
+
+	public SalesEscapeButton(SalesDayCheckMain dayFrame) {
+		this.dayFrame = dayFrame;
+		// 매출요약 < 버튼 이미지 설정
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"Images/PosImages/매출 요약 이미지/돌아가기 버튼.png", 180, 80)));
+
+		// 매출요약 < 버튼 눌렀을 때
+		setPressedIcon(new ImageIcon(tool.getScaledImage(
+				"Images/PosImages/매출 요약 이미지/돌아가기 버튼 클릭.png", 180, 80)));
+
+		// < 버튼 위치 지정
+		setBounds(940, 670, 180, 80);
+		setBorder(null);
+		setContentAreaFilled(false);	// 버튼 배경 지우기
+		setBorderPainted(false);	// 버튼 테두리 지우기
+		setFocusable(false);
+		addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
+				TitlePanel panel = new TitlePanel();
+				panel.text.setText("");
+				SalesDayTable table = new SalesDayTable();
+				table.model.setNumRows(0);
+				dayFrame.dispose();
+			}
+		});
 	}
 }

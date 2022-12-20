@@ -1,6 +1,5 @@
 package pos.calculation.categorybutton;
 
-import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -13,16 +12,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import pos.ImageScaledTool;
+
 public class FrappeBlendedButton extends JButton {
 
 	JPanel nonCoffeePanel;
 	JPanel coffeePanel;
 	JPanel teaAdePanel;
 	JPanel frappeBiendedPanel;
-	JButton coffeeBtn;
-	
-	public FrappeBlendedButton(JButton coffeeBtn) {
-		this.coffeeBtn = coffeeBtn;
+	ImageScaledTool tool = new ImageScaledTool();
+
+	public FrappeBlendedButton() {
 	}
 	
 	public FrappeBlendedButton(JPanel nonCoffeePanel, JPanel coffeePanel, JPanel teaAdePanel, JPanel frappeBiendedPanel) {
@@ -30,14 +30,16 @@ public class FrappeBlendedButton extends JButton {
 		this.nonCoffeePanel = nonCoffeePanel;
 		this.teaAdePanel = teaAdePanel;
 		this.frappeBiendedPanel = frappeBiendedPanel;
-		
-		// 이미지 추가예정..
-		
-		setBounds(985, 110, 150, 100);
-		setBackground(Color.WHITE);
-		setText("프라페/블렌디드");
+
+		// 기본적으로 버튼이 비활성화 되어 있다.
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/계산 파트 이미지/프라페 비활성 버튼.png", 160, 100)));
+		setBounds(1020, 110, 160, 100);
+		setBorderPainted(false);
+		setContentAreaFilled(false);
+	
 		addMouseListener(new MouseAdapter() {
-			
+
 			// 마우스 클릭 시 기존에 나오던 Panel들은 숨긴다.
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -45,10 +47,21 @@ public class FrappeBlendedButton extends JButton {
 				teaAdePanel.setVisible(false);
 				nonCoffeePanel.setVisible(false);
 				frappeBiendedPanel.setVisible(true);
+				setBtnEnabeld();
 			}
-		
-	
+
+
 		});
-		
+
+	}
+	
+	public void setBtnDisabled() {
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/계산 파트 이미지/프라페 비활성 버튼.png", 160, 100)));
+	}
+	
+	public void setBtnEnabeld() {
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/계산 파트 이미지/프라페 버튼.png", 160, 100)));
 	}
 }

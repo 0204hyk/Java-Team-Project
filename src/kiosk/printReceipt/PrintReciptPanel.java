@@ -10,89 +10,35 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import kiosk.tools.WithImage;
+
 public class PrintReciptPanel extends JPanel {
-	
+
+	String root = "images/KioskImages/7_1. 영수증 출력 여부, 카드, 결제완료";
+	WithImage wi = new WithImage(root);
+
 	public PrintReciptPanel() {
-		setLayout(null);
 		setImage();
 		noPrintButton();
 		printButton();
-		
-		
+
 	}
-	
+
 	public void setImage() {
-		JLabel label = new JLabel();
-		label.setBounds(20, 20,365, 190);
-		
-		try {
-			BufferedImage bufferedImage =
-			ImageIO.read(new File
-					("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/printReceiptScaled.png"));			
-			label.setIcon(new ImageIcon(bufferedImage));
-			
-			
-			
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-		label.setHorizontalAlignment(JLabel.CENTER);
-		add(label);
+		JLabel lb = wi.makeLabel("receipt.png", 120, 53, 414, 301);
+
+//		lb.setHorizontalAlignment(JLabel.CENTER);
+		add(lb);
 	}
-	
+
 	public void noPrintButton() {
-		JButton button = new JButton();
-		
-		try {
-			BufferedImage printBufferedImage =
-			ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/noPrintButtonScaled.png"));			
-			button.setIcon(new ImageIcon(printBufferedImage));
-			
-			BufferedImage pressedPirntBufferedImage =
-					ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/noPrintButtonPressedScaled.png"));			
-					button.setPressedIcon(new ImageIcon(pressedPirntBufferedImage));
-			
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-		
-		button.setBorderPainted(false);	
-		button.setFocusPainted(false);
-		button.setContentAreaFilled(false);
-		button.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
-		button.setOpaque(false);
-		
-		button.setBounds(285, 220, 98, 46);
-		
-		add(button);
+		JButton bt = wi.makeButton("noPrint.png", 408, 288, 97, 46);
+		add(bt);
 	}
-	
+
 	public void printButton() {
-		JButton button = new JButton();
-		
-		try {
-			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/printButtonScaled.png"));			
-			button.setIcon(new ImageIcon(logoBufferedImage));
-			
-			BufferedImage pressedPirntBufferedImage =
-					ImageIO.read(new File("images/KioskImages/7_1_영수증_출력_여부,카드,결제완료/PrintButtonPressedScaled.png"));			
-					button.setPressedIcon(new ImageIcon(pressedPirntBufferedImage));
-			
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-		
-		button.setBorderPainted(false);	
-		button.setFocusPainted(false);
-		button.setContentAreaFilled(false);
-		button.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
-		button.setOpaque(false);
-		
-		button.setBounds(170, 220, 98, 46);
-		
-		add(button);
+		JButton bt = wi.makeButton("print.png", 295, 288, 97, 46);
+		add(bt);
 	}
-	
 
 }

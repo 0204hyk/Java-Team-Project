@@ -2,87 +2,74 @@ package kiosk;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+import kiosk.tools.WithImage;
 
 public class ShowPoint extends JFrame {
 
-	String root = "images/KioskImages/5_2. step1 point/";
+	String root = "images/KioskImages/5_2. step1 point";
+	WithImage wi = new WithImage(root);
 
-	public ShowPoint() {
+	JButton ok;
+
+	public ShowPoint(String phonenum, int point, int totalpoint) {
 		// 고객 번호
-		JLabel phoneNum = new JLabel("1724"); // 고객 휴대폰 번호 입력 - 나중에 get으로 가져오기
+		JLabel phoneNum = new JLabel(phonenum);
 		phoneNum.setFont(new Font("맑은 고딕", Font.BOLD, 36));
 		phoneNum.setForeground(Color.black);
 		phoneNum.setBounds(55, 122, 85, 32);
 		add(phoneNum);
 
 		// 적립 포인트
-		JLabel savePoint = new JLabel("112"); // 네자리면 위치가 바뀌어야하는데..
+		JLabel savePoint = new JLabel("" + point);
 		savePoint.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		savePoint.setForeground(Color.BLACK);
-		savePoint.setBounds(84,341,40,21);
+		savePoint.setBounds(22, 301, 100, 21);
 		savePoint.setHorizontalTextPosition(JLabel.CENTER);
+		savePoint.setHorizontalAlignment(SwingConstants.RIGHT);
 		add(savePoint);
 
 		// 누적 포인트
-		JLabel currentPoint = new JLabel("395"); // 네자리면 위치가 바뀌어야하는데..
+		JLabel currentPoint = new JLabel("" + totalpoint);
 		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 33));
-		currentPoint.setForeground(new Color(63, 186, 145));
-		currentPoint.setBounds(152, 489, 60, 28);
-//		currentPoint.setHorizontalTextPosition(JLabel.CENTER);
+		currentPoint.setForeground(new Color(15, 11, 65));
+		currentPoint.setBounds(110, 448, 100, 28);
+		currentPoint.setHorizontalAlignment(SwingConstants.RIGHT);
 		add(currentPoint);
 
-		
 		// 고정 값 ----------------------------------------------------
-		add(makeLabel("frame.png", 23, 23, 400, 631));
-		add(makeLabel("nim.png", 146, 125, 25, 32));
-		add(makeLabel("hello.png", 60, 172, 278, 50));
-		add(makeLabel("pointText.png", 213, 490, 88, 28));
-		add(makeLabel("saveAfter.png", 131, 441, 200, 21));
-		add(makeLabel("saveSoon.png", 125, 342, 241, 21));
-		add(makeLabel("box.png", 74, 414, 314, 130));
+		add(wi.makeLabel("nim.png", 145, 125, 37, 34));
+		add(wi.makeLabel("pointText.png", 213, 450, 88, 28));
+		add(wi.makeLabel("saveAfter.png", 131, 401, 200, 21));
+		add(wi.makeLabel("saveSoon.png", 125, 302, 241, 21));
+		add(wi.makeLabel("box.png", 74, 374, 314, 130));
+
+		JButton cancel = wi.makeButton("dispose.png", 182, 570, 96, 49);
+		add(cancel);
+		this.ok = cancel;
 
 		setLayout(null);
 		setSize(461, 710); // 창 크기 이상해서 임시로 늘림
 		setVisible(true);
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(Color.WHITE);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
 
-	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
-		JLabel lb = new JLabel();
-
-		lb.setIcon(new ImageIcon(readImage(root + detailedRoot, w, h)));
-		lb.setBounds(x, y, w, h);
-
-		return lb;
+	public void hello() {
+		add(wi.makeLabel("hello.png", 60, 172, 278, 50));
 	}
 
-	public Image readImage(String root, int w, int h) {
-
-		BufferedImage image;
-		Image scaled = null;
-		try {
-			image = ImageIO.read(new File(root));
-			scaled = image.getScaledInstance(w, h, Image.SCALE_SMOOTH);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return scaled;
+	public void joinComplete() {
+		add(wi.makeLabel("joinComplete.png", 57, 173, 340, 30));
 	}
 
 	public static void main(String[] args) {
-		new ShowPoint();
+		new ShowPoint("1333", 2, 1);
 	}
 }

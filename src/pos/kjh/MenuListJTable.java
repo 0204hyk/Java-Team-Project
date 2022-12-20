@@ -1,14 +1,11 @@
 package pos.kjh;
 
-
 import java.awt.Dimension;
 import java.awt.Font;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,14 +20,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumnModel;
 
+import database.OjdbcConnection;
 import pos.gje.delet.DeleteFrame;
 
 public class MenuListJTable extends JTable{
-
-	private static String driver = "oracle.jdbc.driver.OracleDriver";
-	private static String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
-	private static String id = "hyCafe";
-	private static String pw = "1234";
 
 	private static String top[] = {"상품코드", "메뉴 이름", "금액"};;
 	public static JTable table;
@@ -50,15 +43,7 @@ public class MenuListJTable extends JTable{
 	         }
 	    };	
 
-
-	static {
-		try {
-			Class.forName(driver);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
+	
 	// JTable 선택값 삭제 메서드
 	public void delete() throws IOException, SQLException {
 
@@ -81,7 +66,7 @@ public class MenuListJTable extends JTable{
 		String sql = "DELETE FROM menu WHERE menu_name = ?";
 
 		try (
-				Connection conn = DriverManager.getConnection(url, id, pw);
+				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 
 				){
@@ -107,9 +92,8 @@ public class MenuListJTable extends JTable{
 
 		String sql = sqlCondition;
 
-
 		try (
-				Connection conn = DriverManager.getConnection(url, id, pw);
+				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();
 				){
@@ -147,9 +131,8 @@ public class MenuListJTable extends JTable{
 			table.addMouseListener(new MouseAdapter() {
 
 				@Override
-				public void mouseClicked(MouseEvent e) {
+				public void mouseClicked(MouseEvent e) {					
 					menuName = (table.getValueAt(table.getSelectedRow(), 1)).toString();
-					
 				}
 
 			});
@@ -176,8 +159,6 @@ public class MenuListJTable extends JTable{
 			//		      tcm.getColumn(4).setCellRenderer(dtcr);
 
 
-
-			
 
 			table.setLayout(null);
 			setBounds(48, 190, 1100, 400);

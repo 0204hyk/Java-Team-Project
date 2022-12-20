@@ -1,14 +1,10 @@
 package pos.kjh;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
-import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -17,37 +13,26 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
-import javax.swing.AbstractCellEditor;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
 
 import pos.DigitalClock;
+import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.PosFrame;
-import pos.closing.closing_main.container.ClosingImagePanel;
-import pos.gje.delet.DeleteFrame;
 import pos.gje.delet.component.CancelBtn;
-import pos.gje.delet.component.OkBtn;
 import pos.gje.delet.panel.DeleteCheckPanel;
-import pos.gje.modify.ModifyFrame;
+import pos.product_management.menu_add.MenuAddFrame;
+import pos.product_management.menu_main.component.ModifyButton;
 
 public class ProductManagementJFrame extends JFrame {
 
-	static MenuListJTable mj;
+	public static MenuListJTable mj;
 
 	static JTextField serchText = new JTextField("키워드를 입력해주세요");
 
@@ -57,7 +42,7 @@ public class ProductManagementJFrame extends JFrame {
 	
 	public ProductManagementJFrame() throws IOException, SQLException {
 
-		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
 		titlePanel.setBounds(0 ,0, 1200, 60);
 		// 현재 시간 출력
@@ -69,7 +54,6 @@ public class ProductManagementJFrame extends JFrame {
 
 
 		add(titlePanel);
-
 
 		add(serch());
 
@@ -86,16 +70,17 @@ public class ProductManagementJFrame extends JFrame {
 	// 원하는 디비 불러오는 메서드
 	public String serchMenu(String keyword) {
 
-		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu WHERE menu_name LIKE '%" + keyword + "%'";
-
+		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu WHERE menu_name LIKE '%" + keyword + "%'"
+				+ "ORDER BY menu_number";
+		
 		return text;
 	}
-
+	
 	// 모든 디비 불러오는 메서드
 	public String allMenu() {
-
-		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu";
-
+		
+		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu ORDER BY menu_number";
+		
 		return text;
 	}
 
@@ -141,9 +126,6 @@ public class ProductManagementJFrame extends JFrame {
 
 		JButton deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
 				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1027, 620, 130, 65);
-
-		JButton modifyBtn = btnImage("images/PosImages/상품 관리 이미지/수정 시작 버튼.png",
-				"images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png", 880, 620, 130, 65);
 
 		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
 				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 733, 620, 130, 65);
@@ -200,7 +182,6 @@ public class ProductManagementJFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
 				setVisible(false);
 				MenuListJTable table = null;
 				try {
@@ -230,23 +211,7 @@ public class ProductManagementJFrame extends JFrame {
 				
 			}
 			
-		});
-				
-
-
-		// 수정 버튼
-		modifyBtn.addActionListener(new ActionListener() {
-
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				new ModifyFrame();
-
-			}
-		});
-
-
+		});				
 
 		// 추가 버튼
 		addBtn.addActionListener(new ActionListener() {
@@ -261,11 +226,11 @@ public class ProductManagementJFrame extends JFrame {
 				}
 			}
 		});
-
+		
 		add(serchBtn);
 		add(backBtn);
 		add(deleteBtn);
-		add(modifyBtn);
+		add(new ModifyButton(this));
 		add(addBtn);
 
 		setLayout(null);

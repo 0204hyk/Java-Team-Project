@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 
 import kiosk.menuFrame.MenuFrame;
+import kiosk.tools.WithImage;
 
 public class TouchToPlaceAnOrder extends JFrame {
 
@@ -24,14 +25,14 @@ public class TouchToPlaceAnOrder extends JFrame {
 	Timer tm;
 	int x = 0;
 
+	WithImage wi = new WithImage(root);
 	String[] list = { root + "/poster1.png", root + "/poster2.png", root + "/poster3.png", root + "/poster4.png",
 			root + "/poster5.png" };
 
 	public TouchToPlaceAnOrder() {
 		
-		add(makeLabel("hy.png", 53, 23, 60, 83));
-		add(makeButton("home.png", 543, 43, 52, 52));
-		add(makeLabel("touchScreen.png", 38, 752, 573, 83));
+		add(wi.makeLabel("hy.png", 53, 23, 60, 83));
+		add(wi.makeLabel("touchScreen.png", 38, 752, 573, 83));
 
 		getContentPane().setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
@@ -39,13 +40,13 @@ public class TouchToPlaceAnOrder extends JFrame {
 		pic = new JButton();
 		pic.setBounds(0, 0, 650, 920);
 
-		SetImageSize(4);
+		setImageSize(4);
 
 		tm = new Timer(4000, new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SetImageSize(x);
+				setImageSize(x);
 				x += 1;
 				if (x >= list.length)
 					x = 0;
@@ -76,48 +77,13 @@ public class TouchToPlaceAnOrder extends JFrame {
 
 	}
 
-	public void SetImageSize(int i) {
+	public void setImageSize(int i) {
 		ImageIcon icon = new ImageIcon(list[i]);
 		Image newImg = icon.getImage().getScaledInstance(pic.getWidth(), pic.getHeight(), Image.SCALE_SMOOTH);
 		ImageIcon newImc = new ImageIcon(newImg);
 		pic.setIcon(newImc);
 	}
 
-	public JButton makeButton(String detailedRoot, int x, int y, int w, int h) {
-		JButton bt = new JButton();
-
-		bt.setIcon(new ImageIcon(readImage(root + "/" + detailedRoot, w, h)));
-		bt.setBounds(x, y, w, h);
-		bt.setBorderPainted(false);
-		bt.setContentAreaFilled(false);
-		bt.setPressedIcon(new ImageIcon(readImage(root + " Selected/" + detailedRoot, w, h)));
-
-		return bt;
-	}
-
-	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
-		JLabel lb = new JLabel();
-
-		lb.setIcon(new ImageIcon(readImage(root + "/" + detailedRoot, w, h)));
-		lb.setBounds(x, y, w, h);
-
-		return lb;
-	}
-
-	public Image readImage(String root, int w, int h) {
-
-		BufferedImage image;
-		Image scaled = null;
-		try {
-			image = ImageIO.read(new File(root));
-			scaled = image.getScaledInstance(w, h, Image.SCALE_SMOOTH);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return scaled;
-	}
 
 	public static void main(String[] args) {
 		new TouchToPlaceAnOrder();

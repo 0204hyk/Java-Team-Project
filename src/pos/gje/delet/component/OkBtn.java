@@ -12,10 +12,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.gje.delet.DeleteFrame;
-import pos.gje.delet.OkFrame;
-import pos.gje.delet.panel.OkPanel;
+import pos.gje.delete.OkFrame;
 import pos.kjh.MenuListJTable;
-import pos.kjh.ProductManagementJFrame;
 
 public class OkBtn extends JButton implements ActionListener{
 	// 삭제하시겠습니까 확인 버튼
