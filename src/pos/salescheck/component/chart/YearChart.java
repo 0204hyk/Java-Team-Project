@@ -1,5 +1,6 @@
 package pos.salescheck.component.chart;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,6 +29,7 @@ public class YearChart extends JPanel {
     public YearChart() {
     	  CategoryDataset datasetResult = createDataset();
           JFreeChart chart = createChart(datasetResult);
+          chart.getPlot().setBackgroundPaint(Color.WHITE);
           ChartPanel panel = new ChartPanel(chart);
           panel.setPreferredSize(new Dimension(500, 500));
           add(panel);
