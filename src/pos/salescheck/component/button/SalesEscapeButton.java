@@ -10,6 +10,7 @@ import pos.salescheck.component.main.SalesDayCheckMain;
 import pos.salescheck.component.main.SalesMonthCheckMain;
 import pos.salescheck.component.main.SalesYearCheckMain;
 import pos.salescheck.component.saleslist.TitlePanel;
+import pos.salescheck.component.saleslist.TotalPanel;
 import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.table.SalesMonthTable;
 import pos.salescheck.component.table.SalesYearTable;
@@ -49,6 +50,8 @@ public class SalesEscapeButton extends JButton {
 				panel.text.setText("");
 				SalesYearTable table = new SalesYearTable();
 				table.model.setNumRows(0);
+				TotalPanel total = new TotalPanel();
+				total.text.setText("");
 				yearFrame.dispose();
 			}
 		});
@@ -79,6 +82,8 @@ public class SalesEscapeButton extends JButton {
 				panel.text.setText("");
 				SalesMonthTable table = new SalesMonthTable();
 				table.model.setNumRows(0);
+				TotalPanel total = new TotalPanel();
+				total.text.setText("");
 				monthFrame.dispose();
 			}
 		});
@@ -109,6 +114,8 @@ public class SalesEscapeButton extends JButton {
 				panel.text.setText("");
 				SalesDayTable table = new SalesDayTable();
 				table.model.setNumRows(0);
+				TotalPanel total = new TotalPanel();
+				total.text.setText("");
 				dayFrame.dispose();
 			}
 		});
