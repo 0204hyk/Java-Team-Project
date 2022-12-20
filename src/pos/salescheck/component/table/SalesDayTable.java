@@ -104,10 +104,7 @@ public class SalesDayTable extends JTable {
 				}
 			}
 			rs.close();
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'kbc' of https://github.com/0204hyk/Java-Team-Project.git
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
