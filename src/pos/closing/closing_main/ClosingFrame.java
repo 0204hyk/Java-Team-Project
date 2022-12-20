@@ -4,17 +4,18 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.Calendar;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import pos.DigitalClock;
+import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.closing.closing_main.component.ClosingEscapeButton;
+import pos.closing.closing_main.component.ClosingTable;
+import pos.closing.closing_main.component.DailySalesLabel;
 import pos.closing.closing_main.component.DoCloseButton;
-import pos.closing.closing_main.container.ClosingImagePanel;
-import pos.closing.closing_main.container.EmptyLabel;
 import pos.closing.closing_message.ClosingMessageFrame;
 
 public class ClosingFrame extends JFrame {
@@ -23,7 +24,7 @@ public class ClosingFrame extends JFrame {
 	public ClosingFrame() {
 		
 		// 상단 메뉴바 설정
-		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
 		titlePanel.setBounds(0 ,0, 1200, 60);
 		// 현재 시간 출력
@@ -31,39 +32,51 @@ public class ClosingFrame extends JFrame {
 		clock.setBounds(375, 10, 400, 30);
 		titlePanel.add(clock);
 		
-		// 결제 수단 이미지 패널
-		JPanel panelA = new ClosingImagePanel(ImageScaledTool.getScaledImage(
-				"images/PosImages/마감 이미지/현금 & 카드 결제 금액 확인 틀.png", 400, 100));
-		panelA.setBounds(120, 90, 400, 100);
-		
-		JLabel label1 = new EmptyLabel();
-		label1.setLocation(265, 14);
-		panelA.add(label1);
-		
-		JLabel label2 = new EmptyLabel();
-		label2.setLocation(265, 58);
-		panelA.add(label2);
-
-
-		// 현금 시제 이미지 패널
-		JPanel panelB = new ClosingImagePanel(ImageScaledTool.getScaledImage(
-				"images/PosImages/마감 이미지/현금 시제 기본 틀.png", 400, 430));
-		panelB.setBounds(120, 220, 400, 430);
-		
-		EmptyLabel[] labels = new EmptyLabel[9];
-		int locationY = 54;
-		for (int i = 0; i < 9; ++i) {
-			labels[i] = new EmptyLabel();
-			labels[i].setLocation(265, locationY);
-			panelB.add(labels[i]);
-			locationY += 42;
-		}
+//		// 결제 수단 이미지 패널
+//		JPanel panelA = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+//				"images/PosImages/마감 이미지/현금 & 카드 결제 금액 확인 틀.png", 400, 100));
+//		panelA.setBounds(120, 90, 400, 100);
+//		
+//		JLabel label1 = new EmptyLabel();
+//		label1.setLocation(265, 14);
+//		panelA.add(label1);
+//		
+//		JLabel label2 = new EmptyLabel();
+//		label2.setLocation(265, 58);
+//		panelA.add(label2);
+//
+//
+//		// 현금 시제 이미지 패널
+//		JPanel panelB = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+//				"images/PosImages/마감 이미지/현금 시제 기본 틀.png", 400, 430));
+//		panelB.setBounds(120, 220, 400, 430);
+//		
+//		EmptyLabel[] labels = new EmptyLabel[9];
+//		int locationY = 54;
+//		for (int i = 0; i < 9; ++i) {
+//			labels[i] = new EmptyLabel();
+//			labels[i].setLocation(265, locationY);
+//			panelB.add(labels[i]);
+//			locationY += 42;
+//		}
 		
 		// 마감 내역 이미지 패널
-		JPanel panelC = new ClosingImagePanel(ImageScaledTool.getScaledImage(
-				"images/PosImages/마감 이미지/마감 내역 기본 틀.png", 500, 550));
-		panelC.setBounds(600, 100, 500, 550);
-
+		JPanel panelC = new ImagePanel(ImageScaledTool.getScaledImage(
+				"images/PosImages/마감 이미지/마감 내역 기본 틀2.png", 1000, 550));
+		panelC.setBounds(100, 100, 1000, 550);
+		
+		// 시간대별 매출 테이블
+		ClosingTable closingTable = new ClosingTable();
+		JScrollPane tablePanel = new JScrollPane(closingTable);
+		tablePanel.setBounds(3, 55, 988, 435);
+		
+		// 총 금액 라벨
+		DailySalesLabel totalLabel = new DailySalesLabel();
+		totalLabel.setLocation(620, 498);
+		
+		panelC.add(tablePanel);
+		panelC.add(totalLabel);
+		
 		// 오늘 일자 출력
 		Calendar now = Calendar.getInstance();
 		String date = "  " + now.get(Calendar.YEAR) + "-" + (now.get(Calendar.MONTH) + 1) 
@@ -84,9 +97,10 @@ public class ClosingFrame extends JFrame {
 		ClosingEscapeButton escapeBtn = new ClosingEscapeButton(this);
 		escapeBtn.setLocation(80, 670);
 
+		
 		add(titlePanel);
-		add(panelA);
-		add(panelB);
+//		add(panelA);
+//		add(panelB);
 		add(panelC);
 		add(doCloseBtn);
 		add(escapeBtn);

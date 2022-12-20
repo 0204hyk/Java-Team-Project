@@ -1,3 +1,5 @@
+ALTER SESSION SET nls_date_format = 'YYYY-MM-DD HH24:MI:SS';
+
 --카테고리
 CREATE TABLE category (
    category_number   number(2)
@@ -22,6 +24,12 @@ CREATE TABLE menu(
     CONSTRAINT menu_category_fk REFERENCES category(category_number),
     option_category_number number(1),--테이블별 옵션 카테고리 / 8개
     price number(5)
+);
+
+ALTER TABLE menu MODIFY (
+    menu_name VARCHAR(40)
+    CONSTRAINT menu_name_uk UNIQUE
+    CONSTRAINT menu_name_nn NOT NULL
 );
 
 --관리자정보 (id 1개만사용)
@@ -66,3 +74,5 @@ CREATE TABLE payment(
     payment_type number(1),
     price number(10)
 );
+
+select * from tabs;

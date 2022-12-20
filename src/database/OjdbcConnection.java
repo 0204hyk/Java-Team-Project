@@ -19,7 +19,6 @@ public class OjdbcConnection {
 			e.printStackTrace();
 		}
 		
-		
 	}
 	
 	public OjdbcConnection() {
@@ -34,6 +33,5 @@ public class OjdbcConnection {
 			return null;
 		}
 	}
-	
 	
 }

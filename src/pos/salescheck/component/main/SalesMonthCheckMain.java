@@ -10,17 +10,15 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 
 import pos.DigitalClock;
+import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.salescheck.component.button.SalesEscapeButton;
 import pos.salescheck.component.button.SalesSearchButton;
 import pos.salescheck.component.chart.MonthChart;
-import pos.salescheck.component.combobox.DayComboBox;
 import pos.salescheck.component.combobox.MonthComboBox;
 import pos.salescheck.component.combobox.YearComboBox;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitlePanel;
-
 import pos.salescheck.component.saleslist.TotalPanel;
 import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.table.SalesMonthTable;
@@ -33,7 +31,7 @@ public class SalesMonthCheckMain extends JFrame {
 	public SalesMonthCheckMain() {
 
 		// 매출요약 상단 메뉴바 생성.
-		JPanel title = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+		JPanel title = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
 		title.setBounds(0 ,0, 1200, 60);
 
