@@ -65,6 +65,7 @@ public class OkBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		MenuListJTable.table.setEnabled(true);
 		f.dispose();
 		new OkFrame();
 	}

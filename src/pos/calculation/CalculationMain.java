@@ -93,7 +93,6 @@ public class CalculationMain extends JFrame {
 		setLayout(null);
 		setSize(1200, 800);
 		setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 
 	public static void main(String[] args) {

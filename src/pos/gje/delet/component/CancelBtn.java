@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.gje.delet.DeleteFrame;
+import pos.kjh.MenuListJTable;
 
 public class CancelBtn extends JButton implements ActionListener{
 
@@ -44,6 +45,7 @@ public class CancelBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		MenuListJTable.table.setEnabled(true);
 		f.dispose();
 	}
 }

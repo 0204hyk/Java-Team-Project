@@ -7,6 +7,8 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -27,6 +29,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
@@ -37,6 +40,8 @@ import pos.ImageScaledTool;
 import pos.PosFrame;
 import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.gje.delet.DeleteFrame;
+import pos.gje.delet.component.CancelBtn;
+import pos.gje.delet.component.OkBtn;
 import pos.gje.delet.panel.DeleteCheckPanel;
 import pos.gje.modify.ModifyFrame;
 
@@ -46,7 +51,10 @@ public class ProductManagementJFrame extends JFrame {
 
 	static JTextField serchText = new JTextField("키워드를 입력해주세요");
 
-
+	PosFrame p;
+	CancelBtn cBtn;
+	DeleteCheckPanel dcp;
+	
 	public ProductManagementJFrame() throws IOException, SQLException {
 
 		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
@@ -54,21 +62,22 @@ public class ProductManagementJFrame extends JFrame {
 		titlePanel.setBounds(0 ,0, 1200, 60);
 		// 현재 시간 출력
 		JLabel clock = new DigitalClock();
+
 		clock.setBounds(375, 10, 400, 30);
+
 		titlePanel.add(clock);
-		
-		
+
+
 		add(titlePanel);
 
+
 		add(serch());
-		
+
 		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
 
-		
-		
 		mj = new MenuListJTable(allMenu());
 		add(mj);
-		
+
 
 		buttons();
 	}
@@ -151,8 +160,9 @@ public class ProductManagementJFrame extends JFrame {
 					}
 					else {
 						mj.setVisible(false);
-						mj.contents.setNumRows(0);
-						add(new MenuListJTable(serchMenu(serch().getText())));
+						MenuListJTable.contents.setNumRows(0);
+						mj = new MenuListJTable(serchMenu(serch().getText()));
+						add(mj);
 					};
 
 				} catch (SQLException e1) {
@@ -171,9 +181,10 @@ public class ProductManagementJFrame extends JFrame {
 						mj.setVisible(true);
 					}
 					else {
-						mj.setCellEditor(null);
-						mj.contents.setNumRows(0);
-						add(new MenuListJTable(serchMenu(serch().getText())));
+						mj.setVisible(false);
+						MenuListJTable.contents.setNumRows(0);
+						mj = new MenuListJTable(serchMenu(serch().getText()));
+						add(mj);
 					};
 
 				} catch (SQLException e1) {
@@ -189,29 +200,42 @@ public class ProductManagementJFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new PosFrame();
+
+				setVisible(false);
+				MenuListJTable table = null;
+				try {
+					table = new MenuListJTable(allMenu());
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				table.contents.setNumRows(0);
+
 			}
 		});
 
-
+//mj.delete(); setEnabled(false);
 		// 삭제 버튼
-		deleteBtn.addActionListener(new ActionListener() {
-
+		deleteBtn.addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
-
+			public void mouseClicked(MouseEvent e) {
 				try {
 					mj.delete();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-
-
-
+				
 			}
+			
 		});
+				
+				
+		
+//		else if (cBtn.isSelected()) {
+//			setEnabled(true);
+//			dcp.setVisible(false);
+//		}
 
 		// 수정 버튼
 		modifyBtn.addActionListener(new ActionListener() {
@@ -282,13 +306,13 @@ public class ProductManagementJFrame extends JFrame {
 
 		return btn;
 	}
-	
-	
+
+
 
 	public static void main(String[] args) throws IOException, SQLException {
 		new ProductManagementJFrame();
 	}
 
-	
+
 
 }
