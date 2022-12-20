@@ -1,14 +1,12 @@
 package pos.salescheck.component.main;
 
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
@@ -18,7 +16,6 @@ import pos.salescheck.component.chart.YearChart;
 import pos.salescheck.component.combobox.YearComboBox;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitlePanel;
-
 import pos.salescheck.component.saleslist.TotalPanel;
 import pos.salescheck.component.table.SalesMonthTable;
 import pos.salescheck.component.table.SalesYearTable;

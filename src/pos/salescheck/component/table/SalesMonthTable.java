@@ -17,7 +17,11 @@ import database.OjdbcConnection;
 public class SalesMonthTable extends JTable {
 
 	private static String colTitle[] = {"날짜", "매출액"};
-	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0);
+	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0) {
+		public boolean isCellEditable(int i, int c) {
+	          return false;
+	         }
+	};
 
 
 

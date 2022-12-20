@@ -1,6 +1,7 @@
 package pos.salescheck.component.chart;
 
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,6 +30,7 @@ public class DayChart extends JPanel {
 	public DayChart() {
 		CategoryDataset datasetResult = createDataset();
 		JFreeChart chart = createChart(datasetResult);
+		chart.getPlot().setBackgroundPaint(Color.WHITE);
 		ChartPanel panel = new ChartPanel(chart);
 		panel.setPreferredSize(new Dimension(500, 500));
 		add(panel);
@@ -63,7 +65,7 @@ public class DayChart extends JPanel {
 
 				while (rs.next()) {
 					dataset.addValue(rs.getInt("total"), 
-							rs.getString(1) + "h", rs.getString(1) + "h");
+							rs.getString(1) + "H", rs.getString(1) + "H");
 				}
 			}
 		} catch (Exception e) {
@@ -82,14 +84,14 @@ public class DayChart extends JPanel {
 	private static JFreeChart createChart(CategoryDataset dataset) {
 
 		JFreeChart chart = ChartFactory.createBarChart(
-				"HyCafe",         // chart title
+				"HyCafe",        
 				"",               // domain axis label
 				"",                  // range axis label
 				dataset,                  // data
 				PlotOrientation.VERTICAL, // orientation
 				true,                     // include legend
-				true,                     // tooltips?
-				false                     // URLs?
+				true,                     // tooltips
+				false                     // URLs
 				);
 
 		return chart;

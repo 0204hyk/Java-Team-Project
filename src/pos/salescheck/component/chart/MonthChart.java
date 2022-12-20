@@ -1,5 +1,6 @@
 package pos.salescheck.component.chart;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,7 +29,7 @@ public class MonthChart extends JPanel {
     public MonthChart() {
     	CategoryDataset datasetResult = createDataset();
         JFreeChart chart = createChart(datasetResult);
-        
+        chart.getPlot().setBackgroundPaint(Color.WHITE);
         ChartPanel panel = new ChartPanel(chart);
         panel.setPreferredSize(new Dimension(500, 500));
         add(panel);
@@ -39,8 +40,7 @@ public class MonthChart extends JPanel {
     public MonthChart(String year, String month) {
     	this.year = year;
     	this.month = month;
-    	hap = year + month;    
-    	
+    	hap = year + month;
     	String sql = "SELECT to_char(s.saledate, 'YYYY-MM-DD'), sum(p.price) AS total "
     			+ "FROM sales s INNER JOIN PAYMENT p "
     			+ "USING (sales_number) "
