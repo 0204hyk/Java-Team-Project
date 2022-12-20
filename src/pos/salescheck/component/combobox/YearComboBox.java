@@ -20,8 +20,9 @@ public class YearComboBox extends JComboBox  {
 
 		setSelectedItem(year);
 		setBounds(90, 100, 100, 25);
+		
+		// 콤보박스 값 선택 시 table 리스트 초기화
 		addItemListener(new ItemListener() {
-			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				SalesYearTable table = new SalesYearTable();

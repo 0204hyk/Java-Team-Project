@@ -26,7 +26,6 @@ import pos.salescheck.component.table.SalesMonthTable;
 public class SalesMonthCheckMain extends JFrame {
 
 	
-	
 	// 월별 매출
 	public SalesMonthCheckMain() {
 

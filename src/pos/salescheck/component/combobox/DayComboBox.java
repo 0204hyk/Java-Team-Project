@@ -31,20 +31,16 @@ public class DayComboBox extends JComboBox {
 			addItem(i);
 		}
 
-		// 콤보박스 선택 시 table 리스트 초기화
+		// 콤보박스 값 선택 시 table 리스트 초기화
 		addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				SalesDayTable table = new SalesDayTable();
 				table.model.setNumRows(0);
-			
-			
+
 			}
-			
 		});
 
-		
-		
 		setBounds(320, 100, 100, 25);
 		
 	}
