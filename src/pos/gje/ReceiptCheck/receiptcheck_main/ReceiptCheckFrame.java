@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import pos.DigitalClock;
@@ -38,20 +39,26 @@ public class ReceiptCheckFrame extends JFrame{
 		add(titlePanel);
 	
 		
-		
+		// -----------------영수증 조회------------------
 		RefundFrame refundFrame = new RefundFrame();
 		RefundButton refundButton = new RefundButton(this, refundFrame);
-		OutputButton outfutButton = new OutputButton();
+		OutputButton outfutButton = new OutputButton(); 
+		// OutputButton 안에 영수증 완료 창 생성/
+		// 									생성창이 있을 때 뒤에 클릭안되게 해야함 
+		JScrollPane listScroll = new List(outfutButton, refundButton).scroll;
+		PrintScroll print = new PrintScroll();
 		
+		
+	
 		// 영수증 목록 (Panel)
-		add(new List(outfutButton, refundButton).scroll);
+		add(listScroll);
 		
 		// 버튼
 		add(refundButton);
 		add(outfutButton);
 		
 		// 영수증 출력 
-		add(new PrintScroll());
+		add(print);
 		
 		// 돌아가기 버튼
 		ReceiptCheckEscapeButton escapeBtn = new ReceiptCheckEscapeButton(this);

@@ -23,14 +23,14 @@ public class List {
 
 	static private String[] top = {" ", "영수증번호"};
 	public static DefaultTableModel contents = new DefaultTableModel(top, 0); // 테이블 안에 들어가는 데이터 값을 채워넣음
-	public static JTable table; 
+	public static JTable table = new JTable(contents); 
 	public static JScrollPane scroll;
 	static ArrayList<String> number = new ArrayList<>();
 	static ArrayList<String> point = new ArrayList<>();
 	static ArrayList<String> date = new ArrayList<>();
 	static int num = 1;
-	boolean a = false;
-
+	
+	public List() {	}
 	
 	public List(OutputButton out, RefundButton refund) {
 		
@@ -58,7 +58,7 @@ public class List {
 		}
 		
 		// 만든 테이블 스크롤에 붙이기
-		table = new JTable(contents);
+		//table = new JTable(contents);
 		scroll = new JScrollPane(table);
 		scroll.setBounds(75, 95, 500, 550);
 		

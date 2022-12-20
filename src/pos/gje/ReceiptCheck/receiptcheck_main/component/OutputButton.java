@@ -1,6 +1,5 @@
 package pos.gje.ReceiptCheck.receiptcheck_main.component;
 
-import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,11 +10,14 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
+
+import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
 
 public class OutputButton extends JButton implements ActionListener{
 
+
 	public OutputButton() {		
+	
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/영수증 출력 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(250, 80, Image.SCALE_SMOOTH); // 크기 조정
@@ -43,18 +45,7 @@ public class OutputButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JFrame f = new JFrame();
-		
-		
-		
-		
-		
-		f.setSize(500, 250);
-		f.getContentPane().setBackground(new Color(64, 64, 64)); // 배경색
-		f.setLayout(null); 
-		f.setResizable(false); // 크기 조절 안되게
-		f.setLocationRelativeTo(null); // 가운데에 뜨게
-		f.setVisible(true);
+		new OutputOKFrame();
 
 		
 		//JOptionPane.showMessageDialog(null, "영수증 출력 완료");
