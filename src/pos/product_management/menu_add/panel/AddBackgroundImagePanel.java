@@ -103,14 +103,14 @@ public class AddBackgroundImagePanel extends JPanel{
 		nonCoffee.setContentAreaFilled(false);
 		nonCoffee.setFocusPainted(false);
 
-		ade = new JRadioButton("Tea, Ade");
-		ade.setBounds(420, 290, 110, 70);
+		ade = new JRadioButton("Ade");
+		ade.setBounds(450, 290, 110, 70);
 		ade.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		ade.setBorderPainted(false);
 		ade.setContentAreaFilled(false);
 		ade.setFocusPainted(false);
 
-		frappe = new JRadioButton("Frappe, Blended");
+		frappe = new JRadioButton("Frappe");
 		frappe.setBounds(540, 290, 190, 70);
 		frappe.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		frappe.setBorderPainted(false);

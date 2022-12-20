@@ -32,7 +32,7 @@ import pos.product_management.menu_main.component.ModifyButton;
 
 public class ProductManagementJFrame extends JFrame {
 
-	public static MenuListJTable mj;
+	public MenuListJTable mj = new MenuListJTable(allMenu());
 
 	static JTextField serchText = new JTextField("키워드를 입력해주세요");
 
@@ -58,10 +58,8 @@ public class ProductManagementJFrame extends JFrame {
 		add(serch());
 
 		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
-
-		mj = new MenuListJTable(allMenu());
+		
 		add(mj);
-
 
 		buttons();
 	}

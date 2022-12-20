@@ -1,5 +1,6 @@
 package pos.kjh;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -43,6 +44,21 @@ public class MenuListJTable extends JTable{
 	         }
 	    };	
 
+	// 행 선택 여부 반환
+	public boolean getSelected() {
+		if (table.getSelectedRow() == -1) {
+		 return false;	
+		}
+		return true;
+	}
+	    
+	// 선택한 행의 메뉴 넘버를 받아오기 위한 메서드
+	public int getMenuNumber() {
+		int row = table.getSelectedRow();
+		
+		return Integer.parseInt(table.getValueAt(row, 0).toString());
+	}
+	
 	
 	// JTable 선택값 삭제 메서드
 	public void delete() throws IOException, SQLException {
@@ -55,7 +71,6 @@ public class MenuListJTable extends JTable{
 			// 삭제 메뉴 확인 창
 			table.setEnabled(false);
 			new DeleteFrame();
-
 
 		}
 	}
@@ -87,7 +102,6 @@ public class MenuListJTable extends JTable{
 
 	// JTable로 DB값 불러오는 메서드
 	public MenuListJTable(String sqlCondition) throws SQLException {
-		
 
 		String sql = sqlCondition;
 
@@ -116,8 +130,7 @@ public class MenuListJTable extends JTable{
 			// 헤더 높이 조절
 			JTableHeader th = table.getTableHeader();
 			th.setPreferredSize(new Dimension(50, 50));
-			
-			
+			th.setBackground(new Color(217, 217, 217));
 			th.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 			
 			table.setRowHeight(35);
