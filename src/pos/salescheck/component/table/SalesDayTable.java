@@ -28,7 +28,11 @@ import pos.salescheck.component.button.SalesSearchButton;
 public class SalesDayTable extends JTable {
 
 	private static String colTitle[] = {"시간", "매출액"};
-	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0);
+	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0) {
+		 public boolean isCellEditable(int i, int c) {
+	          return false;
+	         }
+	};
 
 
 	String year;

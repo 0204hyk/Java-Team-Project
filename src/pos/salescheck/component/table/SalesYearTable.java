@@ -18,7 +18,11 @@ import database.OjdbcConnection;
 public class SalesYearTable extends JTable {
 
 	private static String colTitle[] = {"선택 연도", "매출액"};
-	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0);
+	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0) {
+		public boolean isCellEditable(int i, int c) {
+	          return false;
+	         }
+	};
 
 
 	String year;
