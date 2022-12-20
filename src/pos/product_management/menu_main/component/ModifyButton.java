@@ -25,16 +25,16 @@ public class ModifyButton extends JButton implements ActionListener{
 		
 		try {
 			BufferedImage bufferedfixBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/수정 시작 버튼.png"));
-			Image fixBtnImage = bufferedfixBtnImage.getScaledInstance(120,55, Image.SCALE_SMOOTH);
+			Image fixBtnImage = bufferedfixBtnImage.getScaledInstance(130,65, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(fixBtnImage));
-			setBounds(900, 620, 120, 55);
+			setBounds(880, 620, 130, 65);
 			
 			setBorderPainted(false);
 			setContentAreaFilled(false);
 			setFocusPainted(false);
 			
 			BufferedImage bufferedBtnClickImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png"));
-			Image btnClickImage = bufferedBtnClickImage.getScaledInstance(120,55, Image.SCALE_SMOOTH);
+			Image btnClickImage = bufferedBtnClickImage.getScaledInstance(130,65, Image.SCALE_SMOOTH);
 			Icon btnClickIcon = new ImageIcon(btnClickImage);
 			setPressedIcon(btnClickIcon);
 		} catch (IOException e1) {
