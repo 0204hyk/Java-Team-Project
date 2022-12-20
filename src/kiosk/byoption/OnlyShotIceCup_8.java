@@ -9,7 +9,7 @@ public class OnlyShotIceCup_8 {
 	WithImage wi = new WithImage(root);
 
 	public OnlyShotIceCup_8(JPanel topImage, String menu) {
-		Options op = new Options(menu);
+		Options op = new Options(menu, Options.choiceMenu);
 		int x = 78;
 		int y = 330;
 

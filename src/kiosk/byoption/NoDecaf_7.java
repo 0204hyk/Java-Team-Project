@@ -12,7 +12,7 @@ public class NoDecaf_7 {
 	WithImage wi = new WithImage(root);
 	
 	public NoDecaf_7(JPanel topImage, String menu) {
-		Options op = new Options(menu);
+		Options op = new Options(menu, Options.choiceMenu);
 		int x = 78;
 		int y = 300;
 

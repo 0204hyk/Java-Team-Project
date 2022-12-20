@@ -9,7 +9,7 @@ public class NoHot_3 {
 	WithImage wi = new WithImage(root);
 
 	public NoHot_3(JPanel topImage, String menu) {
-		Options op = new Options(menu);
+		Options op = new Options(menu, Options.choiceMenu);
 		int x = 78;
 		int y = 310;
 

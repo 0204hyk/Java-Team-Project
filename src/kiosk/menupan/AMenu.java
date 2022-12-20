@@ -21,11 +21,8 @@ public class AMenu extends JPanel {
 	DecimalFormat df = new DecimalFormat("#,###");
 	static int num = 0;
 	String menu, temparature;
-	GetImageInfo gi = new GetImageInfo(menu);
-	JLabel cups;
-	JLabel menuPricelb;
-	
-	public static int yy = 0;
+
+	public static int yy = 712;
 	int x = 0, y = 0;
 	// 장바구니에 한 줄씩 들어감
 
@@ -33,37 +30,12 @@ public class AMenu extends JPanel {
 		this.menu = menu;
 		this.temparature = temparature;
 
-	}
-
-	public AMenu() {
-
-		// 생성할때마다 하나씩 증가
+		GetImageInfo gi = new GetImageInfo(menu);
+		
+		// 생성할때마다 증가
 		num++;
-
-		add(sequence());
-		add(menuName());
-		add(menuPrice());
-		add(cups());
-		add(minus());
-		add(plus());
-		add(delete());
-
-		setOpaque(false);
-		setBorder(null);
-		setLayout(null);
-		setVisible(true);
-		setBounds(31, 760, 505, 41);
-
-	}
-
-	public JLabel sequence() {
-
-		// 음료 순번
-		return wi.makeLabel(num + ".png", x + 4, y + 5, 31, 31);
-	}
-
-	public JLabel menuName() {
-
+		yy += 48;
+		
 		// 음료 이름
 		String menuName = "";
 		if (temparature == null) {
@@ -74,52 +46,21 @@ public class AMenu extends JPanel {
 
 		JLabel menuNamelb = new JLabel(menuName);
 		menuNamelb.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		menuNamelb.setBounds(70, 771, 200, 32);
+		menuNamelb.setBounds(x + 45, y + 5, 200, 32);
 
-		return menuNamelb;
-	}
-
-	public JLabel menuPrice() {
 		// 가격
 		String price = df.format(gi.getMenuPrice() * TotalCups.cup) + "원";
-		menuPricelb = new JLabel(price);
+		JLabel menuPricelb = new JLabel(price);
 		menuPricelb.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		menuPricelb.setBounds(x + 41, y + 5, 70, 32);
+		menuPricelb.setBounds(x + 250, y + 5, 70, 32);
 
-		return menuPricelb;
-	}
-
-	public JLabel cups() {
 		// 잔 수
-		cups = new JLabel(TotalCups.cup + "잔");
+		JLabel cups = new JLabel(TotalCups.cup + "잔");
 		cups.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		cups.setBounds(379, 10, 35, 22);
+		cups.setBounds(x + 374, y+ 9, 35, 22);
 		cups.setHorizontalAlignment(JLabel.CENTER);
 
-		return cups;
-	}
-
-	public JButton minus() {
-		// 마이너스
-		JButton minus = wi.makeButton("minus.png", x + 344, y + 11, 18, 18);
-		minus.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (TotalCups.cup > 1) {
-					TotalCups.cup = TotalCups.cup - 1;
-				} else if (TotalCups.cup < 1) {
-					TotalCups.cup = 1;
-				}
-				cups.setText(TotalCups.cup + "잔");
-				menuPricelb.setText(df.format(gi.getMenuPrice() * TotalCups.cup) + "원");
-			}
-		});
-
-		return minus;
-	}
-
-	public JButton plus() {
+		// 더하기 버튼
 		JButton plus = wi.makeButton("plus.png", x + 419, y + 11, 18, 18);
 		plus.addActionListener(new ActionListener() {
 
@@ -136,10 +77,21 @@ public class AMenu extends JPanel {
 			}
 		});
 
-		return plus;
-	}
+		// 빼기
+		JButton minus = wi.makeButton("minus.png", x + 344, y + 11, 18, 18);
+		minus.addActionListener(new ActionListener() {
 
-	public JButton delete() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (TotalCups.cup > 1) {
+					TotalCups.cup = TotalCups.cup - 1;
+				} else if (TotalCups.cup < 1) {
+					TotalCups.cup = 1;
+				}
+				cups.setText(TotalCups.cup + "잔");
+				menuPricelb.setText(df.format(gi.getMenuPrice() * TotalCups.cup) + "원");
+			}
+		});
 
 		// 삭제 버튼
 		JButton delete = wi.makeButton("delete.png", x + 457, y + 5, 31, 31);
@@ -148,13 +100,33 @@ public class AMenu extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				setVisible(false);
+				
 				if (num != 1) {
 					num = num - 1;
 				}
 			}
 		});
-		return delete;
+		
+
+		setOpaque(false);
+		setBorder(null);
+		setLayout(null);
+
+		// 음료 순번
+		add(wi.makeLabel(num + ".png", x + 4, y + 5, 31, 31));
+		add(cups);
+		add(menuNamelb);
+		add(menuPricelb);
+		add(plus);
+		add(minus);
+		add(delete);
+
+		
+		setBounds(31, yy, 505, 41);
+		setVisible(true);
+		
+
 	}
 
 }

@@ -12,7 +12,7 @@ public class OnlyDecafShotCup_6 {
 	WithImage wi = new WithImage(root);
 
 	public OnlyDecafShotCup_6(JPanel topImage, String menu) {
-		Options op = new Options(menu);
+		Options op = new Options(menu, Options.choiceMenu);
 		int x = 78;
 		int y = 330;
 		op.decaffein(x, y);

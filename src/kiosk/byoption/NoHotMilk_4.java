@@ -9,7 +9,7 @@ public class NoHotMilk_4 {
 	WithImage wi = new WithImage(root);
 
 	public NoHotMilk_4(JPanel topImage, String menu) {
-		Options op = new Options(menu);
+		Options op = new Options(menu, Options.choiceMenu);
 		int x = 78;
 		int y = 320;
 

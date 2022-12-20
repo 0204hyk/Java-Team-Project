@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import kiosk.byoption.Options;
 import kiosk.tools.WithImage;
 
 public class ChoiceMenu extends JFrame {
@@ -26,23 +27,20 @@ public class ChoiceMenu extends JFrame {
 	JPanel noncoffeePn = new PanelsByCategory(4, 5);
 	JPanel adePn = new PanelsByCategory(5, 3);
 	
-	static public Cart cart = new Cart();
-	
 	public ChoiceMenu() {
+		
 		defaults();
 		tabs();
 		pay();
-		add(cart);
-		cart.setVisible(true);
 		
 		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setVisible(true);
-
 		getContentPane().setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
+		
+		setVisible(true);
 	}
 
 	public void defaults() {
@@ -185,10 +183,14 @@ public class ChoiceMenu extends JFrame {
 //		add(cart);
 //	}
 	
+	public void addMenu(AMenu menu) {
+		
+		
+	}
+	
 	public static void main(String[] args) {
 		
-		ChoiceMenu choiceMenu = new ChoiceMenu(); //이 객체에 있는 장바구니에 음료를 담아야한다
-		
+		Options.choiceMenu = new ChoiceMenu();
 	}
 
 }

@@ -8,10 +8,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import database.kiosk.GetImageInfo;
 import kiosk.menupan.AMenu;
-import kiosk.menupan.Cart;
 import kiosk.menupan.ChoiceMenu;
 import kiosk.tools.GroupButtons;
 import kiosk.tools.WithImage;
@@ -32,10 +32,14 @@ public class Options extends JFrame {
 	
 	String menu;
 	
+	ChoiceMenu frame;
+	
 	GetImageInfo gi = new GetImageInfo(menu);
+	static public ChoiceMenu choiceMenu;
 
-	public Options(String menu) {
+	public Options(String menu, ChoiceMenu frame) {
 		this.menu = menu;
+		this.frame = frame;
 		
 		defaults();
 		setUndecorated(true);
@@ -97,12 +101,8 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 1. 옵션 미선택 된 부분 막기 2. 담아서 장바구니로 넘기기
-
-				// 메뉴 이름을 찾아서 넣어줌
-				AMenu a = new AMenu(menu, hotAndIce);
-				ChoiceMenu.cart.setViewportView(a);
-				a.setVisible(true);
 				
+				frame.add(new AMenu(menu, hotAndIce));
 				dispose();
 				
 			}
@@ -353,5 +353,8 @@ public class Options extends JFrame {
 				milk = "Lowfat";
 			}
 		});
+	}
+	
+	public static void main(String[] args) {
 	}
 }

@@ -20,6 +20,7 @@ import kiosk.byoption.OnlyDecafShotCup_6;
 import kiosk.byoption.OnlyShotCup_5;
 import kiosk.byoption.OnlyShotIceCup_8;
 import kiosk.byoption.TopImage;
+import kiosk.byoption.TotalCups;
 import kiosk.tools.WithImage;
 
 public class MakeMenuButton extends JButton implements ActionListener {
@@ -68,7 +69,7 @@ public class MakeMenuButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		TotalCups.cup = 1; // 장바구니에서 수량을 올리면 그 숫자부터 시작하기 때문에 초기화 시켜놓기
 		if (ctgNum == 1) {
 			new All_1(new TopImage(menu), menu);
 		} else if (ctgNum == 2) {

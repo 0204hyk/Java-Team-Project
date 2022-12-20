@@ -9,7 +9,7 @@ public class OnlyShotCup_5 {
 	WithImage wi = new WithImage(root);
 
 	public OnlyShotCup_5(JPanel topImage, String menu) {
-		Options op = new Options(menu);
+		Options op = new Options(menu, Options.choiceMenu);
 		int x = 78;
 		int y = 330;
 		op.cup(x, y);

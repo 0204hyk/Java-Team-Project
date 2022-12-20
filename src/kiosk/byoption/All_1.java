@@ -10,7 +10,7 @@ public class All_1 {
 	WithImage wi = new WithImage(root);
 	
 	public All_1(JPanel topImage, String menu) {
-		Options op = new Options(menu);
+		Options op = new Options(menu, Options.choiceMenu);
 		
 		int x = 78;
 		int y = 276;
