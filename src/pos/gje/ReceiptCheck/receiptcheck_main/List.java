@@ -1,5 +1,6 @@
 package pos.gje.ReceiptCheck.receiptcheck_main;
 
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import database.OjdbcConnection;
@@ -22,7 +24,11 @@ import pos.gje.ReceiptCheck.receiptcheck_main.component.RefundButton;
 public class List {
 
 	static private String[] top = {" ", "영수증번호"};
-	public static DefaultTableModel contents = new DefaultTableModel(top, 0); // 테이블 안에 들어가는 데이터 값을 채워넣음
+	public static DefaultTableModel contents = new DefaultTableModel(top, 0){ // 테이블 안에 들어가는 데이터 값을 채워넣음
+		public boolean isCellEditable(int row, int column){
+			return false;
+		}
+	};  //셀 수정 못하게 하는 부분
 	public static JTable table = new JTable(contents); 
 	public static JScrollPane scroll;
 	static ArrayList<String> number = new ArrayList<>();
@@ -57,6 +63,7 @@ public class List {
 			e.printStackTrace();
 		}
 		
+		
 		// 만든 테이블 스크롤에 붙이기
 		//table = new JTable(contents);
 		scroll = new JScrollPane(table);
@@ -88,16 +95,19 @@ public class List {
 				//select(1);
 			}
 		});
+		// 글꼴 설정 
+		table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 23)); 
+		table.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		
-		//select(0);
+		// 하나만 선택되게 설정 
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		
+	
+	            
 	}
 	
-	// 클릭이 됐을 때 출력 버튼이 활성화 되어야함. 
-	static boolean select (int num) {
-		boolean a = num == 1 ? true : false;
-		
-		return a;
-	}
+
 	
 	public void changeTextA(String num, String point) {
 		JTextArea a = PrintScroll.p;
