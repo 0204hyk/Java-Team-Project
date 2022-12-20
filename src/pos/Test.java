@@ -3,13 +3,11 @@ package pos;
 
 import java.awt.GridLayout;
 import java.awt.Image;
-
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import pos.calculation.popup.ExistFrame;
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_message.ClosingMessageFrame;
