@@ -4,6 +4,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Calendar;
 import javax.swing.JComboBox;
+
+import pos.salescheck.component.table.SalesDayTable;
+import pos.salescheck.component.table.SalesMonthTable;
 import pos.salescheck.component.table.SalesYearTable;
 
 public class YearComboBox extends JComboBox  {
@@ -24,8 +27,12 @@ public class YearComboBox extends JComboBox  {
 			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				SalesYearTable table = new SalesYearTable();
-				table.model.setNumRows(0);
+				SalesYearTable yearTable = new SalesYearTable();
+				yearTable.model.setNumRows(0);
+				SalesMonthTable monthTable = new SalesMonthTable();
+				monthTable.model.setNumRows(0);
+				SalesDayTable dayTable = new SalesDayTable();
+				dayTable.model.setNumRows(0);
 			}
 		});
 	}
