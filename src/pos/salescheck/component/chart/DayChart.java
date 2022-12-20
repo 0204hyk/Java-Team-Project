@@ -64,7 +64,7 @@ public class DayChart extends JPanel {
 
 				while (rs.next()) {
 					dataset.addValue(rs.getInt("total"), 
-							rs.getString(1) + "시", rs.getString(1) + "시");
+							rs.getString(1) + "h", rs.getString(1) + "h");
 				}
 			}
 		} catch (Exception e) {
