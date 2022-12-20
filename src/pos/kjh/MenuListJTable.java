@@ -38,7 +38,7 @@ public class MenuListJTable extends JTable{
 	public static int quantity;
 	public static JPanel panel;
 	
-	
+	ProductManagementJFrame p;
 
 	// JTable 내용 값
 	public static DefaultTableModel contents = new DefaultTableModel(top, 0)
@@ -60,7 +60,7 @@ public class MenuListJTable extends JTable{
 	}
 
 	// JTable 선택값 삭제 메서드
-	public void delete() throws IOException {
+	public void delete() throws IOException, SQLException {
 
 		int index = table.getSelectedRow();
 		if(index < 0){
@@ -160,9 +160,6 @@ public class MenuListJTable extends JTable{
 			table.getTableHeader().setReorderingAllowed(false);
 			table.getTableHeader().setResizingAllowed(false);
 			
-			
-
-			
 			// 테이블 내용 가운데 정렬하기
 			DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer(); 
 			dtcr.setHorizontalAlignment(SwingConstants.CENTER); // 렌더러의 가로정렬을 CENTER로
@@ -189,10 +186,6 @@ public class MenuListJTable extends JTable{
 			setVisible(true);
 		}
 	}
-	
-//	public static String getmenuName(String name) {
-//
-//		return menuName;
-//	}
+
 
 }

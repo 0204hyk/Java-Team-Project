@@ -214,7 +214,6 @@ public class ProductManagementJFrame extends JFrame {
 			}
 		});
 
-//mj.delete(); setEnabled(false);
 		// 삭제 버튼
 		deleteBtn.addMouseListener(new MouseAdapter() {
 			@Override
@@ -224,18 +223,16 @@ public class ProductManagementJFrame extends JFrame {
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 				
 			}
 			
 		});
 				
-				
-		
-//		else if (cBtn.isSelected()) {
-//			setEnabled(true);
-//			dcp.setVisible(false);
-//		}
+
 
 		// 수정 버튼
 		modifyBtn.addActionListener(new ActionListener() {
