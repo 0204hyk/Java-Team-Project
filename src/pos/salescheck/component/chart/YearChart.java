@@ -23,7 +23,7 @@ public class YearChart extends JPanel {
     String year;
     String month;
     String day;
-    public static String hap;
+    String hap;
     
     public YearChart() {
     	  CategoryDataset datasetResult = createDataset();

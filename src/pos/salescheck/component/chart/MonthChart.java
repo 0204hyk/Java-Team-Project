@@ -23,7 +23,7 @@ public class MonthChart extends JPanel {
     String year;
     String month;
     String day;
-    public static String hap;
+    String hap;
     
     public MonthChart() {
     	CategoryDataset datasetResult = createDataset();
@@ -39,14 +39,7 @@ public class MonthChart extends JPanel {
     public MonthChart(String year, String month) {
     	this.year = year;
     	this.month = month;
-    
-    
-    	hap = year + month;
-    	System.out.println(hap);
-//    	String sql = "SELECT s.saleDate, sales_m.total_price AS total_price "
-//				+ "FROM sales s INNER JOIN sales_management sales_m "
-//				+ "USING (sales_number)"
-//				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ?";
+    	hap = year + month;    
     	
     	String sql = "SELECT to_char(s.saledate, 'YYYY-MM-DD'), sum(p.price) AS total "
     			+ "FROM sales s INNER JOIN PAYMENT p "

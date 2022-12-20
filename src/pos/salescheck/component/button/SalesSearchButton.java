@@ -18,6 +18,8 @@ import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.table.SalesMonthTable;
 import pos.salescheck.component.table.SalesYearTable;
 
+// 매출요약 검색 버튼
+
 public class SalesSearchButton extends JButton {
 
 	ImageScaledTool tool = new ImageScaledTool();

@@ -23,13 +23,12 @@ public class DayChart extends JPanel {
 	String year;
 	String month;
 	String day;
-	public static String hap;
+	String hap;
 
 
 	public DayChart() {
 		CategoryDataset datasetResult = createDataset();
 		JFreeChart chart = createChart(datasetResult);
-
 		ChartPanel panel = new ChartPanel(chart);
 		panel.setPreferredSize(new Dimension(500, 500));
 		add(panel);
