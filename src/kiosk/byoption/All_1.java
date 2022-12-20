@@ -7,9 +7,13 @@ import kiosk.tools.WithImage;
 public class All_1 {
 	String root = "images/KioskImages/4. detailedOption";
 	WithImage wi = new WithImage(root);
-	Options op = new Options();
-
-	public All_1(JPanel topImage) {
+	String menu;
+	Options op = new Options(menu);
+	
+	public All_1(JPanel topImage, String menu) {
+		
+		this.menu = menu;
+		
 		int x = 78;
 		int y = 276;
 
@@ -24,9 +28,10 @@ public class All_1 {
 
 		op.setVisible(true);
 	}
+	
+	
 
 	public static void main(String[] args) {
-
 	}
 
 }

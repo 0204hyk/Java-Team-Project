@@ -15,11 +15,11 @@ public class GetImageInfo {
 	String menuImageRoot= "";
 	String menuNameKor="";
 	String menuNameEng="";
+	Integer menuOptionCategory = null;
 	Integer menuPrice = null;
-	
+	String menu = "";
 	
 	public GetImageInfo(String menu) {
-
 		String query = "SELECT * FROM menu WHERE menu_name = ?";
 
 		try (Connection conn = OjdbcConnection.getConnection();
@@ -30,6 +30,7 @@ public class GetImageInfo {
 			try (ResultSet rs = pstmt.executeQuery()) {
 				while (rs.next()) {
 					menuImageRoot = rs.getString("menu_image");
+					menuOptionCategory = rs.getInt("option_category_number");
 					menuNameKor = rs.getString("menu_name");
 					menuNameEng = rs.getString("menu_eng_name");
 					menuPrice = rs.getInt("price");
@@ -63,8 +64,8 @@ public class GetImageInfo {
 	}
 	
 	public static void main(String[] args) {
-		GetImageInfo gi = new GetImageInfo("피스타치오라떼");
-		System.out.println(gi.getMenuImageRoot());
+		GetImageInfo gi = new GetImageInfo("에스프레소");
+		System.out.println(gi.getMenuPrice());
 	}
 	
 }

@@ -7,9 +7,12 @@ import kiosk.tools.WithImage;
 public class NoMilk_2 {
 	String root = "images/KioskImages/4. detailedOption";
 	WithImage wi = new WithImage(root);
-	Options op = new Options();
+	String menu;
+	Options op = new Options(menu);
 
-	public NoMilk_2(JPanel topImage) {
+	public NoMilk_2(JPanel topImage, String menu) {
+		this.menu = menu;
+		
 		int x = 78;
 		int y = 295;
 
@@ -25,7 +28,7 @@ public class NoMilk_2 {
 
 	public static void main(String[] args) {
 
-		new NoMilk_2(new TopImage("아메리카노"));
+		new NoMilk_2(new TopImage("아메리카노"), "아메리카노");
 	}
 
 }

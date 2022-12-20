@@ -11,6 +11,7 @@ import database.OjdbcConnection;
 public class CheckMenuByCategories {
 
 	ArrayList<String> menuArr = new ArrayList<>();
+	ArrayList<Integer> menuOptionArr = new ArrayList<>();
 
 	public CheckMenuByCategories(int categoryNum) {
 		String query = "SELECT * FROM menu WHERE category_number = ?";
@@ -23,6 +24,7 @@ public class CheckMenuByCategories {
 			try (ResultSet rs = pstmt.executeQuery()) {
 				while (rs.next()) {
 					menuArr.add(rs.getString("menu_name"));
+					menuOptionArr.add(rs.getInt("option_category_number"));
 				}
 			}
 		} catch (SQLException e) {
@@ -36,7 +38,13 @@ public class CheckMenuByCategories {
 	}
 
 	public int getListSize() {
+		
 		return menuArr.size();
+	}
+
+	public ArrayList<Integer> getOptionNumber() {
+
+		return menuOptionArr;
 	}
 
 	public static void main(String[] args) {

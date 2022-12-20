@@ -10,9 +10,11 @@ import kiosk.tools.WithImage;
 public class NoDecaf_7 {
 	String root = "images/KioskImages/4. detailedOption";
 	WithImage wi = new WithImage(root);
-	Options op = new Options();
-
-	public NoDecaf_7(JPanel topImage) {
+	String menu;
+	Options op = new Options(menu);
+	
+	public NoDecaf_7(JPanel topImage, String menu) {
+		this.menu = menu;
 		int x = 78;
 		int y = 300;
 
@@ -28,6 +30,6 @@ public class NoDecaf_7 {
 	}
 
 	public static void main(String[] args) {
-		new NoDecaf_7(new TopImage("고구마 라떼"));
+		NoDecaf_7 d = new NoDecaf_7(new TopImage("고구마 라떼"),"고구마 라떼");
 	}
 }

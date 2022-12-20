@@ -15,7 +15,7 @@ public class TopImage extends JPanel {
 	String root = "images/KioskImages/menu/coffee/";
 	WithImage wi = new WithImage(root);
 	DecimalFormat df = new DecimalFormat("#,###");
-	
+
 	String image = "";
 
 	public TopImage(String menu) {
@@ -28,7 +28,7 @@ public class TopImage extends JPanel {
 		JLabel nameKor = new JLabel(gi.getMenuNameKor());
 		nameKor.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		nameKor.setForeground(Color.BLACK);
-		nameKor.setBounds(88, 13, 260, 30);
+		nameKor.setBounds(91, 13, 260, 30);
 		nameKor.setHorizontalAlignment(SwingConstants.LEFT);
 		add(nameKor);
 
@@ -36,7 +36,7 @@ public class TopImage extends JPanel {
 		JLabel nameEng = new JLabel(gi.getMenuNameEng());
 		nameEng.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
 		nameEng.setForeground(new Color(151, 159, 156));
-		nameEng.setBounds(90, 40, 230, 20);
+		nameEng.setBounds(93, 40, 230, 20);
 		nameEng.setHorizontalAlignment(SwingConstants.LEFT);
 		add(nameEng);
 
@@ -44,7 +44,7 @@ public class TopImage extends JPanel {
 		JLabel price = new JLabel("￦" + df.format(gi.getMenuPrice()));
 		price.setFont(new Font("맑은 고딕", Font.BOLD, 22));
 		price.setForeground(new Color(15, 11, 65));
-		price.setBounds(91, 72, 100, 22);
+		price.setBounds(94, 72, 100, 22);
 		price.setHorizontalAlignment(SwingConstants.LEFT);
 		add(price);
 
@@ -52,8 +52,8 @@ public class TopImage extends JPanel {
 		setBackground(Color.WHITE);
 		setBounds(65, 130, 350, 120);
 	}
-	
+
 	public static void main(String[] args) {
-		new OnlyShotCup_5(new TopImage("초콜릿 쿠키 젤라또 프라페"));
+		new OnlyShotCup_5(new TopImage("초콜릿 쿠키 젤라또 프라페"),"초콜릿 쿠키 젤라또 프라페");
 	}
 }

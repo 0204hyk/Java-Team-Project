@@ -7,9 +7,12 @@ import kiosk.tools.WithImage;
 public class OnlyShotIceCup_8 {
 	String root = "images/KioskImages/4. detailedOption";
 	WithImage wi = new WithImage(root);
-	Options op = new Options();
+	String menu;
+	Options op = new Options(menu);
+	
 
-	public OnlyShotIceCup_8(JPanel topImage) {
+	public OnlyShotIceCup_8(JPanel topImage, String menu) {
+		this.menu= menu;
 		int x = 78;
 		int y = 330;
 
@@ -22,7 +25,7 @@ public class OnlyShotIceCup_8 {
 	}
 
 	public static void main(String[] args) {
-		new OnlyShotIceCup_8(new TopImage("레몬 에이드"));
+		new OnlyShotIceCup_8(new TopImage("레몬 에이드"), "레몬 에이드");
 	}
 
 }

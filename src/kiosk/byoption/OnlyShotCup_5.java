@@ -7,9 +7,11 @@ import kiosk.tools.WithImage;
 public class OnlyShotCup_5 {
 	String root = "images/KioskImages/4. detailedOption";
 	WithImage wi = new WithImage(root);
-	Options op = new Options();
+	String menu;
+	Options op = new Options(menu);
 
-	public OnlyShotCup_5(JPanel topImage) {
+	public OnlyShotCup_5(JPanel topImage, String menu) {
+		this.menu= menu;
 		int x = 78;
 		int y = 330;
 		op.cup(x, y);
@@ -20,7 +22,7 @@ public class OnlyShotCup_5 {
 	}
 
 	public static void main(String[] args) {
-		new OnlyShotCup_5(new TopImage("그린티 프라페"));
+		new OnlyShotCup_5(new TopImage("그린티 프라페"), "그린티 프라페");
 		
 	}
 

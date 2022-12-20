@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import kiosk.byoption.AMenu;
 import kiosk.tools.WithImage;
 
 public class ChoiceMenu extends JFrame {
@@ -18,19 +19,21 @@ public class ChoiceMenu extends JFrame {
 	String root = "images/KioskImages/3. 메뉴선택";
 	WithImage wi = new WithImage(root);
 
-	CardLayout card = new CardLayout();
-	JPanel coffeePanels = new JPanel(card);
+	CardLayout card;
+	JPanel coffeePns;
 
-	JPanel coffeePn = new PanelsByCategory(2);
-	JPanel frappePn = new PanelsByCategory(3);
-	JPanel noncoffeePn = new PanelsByCategory(4);
-	JPanel adePn = new PanelsByCategory(5);
+	JPanel coffeePn = new PanelsByCategory(2, 9);
+	JPanel coffeePn1 = new PanelsByCategory(2, 1);
+	JPanel frappePn = new PanelsByCategory(3, 9);
+	JPanel noncoffeePn = new PanelsByCategory(4, 5);
+	JPanel adePn = new PanelsByCategory(5, 3);
 
+	public static JScrollPane cart = new Cart();
+	
 	public ChoiceMenu() {
 
 		defaults();
 		tabs();
-
 		pay();
 		cart();
 
@@ -54,6 +57,13 @@ public class ChoiceMenu extends JFrame {
 	}
 
 	public void tabs() {
+		card = new CardLayout();
+		coffeePns = new JPanel(card);
+
+		// 카테고리 번호와 한 패널에 들어갈 음료 개수 입력
+
+//		coffeePn1 = new PanelsByCategory(2, 1);
+
 		int x = 22;
 		int y = 130;
 
@@ -63,12 +73,17 @@ public class ChoiceMenu extends JFrame {
 		JButton frappe = wi.makeButton("프라페.png", x + 372, y, 110, 46);
 		JButton ade = wi.makeButton("에이드.png", x + 496, y, 110, 46);
 
+		coffeePns.add(coffeePn);
+//		coffeePns.add(coffeePn1);
+		coffeePns.setBounds(74, 212, 503, 508);
+
+//		add(coffeePns);
 		add(coffeePn);
 		add(frappePn);
 		add(noncoffeePn);
 		add(adePn);
 
-		// 해당 카테고리 커피들이 뜨도록하기
+		// 해당 카테고리 커피들이 뜨도록 하기
 		coffee.addActionListener(new ActionListener() {
 
 			@Override
@@ -107,7 +122,7 @@ public class ChoiceMenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				card.next(coffeePanels);
+				card.next(coffeePns);
 			}
 		});
 
@@ -116,15 +131,9 @@ public class ChoiceMenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				card.previous(coffeePanels);
+				card.previous(coffeePns);
 			}
 		});
-
-//		coffeePanels.add(coffeePanel);
-//		coffeePanels.add(coffeePanel2);
-//		add(coffeePanels);
-//		coffeePanels.add(left);
-//		coffeePanels.add(right);
 
 		add(left);
 		add(right);
@@ -165,16 +174,14 @@ public class ChoiceMenu extends JFrame {
 	}
 
 	public void cart() {
-		// 스크롤
-		JScrollPane scrollablePane = new JScrollPane();
-		JLabel menuBg = wi.makeLabel("wholeMenu.png", 25,760,505,391);
-		scrollablePane.setViewportView(menuBg);
-		scrollablePane.setOpaque(false);
-		scrollablePane.getViewport().setOpaque(false);
-		scrollablePane.setBounds(25, 760, 505, 391);
-//		scrollablePane.setBorder(null);
-		add(scrollablePane);
 		
+		
+		cart.setVisible(true);
+		
+		add(cart);
+	}
+
+	public void put() {
 
 	}
 

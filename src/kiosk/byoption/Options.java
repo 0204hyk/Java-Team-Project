@@ -1,12 +1,15 @@
 package kiosk.byoption;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
+import kiosk.menupan.ChoiceMenu;
 import kiosk.tools.GroupButtons;
 import kiosk.tools.WithImage;
 
@@ -22,10 +25,16 @@ public class Options extends JFrame {
 	String ice;
 	String milk;
 
-	public Options() {
+	JLabel cups = new JLabel("1잔");
+	
+	int orderedCup;
+	String menu;
 
+	public Options(String menu) {
+
+		this.menu = menu;
+		
 		defaults();
-
 		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
@@ -36,24 +45,29 @@ public class Options extends JFrame {
 	}
 
 	public void defaults() {
-		TotalCups tc = new TotalCups();
-		add(tc);
+		cups.setBounds(470, 174, 47, 23);
+		cups.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
+		cups.setHorizontalAlignment(JLabel.CENTER);
+		cups.setVerticalAlignment(JLabel.CENTER);
 
 		add(wi.makeLabel("hy.png", 53, 24, 60, 83));
 		add(wi.makeButton("home.png", 543, 44, 52, 52));
 
 		JButton minus = wi.makeButton("minus.png", 420, 170, 32, 32);
 
+
 		minus.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				if (tc.cup > 1) {
-					tc.setCup(tc.cup - 1);
-				} else if (tc.cup < 1) {
-					tc.setCup(tc.cup);
+				if (TotalCups.cup > 1) {
+					TotalCups.cup = TotalCups.cup - 1;
+
+				} else if (TotalCups.cup < 1) {
+					TotalCups.cup = 1;
 				}
+				cups.setText(TotalCups.cup + "잔");
 			}
 		});
 
@@ -63,11 +77,12 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (tc.cup > 0) {
-				tc.setCup(tc.cup + 1);
-				} else if (tc.cup > 98) {
-					tc.setCup(tc.cup);
+				if (TotalCups.cup > 0) {
+					TotalCups.cup = TotalCups.cup + 1;
+				} else if (TotalCups.cup > 98) {
+					TotalCups.cup = 99;
 				}
+				cups.setText(TotalCups.cup + "잔");
 
 			}
 		});
@@ -78,7 +93,12 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				// 1. 옵션 미선택 된 부분 막기 2. 담아서 장바구니로 넘기기
 
+				System.out.println("담기 성공이삼");
+				dispose();
+				ChoiceMenu.cart.setViewportView((new AMenu(menu, hotAndIce)));
+				
 				System.out.println(hotAndIce);
 				System.out.println(decaffein);
 				System.out.println(cup);
@@ -95,10 +115,12 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				TotalCups.cup = 1;
 				dispose();
 			}
 		});
 
+		add(cups);
 		add(minus);
 		add(plus);
 		add(put);
