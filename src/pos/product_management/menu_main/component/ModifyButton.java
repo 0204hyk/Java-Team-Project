@@ -75,8 +75,8 @@ public class ModifyButton extends JButton implements ActionListener{
 				
 				ResultSet rs = pstmt.executeQuery();
 				if (rs.next()) {
-					frame.nameField.setText(rs.getString(1));
-					frame.priceField.setText(rs.getString(2));
+					frame.panel.nameField.setText(rs.getString(1));
+					frame.panel.priceField.setText(rs.getString(2));
 					
 					int categoryNum = rs.getInt(3);
 					int optionNum = rs.getInt(4);

@@ -18,31 +18,14 @@ public class ModifyFrame extends JFrame{
 	ProductManagementJFrame mainFrame;
 	public ModifyBackgroundImagePanel panel;
 	
-	public JTextField nameField;
-	public JFormattedTextField priceField;
-	
 	public ModifyFrame(ProductManagementJFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		setTitle("메뉴 수정");
 		
 		panel = new ModifyBackgroundImagePanel();
 		
-		nameField = new JTextField();
-		nameField.setBounds(190, 105, 700, 49);
-		nameField.setOpaque(false);
-		nameField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		nameField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-
-		priceField = new JFormattedTextField(new NumberFormatter());
-		priceField.setBounds(190, 213, 700, 49);
-		priceField.setOpaque(false);
-		priceField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		priceField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		
 		add(new ModifyEscapeBtn(mainFrame, this));
-		add(new ModifyOKButton(new CheckFrame()));
-		add(nameField);
-		add(priceField);
+		add(new ModifyOKButton(mainFrame, new CheckFrame(), panel));
 		add(panel);
 		
 		setUndecorated(true);

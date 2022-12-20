@@ -17,6 +17,9 @@ import pos.product_management.menu_add.component.MenuAddButton;
 import pos.product_management.menu_add.message_frame.AddFix;
 
 public class ModifyBackgroundImagePanel extends JPanel {
+
+	public JTextField nameField;
+	public JFormattedTextField priceField;
 	
 	public JRadioButton coffee;
 	public JRadioButton nonCoffee;
@@ -32,6 +35,7 @@ public class ModifyBackgroundImagePanel extends JPanel {
 	public JRadioButton option7;		
 	public JRadioButton option8;		
 
+
 	
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
@@ -46,6 +50,20 @@ public class ModifyBackgroundImagePanel extends JPanel {
 		
 		setLayout(null); 
 		setSize(900, 550);
+		
+		nameField = new JTextField();
+		nameField.setBounds(190, 105, 700, 49);
+		nameField.setOpaque(false);
+		nameField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		nameField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		nameField.setEditable(false);	// 추가, 삭제 기능이 따로 있으므로 수정에서는 메뉴 이름 변경 막아두기
+
+		priceField = new JFormattedTextField(new NumberFormatter());
+		priceField.setBounds(190, 213, 700, 49);
+		priceField.setOpaque(false);
+		priceField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		priceField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+
 		
 		// 카테고리 분류
 		ButtonGroup categoryBtnGroup = new ButtonGroup();
@@ -154,8 +172,8 @@ public class ModifyBackgroundImagePanel extends JPanel {
 		optionBtnGroup.add(option7);
 		optionBtnGroup.add(option8);
 		
-//		add(nameField);
-//		add(priceField);
+		add(nameField);
+		add(priceField);
 		add(coffee);
 		add(nonCoffee);
 		add(ade);

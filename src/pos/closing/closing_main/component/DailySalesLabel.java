@@ -26,10 +26,12 @@ public class DailySalesLabel extends JLabel {
 			ResultSet rs = pstmt.executeQuery();
 		) {
 			if (rs.next()) {
-				setText(rs.getString(1));
-			} else {
-				setText("0");
-			}
+				if (rs.getString(1) == null) {
+					setText("0");
+				} else {
+					setText(rs.getString(1));					
+				}
+			} 
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

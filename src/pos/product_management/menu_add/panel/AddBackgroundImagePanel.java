@@ -29,8 +29,8 @@ public class AddBackgroundImagePanel extends JPanel{
 	
 	MenuAddFrame frame;
 	
-	public JTextField nameField = nameAdd();
-	public JFormattedTextField priceField = priceAdd();
+	public JTextField nameField;
+	public JFormattedTextField priceField;
 	
 	public JRadioButton coffee;
 	public JRadioButton nonCoffee;
@@ -53,37 +53,26 @@ public class AddBackgroundImagePanel extends JPanel{
 		ImageIcon image = new ImageIcon
 				("images/PosImages/상품 관리 이미지/메뉴 추가 창 기본 틀.png");
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
-	}	
-	
-	public JTextField nameAdd() {
-		JTextField menuName = new JTextField();
-
-		menuName.setBounds(190, 105, 700, 49);
-		menuName.setOpaque(false);
-		menuName.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		menuName.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		
-		return menuName;
 	}
-	
-	// 숫자만 입력 받는 텍스트 필드
-	public JFormattedTextField priceAdd() {
-		JFormattedTextField menuPrice = new JFormattedTextField(new NumberFormatter());
-				
-		menuPrice.setBounds(190, 213, 700, 49);
-		menuPrice.setOpaque(false);
-		menuPrice.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		menuPrice.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		
-		return menuPrice;
-	}
-
 	
 	public AddBackgroundImagePanel(MenuAddFrame frame) {
 		this.frame = frame;
 		
 		setLayout(null); 
 		setSize(900, 550);
+		
+		nameField = new JTextField();
+		nameField.setBounds(190, 105, 700, 49);
+		nameField.setOpaque(false);
+		nameField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		nameField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+
+		priceField = new JFormattedTextField(new NumberFormatter());
+		priceField.setBounds(190, 213, 700, 49);
+		priceField.setOpaque(false);
+		priceField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		priceField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+
 		
 		// 카테고리 분류
 		ButtonGroup categoryBtnGroup = new ButtonGroup();
@@ -230,7 +219,6 @@ public class AddBackgroundImagePanel extends JPanel{
 		add(option6);
 		add(option7);
 		add(option8);
-
 		
 	}
 
