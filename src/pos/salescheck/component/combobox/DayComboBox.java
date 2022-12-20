@@ -26,7 +26,6 @@ public class DayComboBox extends JComboBox {
 	Calendar now = Calendar.getInstance();
 	int day = now.get(Calendar.DATE);
 	
-	
 	public DayComboBox() {
 		
 		for (int i = 1; i <= now.getActualMaximum(Calendar.DAY_OF_MONTH); ++i) {
@@ -45,11 +44,7 @@ public class DayComboBox extends JComboBox {
 				SalesDayTable dayTable = new SalesDayTable();
 				dayTable.model.setNumRows(0);
 			}
-
 		});
-
-
 		setBounds(320, 100, 100, 25);
-		
 	}
 }

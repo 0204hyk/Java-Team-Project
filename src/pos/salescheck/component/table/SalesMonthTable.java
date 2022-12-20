@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -13,17 +12,15 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import database.OjdbcConnection;
 
-
 public class SalesMonthTable extends JTable {
 
 	private static String colTitle[] = {"날짜", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0) {
+		// 테이블 출력 값 선택되지 않게 설정
 		public boolean isCellEditable(int i, int c) {
 	          return false;
 	         }
 	};
-
-
 
 	String year;
 	String month; 
@@ -41,7 +38,6 @@ public class SalesMonthTable extends JTable {
 				(DefaultTableCellRenderer)table.getDefaultRenderer(Object.class);
 		renderer.setHorizontalAlignment( SwingConstants.CENTER );
 
-
 		table.setFont(getFont().deriveFont(23f));
 		table.getTableHeader().setFont(new Font("맑은 고딕", Font.PLAIN, 23));
 		scroll.setBounds(0, 0, 450, 360);
@@ -54,7 +50,6 @@ public class SalesMonthTable extends JTable {
 		setLayout(null);
 		setVisible(true);
 	}
-
 
 	public SalesMonthTable(String year, String month) {
 		this.year = year;
@@ -72,8 +67,7 @@ public class SalesMonthTable extends JTable {
 		try (
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-
-				) {
+			) {
 
 			pstmt.setString(1, plus);
 
@@ -87,7 +81,6 @@ public class SalesMonthTable extends JTable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
 }
 
