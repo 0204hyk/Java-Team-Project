@@ -43,8 +43,6 @@ public class DayComboBox extends JComboBox {
 				monthTable.model.setNumRows(0);
 				SalesDayTable dayTable = new SalesDayTable();
 				dayTable.model.setNumRows(0);
-				
-			
 			}
 			
 		});
