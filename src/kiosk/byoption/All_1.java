@@ -2,17 +2,15 @@ package kiosk.byoption;
 
 import javax.swing.JPanel;
 
+import kiosk.menupan.ChoiceMenu;
 import kiosk.tools.WithImage;
 
 public class All_1 {
 	String root = "images/KioskImages/4. detailedOption";
 	WithImage wi = new WithImage(root);
-	String menu;
-	Options op = new Options(menu);
 	
 	public All_1(JPanel topImage, String menu) {
-		
-		this.menu = menu;
+		Options op = new Options(menu);
 		
 		int x = 78;
 		int y = 276;
@@ -27,6 +25,7 @@ public class All_1 {
 		op.add(topImage);
 
 		op.setVisible(true);
+		
 	}
 	
 	

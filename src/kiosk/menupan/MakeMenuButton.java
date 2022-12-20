@@ -25,9 +25,8 @@ import kiosk.tools.WithImage;
 public class MakeMenuButton extends JButton implements ActionListener {
 	DecimalFormat df = new DecimalFormat("#,###");
 
-	int ctgNum;
 	String menu;
-	
+	int ctgNum;
 
 	public MakeMenuButton(int ctgNum, int optionNum, String menu, int x, int y) {
 		this.ctgNum = ctgNum;
@@ -65,42 +64,27 @@ public class MakeMenuButton extends JButton implements ActionListener {
 		addActionListener(this);
 
 	}
-	
-	public String getMenu() {
-		return menu;
-	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		switch (ctgNum) {
 
-		case 1:
+		if (ctgNum == 1) {
 			new All_1(new TopImage(menu), menu);
-			System.out.println(menu);
-			break;
-		case 2:
+		} else if (ctgNum == 2) {
 			new NoMilk_2(new TopImage(menu), menu);
-			break;
-		case 3:
+		} else if (ctgNum == 3) {
 			new NoHot_3(new TopImage(menu), menu);
-			break;
-		case 4:
+		} else if (ctgNum == 4) {
 			new NoHotMilk_4(new TopImage(menu), menu);
-			break;
-		case 5:
+		} else if (ctgNum == 5) {
 			new OnlyShotCup_5(new TopImage(menu), menu);
-			break;
-		case 6:
+		} else if (ctgNum == 6) {
 			new OnlyDecafShotCup_6(new TopImage(menu), menu);
-			break;
-		case 7:
+		} else if (ctgNum == 7) {
 			new NoDecaf_7(new TopImage(menu), menu);
-			break;
-		case 8:
+		} else if (ctgNum == 8) {
 			new OnlyShotIceCup_8(new TopImage(menu), menu);
-			break;
-
 		}
 	}
 

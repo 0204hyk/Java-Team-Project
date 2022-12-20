@@ -3,7 +3,6 @@ package kiosk.menupan;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import kiosk.byoption.AMenu;
 import kiosk.tools.WithImage;
 
 public class Cart extends JScrollPane {
@@ -11,12 +10,19 @@ public class Cart extends JScrollPane {
 	WithImage wi = new WithImage(root);
 	
 	public Cart() {
+//		JLabel menuBg = wi.makeLabel("wholeMenu.png", 0,0,505,190);
+//		setViewportView(menuBg);
 		
-		JLabel menuBg = wi.makeLabel("wholeMenu.png", 25, 760, 505, 391);
-		setViewportView(menuBg);
 		setOpaque(false);
+		setBorder(null);
+		getViewport().setLayout(null);
+		setVisible(true);
 		getViewport().setOpaque(false);
-		setBounds(25, 760, 505, 391);
+		setBounds(25, 760, 505, 185);
+		setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
+//		setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_NEVER);
+		
+	
 	}
 
 }

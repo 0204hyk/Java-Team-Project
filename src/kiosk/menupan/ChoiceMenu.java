@@ -7,11 +7,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import kiosk.byoption.AMenu;
 import kiosk.tools.WithImage;
 
 public class ChoiceMenu extends JFrame {
@@ -27,16 +25,16 @@ public class ChoiceMenu extends JFrame {
 	JPanel frappePn = new PanelsByCategory(3, 9);
 	JPanel noncoffeePn = new PanelsByCategory(4, 5);
 	JPanel adePn = new PanelsByCategory(5, 3);
-
-	public static JScrollPane cart = new Cart();
+	
+	static public Cart cart = new Cart();
 	
 	public ChoiceMenu() {
-
 		defaults();
 		tabs();
 		pay();
-		cart();
-
+		add(cart);
+		cart.setVisible(true);
+		
 		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
@@ -57,10 +55,9 @@ public class ChoiceMenu extends JFrame {
 	}
 
 	public void tabs() {
+		// 카테고리 탭
 		card = new CardLayout();
 		coffeePns = new JPanel(card);
-
-		// 카테고리 번호와 한 패널에 들어갈 음료 개수 입력
 
 //		coffeePn1 = new PanelsByCategory(2, 1);
 
@@ -173,18 +170,7 @@ public class ChoiceMenu extends JFrame {
 		adePn.setVisible(true);
 	}
 
-	public void cart() {
-		
-		
-		cart.setVisible(true);
-		
-		add(cart);
-	}
-
-	public void put() {
-
-	}
-
+	
 	public void pay() {
 		JButton pay = wi.makeButton("pay.png", 548, 760, 78, 93);
 		JButton deleteAll = wi.makeButton("deleteAll.png", 548, 866, 78, 71);
@@ -192,8 +178,17 @@ public class ChoiceMenu extends JFrame {
 		add(pay);
 		add(deleteAll);
 	}
-
+	
+//	public void cart() {
+//		Cart cart = new Cart();
+//		cart.setVisible(true);
+//		add(cart);
+//	}
+	
 	public static void main(String[] args) {
-		new ChoiceMenu();
+		
+		ChoiceMenu choiceMenu = new ChoiceMenu(); //이 객체에 있는 장바구니에 음료를 담아야한다
+		
 	}
+
 }

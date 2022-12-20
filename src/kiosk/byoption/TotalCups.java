@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 
 public class TotalCups extends JLabel {
 
-	static int cup = 1;
+	public static int cup = 1;
 
 	public TotalCups() {
 		setText(cup+"잔");

@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import database.kiosk.GetImageInfo;
+import kiosk.menupan.AMenu;
+import kiosk.menupan.Cart;
 import kiosk.menupan.ChoiceMenu;
 import kiosk.tools.GroupButtons;
 import kiosk.tools.WithImage;
@@ -27,11 +30,11 @@ public class Options extends JFrame {
 
 	JLabel cups = new JLabel("1잔");
 	
-	int orderedCup;
 	String menu;
+	
+	GetImageInfo gi = new GetImageInfo(menu);
 
 	public Options(String menu) {
-
 		this.menu = menu;
 		
 		defaults();
@@ -68,6 +71,7 @@ public class Options extends JFrame {
 					TotalCups.cup = 1;
 				}
 				cups.setText(TotalCups.cup + "잔");
+				
 			}
 		});
 
@@ -88,27 +92,21 @@ public class Options extends JFrame {
 		});
 
 		JButton put = wi.makeButton("put.png", 333, 817, 192, 68);
-
 		put.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 1. 옵션 미선택 된 부분 막기 2. 담아서 장바구니로 넘기기
 
-				System.out.println("담기 성공이삼");
-				dispose();
-				ChoiceMenu.cart.setViewportView((new AMenu(menu, hotAndIce)));
+				// 메뉴 이름을 찾아서 넣어줌
+				AMenu a = new AMenu(menu, hotAndIce);
+				ChoiceMenu.cart.setViewportView(a);
+				a.setVisible(true);
 				
-				System.out.println(hotAndIce);
-				System.out.println(decaffein);
-				System.out.println(cup);
-				System.out.println(sizes);
-				System.out.println(shot);
-				System.out.println(ice);
-				System.out.println(milk);
+				dispose();
+				
 			}
 		});
-
 		JButton cancel = wi.makeButton("cancel.png", 124, 815, 192, 68);
 
 		cancel.addActionListener(new ActionListener() {
@@ -116,6 +114,11 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TotalCups.cup = 1;
+				if (AMenu.yy > 0) {
+				AMenu.yy -= 48;
+				} else {
+					AMenu.yy = 0;
+				}
 				dispose();
 			}
 		});

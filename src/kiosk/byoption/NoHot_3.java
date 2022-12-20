@@ -7,11 +7,9 @@ import kiosk.tools.WithImage;
 public class NoHot_3 {
 	String root = "images/KioskImages/4. detailedOption";
 	WithImage wi = new WithImage(root);
-	String menu;
-	Options op = new Options(menu);
 
 	public NoHot_3(JPanel topImage, String menu) {
-		this.menu = menu;
+		Options op = new Options(menu);
 		int x = 78;
 		int y = 310;
 
