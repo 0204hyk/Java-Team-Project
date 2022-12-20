@@ -51,7 +51,7 @@ public class SalesYearCheckMain extends JFrame {
 		JLabel list = new ListImgLabel();
 		JTable table = new SalesYearTable();
 
-		// 매출요약
+		// 매출요약 테이블 상단 하단
 		JPanel salesTitle = new TitlePanel();
 		JPanel total = new TotalPanel();
 
