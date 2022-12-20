@@ -41,11 +41,12 @@ public class SalesYearTable extends JTable {
 		this.year = year;
 		
 		
-		String sql = "SELECT to_char(s.saleDate, 'YYYY'), "
-				+ "to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
-				+ "FROM sales s INNER JOIN sales_management sales_m "
+		String sql = "SELECT to_char(s.saledate, 'YYYY-MM'), sum(p.price) AS total " 
+				+ "FROM sales s INNER JOIN PAYMENT p "
 				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYY') = ? GROUP BY to_char(s.saleDate, 'YYYY')";
+				+ "WHERE TO_CHAR(s.saledate, 'YYYY') = ? "
+				+ "GROUP BY to_char(s.saledate, 'YYYY-MM')"
+				+ "ORDER BY to_char(s.saledate, 'YYYY-MM')";
 		
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -59,7 +60,7 @@ public class SalesYearTable extends JTable {
 				while(rs.next()) {
 					model.addRow(new Object[] {
 							rs.getString(1),
-							rs.getString("total_price")});
+							rs.getString("total")});
 				}
 			}
 		} catch (SQLException e) {

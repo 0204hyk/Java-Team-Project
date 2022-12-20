@@ -43,11 +43,19 @@ public class SalesMonthTable extends JTable {
 		this.month = month;
 		
 		String plus = year + month;
-		String sql = "SELECT to_char(s.saleDate, 'YYYY-MM'), to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
-				+ "FROM sales s INNER JOIN sales_management sales_m "
-				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ? "
-				+ "GROUP BY to_char(s.saleDate, 'YYYY-MM')";
+//		String sql = "SELECT to_char(s.saleDate, 'YYYY-MM'), to_char(sum(sales_m.total_price), '999,999,999') AS total_price "
+//				+ "FROM sales s INNER JOIN sales_management sales_m "
+//				+ "USING (sales_number) "
+//				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ? "
+//				+ "GROUP BY to_char(s.saleDate, 'YYYY-MM')";
+		
+		String sql = 
+				"SELECT to_char(s.saleDate, 'YYYY-MM-DD'), sum(p.price) AS price "
+				+ "FROM sales s INNER JOIN PAYMENT p "
+				+ "USING (sales_number)"
+				+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ?"
+				+ "GROUP BY to_char(s.saledate, 'YYYY-MM-DD')"
+				+ "ORDER BY to_char(s.saledate, 'YYYY-MM-DD')";
 		
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -61,7 +69,7 @@ public class SalesMonthTable extends JTable {
 				while(rs.next()) {
 					model.addRow(new Object[] {
 							rs.getString(1),
-							rs.getString("total_price")});
+							rs.getString("price")});
 				}
 			}
 		} catch (SQLException e) {
