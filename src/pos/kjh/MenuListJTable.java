@@ -1,5 +1,6 @@
 package pos.kjh;
 
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -12,10 +13,14 @@ import java.sql.SQLException;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumnModel;
 
 import database.OjdbcConnection;
-import database.model.Menu;
 import pos.gje.delet.DeleteFrame;
 
 public class MenuListJTable extends JTable{
@@ -25,12 +30,22 @@ public class MenuListJTable extends JTable{
 	public static String menuName;
 	public static int quantity;
 	public static JPanel panel;
+	
+	ProductManagementJFrame p;
 
 	// JTable 내용 값
-	public static DefaultTableModel contents = new DefaultTableModel(top, 0);
+	public static DefaultTableModel contents = new DefaultTableModel(top, 0)
+	{
+		private static final long serialVersionUID = 1L;
+
+		public boolean isCellEditable(int i, int c){
+	          return false;
+	         }
+	    };	
+
 	
 	// JTable 선택값 삭제 메서드
-	public void delete() throws IOException {
+	public void delete() throws IOException, SQLException {
 
 		int index = table.getSelectedRow();
 		if(index < 0){
@@ -38,6 +53,7 @@ public class MenuListJTable extends JTable{
 			new NotSelectedFrame();
 		}else{
 			// 삭제 메뉴 확인 창
+			table.setEnabled(false);
 			new DeleteFrame();
 
 
@@ -57,10 +73,7 @@ public class MenuListJTable extends JTable{
 			pstmt.setString(1, keyword);
 			ResultSet rs = pstmt.executeQuery();
 
-
-			rs.close();
-			pstmt.close();
-			conn.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -68,9 +81,14 @@ public class MenuListJTable extends JTable{
 
 	}
 
+	
+
+
 
 	// JTable로 DB값 불러오는 메서드
 	public MenuListJTable(String sqlCondition) throws SQLException {
+		
+
 		String sql = sqlCondition;
 
 		try (
@@ -90,19 +108,24 @@ public class MenuListJTable extends JTable{
 			}
 
 			table = new JTable(contents);
+
 			JScrollPane scroll = new JScrollPane(table);
 
-			table.setFont(getFont().deriveFont(20f));
-			table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 23));
+			table.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+			
+			// 헤더 높이 조절
+			JTableHeader th = table.getTableHeader();
+			th.setPreferredSize(new Dimension(50, 50));
+			
+			
+			th.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+			
 			table.setRowHeight(35);
 			table.getColumnModel().getColumn(0).setPreferredWidth(10);
 			table.getColumnModel().getColumn(1).setPreferredWidth(600);
 			table.getColumnModel().getColumn(2).setPreferredWidth(90);
-			scroll.setBounds(0, 0, 1100, 400);
 			
-			// 테이블 수정 불가하게 설정
-			table.getTableHeader().setReorderingAllowed(false);
-			table.getTableHeader().setResizingAllowed(false);
+			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			
 			table.addMouseListener(new MouseAdapter() {
 
@@ -110,12 +133,31 @@ public class MenuListJTable extends JTable{
 				public void mouseClicked(MouseEvent e) {					
 					menuName = (table.getValueAt(table.getSelectedRow(), 1)).toString();
 				}
-				
+
 			});
 
-			rs.close();
-			pstmt.close();
-			conn.close();
+			scroll.setBounds(0, 0, 1100, 400);
+
+			// 테이블 수정 불가하게 설정
+			table.getTableHeader().setReorderingAllowed(false);
+			table.getTableHeader().setResizingAllowed(false);
+			
+			// 테이블 내용 가운데 정렬하기
+			DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer(); 
+			dtcr.setHorizontalAlignment(SwingConstants.CENTER); // 렌더러의 가로정렬을 CENTER로
+
+			TableColumnModel tcm = table.getColumnModel() ; // 정렬할 테이블의 컬럼모델을 가져옴
+
+			//전체 열에 지정
+			for(int i = 0 ; i < tcm.getColumnCount() ; i++){
+				tcm.getColumn(i).setCellRenderer(dtcr);
+			}
+
+			//		      //특정 열에 지정
+			//		      tcm.getColumn(0).setCellRenderer(dtcr);  
+			//		      tcm.getColumn(4).setCellRenderer(dtcr);
+
+
 
 			table.setLayout(null);
 			setBounds(48, 190, 1100, 400);
@@ -123,6 +165,7 @@ public class MenuListJTable extends JTable{
 			setLayout(null);
 			setVisible(true);
 		}
-
 	}
+
+
 }
