@@ -23,6 +23,7 @@ public class SalesEscapeButton extends JButton {
 
 	ImageScaledTool tool = new ImageScaledTool();
 
+	// 년 매출 Frame
 	public SalesEscapeButton(SalesYearCheckMain yearFrame) {
 		this.yearFrame = yearFrame;
 		// 매출요약 < 버튼 이미지 설정
@@ -48,15 +49,21 @@ public class SalesEscapeButton extends JButton {
 				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
 				TitlePanel panel = new TitlePanel();
 				panel.text.setText("");
+				
+				// 버튼 클릭 시 기존 SalesYearTable 값 초기화.
 				SalesYearTable table = new SalesYearTable();
 				table.model.setNumRows(0);
+				
+				// 버튼 클릭 시 기존 TotalPanel 총 금액 값 초기화.
 				TotalPanel total = new TotalPanel();
 				total.text.setText("");
 				yearFrame.dispose();
 			}
 		});
 	}
-
+	
+	
+	// 월 매출 Frame
 	public SalesEscapeButton(SalesMonthCheckMain monthFrame) {
 		this.monthFrame = monthFrame;
 		// 매출요약 < 버튼 이미지 설정
@@ -80,15 +87,20 @@ public class SalesEscapeButton extends JButton {
 				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
 				TitlePanel panel = new TitlePanel();
 				panel.text.setText("");
+				
+				// 버튼 클릭 시 기존 SalesMonthTable 값 초기화.
 				SalesMonthTable table = new SalesMonthTable();
 				table.model.setNumRows(0);
+				
+				// 버튼 클릭 시 기존 TotalPanel 총 금액 값 초기화.
 				TotalPanel total = new TotalPanel();
 				total.text.setText("");
 				monthFrame.dispose();
 			}
 		});
 	}
-
+	
+	// 일 매출 Frame
 	public SalesEscapeButton(SalesDayCheckMain dayFrame) {
 		this.dayFrame = dayFrame;
 		// 매출요약 < 버튼 이미지 설정
@@ -109,11 +121,16 @@ public class SalesEscapeButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
 				TitlePanel panel = new TitlePanel();
 				panel.text.setText("");
+				
+				// 버튼 클릭 시 기존 SalesDayTable 값 초기화.
 				SalesDayTable table = new SalesDayTable();
 				table.model.setNumRows(0);
+				
+				// 버튼 클릭 시 기존 TotalPanel 총 금액 값 초기화.
 				TotalPanel total = new TotalPanel();
 				total.text.setText("");
 				dayFrame.dispose();
