@@ -1,4 +1,4 @@
-package pos.salescheck.component.saleslist;
+package pos.salescheck.saleslist;
 
 import java.awt.Font;
 import java.sql.Connection;

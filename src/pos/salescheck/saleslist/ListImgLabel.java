@@ -1,4 +1,4 @@
-package pos.salescheck.component.saleslist;
+package pos.salescheck.saleslist;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;

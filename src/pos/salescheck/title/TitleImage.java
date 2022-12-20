@@ -1,4 +1,4 @@
-package pos.salescheck.component.title;
+package pos.salescheck.title;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

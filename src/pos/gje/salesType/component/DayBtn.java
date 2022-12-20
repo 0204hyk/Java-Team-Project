@@ -12,8 +12,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import pos.salescheck.component.chart.DayChart;
-import pos.salescheck.component.main.SalesDayCheckMain;
+import pos.salescheck.chart.DayChart;
+import pos.salescheck.main.SalesDayCheckMain;
 
 public class DayBtn extends JButton implements ActionListener{
 	

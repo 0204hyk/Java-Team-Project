@@ -1,12 +1,13 @@
-package pos.salescheck.component.combobox;
+package pos.salescheck.combobox;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Calendar;
 import javax.swing.JComboBox;
-import pos.salescheck.component.table.SalesDayTable;
-import pos.salescheck.component.table.SalesMonthTable;
-import pos.salescheck.component.table.SalesYearTable;
+
+import pos.salescheck.table.SalesDayTable;
+import pos.salescheck.table.SalesMonthTable;
+import pos.salescheck.table.SalesYearTable;
 
 public class YearComboBox extends JComboBox  {
 

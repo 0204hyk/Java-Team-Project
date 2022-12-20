@@ -1,4 +1,4 @@
-package pos.salescheck.component.main;
+package pos.salescheck.main;
 
 import java.awt.Color;
 
@@ -12,16 +12,16 @@ import javax.swing.JTable;
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.salescheck.component.button.SalesEscapeButton;
-import pos.salescheck.component.button.SalesSearchButton;
-import pos.salescheck.component.chart.DayChart;
-import pos.salescheck.component.combobox.DayComboBox;
-import pos.salescheck.component.combobox.MonthComboBox;
-import pos.salescheck.component.combobox.YearComboBox;
-import pos.salescheck.component.saleslist.ListImgLabel;
-import pos.salescheck.component.saleslist.TitlePanel;
-import pos.salescheck.component.saleslist.TotalPanel;
-import pos.salescheck.component.table.SalesDayTable;
+import pos.salescheck.button.SalesEscapeButton;
+import pos.salescheck.button.SalesSearchButton;
+import pos.salescheck.chart.DayChart;
+import pos.salescheck.combobox.DayComboBox;
+import pos.salescheck.combobox.MonthComboBox;
+import pos.salescheck.combobox.YearComboBox;
+import pos.salescheck.saleslist.ListImgLabel;
+import pos.salescheck.saleslist.TitlePanel;
+import pos.salescheck.saleslist.TotalPanel;
+import pos.salescheck.table.SalesDayTable;
 
 public class SalesDayCheckMain extends JFrame {
 

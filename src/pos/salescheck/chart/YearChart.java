@@ -1,5 +1,4 @@
-package pos.salescheck.component.chart;
-
+package pos.salescheck.chart;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,8 +15,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import database.OjdbcConnection;
 
-public class DayChart extends JPanel {
-
+public class YearChart extends JPanel {
 
 	public static DefaultCategoryDataset dataset;
 
@@ -26,8 +24,7 @@ public class DayChart extends JPanel {
 	String day;
 	String hap;
 
-
-	public DayChart() {
+	public YearChart() {
 		CategoryDataset datasetResult = createDataset();
 		JFreeChart chart = createChart(datasetResult);
 		chart.getPlot().setBackgroundPaint(Color.WHITE);
@@ -35,24 +32,16 @@ public class DayChart extends JPanel {
 		panel.setPreferredSize(new Dimension(500, 500));
 		add(panel);
 		setBounds(50, 150, 500, 500);
-
-
 	}
 
-	// SalesSearchButton에서 year, month, day 값을 가져온 후 차트에 대입
-	public DayChart(String year, String month, String day) {
+	public YearChart(String year) {
 		this.year = year;
-		this.month = month;
-		this.day = day;
-
-		hap = year + month + day;
-
-		String sql = "SELECT to_char(s.saledate, 'HH24'), sum(p.price) AS total "
+		String sql = "SELECT to_char(s.saledate, 'YYYY-MM'), sum(p.price) AS total " 
 				+ "FROM sales s INNER JOIN PAYMENT p "
 				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(s.saledate, 'YYYYMMDD') = ?"
-				+ "GROUP BY to_char(s.saledate, 'HH24')"
-				+ "ORDER BY to_char(s.saledate, 'HH24')";
+				+ "WHERE TO_CHAR(s.saledate, 'YYYY') = ? "
+				+ "GROUP BY to_char(s.saledate, 'YYYY-MM')"
+				+ "ORDER BY to_char(s.saledate, 'YYYY-MM')";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -60,12 +49,11 @@ public class DayChart extends JPanel {
 
 				) {
 
-			pstmt.setString(1, hap);
+			pstmt.setString(1, year);
 			try (ResultSet rs = pstmt.executeQuery()) {
 
 				while (rs.next()) {
-					dataset.addValue(rs.getInt("total"), 
-							rs.getString(1) + "H", rs.getString(1) + "H");
+					dataset.addValue(rs.getInt("total"), rs.getString(1), rs.getString(1));
 				}
 			}
 		} catch (Exception e) {
@@ -74,24 +62,22 @@ public class DayChart extends JPanel {
 
 	}
 
-
 	private static CategoryDataset createDataset() {
 		dataset = new DefaultCategoryDataset();
-
 		return dataset;
 	}
 
-	private static JFreeChart createChart(CategoryDataset dataset) {
 
+	private static JFreeChart createChart(CategoryDataset dataset) {
 		JFreeChart chart = ChartFactory.createBarChart(
 				"HyCafe",        
-				"",               // domain axis label
-				"",                  // range axis label
-				dataset,                  // data
-				PlotOrientation.VERTICAL, // orientation
-				true,                     // include legend
-				true,                     // tooltips
-				false                     // URLs
+				"",               
+				"",                  
+				dataset,                 
+				PlotOrientation.VERTICAL, 
+				true,                    
+				true,                     
+				false                    
 				);
 
 		return chart;

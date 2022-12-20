@@ -1,4 +1,4 @@
-package pos.salescheck.component.main;
+package pos.salescheck.main;
 
 import java.awt.Color;
 import javax.swing.JButton;
@@ -10,21 +10,20 @@ import javax.swing.JTable;
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.salescheck.component.button.SalesEscapeButton;
-import pos.salescheck.component.button.SalesSearchButton;
-import pos.salescheck.component.chart.MonthChart;
-import pos.salescheck.component.combobox.MonthComboBox;
-import pos.salescheck.component.combobox.YearComboBox;
-import pos.salescheck.component.saleslist.ListImgLabel;
-import pos.salescheck.component.saleslist.TitlePanel;
-import pos.salescheck.component.saleslist.TotalPanel;
-import pos.salescheck.component.table.SalesMonthTable;
+import pos.salescheck.button.SalesEscapeButton;
+import pos.salescheck.button.SalesSearchButton;
+import pos.salescheck.chart.YearChart;
+import pos.salescheck.combobox.YearComboBox;
+import pos.salescheck.saleslist.ListImgLabel;
+import pos.salescheck.saleslist.TitlePanel;
+import pos.salescheck.saleslist.TotalPanel;
+import pos.salescheck.table.SalesMonthTable;
+import pos.salescheck.table.SalesYearTable;
 
-public class SalesMonthCheckMain extends JFrame {
+public class SalesYearCheckMain extends JFrame {
 
-
-	// 월별 매출
-	public SalesMonthCheckMain() {
+	// 년 매출 
+	public SalesYearCheckMain() {
 
 		// 매출요약 상단 메뉴바 생성.
 		JPanel title = new ImagePanel(ImageScaledTool.getScaledImage(
@@ -36,32 +35,28 @@ public class SalesMonthCheckMain extends JFrame {
 		clock.setBounds(375, 10, 400, 30);
 		title.add(clock);
 
-		// 월 매출 요약 차트
-		MonthChart chart = new MonthChart();
+		// 년 매출 요약 차트 
+		YearChart chart = new YearChart();
 
-		// 매출요약 콤보박스 구현
+		// 매출요약 콤보박스 
 		JComboBox yearCombo = new YearComboBox();
-		JComboBox monthCombo = new MonthComboBox();
 
+		// 매출요약 검색 버튼
+		JButton searchBtn = new SalesSearchButton(yearCombo);
 
-		// 매출요약 검색 버튼 구현
-		JButton searchBtn = new SalesSearchButton(yearCombo, monthCombo);
-
-		// 매출요약 뒤로가기 구현
+		// 매출요약 뒤로가기
 		JButton escapeBtn = new SalesEscapeButton(this);
 
 		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();
-		JTable table = new SalesMonthTable();
+		JTable table = new SalesYearTable();
 
 		// 매출요약
 		JPanel salesTitle = new TitlePanel();
 		JPanel total = new TotalPanel();
 
-
 		add(title);
 		add(yearCombo);
-		add(monthCombo);
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
@@ -78,4 +73,5 @@ public class SalesMonthCheckMain extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	}
+
 }
