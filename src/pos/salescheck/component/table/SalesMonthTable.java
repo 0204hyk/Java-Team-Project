@@ -18,7 +18,7 @@ public class SalesMonthTable extends JTable {
 
 	private static String colTitle[] = {"날짜", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0);
-	
+
 
 
 	String year;
@@ -27,14 +27,17 @@ public class SalesMonthTable extends JTable {
 	public SalesMonthTable() {
 		JTable table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
-		
-		// 컬럼 가운데 정렬
-		DefaultTableCellRenderer renderer =  
-		          (DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer();
-				renderer.setHorizontalAlignment(SwingConstants.CENTER);
-				table.getTableHeader().setDefaultRenderer(renderer);
-		
-		
+
+		//테이블 가운데 정렬
+		DefaultTableCellRenderer center =  
+				(DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer();
+		center.setHorizontalAlignment(SwingConstants.CENTER);
+		table.getTableHeader().setDefaultRenderer(center);
+		DefaultTableCellRenderer renderer =
+				(DefaultTableCellRenderer)table.getDefaultRenderer(Object.class);
+		renderer.setHorizontalAlignment( SwingConstants.CENTER );
+
+
 		table.setFont(getFont().deriveFont(23f));
 		table.getTableHeader().setFont(new Font("맑은 고딕", Font.PLAIN, 23));
 		scroll.setBounds(0, 0, 450, 360);

@@ -16,56 +16,59 @@ import database.OjdbcConnection;
 
 
 public class SalesYearTable extends JTable {
-	
+
 	private static String colTitle[] = {"선택 연도", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0);
 
-	
+
 	String year;
-	
+
 	public SalesYearTable() {
 		JTable table = new JTable(model);
-		
-		// 컬럼 가운데 정렬
-		DefaultTableCellRenderer renderer =  
-          (DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer();
-		renderer.setHorizontalAlignment(SwingConstants.CENTER);
-		table.getTableHeader().setDefaultRenderer(renderer);
-	
+
+		//테이블 가운데 정렬
+		DefaultTableCellRenderer center =  
+				(DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer();
+		center.setHorizontalAlignment(SwingConstants.CENTER);
+		table.getTableHeader().setDefaultRenderer(center);
+		DefaultTableCellRenderer renderer =
+				(DefaultTableCellRenderer)table.getDefaultRenderer(Object.class);
+		renderer.setHorizontalAlignment( SwingConstants.CENTER );
+
 		JScrollPane scroll = new JScrollPane(table);
 		table.setFont(getFont().deriveFont(23f));
 		table.getTableHeader().setFont(new Font("맑은 고딕", Font.PLAIN, 23));
 		scroll.setBounds(0, 0, 450, 360);
 		table.setRowHeight(30);
-		
+
 		table.getTableHeader().setResizingAllowed(false);
 		table.getTableHeader().setReorderingAllowed(false);
-		
+
 		add(scroll);
 		setBounds(650, 230, 450, 360);
 		setLayout(null);
 		setVisible(true);
 	}
-	
+
 	public SalesYearTable(String year) {
 		this.year = year;
-		
-		
+
+
 		String sql = "SELECT to_char(s.saledate, 'YYYY-MM'), to_char(sum(p.price), '999,999,999') AS total " 
 				+ "FROM sales s INNER JOIN PAYMENT p "
 				+ "USING (sales_number) "
 				+ "WHERE TO_CHAR(s.saledate, 'YYYY') = ? "
 				+ "GROUP BY to_char(s.saledate, 'YYYY-MM')"
 				+ "ORDER BY to_char(s.saledate, 'YYYY-MM')";
-		
+
 		try (
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-			
+
 				) {
-			
-				pstmt.setString(1, year);
-				
+
+			pstmt.setString(1, year);
+
 			try (ResultSet rs = pstmt.executeQuery()) {
 				while(rs.next()) {
 					model.addRow(new Object[] {
