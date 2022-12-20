@@ -17,8 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import database.OjdbcConnection;
-import pos.product_management.menu_add.MenuAddFrame;
-import pos.product_management.menu_add.additional_frame.AddFix;
+import pos.product_management.menu_add.message_frame.AddFix;
 import pos.product_management.menu_add.panel.AddBackgroundImagePanel;
 
 public class MenuAddButton extends JButton implements ActionListener{
@@ -55,7 +54,7 @@ public class MenuAddButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 				// 메뉴 넘버, 메뉴 이름, 카테고리 넘버, 옵션 카테고리 넘버, 가격 순
-		String query = "INSERT INTO menu VALUES ((SELECT MAX(menu_number)+1 FROM menu m),?,?,?,?)";
+		String query = "INSERT INTO menu VALUES ((SELECT MAX(menu_number)+1 FROM menu m),?,?,?,'images/KioskImages/menu/defaultimage.png',?,null)";
 		
 		try (
 			Connection conn = OjdbcConnection.getConnection();

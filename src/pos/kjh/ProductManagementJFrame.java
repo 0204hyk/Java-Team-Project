@@ -24,9 +24,9 @@ import javax.swing.JTextField;
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.gje.modify.ModifyFrame;
 import pos.product_management.menu_add.MenuAddFrame;
 import pos.product_management.menu_main.component.ModifyButton;
+import pos.product_management.menu_modify.ModifyFrame;
 
 public class ProductManagementJFrame extends JFrame {
 
@@ -69,7 +69,7 @@ public class ProductManagementJFrame extends JFrame {
 	// 모든 디비 불러오는 메서드
 	public String allMenu() {
 		
-		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu";
+		String text = "SELECT DISTINCT  menu_number, menu_name, price FROM menu ORDER BY menu_number";
 		
 		return text;
 	}

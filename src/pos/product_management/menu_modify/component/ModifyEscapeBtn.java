@@ -1,4 +1,4 @@
-package pos.gje.modify.component;
+package pos.product_management.menu_modify.component;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -11,8 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.gje.modify.ModifyFrame;
 import pos.kjh.ProductManagementJFrame;
+import pos.product_management.menu_modify.ModifyFrame;
 
 public class ModifyEscapeBtn extends JButton implements ActionListener{
 	ProductManagementJFrame mainFrame;

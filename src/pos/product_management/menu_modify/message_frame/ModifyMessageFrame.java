@@ -1,4 +1,4 @@
-package pos.product_management.menu_add.additional_frame;
+package pos.product_management.menu_modify.message_frame;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -9,44 +9,38 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.kjh.ProductManagementJFrame;
 import pos.product_management.menu_add.MenuAddFrame;
-import pos.product_management.menu_add.panel.AddBackgroundImagePanel;
-import pos.product_management.menu_modify.MenuModifyFrame;
 
-public class AddFix extends JFrame {
+public class ModifyMessageFrame extends JFrame{
+	
 	ImageIcon icon;
 	
 	ProductManagementJFrame prjf;
-	AddBackgroundImagePanel panel;
 	
-	public JButton AddFixButton() throws IOException {
-		JButton addFixBtn = prjf.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png", 
+	public JButton fixButton() throws IOException {
+		JButton fixBtn = prjf.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png", 
 				"images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼 클릭.png", 140,110,120,60);
-		addFixBtn.addActionListener(new ActionListener() {
+		fixBtn.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				panel.nameField.setText(null);
-				panel.priceField.setText(null);
 			}
 		});
 		
-		return addFixBtn;
+		return fixBtn;
 	}
 	
-	public AddFix(AddBackgroundImagePanel panel) throws IOException {
-		this.panel = panel;
+	public ModifyMessageFrame() throws IOException {
 		
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
-				"images/PosImages/상품 관리 이미지/메뉴 추가 완료 안내 창.png", 400, 200));
+				"images/PosImages/상품 관리 이미지/수정 완료 안내 멘트 창.png", 400, 200));
 		
-		background.add(AddFixButton());	
+		background.add(fixButton());	
 		
 		add(background);
 		
@@ -58,5 +52,4 @@ public class AddFix extends JFrame {
 
 	}
 
-	
 }

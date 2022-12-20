@@ -2,16 +2,16 @@ package database.model;
 
 public class Menu {
 
-	Integer menu_number;
-	String menu_name;
-	Integer category_number;
-	Integer option_category_number;
-	Integer price;
-	
+	private Integer menu_number;
+	private String menu_name;
+	private Integer category_number;
+	private Integer option_category_number;
+	private String menu_image;
+	private Integer price;
+	private String menu_eng_name;
 
-	public Menu() {
-		
-	}
+	
+	public Menu() {}
 
 
 	public Integer getMenu_number() {
@@ -53,6 +53,16 @@ public class Menu {
 		this.option_category_number = option_category_number;
 	}
 
+	
+	public String getMenu_image() {
+		return menu_image;
+	}
+
+
+	public void setMenu_image(String menu_image) {
+		this.menu_image = menu_image;
+	}
+	
 
 	public Integer getPrice() {
 		return price;
@@ -64,5 +74,14 @@ public class Menu {
 	}
 	
 	
+	public String getMenu_eng_name() {
+		return menu_eng_name;
+	}
+
+
+	public void setMenu_eng_name(String menu_eng_name) {
+		this.menu_eng_name = menu_eng_name;
+	}
+
 	
 }

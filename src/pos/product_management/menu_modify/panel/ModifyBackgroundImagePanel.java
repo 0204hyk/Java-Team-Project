@@ -1,4 +1,4 @@
-package pos.gje.modify.panel;
+package pos.product_management.menu_modify.panel;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -13,14 +13,11 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.text.NumberFormatter;
 
-import pos.product_management.menu_add.additional_frame.AddFix;
 import pos.product_management.menu_add.component.MenuAddButton;
+import pos.product_management.menu_add.message_frame.AddFix;
 
 public class ModifyBackgroundImagePanel extends JPanel {
 	
-	public JTextField nameField = nameAdd();
-	public JFormattedTextField priceField = priceAdd();
-
 	public JRadioButton coffee;
 	public JRadioButton nonCoffee;
 	public JRadioButton ade;
@@ -42,30 +39,6 @@ public class ModifyBackgroundImagePanel extends JPanel {
 				("images/PosImages/상품 관리 이미지/메뉴 수정 창 기본 틀.png");
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
-	
-	public JTextField nameAdd() {
-		JTextField menuName = new JTextField();
-
-		menuName.setBounds(190, 105, 700, 49);
-		menuName.setOpaque(false);
-		menuName.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		menuName.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		
-		return menuName;
-	}
-	
-	// 숫자만 입력 받는 텍스트 필드
-	public JFormattedTextField priceAdd() {
-		JFormattedTextField menuPrice = new JFormattedTextField(new NumberFormatter());
-				
-		menuPrice.setBounds(190, 213, 700, 49);
-		menuPrice.setOpaque(false);
-		menuPrice.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		menuPrice.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		
-		return menuPrice;
-	}
-
 	
 	public ModifyBackgroundImagePanel() {
 		setLayout(null); 
@@ -181,8 +154,8 @@ public class ModifyBackgroundImagePanel extends JPanel {
 		optionBtnGroup.add(option7);
 		optionBtnGroup.add(option8);
 		
-		add(nameField);
-		add(priceField);
+//		add(nameField);
+//		add(priceField);
 		add(coffee);
 		add(nonCoffee);
 		add(ade);

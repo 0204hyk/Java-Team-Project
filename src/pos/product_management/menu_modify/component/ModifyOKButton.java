@@ -1,4 +1,4 @@
-package pos.gje.modify.component;
+package pos.product_management.menu_modify.component;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;

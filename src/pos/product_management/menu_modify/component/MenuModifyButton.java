@@ -12,18 +12,14 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.product_management.menu_add.additional_frame.AddFix;
-import pos.product_management.menu_modify.MenuModifyFrame;
-import pos.product_management.menu_modify.additional_frame.ModifyAdditionalFrame;
+import pos.product_management.menu_modify.message_frame.ModifyMessageFrame;
 
 public class MenuModifyButton extends JButton implements ActionListener {
 
-	MenuModifyFrame mainFrame;
-	ModifyAdditionalFrame additionalFrame;
+	ModifyMessageFrame messageFrame;
 	
-	public MenuModifyButton(MenuModifyFrame mainFrame, ModifyAdditionalFrame additionalFrame) {
-		this.mainFrame = mainFrame;
-		this.additionalFrame = additionalFrame;
+	public MenuModifyButton(ModifyMessageFrame messageFrame) {
+		this.messageFrame = messageFrame;
 		
 		try {
 			BufferedImage bufferedfixBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/메뉴 추가 창 확인 버튼.png"));
@@ -50,7 +46,7 @@ public class MenuModifyButton extends JButton implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		additionalFrame.setVisible(true);
+		messageFrame.setVisible(true);
 	}
 	
 }

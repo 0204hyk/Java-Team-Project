@@ -20,9 +20,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.text.NumberFormatter;
 
+import pos.kjh.MenuListJTable;
 import pos.product_management.menu_add.MenuAddFrame;
-import pos.product_management.menu_add.additional_frame.AddFix;
 import pos.product_management.menu_add.component.MenuAddButton;
+import pos.product_management.menu_add.message_frame.AddFix;
 
 public class AddBackgroundImagePanel extends JPanel{
 	

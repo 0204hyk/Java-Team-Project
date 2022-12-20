@@ -3,6 +3,8 @@ package pos.product_management.menu_main.component;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -11,10 +13,10 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
-import pos.gje.modify.ModifyFrame;
 import pos.kjh.ProductManagementJFrame;
+import pos.product_management.menu_modify.ModifyFrame;
 
 public class ModifyButton extends JButton implements ActionListener{
 	ProductManagementJFrame mainFrame;
@@ -48,11 +50,17 @@ public class ModifyButton extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		mainFrame.setEnabled(false);
 		ModifyFrame modifyFrame = new ModifyFrame(mainFrame);
-//		modifyFrame.panel.nameField.setText();
 		
+		int row = mainFrame.mj.getSelectedRow();
+		TableModel data = mainFrame.mj.getModel();
 		
-		mainFrame.mj.contents.fireTableDataChanged();	// 데이터 테이블 변경사항 JTable에 적용
+//		modifyFrame.nameField.setText((String)data.getValueAt(row, 1));
+		System.out.println(data.getValueAt(row, 1));
+
 		
+//		String name = (String)data.getValueAt(row, 1);
+		
+//		modifyFrame.nameField.setText("불러온 메뉴 이름");	
 	}
 	
 }
