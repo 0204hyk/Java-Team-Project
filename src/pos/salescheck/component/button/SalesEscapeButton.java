@@ -40,20 +40,20 @@ public class SalesEscapeButton extends JButton {
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);
-		
+
 		addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
 				TitlePanel panel = new TitlePanel();
 				panel.text.setText("");
-				
+
 				// 버튼 클릭 시 기존 SalesYearTable 값 초기화.
 				SalesYearTable table = new SalesYearTable();
 				table.model.setNumRows(0);
-				
+
 				// 버튼 클릭 시 기존 TotalPanel 총 금액 값 초기화.
 				TotalPanel total = new TotalPanel();
 				total.text.setText("");
@@ -61,8 +61,7 @@ public class SalesEscapeButton extends JButton {
 			}
 		});
 	}
-	
-	
+
 	// 월 매출 Frame
 	public SalesEscapeButton(SalesMonthCheckMain monthFrame) {
 		this.monthFrame = monthFrame;
@@ -83,15 +82,15 @@ public class SalesEscapeButton extends JButton {
 		addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
 				TitlePanel panel = new TitlePanel();
 				panel.text.setText("");
-				
+
 				// 버튼 클릭 시 기존 SalesMonthTable 값 초기화.
 				SalesMonthTable table = new SalesMonthTable();
 				table.model.setNumRows(0);
-				
+
 				// 버튼 클릭 시 기존 TotalPanel 총 금액 값 초기화.
 				TotalPanel total = new TotalPanel();
 				total.text.setText("");
@@ -99,7 +98,7 @@ public class SalesEscapeButton extends JButton {
 			}
 		});
 	}
-	
+
 	// 일 매출 Frame
 	public SalesEscapeButton(SalesDayCheckMain dayFrame) {
 		this.dayFrame = dayFrame;
@@ -121,15 +120,15 @@ public class SalesEscapeButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				// 버튼 클릭 시 기존 TitlePanel 값 초기화.
 				TitlePanel panel = new TitlePanel();
 				panel.text.setText("");
-				
+
 				// 버튼 클릭 시 기존 SalesDayTable 값 초기화.
 				SalesDayTable table = new SalesDayTable();
 				table.model.setNumRows(0);
-				
+
 				// 버튼 클릭 시 기존 TotalPanel 총 금액 값 초기화.
 				TotalPanel total = new TotalPanel();
 				total.text.setText("");

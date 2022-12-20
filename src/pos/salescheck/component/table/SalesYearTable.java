@@ -18,8 +18,8 @@ public class SalesYearTable extends JTable {
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0) {
 		// 테이블 출력 값 선택되지 않게 설정
 		public boolean isCellEditable(int i, int c) {
-	          return false;
-	         }
+			return false;
+		}
 	};
 
 	String year;
@@ -64,7 +64,7 @@ public class SalesYearTable extends JTable {
 		try (
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-			) {
+				) {
 
 			pstmt.setString(1, year);
 

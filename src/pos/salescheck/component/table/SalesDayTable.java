@@ -18,9 +18,9 @@ public class SalesDayTable extends JTable {
 	private static String colTitle[] = {"시간", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0) {
 		// 테이블 출력 값 선택되지 않게 설정
-		 public boolean isCellEditable(int i, int c) {
-	          return false;
-	         }
+		public boolean isCellEditable(int i, int c) {
+			return false;
+		}
 	};
 
 	String year;
@@ -30,7 +30,7 @@ public class SalesDayTable extends JTable {
 	public SalesDayTable() {
 		JTable table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
-		
+
 		//테이블 가운데 정렬
 		DefaultTableCellRenderer center =  
 				(DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer();
@@ -38,7 +38,7 @@ public class SalesDayTable extends JTable {
 		table.getTableHeader().setDefaultRenderer(center);
 		DefaultTableCellRenderer renderer =
 				(DefaultTableCellRenderer)table.getDefaultRenderer(Object.class);
-	      renderer.setHorizontalAlignment( SwingConstants.CENTER );
+		renderer.setHorizontalAlignment( SwingConstants.CENTER );
 
 		table.setFont(getFont().deriveFont(23f));
 		table.getTableHeader().setFont(new Font("맑은 고딕", Font.PLAIN, 23));
@@ -70,7 +70,7 @@ public class SalesDayTable extends JTable {
 		try (
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-			) {
+				) {
 
 			ResultSet rs = null;
 			for (int i = 10; i < 22; ++i) {

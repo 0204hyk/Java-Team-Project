@@ -1,14 +1,12 @@
 package pos.salescheck.component.main;
 
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
@@ -20,12 +18,11 @@ import pos.salescheck.component.combobox.YearComboBox;
 import pos.salescheck.component.saleslist.ListImgLabel;
 import pos.salescheck.component.saleslist.TitlePanel;
 import pos.salescheck.component.saleslist.TotalPanel;
-import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.table.SalesMonthTable;
 
 public class SalesMonthCheckMain extends JFrame {
 
-	
+
 	// 월별 매출
 	public SalesMonthCheckMain() {
 
@@ -45,7 +42,7 @@ public class SalesMonthCheckMain extends JFrame {
 		// 매출요약 콤보박스 구현
 		JComboBox yearCombo = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
-	
+
 
 		// 매출요약 검색 버튼 구현
 		JButton searchBtn = new SalesSearchButton(yearCombo, monthCombo);
@@ -60,8 +57,8 @@ public class SalesMonthCheckMain extends JFrame {
 		// 매출요약
 		JPanel salesTitle = new TitlePanel();
 		JPanel total = new TotalPanel();
-		
-		
+
+
 		add(title);
 		add(yearCombo);
 		add(monthCombo);

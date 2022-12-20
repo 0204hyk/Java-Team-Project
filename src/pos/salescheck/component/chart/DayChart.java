@@ -48,18 +48,18 @@ public class DayChart extends JPanel {
 		hap = year + month + day;
 
 		String sql = "SELECT to_char(s.saledate, 'HH24'), sum(p.price) AS total "
-    			+ "FROM sales s INNER JOIN PAYMENT p "
-    			+ "USING (sales_number) "
-    			+ "WHERE TO_CHAR(s.saledate, 'YYYYMMDD') = ?"
-    			+ "GROUP BY to_char(s.saledate, 'HH24')"
-    			+ "ORDER BY to_char(s.saledate, 'HH24')";
+				+ "FROM sales s INNER JOIN PAYMENT p "
+				+ "USING (sales_number) "
+				+ "WHERE TO_CHAR(s.saledate, 'YYYYMMDD') = ?"
+				+ "GROUP BY to_char(s.saledate, 'HH24')"
+				+ "ORDER BY to_char(s.saledate, 'HH24')";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 
 				) {
-			
+
 			pstmt.setString(1, hap);
 			try (ResultSet rs = pstmt.executeQuery()) {
 

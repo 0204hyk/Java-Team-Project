@@ -24,7 +24,7 @@ public class SalesYearCheckMain extends JFrame {
 
 	// 년 매출 
 	public SalesYearCheckMain() {
-		
+
 		// 매출요약 상단 메뉴바 생성.
 		JPanel title = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
@@ -34,19 +34,19 @@ public class SalesYearCheckMain extends JFrame {
 		JLabel clock = new DigitalClock();
 		clock.setBounds(375, 10, 400, 30);
 		title.add(clock);
-		
+
 		// 년 매출 요약 차트 
 		YearChart chart = new YearChart();
-		
+
 		// 매출요약 콤보박스 
 		JComboBox yearCombo = new YearComboBox();
-		
+
 		// 매출요약 검색 버튼
 		JButton searchBtn = new SalesSearchButton(yearCombo);
-		
+
 		// 매출요약 뒤로가기
 		JButton escapeBtn = new SalesEscapeButton(this);
-		
+
 		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();
 		JTable table = new SalesYearTable();
@@ -54,7 +54,7 @@ public class SalesYearCheckMain extends JFrame {
 		// 매출요약
 		JPanel salesTitle = new TitlePanel();
 		JPanel total = new TotalPanel();
-		
+
 		add(title);
 		add(yearCombo);
 		add(searchBtn);

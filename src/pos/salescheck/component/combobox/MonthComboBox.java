@@ -3,10 +3,7 @@ package pos.salescheck.component.combobox;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Calendar;
-
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
-
 import pos.salescheck.component.table.SalesDayTable;
 import pos.salescheck.component.table.SalesMonthTable;
 import pos.salescheck.component.table.SalesYearTable;
@@ -37,6 +34,5 @@ public class MonthComboBox extends JComboBox {
 				dayTable.model.setNumRows(0);
 			}
 		});
-
 	}
 }

@@ -31,9 +31,9 @@ public class SalesSearchButton extends JButton {
 	String day;
 
 	public SalesSearchButton() {
-		
+
 	}
-	
+
 	public SalesSearchButton(JComboBox yearBox) {
 		this.yearBox = yearBox;
 		// 매출요약 검색 버튼 이미지 설정.
@@ -46,12 +46,12 @@ public class SalesSearchButton extends JButton {
 		setBounds(450, 90, 100, 50);
 		setBorder(null);
 		addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 콤보박스의 값을 String으로 변환 후 변수에 저장.
 				year = String.format("%02d",  yearBox.getSelectedItem());
-				
+
 				// String변환 값을 각 생성자에 전달
 				SalesYearTable table = new SalesYearTable(year);
 				YearChart chart = new YearChart(year);
@@ -59,7 +59,7 @@ public class SalesSearchButton extends JButton {
 				TotalPanel total = new TotalPanel(year);
 			}
 		});
-		
+
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);	
@@ -85,7 +85,7 @@ public class SalesSearchButton extends JButton {
 				// 콤보박스의 값을 String으로 변환 후 각 변수에 저장.
 				year = String.format("%02d",  yearBox.getSelectedItem());
 				month = String.format("%02d", monthBox.getSelectedItem());
-				
+
 				// String변환 값을 각 생성자에 전달
 				SalesMonthTable table = new SalesMonthTable(year, month);
 				MonthChart chart = new MonthChart(year, month);
@@ -93,7 +93,7 @@ public class SalesSearchButton extends JButton {
 				TotalPanel total = new TotalPanel(year, month);
 			}
 		});
-		
+
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);	
@@ -118,7 +118,7 @@ public class SalesSearchButton extends JButton {
 
 		setBounds(450, 90, 100, 50);
 		setBorder(null);
-		
+
 		// 검색 버튼 액션
 		addActionListener(new ActionListener() {
 			@Override
@@ -127,7 +127,7 @@ public class SalesSearchButton extends JButton {
 				year = String.format("%02d",  yearBox.getSelectedItem());
 				month = String.format("%02d", monthBox.getSelectedItem()); 
 				day = String.format("%02d", dayBox.getSelectedItem());	
-				
+
 				// String변환 값을 각 생성자에 전달
 				SalesDayTable table = new SalesDayTable(year, month, day);
 				DayChart chart = new DayChart(year, month, day);
@@ -135,7 +135,7 @@ public class SalesSearchButton extends JButton {
 				TotalPanel total = new TotalPanel(year, month, day);
 			}
 		});
-		
+
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);	
