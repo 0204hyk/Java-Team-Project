@@ -179,8 +179,11 @@ public class ProductManagementJFrame extends JFrame {
 		backBtn.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+			public void actionPerformed(ActionEvent e) {				
+				serchText = new JTextField("키워드를 입력해주세요");
+
+				dispose();
+				
 				MenuListJTable table = null;
 				try {
 					table = new MenuListJTable(allMenu());
@@ -189,6 +192,8 @@ public class ProductManagementJFrame extends JFrame {
 					e1.printStackTrace();
 				}
 				table.contents.setNumRows(0);
+				
+				
 
 			}
 		});
@@ -231,6 +236,7 @@ public class ProductManagementJFrame extends JFrame {
 		add(new ModifyButton(this));
 		add(addBtn);
 
+		setUndecorated(true);
 		setLayout(null);
 		setSize(1200, 800);
 		setVisible(true);

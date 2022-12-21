@@ -13,15 +13,21 @@ import javax.swing.JPanel;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.kjh.ProductManagementJFrame;
+import pos.product_management.menu_add.MenuAddFrame;
 import pos.product_management.menu_add.panel.AddBackgroundImagePanel;
 
 public class AddFix extends JFrame {
 	ImageIcon icon;
 	
 	ProductManagementJFrame prjf;
-	AddBackgroundImagePanel panel;
+	MenuAddFrame frame;
 	
-	public JButton AddFixButton() throws IOException {
+	public AddFix(MenuAddFrame frame) throws IOException {
+		this.frame = frame;
+		
+		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
+				"images/PosImages/상품 관리 이미지/메뉴 추가 완료 안내 창.png", 400, 200));
+		
 		JButton addFixBtn = prjf.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png", 
 				"images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼 클릭.png", 140,110,120,60);
 		addFixBtn.addActionListener(new ActionListener() {
@@ -29,21 +35,11 @@ public class AddFix extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				panel.nameField.setText(null);
-				panel.priceField.setText(null);
+				frame.dispose();
 			}
 		});
 		
-		return addFixBtn;
-	}
-	
-	public AddFix(AddBackgroundImagePanel panel) throws IOException {
-		this.panel = panel;
-		
-		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
-				"images/PosImages/상품 관리 이미지/메뉴 추가 완료 안내 창.png", 400, 200));
-		
-		background.add(AddFixButton());	
+		background.add(addFixBtn);	
 		
 		add(background);
 		

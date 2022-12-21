@@ -14,41 +14,23 @@ import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.kjh.ProductManagementJFrame;
 import pos.product_management.menu_add.MenuAddFrame;
+import pos.product_management.menu_modify.ModifyFrame;
+import pos.product_management.menu_modify.message_frame.component.OkBtn;
 
 public class ModifyMessageFrame extends JFrame{
-	
-	ImageIcon icon;
-	
-	ProductManagementJFrame prjf;
-	
-	public JButton fixButton() throws IOException {
-		JButton fixBtn = prjf.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png", 
-				"images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼 클릭.png", 140,110,120,60);
-		fixBtn.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
+				
+	public ModifyMessageFrame() {
 		
-		return fixBtn;
-	}
-	
-	public ModifyMessageFrame() throws IOException {
+		add(new OkBtn(this));
+		add(new ModifyMessagePanel());
 		
-		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
-				"images/PosImages/상품 관리 이미지/수정 완료 안내 멘트 창.png", 400, 200));
-		
-		background.add(fixButton());	
-		
-		add(background);
-		
-		setSize(400, 200);
-		setResizable(false);
-		setUndecorated(true);
+		setUndecorated(true); // 타이틀바 없애기
+		getContentPane().setBackground(Color.white); // 배경색
 		setBackground(new Color(0, 0, 0, 0));	// 패널 배경 투명하게 하기
-		setLocationRelativeTo(null);
+		setSize(400, 200); // 프레임 사이즈
+		setLayout(null); // 레이아웃
+		setResizable(false); // 크기 조절 안되게
+		setLocationRelativeTo(null); // 가운데에 뜨게
 
 	}
 

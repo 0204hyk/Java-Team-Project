@@ -69,8 +69,9 @@ public class MenuListJTable extends JTable{
 			new NotSelectedFrame();
 		}else{
 			// 삭제 메뉴 확인 창
-			table.setEnabled(false);
+			
 			new DeleteFrame();
+			table.setEnabled(false);
 
 		}
 	}

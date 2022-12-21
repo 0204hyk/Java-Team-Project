@@ -110,8 +110,8 @@ public class MenuAddButton extends JButton implements ActionListener{
 			pstmt.executeUpdate();
 			additionalFrame.setVisible(true);
 		} catch (SQLException e1) {
-			JOptionPane.showMessageDialog(null, "중복된 이름의 메뉴가 존재합니다", "Message", JOptionPane.INFORMATION_MESSAGE);
-//			e1.printStackTrace();
+//			JOptionPane.showMessageDialog(null, "중복된 이름의 메뉴가 존재합니다", "Message", JOptionPane.INFORMATION_MESSAGE);
+			e1.printStackTrace();
 		}
 		
 	}
