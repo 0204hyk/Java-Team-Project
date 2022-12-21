@@ -39,6 +39,9 @@ public class List {
 	static ArrayList<String> cardNum = new ArrayList<>();
 	static ArrayList<String> date = new ArrayList<>();
 
+	
+	String sales_date, sales_number, menu,  price,  point;
+	
 	public List() {	}
 	
 	public List(OutputButton out, RefundButton refund) {
@@ -111,14 +114,14 @@ public class List {
 				refund.setEnabled(true);
 				
 				// 영수증 번호 전달
-				receiptInfo(sales_number, num);
+				menu(sales_number, num);
 
 			}
 		});
 	}
 	
-	// 영수증번호 (pk/fk) 를 WHERE에 써서 정보를 담아야 한다. 
-	public void receiptInfo (String sales_number, int num) {
+	// 메뉴를 담는 클래스 
+	public void menu (String sales_number, int num) {
 		String query = "select menu_name, menu_qty, m.price "
 				+ "from sales s, menu m "
 				+ "where sales_number = '" + sales_number + "'"
@@ -148,14 +151,16 @@ public class List {
 				 
 				*/
 				
-				ResultSetMetaData metadata = rs.getMetaData();
+				//ResultSetMetaData metadata = rs.getMetaData();
 				while (rs.next()) {
 					sb1.append(rs.getString("menu_name")
-							+ "\t" 
+							+ "\t\t" 
 							+ rs.getInt("menu_qty")
 							+ "\t" 
 							+ rs.getInt("price")
 							+ "\n");
+					
+					price = rs.getInt("price") + ""; // 포문 돌려야함 
 				}
 			}
 		} catch (SQLException e) {
@@ -167,7 +172,7 @@ public class List {
 		refundFrame = new RefundFrame(sales_number, sales_number, sales_number, sales_number);
 		
 		// 영수증 출력하는 곳에 값 넣기 
-		changeTextA("", sales_number, sb1.toString(), sales_number, sales_number);
+		changeTextA("날짜", sales_number, sb1.toString(), price , "포인트 ");
 		
 	}
 
@@ -191,16 +196,12 @@ public class List {
 				+ "--------------------------------------------------------------------\n"
 				+ "\t\t합 계 금 액   "  + price + "\n"
 				+ "--------------------------------------------------------------------\n"
-				+ "\t\t받 을 	금 액   "  + price + "\n"
-				+ "\t\t받 은 	금 액   "  + price + "\n"
-				+ "\t\t받 은 	카 드   " + sales_number + "\n"
-				+ "\t\t포인트 결 제   " + sales_number + "\n"
-				+ "\t\t받 은 카 드   " + sales_number + "\n"
+				+ "\t\t받 을 금 액   "  + price + "\n"
+				+ "\t\t포인트 결 제	   "  + point + "\n"
+				+ "\t\t카 드 결 제   "  +  price + "\n"
+				+ "\t\t받 은 금 액   "  + price + "\n"
 				+ "====================================="
 				);
 	}
-	
-	public static void main(String[] args) {
-	
-	}
+
 }
