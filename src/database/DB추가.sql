@@ -1,31 +1,11 @@
 
 --카테고리  1~5번 커피 카테고리 / 6번부터는 옵션 카테고리
-INSERT INTO category VALUES (1, '인기메뉴');
+INSERT INTO category VALUES (1, '신메뉴');
 INSERT INTO category VALUES (2, '커피');
 INSERT INTO category VALUES (3, '논커피');
 INSERT INTO category VALUES (4, '에이드');
 INSERT INTO category VALUES (5, '프라페');
 
---추가옵션
-INSERT INTO extra_option VALUES (1, 'HOT',  0);
-INSERT INTO extra_option VALUES (2, 'ICE',  0);
-INSERT INTO extra_option VALUES (3, 'DECAF_NO',  0);
-INSERT INTO extra_option VALUES (4, 'DECAF_YES',  1000);
-INSERT INTO extra_option VALUES (5, 'SIZE_S',  0);
-INSERT INTO extra_option VALUES (6, 'SIZE_M',  500);
-INSERT INTO extra_option VALUES (7, 'SIZE_L',  1000);
-INSERT INTO extra_option VALUES (8, 'Plastic',  0);
-INSERT INTO extra_option VALUES (9, 'Tumbler',  0);
-INSERT INTO extra_option VALUES (10, 'ICE_NORMAL',  0);
-INSERT INTO extra_option VALUES (11, 'ICE_LOW',  0);
-INSERT INTO extra_option VALUES (12, 'ICE_NONE',  0);
-INSERT INTO extra_option VALUES (13, 'SHOT_1',  300);
-INSERT INTO extra_option VALUES (14, 'SHOT_2',  600);
-INSERT INTO extra_option VALUES (15, 'Milk',  0);
-INSERT INTO extra_option VALUES (16, 'Soy_Milk',  300);
-INSERT INTO extra_option VALUES (17, 'Lowfat_Milk',  0);
-
---메뉴
 --메뉴
 INSERT INTO menu VALUES (1, '에스프레소', 2, 1, 'images/KioskImages/menu/coffee/에스프레소.png', 3000, 'Espresso'); 
 INSERT INTO menu VALUES (2, '아메리카노', 2, 1, 'images/KioskImages/menu/coffee/아메리카노.png',3500, 'Americano'); 
@@ -57,6 +37,35 @@ INSERT INTO menu VALUES (24, '피스타치오 라떼', 4, 7,'images/KioskImages/menu/no
 INSERT INTO menu VALUES (25, '레몬 에이드', 5, 8,'images/KioskImages/menu/ade/레몬에이드.png', 5000,' Lemon Ade'); 
 INSERT INTO menu VALUES (26, '자몽 에이드', 5, 8,'images/KioskImages/menu/ade/자몽에이드.png', 5000, 'Grapefruit Ade'); 
 INSERT INTO menu VALUES (27, '청포도 에이드', 5, 8,'images/KioskImages/menu/ade/청포도에이드.png', 5000, 'Green Grape Ade'); 
+
+-- 임시 매니저 데이터
+INSERT INTO manager VALUES ('hyCafe', 1234);
+
+-- 임시 회원 데이터
+INSERT INTO membership VALUES (01067447970, 50000, '2022-12-21');
+
+-- 임시 회원 판매 데이터
+INSERT INTO sales_management VALUES ('20221221-01-165330',
+01067447970,
+to_date('2022-12-21 16:53:30', 'YYYY-MM-DD HH24:MI:SS'),
+3, 5000, '1234-1234-1234');
+                                         -- 상품코드, 옵션, 갯수 , 가격
+INSERT INTO sales VALUES ('20221221-01-165330', 2, 0000000, 1, 3500);
+INSERT INTO sales VALUES ('20221221-01-165330', 3, 0000000, 2, 9000);
+
+-- 임시 비회원 판매 데이터
+INSERT INTO sales_management VALUES ('20221221-01-170015', null,
+to_date('2022-12-21 17:00:15', 'YYYY-MM-DD HH24:MI:SS'),
+1, 0, '2345-2345-2345');
+                                        -- 상품코드, 옵션, 갯수 , 가격
+INSERT INTO sales VALUES ('20221221-01-170015', 9, 0000000, 1, 5000);
+INSERT INTO sales VALUES ('20221221-01-170015', 9, 0120000, 1, 5300);
+INSERT INTO sales VALUES ('20221221-01-170015', 21, 0000000, 1, 4500);
+
+
+select * from sales where sales_number = '20221221-01-165330';
+select * from sales_management;
+
 SELECT * FROM user_tables;
 SELECT * FROM user_constraints;
 
