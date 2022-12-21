@@ -64,8 +64,8 @@ public class GetImageInfo {
 	}
 	
 	public static void main(String[] args) {
-		GetImageInfo gi = new GetImageInfo("에스프레소");
-		System.out.println(gi.getMenuPrice());
+		GetImageInfo gi = new GetImageInfo("아메리카노");
+		System.out.println(gi.getMenuImageRoot());
 	}
 	
 }

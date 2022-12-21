@@ -48,10 +48,6 @@ public class ChoiceMenu extends JFrame {
 		setVisible(true);
 	}
 
-	public void ChoiceMenu(int num, String menu, int temparature) {
-
-	}
-
 	public void defaults() {
 
 		add(wi.makeLabel("hy.png", 53, 24, 60, 83));
@@ -288,6 +284,7 @@ public class ChoiceMenu extends JFrame {
 		menuInCart.invalidate();
 
 		add(menuInCart);
+		
 	}
 
 	public static void main(String[] args) {

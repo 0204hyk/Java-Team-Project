@@ -5,10 +5,9 @@ import javax.swing.JPanel;
 import kiosk.tools.WithImage;
 
 public class NoMilk_2 {
-	String root = "images/KioskImages/4. detailedOption";
-	WithImage wi = new WithImage(root);
 
 	public NoMilk_2(JPanel topImage, String menu) {
+		
 		Options op = new Options(menu, Options.choiceMenu);
 		
 		int x = 78;
