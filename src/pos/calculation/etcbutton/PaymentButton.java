@@ -11,30 +11,22 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.ImageScaledTool;
 import pos.calculation.popup.ExistFrame;
 
 public class PaymentButton extends JButton {
 
+	ImageScaledTool tool = new ImageScaledTool();
+	
 	public PaymentButton() {
 		
 		// 결제 버튼 이미지 
-		try {
-			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/결제 버튼.png"));
-			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);
-			setIcon(new ImageIcon(scale));
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/계산 파트 이미지/결제 버튼.png", 120, 60)));
 		
 		// 결제 버튼 눌렀을 때
-		try {
-			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/결제 버튼 클릭.png"));
-			Image scale = image.getScaledInstance(120, 60, Image.SCALE_SMOOTH);
-			setPressedIcon(new ImageIcon(scale));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		setPressedIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/계산 파트 이미지/결제 버튼 클릭.png", 120, 60)));
 
 		setBounds(1050, 700, 100, 50);
 		setBorder(null);

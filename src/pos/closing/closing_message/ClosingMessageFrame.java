@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import pos.ImageScaledTool;
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_main.component.DoCloseButton;
+import pos.closing.closing_message.container.ClosingBackgroundPanel;
 
 public class ClosingMessageFrame extends JFrame {
 	// 마감 확인 안내창

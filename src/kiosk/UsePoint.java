@@ -2,47 +2,94 @@ package kiosk;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+
+import database.kiosk.CheckPoint;
+import kiosk.tools.WithImage;
 
 public class UsePoint extends JFrame {
-	String root = "images/KioskImages/5_4. step2 usePoint";
 
-	public UsePoint() {
-		JLabel phoneNum = new JLabel("1724"); // 고객 휴대폰 번호 입력 - 나중에 get으로 가져오기
+	String root = "images/KioskImages/5_4. step2 usePoint";
+	WithImage wi = new WithImage(root);
+
+	public UsePoint(String phonenumber) {
+
+		CheckPoint cp = new CheckPoint(Step1Step2.getMemberPhone());
+
+		JLabel phoneNum = new JLabel(phonenumber.substring(7, phonenumber.length()));
 		phoneNum.setFont(new Font("맑은 고딕", Font.BOLD, 36));
 		phoneNum.setForeground(Color.black);
 		phoneNum.setBounds(32, 65, 86, 32);
-		add(phoneNum);
 
-		JLabel currentPoint = new JLabel("395포인트"); //네자리면 위치가 바뀌어야하는데.. 안바뀜.
+		JLabel currentPoint = new JLabel("" + cp.currentPoint());
+		currentPoint.setHorizontalAlignment(JLabel.RIGHT);
 		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 34));
-		currentPoint.setForeground(new Color(63, 186, 145));
-		currentPoint.setBounds(150, 264, 200, 35);
-		currentPoint.setHorizontalTextPosition(JLabel.CENTER);
-		add(currentPoint);
+		currentPoint.setForeground(new Color(15, 11, 65));
+		currentPoint.setBounds(100, 260, 100, 35);
 
-		add(makeLabel("leftPointText.png", 33, 67, 335, 83));
-		add(makeLabel("byUnitText.png", 88, 329, 269, 16));
-		add(makeLabel("useAll.png", 85, 399, 63, 14));
-		add(makeLabel("usePointBox.png", 171, 383, 105, 46));
-		add(makeButton("use.png", 303, 383, 84, 46));
-		add(makeLabel("check.png", 60, 381, 28, 27)); // 체크 했다 안했다
-		add(makeButton("checkBox.png", 63, 399, 14, 14));
-		add(makeLabel("currentPointText.png", 163, 214, 121, 22));
-		add(makeLabel("currentPointBox.png", 63, 186, 320, 132));
+		JTextArea ta = new JTextArea();
+		ta.setBackground(new Color(242, 242, 242));
+		ta.setBorder(null);
+		ta.setBounds(185, 370, 80, 30);
+		ta.setFont(new Font("맑은 고딕", Font.BOLD, 26));
+		ta.setForeground(Color.BLACK);
 
-		int x = 57, y = 455;
+		add(wi.makeLabel("leftPointText.png", 33, 67, 335, 83));
+		add(wi.makeLabel("useAll.png", 85, 384, 63, 14));
+		add(wi.makeLabel("usePointBox.png", 171, 368, 105, 46));
+
+		JButton use = wi.makeButton("use.png", 290, 368, 97, 46);
+
+		use.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (Integer.parseInt(ta.getText()) > cp.currentPoint()) {
+					System.out.println("갖고 있는 포인트보다 적게 입력해주세요"); // 빨간 글씨로 띄워주기
+				} else {
+					dispose();
+					System.out.println("통과");
+					Step1Step2.pointActive();
+				}
+
+			}
+		});
+
+		add(wi.makeLabel("pointText.png", 205, 264, 90, 28));
+		JLabel check = wi.makeLabel("check.png", 61, 366, 28, 27);
+
+		check.setVisible(false);
+
+		JButton checkBox = wi.makeButton("checkBox.png", 64, 384, 14, 14);
+		checkBox.addActionListener(new ActionListener() {
+			int num = 1;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (num == 0) {
+					num = 1;
+					check.setVisible(false);
+					ta.setText("");
+				} else if (num == 1) {
+					num = 0;
+					ta.setText("" + cp.currentPoint());
+					check.setVisible(true); // 티몬과 품바 숨쉬는 것 쁘리덤
+				}
+
+			}
+		});
+
+		int x = 57, y = 439;
 		for (int i = 0; i < 12; i++) {
-			add(makeButton(i + 1 + ".png", x, y, 106, 42));
+			add(new PhoneKeypad(root, i, ta, x, y, 106, 42));
 			x += 113;
 			if (i == 2 || i == 5 || i == 8) {
 				x = 57;
@@ -50,52 +97,22 @@ public class UsePoint extends JFrame {
 			}
 		}
 
+		add(currentPoint);
+		add(phoneNum);
+		add(use);
+		add(check);
+		add(checkBox);
+		add(wi.makeLabel("currentPointText.png", 163, 215, 121, 22));
+		add(wi.makeLabel("currentPointBox.png", 64, 188, 320, 132));
+		add(ta);
+
 		setLayout(null);
 		setSize(461, 710); // 창 크기 이상해서 임시로 늘림
 		setVisible(true);
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(Color.WHITE);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
 
-	public JLabel makeLabel(String detailedRoot, int x, int y, int w, int h) {
-		JLabel lb = new JLabel();
-
-		lb.setIcon(new ImageIcon(readImage(root + "/"+detailedRoot, w, h)));
-		lb.setBounds(x, y, w, h);
-
-		return lb;
-	}
-	
-	public JButton makeButton(String detailedRoot, int x, int y, int w, int h) {
-		JButton bt = new JButton();
-
-		bt.setIcon(new ImageIcon(readImage(root + "/"+ detailedRoot, w, h)));
-		bt.setBounds(x, y, w, h);
-		bt.setBorderPainted(false);
-		bt.setContentAreaFilled(false);
-		bt.setPressedIcon(new ImageIcon(readImage(root +" Selected/" + detailedRoot, w, h)));
-		
-		return bt;
-	}
-
-	public Image readImage(String root, int w, int h) {
-
-		BufferedImage image;
-		Image scaled = null;
-		try {
-			image = ImageIO.read(new File(root));
-			scaled = image.getScaledInstance(w, h, Image.SCALE_SMOOTH);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return scaled;
-	}
-
-	public static void main(String[] args) {
-		new UsePoint();
-	}
 }

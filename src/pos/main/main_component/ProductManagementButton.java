@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.kjh.ProductManagementJFrame;
+import pos.product_management.menu01_main.ProductManagementJFrame;
 
 public class ProductManagementButton extends JButton implements ActionListener{
 
@@ -51,7 +51,7 @@ public class ProductManagementButton extends JButton implements ActionListener{
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		} 
 		
 	}
 

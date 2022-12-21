@@ -41,7 +41,7 @@ public class RefundCloseButton extends JButton implements ActionListener{
 		
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		f1.setEnabled(true);
+		//f1.setEnabled(true);
 		f2.setVisible(false);
 	}
 

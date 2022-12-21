@@ -10,7 +10,7 @@ import pos.ImageScaledTool;
 
 public class TitlePanel extends JPanel {
 	Image image = ImageScaledTool.getScaledImage(
-			"images/PosImages/영수증 조회 이미지/타이틀바.png", 800, 63);
+			"images/PosImages/영수증 조회 이미지/타이틀바.png", 800, 60);
 	
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
@@ -18,7 +18,7 @@ public class TitlePanel extends JPanel {
 	}	
 	
 	public TitlePanel() {
-		setBounds(0, 0, 800, 63); // Panel 틀
+		setBounds(0, 0, 800, 60); // Panel 틀
 	}	     
 
 }

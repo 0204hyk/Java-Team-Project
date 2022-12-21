@@ -11,9 +11,13 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
+
 public class OutputButton extends JButton implements ActionListener{
 
+
 	public OutputButton() {		
+	
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/영수증 출력 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(250, 80, Image.SCALE_SMOOTH); // 크기 조정
@@ -29,16 +33,22 @@ public class OutputButton extends JButton implements ActionListener{
 		}
 
 		
+		setEnabled(false);
 		setBounds(630, 670, 250, 80);
 		setContentAreaFilled(false);
 		setBorderPainted(false);
 		setOpaque(false);
+		addActionListener(this);
+		
 		
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("기능구현X");
+		new OutputOKFrame();
+
+		
+		//JOptionPane.showMessageDialog(null, "영수증 출력 완료");
 	}
 	
 

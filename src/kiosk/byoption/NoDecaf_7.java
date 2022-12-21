@@ -3,6 +3,7 @@ package kiosk.byoption;
 import java.awt.Color;
 
 import javax.swing.JFrame;
+<<<<<<< HEAD
 import javax.swing.JPanel;
 
 import kiosk.tools.WithImage;
@@ -30,4 +31,31 @@ public class NoDecaf_7 {
 	public static void main(String[] args) {
 		NoDecaf_7 d = new NoDecaf_7(new TopImage("고구마 라떼"),"고구마 라떼");
 	}
+=======
+
+import kiosk.tools.WithImage;
+
+public class NoDecaf_7 {
+	String root = "images/KioskImages/4. detailedOption";
+	WithImage wi = new WithImage(root);
+	Options op = new Options();
+
+	public NoDecaf_7() {
+
+		op.hotAndIce(78,269);
+		op.sizes(78, 339);
+		op.cup(78, 409);
+		op.ice(78, 479);
+		op.shot(78, 549);
+		op.milk(78, 620);
+		op.setVisible(true);
+		
+	}
+
+	public static void main(String[] args) {
+
+		new NoDecaf_7();
+	}
+
+>>>>>>> refs/remotes/origin/main
 }

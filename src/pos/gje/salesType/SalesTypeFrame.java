@@ -1,12 +1,14 @@
 package pos.gje.salesType;
 
+import java.awt.Color;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import pos.DigitalClock;
+import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.closing.closing_main.container.ClosingImagePanel;
 import pos.gje.salesType.component.DayBtn;
 import pos.gje.salesType.component.MonthBtn;
 import pos.gje.salesType.component.SalesTypeEscapeBtn;
@@ -16,7 +18,7 @@ public class SalesTypeFrame extends JFrame{
 	
 	public SalesTypeFrame() {
 		// 상단 메뉴바 설정
-		JPanel titlePanel = new ClosingImagePanel(ImageScaledTool.getScaledImage(
+		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
 		titlePanel.setBounds(0 ,0, 1200, 60);
 		// 현재 시간 출력
@@ -29,7 +31,7 @@ public class SalesTypeFrame extends JFrame{
 		add(new DayBtn());
 		add(new MonthBtn());
 		add(new YearBtn());
-		
+		getContentPane().setBackground(new Color(64, 64, 64));	// 프레임 백그라운드 컬러 설정
 		setUndecorated(true); // 타이틀바 없애기
 		setSize(1200, 800); // 프레임 사이즈
 		setLayout(null); 
@@ -39,10 +41,5 @@ public class SalesTypeFrame extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
-
-	
-	public static void main(String[] args) {
-		new SalesTypeFrame();
-	}
 
 }

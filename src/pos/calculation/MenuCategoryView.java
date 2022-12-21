@@ -16,13 +16,13 @@ public class MenuCategoryView extends JLabel {
 		
 		try {
 			BufferedImage image = ImageIO.read(new File("images/PosImages/계산 파트 이미지/메뉴 카테고리 배경판.png"));
-			Image scale = image.getScaledInstance(650, 500, Image.SCALE_SMOOTH);
+			Image scale = image.getScaledInstance(640, 500, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(scale));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		setBounds(550, 110, 650, 500);
+		setBounds(550, 110, 640, 500);
 		
 	}
 }

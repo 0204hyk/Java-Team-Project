@@ -11,13 +11,9 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import kiosk.byoption.All;
+import kiosk.byoption.Options;
 
 public class GroupButtons {
-
-	JButton a;
-	JButton b;
-	JButton c;
 
 	String root = "images/KioskImages/4. detailedOption/";
 	String rootSelected = "images/KioskImages/4. detailedOption Selected/";
