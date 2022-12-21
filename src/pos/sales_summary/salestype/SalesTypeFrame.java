@@ -1,18 +1,17 @@
 package pos.sales_summary.salestype;
 
 import java.awt.Color;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.gje.salesType.component.DayBtn;
-import pos.gje.salesType.component.MonthBtn;
-import pos.gje.salesType.component.SalesTypeEscapeBtn;
-import pos.gje.salesType.component.YearBtn;
+import pos.sales_summary.salestype.component.DayBtn;
+import pos.sales_summary.salestype.component.MonthBtn;
+import pos.sales_summary.salestype.component.SalesTypeEscapeBtn;
+import pos.sales_summary.salestype.component.YearBtn;
+
 
 public class SalesTypeFrame extends JFrame{
 	

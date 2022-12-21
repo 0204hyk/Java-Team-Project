@@ -6,12 +6,11 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import pos.sales_summary.salestype.SalesTypeFrame;
 
-import pos.gje.salesType.SalesTypeFrame;
 
 public class SalesTypeEscapeBtn extends JButton implements ActionListener{
 	
