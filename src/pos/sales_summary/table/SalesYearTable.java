@@ -14,7 +14,7 @@ import database.OjdbcConnection;
 
 public class SalesYearTable extends JTable {
 
-	private static String colTitle[] = {"선택 연도", "매출액"};
+	private static String colTitle[] = {"날짜", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0) {
 		// 테이블 출력 값 선택되지 않게 설정
 		public boolean isCellEditable(int i, int c) {
@@ -70,10 +70,11 @@ public class SalesYearTable extends JTable {
 
 			try (ResultSet rs = pstmt.executeQuery()) {
 				while(rs.next()) {
-					model.addRow(new Object[] {
-							rs.getString(1),
-							rs.getString("total") + "원"});
-				}
+						model.addRow(new Object[] {
+								rs.getString(1),
+								rs.getString("total") + "원"});
+				} 
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

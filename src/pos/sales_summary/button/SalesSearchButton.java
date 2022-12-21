@@ -2,6 +2,9 @@ package pos.sales_summary.button;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -45,10 +48,11 @@ public class SalesSearchButton extends JButton {
 				"images/PosImages/매출 요약 이미지/날짜 검색 버튼 클릭.png", 100, 50)));
 		setBounds(450, 90, 100, 50);
 		setBorder(null);
-		addActionListener(new ActionListener() {
-
+		
+		// 검색 버튼 마우스 클릭 이벤트 
+		addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void mouseClicked(MouseEvent e) {
 				// 콤보박스의 값을 String으로 변환 후 변수에 저장.
 				year = String.format("%02d",  yearBox.getSelectedItem());
 
@@ -58,7 +62,9 @@ public class SalesSearchButton extends JButton {
 				TitlePanel title = new TitlePanel(year);
 				TotalPanel total = new TotalPanel(year);
 			}
+			
 		});
+
 
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
@@ -78,10 +84,11 @@ public class SalesSearchButton extends JButton {
 				"images/PosImages/매출 요약 이미지/날짜 검색 버튼 클릭.png", 100, 50)));
 		setBounds(450, 90, 100, 50);
 		setBorder(null);
-		addActionListener(new ActionListener() {
-
+		
+		// 마우스 클릭 이벤트
+		addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void mouseClicked(MouseEvent e) {
 				// 콤보박스의 값을 String으로 변환 후 각 변수에 저장.
 				year = String.format("%02d",  yearBox.getSelectedItem());
 				month = String.format("%02d", monthBox.getSelectedItem());
@@ -93,7 +100,7 @@ public class SalesSearchButton extends JButton {
 				TotalPanel total = new TotalPanel(year, month);
 			}
 		});
-
+		
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);	
@@ -119,10 +126,10 @@ public class SalesSearchButton extends JButton {
 		setBounds(450, 90, 100, 50);
 		setBorder(null);
 
-		// 검색 버튼 액션
-		addActionListener(new ActionListener() {
+		
+		addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void mouseClicked(MouseEvent e) {
 				// 콤보박스의 값을 String으로 변환 후 각 변수에 저장.
 				year = String.format("%02d",  yearBox.getSelectedItem());
 				month = String.format("%02d", monthBox.getSelectedItem()); 
