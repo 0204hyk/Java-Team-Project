@@ -27,11 +27,21 @@ public class ChoiceMenu extends JFrame {
 	JPanel noncoffeePn = new PanelsByCategory(4, 5);
 	JPanel adePn = new PanelsByCategory(5, 3);
 	
+	AMenu one;
+	AMenu two;
+	AMenu three;
+	AMenu four;
+	AMenu five;
+	AMenu six;
+	AMenu seven;
+	AMenu eight;
+	
 	public ChoiceMenu() {
 		
 		defaults();
 		tabs();
 		pay();
+		cart();
 		
 		setUndecorated(true);
 		setLayout(null);
@@ -170,23 +180,36 @@ public class ChoiceMenu extends JFrame {
 
 	
 	public void pay() {
-		JButton pay = wi.makeButton("pay.png", 548, 760, 78, 93);
-		JButton deleteAll = wi.makeButton("deleteAll.png", 548, 866, 78, 71);
+		JButton pay = wi.makeButton("pay.png", 548, 748, 78, 93);
+		JButton deleteAll = wi.makeButton("deleteAll.png", 548, 854, 78, 71);
 
 		add(pay);
 		add(deleteAll);
 	}
 	
-//	public void cart() {
-//		Cart cart = new Cart();
-//		cart.setVisible(true);
-//		add(cart);
-//	}
-	
-	public void addMenu(AMenu menu) {
+	public void cart() {
 		
+		one = new AMenu("에스프레소","HOT");
+		two = new AMenu("에스프레소","HOT");
+		three = new AMenu("에스프레소","HOT");
+		four = new AMenu("에스프레소","HOT");
+		five = new AMenu("에스프레소","HOT");
+		six = new AMenu("에스프레소","HOT");
+		seven = new AMenu("에스프레소","HOT");
+		eight = new AMenu("에스프레소","HOT");
+		
+		add(one);
+		add(two);
+		add(three);
+		add(four);
+		add(five);
+		add(six);
+		add(seven);
+		add(eight);
 		
 	}
+	
+	
 	
 	public static void main(String[] args) {
 		

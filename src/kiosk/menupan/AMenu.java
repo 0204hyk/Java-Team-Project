@@ -22,10 +22,10 @@ public class AMenu extends JPanel {
 	static int num = 0;
 	String menu, temparature;
 
-	public static int yy = 712;
+	public static int yy = 695;
 	int x = 0, y = 0;
+	
 	// 장바구니에 한 줄씩 들어감
-
 	public AMenu(String menu, String temparature) {
 		this.menu = menu;
 		this.temparature = temparature;
@@ -107,7 +107,6 @@ public class AMenu extends JPanel {
 				}
 			}
 		});
-		
 
 		setOpaque(false);
 		setBorder(null);

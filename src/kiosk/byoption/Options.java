@@ -35,6 +35,7 @@ public class Options extends JFrame {
 	ChoiceMenu frame;
 	
 	GetImageInfo gi = new GetImageInfo(menu);
+	
 	static public ChoiceMenu choiceMenu;
 
 	public Options(String menu, ChoiceMenu frame) {
@@ -102,7 +103,9 @@ public class Options extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// 1. 옵션 미선택 된 부분 막기 2. 담아서 장바구니로 넘기기
 				
-				frame.add(new AMenu(menu, hotAndIce));
+				AMenu a = new AMenu(menu, hotAndIce);
+				frame.add(a);
+				frame.invalidate();
 				dispose();
 				
 			}
