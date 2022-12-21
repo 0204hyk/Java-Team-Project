@@ -1,14 +1,13 @@
-package pos.salescheck.component.combobox;
+package pos.sales_summary.combobox;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.Calendar;
-
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
-import pos.salescheck.component.table.SalesDayTable;
-import pos.salescheck.component.table.SalesMonthTable;
+import pos.sales_summary.table.SalesDayTable;
+import pos.sales_summary.table.SalesMonthTable;
+import pos.sales_summary.table.SalesYearTable;
 
 public class MonthComboBox extends JComboBox {
 	
@@ -23,15 +22,18 @@ public class MonthComboBox extends JComboBox {
 		setSelectedItem(month);
 		setBounds(210, 100, 100, 25);
 
-		
+		// 콤보박스 값 선택 시 table 리스트 초기화
 		addItemListener(new ItemListener() {
 			
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				SalesMonthTable table = new SalesMonthTable();
-				table.model.setNumRows(0);
+				SalesYearTable yearTable = new SalesYearTable();
+				yearTable.model.setNumRows(0);
+				SalesMonthTable monthTable = new SalesMonthTable();
+				monthTable.model.setNumRows(0);
+				SalesDayTable dayTable = new SalesDayTable();
+				dayTable.model.setNumRows(0);
 			}
 		});
-
 	}
 }

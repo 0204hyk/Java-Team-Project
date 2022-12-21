@@ -1,4 +1,4 @@
-package pos.salescheck.component.main;
+package pos.sales_summary.main;
 
 import java.awt.Color;
 
@@ -12,55 +12,55 @@ import javax.swing.JTable;
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.salescheck.component.button.SalesEscapeButton;
-import pos.salescheck.component.button.SalesSearchButton;
-import pos.salescheck.component.chart.DayChart;
-import pos.salescheck.component.combobox.DayComboBox;
-import pos.salescheck.component.combobox.MonthComboBox;
-import pos.salescheck.component.combobox.YearComboBox;
-import pos.salescheck.component.saleslist.ListImgLabel;
-import pos.salescheck.component.saleslist.TitlePanel;
-import pos.salescheck.component.saleslist.TotalLabel;
-import pos.salescheck.component.table.SalesDayTable;
+import pos.sales_summary.button.SalesEscapeButton;
+import pos.sales_summary.button.SalesSearchButton;
+import pos.sales_summary.chart.DayChart;
+import pos.sales_summary.combobox.DayComboBox;
+import pos.sales_summary.combobox.MonthComboBox;
+import pos.sales_summary.combobox.YearComboBox;
+import pos.sales_summary.saleslist.ListImgLabel;
+import pos.sales_summary.saleslist.TitlePanel;
+import pos.sales_summary.saleslist.TotalPanel;
+import pos.sales_summary.table.SalesDayTable;
 
 public class SalesDayCheckMain extends JFrame {
-	
+
 	// 일별 매출
 	public SalesDayCheckMain() {
-		
+
 		// 매출요약 상단 메뉴바 생성.
 		JPanel title = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
 		title.setBounds(0 ,0, 1200, 60);
-		
+
 		// 현재 시간 출력
 		JLabel clock = new DigitalClock();
 		clock.setBounds(375, 10, 400, 30);
 		title.add(clock);
-		
+
 		// 일 매출요약 차트 구현
 		DayChart chart = new DayChart();
-		
+
 		// 매출요약 콤보박스 구현
 		JComboBox yearCombo = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
 		JComboBox dayCombo = new DayComboBox();
-		
+
 		// 매출요약 검색 버튼 구현
 		JButton searchBtn = new SalesSearchButton(yearCombo, monthCombo, dayCombo);
-	
+
 		// 매출요약 뒤로가기 구현
 		JButton escapeBtn = new SalesEscapeButton(this);
-		
+
 		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();
 		JTable table = new SalesDayTable();
-		
-		// 매출요약
+
+		// 매출요약 테이블 상단 하단
 		JPanel salesTitle = new TitlePanel();
-		JLabel total = new TotalLabel();
-		
-	
+		JPanel total = new TotalPanel();
+
+
 		add(title);
 		add(yearCombo);
 		add(monthCombo);
@@ -68,7 +68,7 @@ public class SalesDayCheckMain extends JFrame {
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
-		//add(total);
+		add(total);
 		add(table);
 		add(list);
 		add(chart);

@@ -1,31 +1,30 @@
-package pos.salescheck.component.main;
+package pos.sales_summary.main;
 
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.salescheck.component.button.SalesEscapeButton;
-import pos.salescheck.component.button.SalesSearchButton;
-import pos.salescheck.component.chart.YearChart;
-import pos.salescheck.component.combobox.YearComboBox;
-import pos.salescheck.component.saleslist.ListImgLabel;
-import pos.salescheck.component.saleslist.TitlePanel;
-import pos.salescheck.component.saleslist.TotalLabel;
-import pos.salescheck.component.table.SalesYearTable;
+import pos.sales_summary.button.SalesEscapeButton;
+import pos.sales_summary.button.SalesSearchButton;
+import pos.sales_summary.chart.YearChart;
+import pos.sales_summary.combobox.YearComboBox;
+import pos.sales_summary.saleslist.ListImgLabel;
+import pos.sales_summary.saleslist.TitlePanel;
+import pos.sales_summary.saleslist.TotalPanel;
+import pos.sales_summary.table.SalesMonthTable;
+import pos.sales_summary.table.SalesYearTable;
 
 public class SalesYearCheckMain extends JFrame {
 
 	// 년 매출 
 	public SalesYearCheckMain() {
-		
+
 		// 매출요약 상단 메뉴바 생성.
 		JPanel title = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
@@ -35,33 +34,33 @@ public class SalesYearCheckMain extends JFrame {
 		JLabel clock = new DigitalClock();
 		clock.setBounds(375, 10, 400, 30);
 		title.add(clock);
-		
+
 		// 년 매출 요약 차트 
 		YearChart chart = new YearChart();
-		
+
 		// 매출요약 콤보박스 
 		JComboBox yearCombo = new YearComboBox();
-		
+
 		// 매출요약 검색 버튼
 		JButton searchBtn = new SalesSearchButton(yearCombo);
-		
+
 		// 매출요약 뒤로가기
 		JButton escapeBtn = new SalesEscapeButton(this);
-		
+
 		// 매출요약 리스트 구현
 		JLabel list = new ListImgLabel();
 		JTable table = new SalesYearTable();
 
-		// 매출요약
+		// 매출요약 테이블 상단 하단
 		JPanel salesTitle = new TitlePanel();
-		JLabel total = new TotalLabel();
-		
+		JPanel total = new TotalPanel();
+
 		add(title);
 		add(yearCombo);
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
-		//add(total);
+		add(total);
 		add(table);
 		add(list);
 		add(chart);

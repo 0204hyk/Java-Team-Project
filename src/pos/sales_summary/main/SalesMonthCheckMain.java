@@ -1,31 +1,28 @@
-package pos.salescheck.component.main;
+package pos.sales_summary.main;
 
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.salescheck.component.button.SalesEscapeButton;
-import pos.salescheck.component.button.SalesSearchButton;
-import pos.salescheck.component.chart.MonthChart;
-import pos.salescheck.component.combobox.MonthComboBox;
-import pos.salescheck.component.combobox.YearComboBox;
-import pos.salescheck.component.saleslist.ListImgLabel;
-import pos.salescheck.component.saleslist.TitlePanel;
-import pos.salescheck.component.saleslist.TotalLabel;
-import pos.salescheck.component.table.SalesMonthTable;
+import pos.sales_summary.button.SalesEscapeButton;
+import pos.sales_summary.button.SalesSearchButton;
+import pos.sales_summary.chart.MonthChart;
+import pos.sales_summary.combobox.MonthComboBox;
+import pos.sales_summary.combobox.YearComboBox;
+import pos.sales_summary.saleslist.ListImgLabel;
+import pos.sales_summary.saleslist.TitlePanel;
+import pos.sales_summary.saleslist.TotalPanel;
+import pos.sales_summary.table.SalesMonthTable;
 
 public class SalesMonthCheckMain extends JFrame {
 
-	
-	
+
 	// 월별 매출
 	public SalesMonthCheckMain() {
 
@@ -45,7 +42,7 @@ public class SalesMonthCheckMain extends JFrame {
 		// 매출요약 콤보박스 구현
 		JComboBox yearCombo = new YearComboBox();
 		JComboBox monthCombo = new MonthComboBox();
-	
+
 
 		// 매출요약 검색 버튼 구현
 		JButton searchBtn = new SalesSearchButton(yearCombo, monthCombo);
@@ -57,18 +54,18 @@ public class SalesMonthCheckMain extends JFrame {
 		JLabel list = new ListImgLabel();
 		JTable table = new SalesMonthTable();
 
-		// 매출요약
+		// 매출요약 테이블 상단 하단
 		JPanel salesTitle = new TitlePanel();
-		JLabel total = new TotalLabel();
-		
-		
+		JPanel total = new TotalPanel();
+
+
 		add(title);
 		add(yearCombo);
 		add(monthCombo);
 		add(searchBtn);
 		add(escapeBtn);
 		add(salesTitle);
-		//add(total);
+		add(total);
 		add(table);
 		add(list);
 		add(chart);

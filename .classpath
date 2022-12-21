@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Gi7D-12/Desktop/Main 브런치 선택/jcommon-1.0.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Gi7D-12/Desktop/Main 브런치 선택/jfreechart-1.0.19.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Gi7D-12/Desktop/Main 브런치 선택/ojdbc6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="jar/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="jar/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="jar/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
