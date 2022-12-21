@@ -16,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import pos.product_management.menu01_main.ProductManagementJFrame;
+
 public class LoginSelectFrame extends JFrame{
 	
 	public static void buttonSetting(JButton b) {

@@ -25,6 +25,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import pos.PosFrame;
+import pos.product_management.menu01_main.ProductManagementJFrame;
 
 public class LoginStart extends JFrame{
 

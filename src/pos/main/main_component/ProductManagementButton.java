@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.kjh.ProductManagementJFrame;
+import pos.product_management.menu01_main.ProductManagementJFrame;
 
 public class ProductManagementButton extends JButton implements ActionListener{
 
