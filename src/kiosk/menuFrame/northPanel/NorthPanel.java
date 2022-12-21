@@ -1,37 +1,35 @@
 
-//package kiosk.menuFrame.northPanel;
-//
-//import java.awt.BorderLayout;
-//import java.awt.CardLayout;
-//import java.awt.Color;
-//import java.awt.Dimension;
-//import java.awt.FlowLayout;
-//import java.awt.Font;
-//import java.awt.GridLayout;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
-//import java.awt.image.BufferedImage;
-//import java.io.File;
-//
-//import javax.imageio.ImageIO;
-//import javax.swing.ImageIcon;
-//import javax.swing.JButton;
-//import javax.swing.JLabel;
-//import javax.swing.JPanel;
-//
-//import kiosk.byoption.All_1;
-//import kiosk.byoption.NoDecaf_7;
-//import kiosk.byoption.NoHotMilk_4;
-//import kiosk.byoption.NoHot_3;
-//import kiosk.byoption.NoMilk_2;
-//import kiosk.byoption.OnlyDecafShotCup_6;
-//import kiosk.byoption.OnlyShotCup_5;
-//import kiosk.byoption.OnlyShotIceCup_8;
-//import kiosk.byoption.TopImage;
-//import kiosk.tools.WithImage;
-//
-//public class NorthPanel extends JPanel {
-//	
+package kiosk.menuFrame.northPanel;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import kiosk.byoption.All_1;
+import kiosk.byoption.NoDecaf_7;
+import kiosk.byoption.NoHotMilk_4;
+import kiosk.byoption.NoHot_3;
+import kiosk.byoption.NoMilk_2;
+import kiosk.byoption.OnlyDecafShotCup_6;
+import kiosk.byoption.OnlyShotCup_5;
+import kiosk.byoption.OnlyShotIceCup_8;
+import kiosk.byoption.TopImage;
+import kiosk.tools.WithImage;
+
+public class NorthPanel extends JPanel {
+
 //	String root = "images/KioskImages/3. 메뉴선택";
 //	WithImage wi = new WithImage(root);
 //	
@@ -952,5 +950,4 @@
 //		return westPanel;
 //	}
 //
-//}
->>>>>>> refs/remotes/origin/jsj
+}
