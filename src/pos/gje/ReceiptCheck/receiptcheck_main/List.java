@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -32,37 +33,17 @@ public class List {
 	};  //셀 수정 못하게 하는 부분
 	public static JTable table = new JTable(contents); 
 	public static JScrollPane scroll;
-	
-	/*
-		영수증 조회시 필요한 것 
-	 	 - 영수증 번호
-	 	 - 가격
-	 	 - 결제방식 (포인트, 카드)
-	 	 - 날짜 및 시간
-	 	 -
-	 	
-	 	환불창에 필요한 것
-	 	 - 총 결제금액
-	 	 - 포인트결제금액
-	  	 - 카드결제금액
-	  	 - 카드번호 
-	*/ 
-	
 	public static RefundFrame refundFrame;
 
 	static ArrayList<String> number = new ArrayList<>();
-	static ArrayList<String> point = new ArrayList<>();
+	static ArrayList<String> cardNum = new ArrayList<>();
 	static ArrayList<String> date = new ArrayList<>();
-	
-	String date1,point1,number1;
-	
-	//static int num = 1;
-	
+
 	public List() {	}
 	
 	public List(OutputButton out, RefundButton refund) {
 		
-		String query = "SELECT * FROM membership "; 
+		String query = "SELECT * FROM sales_management"; 
 		
 		try (Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(query);
@@ -71,15 +52,16 @@ public class List {
 			int num = 1;
 			while (rs.next()) {
 				// 영수증에 관한 값을 List에 저장 (현재 영수증 테이블에 값이 없엉서 멤버십 테이블로 대신함)
-				number.add(rs.getString("member_phonenumber"));
-				point.add(rs.getString("member_point"));
-				date.add(rs.getString("member_join"));
+				number.add(rs.getString("sales_number"));
+				cardNum.add(rs.getString("card_number"));
+				date.add(rs.getString("saledate"));
 				
 				contents.addRow(new Object[] {
 						num++, // 
-						rs.getString("member_phonenumber") 
+						rs.getString("sales_number") 
 				});
 			}
+			
 		} catch (SQLException e) {
 			System.out.println(" 오류");
 			e.printStackTrace();
@@ -111,42 +93,42 @@ public class List {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				
 				// 선택한 Row의 순서를 int 타입으로 변경 
 				//(table 은 1부터 시작하기 때문에 - 1 을 해줘야 List에 담긴 값을 정확히 불러올 수 있다.
 				int num = (int)(table.getValueAt(table.getSelectedRow(), 0)) - 1;
+				String sales_number = (table.getValueAt(table.getSelectedRow(), 1)).toString();
+				String card_number = cardNum.get(num);
+				String sales_date = date.get(num);
 				
-				String d = date.get(num);
-				String receiptNum = (table.getValueAt(table.getSelectedRow(), 1)).toString();
-				
-				receiptInfo(receiptNum, num);
 				
 				
 				// 환불창에 뜨게 만들기
-				refundFrame = new RefundFrame(d, receiptNum, d, receiptNum);
+				refundFrame = new RefundFrame("", sales_number, "", sales_number);
 				
 				// 영수증을 프린틑하는 메소드에 값을 넣는다 
-				changeTextA(receiptNum, d);
+				//changeTextA(sales_number, "");
 				out.setEnabled(true);
 				refund.setEnabled(true);
 				
 				// 영수증 번호 전달
-				
-				
-				
+				receiptInfo(sales_number, num);
+
 			}
 		});
 	}
 	
 	// 영수증번호 (pk/fk) 를 WHERE에 써서 정보를 담아야 한다. 
-	public void receiptInfo (String receiptNum, int num) {
-		String query = "SELECT * FROM membership WHERE sales_number = '?'"; 
+	public void receiptInfo (String sales_number, int num) {
+		String query = "select menu_name, menu_qty, m.price "
+				+ "from sales s, menu m "
+				+ "where sales_number = '" + sales_number + "'"
+				+ "AND s.menu_number = m.menu_number"; 
 		
+		StringBuilder sb1 = new StringBuilder();
 		try (Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(query);
 				) {
-			pstmt.setString(1, receiptNum); // 영수증 번호에 관한 정보들 
+			//pstmt.setString(0, sales_number); // 영수증 번호에 관한 정보들 
 
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -163,20 +145,18 @@ public class List {
 						3. 개수
 						4. 가격 
 					}
-					
-					System.out.println(i + "번쨰 컬럼라벨: " + metadata.getColumnLabel(i));
-					System.out.println(i + "번째 컬럼의 DisplaySize: " + metadata.getColumnDisplaySize(i));
-					System.out.println(i + "번째 컬럼의 타입: " + metadata.getColumnTypeName(i));
-					
-					
-				}
 				 
 				*/
-				String date1 = date.get(num);
-				String number1 = number.get(num);
-				String point1 = point.get(num);
 				
-				
+				ResultSetMetaData metadata = rs.getMetaData();
+				while (rs.next()) {
+					sb1.append(rs.getString("menu_name")
+							+ "\t" 
+							+ rs.getInt("menu_qty")
+							+ "\t" 
+							+ rs.getInt("price")
+							+ "\n");
+				}
 			}
 		} catch (SQLException e) {
 			System.out.println(" 오류");
@@ -184,15 +164,15 @@ public class List {
 		}
 		
 		// 영수증 번호에 해당하는 정보들 환불창에 넣기 
-		refundFrame = new RefundFrame(receiptNum, receiptNum, receiptNum, receiptNum);
+		refundFrame = new RefundFrame(sales_number, sales_number, sales_number, sales_number);
 		
 		// 영수증 출력하는 곳에 값 넣기 
-		changeTextA(date1, number1);
+		changeTextA("", sales_number, sb1.toString(), sales_number, sales_number);
 		
 	}
 
 	
-	public void changeTextA(String num, String point) {
+	public void changeTextA(String date, String sales_number, String menu, String price, String point) {
 		JTextArea a = PrintScroll.p;
 		
 		a.setText("[영수증]\n"
@@ -202,21 +182,20 @@ public class List {
 				+ "[주소] 경기도 구리시 건원대로 44 태영빌딩\n"
 				+ "4층 409호\n"
 				+ "[대표자] 김XX		[TEL] 031-555-4449\n"
-				+ "[매출일] " + point + "\n"
-				+ "[영수증] " + num + "\n"
+				+ "[매출일] " + date + "\n"
+				+ "[영수증] " + sales_number + "\n"
 				+ "=====================================\n"
 				+ " 상 품 명\t\t수 량\t단 가\n"
 				+ "--------------------------------------------------------------------\n"
-				+ num + "\t\t" + num + "\t" + num + "\n"
+				+ menu
 				+ "--------------------------------------------------------------------\n"
-				+ "\t\t합 계 금 액   "  + num + "\n"
+				+ "\t\t합 계 금 액   "  + price + "\n"
 				+ "--------------------------------------------------------------------\n"
-				+ "\t\t받 을 금 액   "  + num + "\n"
-				+ "\t\t받 은 금 액   "  + num + "\n"
-				+ "\t\t받 은 카 드   " + num + "\n"
-				+ "\t\t받 은 카 드   " + num + "\n"
-				+ "\t\t받 은 카 드   " + num + "\n"
-				
+				+ "\t\t받 을 	금 액   "  + price + "\n"
+				+ "\t\t받 은 	금 액   "  + price + "\n"
+				+ "\t\t받 은 	카 드   " + sales_number + "\n"
+				+ "\t\t포인트 결 제   " + sales_number + "\n"
+				+ "\t\t받 은 카 드   " + sales_number + "\n"
 				+ "====================================="
 				);
 	}
