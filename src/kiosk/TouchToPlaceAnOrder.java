@@ -4,18 +4,13 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.Timer;
 
-import kiosk.menuFrame.MenuFrame;
+import kiosk.menupan.ChoiceMenu;
 import kiosk.tools.WithImage;
 
 public class TouchToPlaceAnOrder extends JFrame {
@@ -58,7 +53,7 @@ public class TouchToPlaceAnOrder extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new MenuFrame();
+				new ChoiceMenu();
 				
 			}
 		});
