@@ -7,10 +7,10 @@ import javax.swing.JPanel;
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.sales_summary.salestype.component.DayBtn;
-import pos.sales_summary.salestype.component.MonthBtn;
-import pos.sales_summary.salestype.component.SalesTypeEscapeBtn;
-import pos.sales_summary.salestype.component.YearBtn;
+import pos.sales_summary.salestype.button.DayBtn;
+import pos.sales_summary.salestype.button.MonthBtn;
+import pos.sales_summary.salestype.button.SalesTypeEscapeBtn;
+import pos.sales_summary.salestype.button.YearBtn;
 
 
 public class SalesTypeFrame extends JFrame{
