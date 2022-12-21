@@ -1,4 +1,4 @@
-package pos.gje.salesType.component;
+package pos.sales_summary.salestype.component;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -10,21 +10,18 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
-import pos.sales_summary.chart.DayChart;
-import pos.sales_summary.main.SalesDayCheckMain;
+import pos.sales_summary.main.SalesMonthCheckMain;
 
-public class DayBtn extends JButton implements ActionListener{
-	
-	public DayBtn() {
-		
+public class MonthBtn extends JButton implements ActionListener{
+
+	public MonthBtn() {
 		try {
-			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/매출 요약 이미지/일 매출.png"));
+			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/매출 요약 이미지/월 매출.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(300, 300, Image.SCALE_SMOOTH); // 크기 조정
 			setIcon(new ImageIcon(scaledImage));
 			
-			BufferedImage bufferedImage2 = ImageIO.read(new File("images/PosImages/매출 요약 이미지/일 매출 클릭.png"));
+			BufferedImage bufferedImage2 = ImageIO.read(new File("images/PosImages/매출 요약 이미지/월 매출 클릭.png"));
 			Image scaledImage2 = bufferedImage2.getScaledInstance(300, 300, Image.SCALE_SMOOTH); // 크기 조정
 			ImageIcon img = new ImageIcon(scaledImage2);
 			setPressedIcon(img);
@@ -34,17 +31,15 @@ public class DayBtn extends JButton implements ActionListener{
 		}
 		
 		addActionListener(this);
-		setBounds(75, 290, 300, 300); // 위치 및 사이즈 조절
+		setBounds(450, 290, 300, 300); // 위치 및 사이즈 조절
 		setContentAreaFilled(false);
 		setBorderPainted(false); 
 		setOpaque(false);
 	}
 
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new SalesDayCheckMain();
+		new SalesMonthCheckMain();
+		
 	}
-	
-
 }

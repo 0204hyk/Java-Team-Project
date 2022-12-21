@@ -1,4 +1,4 @@
-package pos.gje.salesType.component;
+package pos.sales_summary.salestype.component;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package pos.gje.salesType;
+package pos.sales_summary.salestype;
 
 import java.awt.Color;
 
