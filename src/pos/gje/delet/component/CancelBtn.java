@@ -46,6 +46,7 @@ public class CancelBtn extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		MenuListJTable.table.setEnabled(true);
+		
 		f.dispose();
 	}
 }
