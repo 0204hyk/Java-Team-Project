@@ -61,6 +61,11 @@ public class SalesSearchButton extends JButton {
 				YearChart chart = new YearChart(year);
 				TitlePanel title = new TitlePanel(year);
 				TotalPanel total = new TotalPanel(year);
+				
+				if (table.num > 1) {
+					table.model.setNumRows(0);
+				}
+				
 			}
 			
 		});
@@ -98,6 +103,11 @@ public class SalesSearchButton extends JButton {
 				MonthChart chart = new MonthChart(year, month);
 				TitlePanel title = new TitlePanel(year, month);
 				TotalPanel total = new TotalPanel(year, month);
+				
+			
+				
+				
+				
 			}
 		});
 		

@@ -22,6 +22,7 @@ public class SalesYearTable extends JTable {
 		}
 	};
 
+	public static int num = 0;
 	String year;
 
 	public SalesYearTable() {
@@ -73,6 +74,7 @@ public class SalesYearTable extends JTable {
 						model.addRow(new Object[] {
 								rs.getString(1),
 								rs.getString("total") + "원"});
+						num++;
 				} 
 				
 			}
