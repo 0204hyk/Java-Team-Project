@@ -79,8 +79,10 @@ public class UsePoint extends JFrame {
 					ta.setText("");
 				} else if (num == 1) {
 					num = 0;
+					check.setVisible(true);
 					ta.setText("" + cp.currentPoint());
-					check.setVisible(true); // 티몬과 품바 숨쉬는 것 쁘리덤
+					ta.setVisible(true);
+					ta.paint(ta.getGraphics());
 				}
 
 			}
@@ -113,5 +115,7 @@ public class UsePoint extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
-
+public static void main(String[] args) {
+	new UsePoint("01042361724");
+}
 }

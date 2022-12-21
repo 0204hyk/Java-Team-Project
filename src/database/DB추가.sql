@@ -59,3 +59,4 @@ INSERT INTO menu VALUES (27, '청포도 에이드','Green Grape Ade',5,8,'images/Kiosk
  
 
 
+COMMIT;

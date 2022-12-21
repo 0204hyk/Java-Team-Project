@@ -2,7 +2,7 @@ package kiosk.byoption;
 
 import javax.swing.JPanel;
 
-import kiosk.menupan.ChoiceMenu;
+import kiosk.menupan.Options;
 import kiosk.tools.WithImage;
 
 public class All_1 {
@@ -22,6 +22,7 @@ public class All_1 {
 		op.ice(x, y + 280);
 		op.shot(x, y + 350);
 		op.milk(x, y + 420);
+		
 		op.add(topImage);
 
 		op.setVisible(true);
@@ -31,8 +32,7 @@ public class All_1 {
 	
 
 	public static void main(String[] args) {
-		
-		
+		new All_1(new TopImage("카페라떼"), "카페라떼");
 	}
 
 }

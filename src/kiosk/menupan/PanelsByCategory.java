@@ -9,7 +9,7 @@ import database.kiosk.CheckMenuByCategories;
 public class PanelsByCategory extends JPanel {
 
 
-	public PanelsByCategory(int ctgNum, int num) {
+	public PanelsByCategory(int ctgNum) {
 
 		CheckMenuByCategories mc = new CheckMenuByCategories(ctgNum);
 		
@@ -21,7 +21,7 @@ public class PanelsByCategory extends JPanel {
 //			num = start + tmp;
 //		}
 
-		for (int i = 0; i < num; i++) {
+		for (int i = 0; i < mc.getListSize(); i++) {
 			add(new MakeMenuButton(ctgNum, mc.getOptionNumber().get(i), mc.getMenu().get(i), x, y));
 			x += 176;
 			if (i == 2 || i == 5 || i == 8) {

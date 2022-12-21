@@ -2,6 +2,7 @@ package kiosk.byoption;
 
 import javax.swing.JPanel;
 
+import kiosk.menupan.Options;
 import kiosk.tools.WithImage;
 
 public class OnlyShotCup_5 {

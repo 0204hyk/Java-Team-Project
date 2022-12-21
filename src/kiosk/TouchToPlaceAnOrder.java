@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.Timer;
 
 import kiosk.menupan.ChoiceMenu;
+import kiosk.menupan.Options;
 import kiosk.tools.WithImage;
 
 public class TouchToPlaceAnOrder extends JFrame {
@@ -53,7 +54,7 @@ public class TouchToPlaceAnOrder extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new ChoiceMenu();
+				Options.choiceMenu = new ChoiceMenu();
 				
 			}
 		});

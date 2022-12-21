@@ -44,6 +44,10 @@ public class GetImageInfo {
 
 	}
 
+	public Integer getMenuOptionCategory() {
+		return menuOptionCategory;
+	}
+
 	public String getMenuImageRoot() {
 		return menuImageRoot;
 	}

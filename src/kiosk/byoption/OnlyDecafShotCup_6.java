@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import kiosk.menupan.Options;
 import kiosk.tools.WithImage;
 
 public class OnlyDecafShotCup_6 {

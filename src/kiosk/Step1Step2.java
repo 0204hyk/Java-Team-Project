@@ -171,6 +171,7 @@ public class Step1Step2 extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 장바구니가 유지된 첫 화면으로 돌아가야 됨
+				dispose();
 			}
 		});
 
