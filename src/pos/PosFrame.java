@@ -17,23 +17,23 @@ public class PosFrame extends JFrame {
 	public PosFrame() {
 		
 		CalculationButton calculationBtn = new CalculationButton();
-		calculationBtn.setLocation(95, 70);
+		calculationBtn.setLocation(105, 155);
 		
 		ReceiptCheckButton receiptCheckBtn = new ReceiptCheckButton();
-		receiptCheckBtn.setLocation(445, 70);
+		receiptCheckBtn.setLocation(515, 395);
 		
 		ProductManagementButton productManagementBtn = new ProductManagementButton();
-		productManagementBtn.setLocation(795, 70);
+		productManagementBtn.setLocation(515, 105);
 		
 		SalesSummaryButton salesSummaryBtn = new SalesSummaryButton();
-		salesSummaryBtn.setLocation(95, 400);
+		salesSummaryBtn.setLocation(805, 395);
 		
 		ClosingButton closingBtn = new ClosingButton();
-		closingBtn.setLocation(445, 400);
+		closingBtn.setLocation(805, 105);
 		
 		ExitMessageFrame exitFrame = new ExitMessageFrame();
 		ExitButton exitBtn = new ExitButton(exitFrame);
-		exitBtn.setLocation(795, 400);
+		exitBtn.setLocation(1125, 10);
 		
 		add(calculationBtn);
 		add(receiptCheckBtn);
