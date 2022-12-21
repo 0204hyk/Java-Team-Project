@@ -28,9 +28,6 @@ public class Options extends JFrame {
    String ice;
    String milk;
 
-<<<<<<< HEAD
-   public Options() {
-=======
 	JLabel cups = new JLabel("1잔");
 	
 	String menu;
@@ -40,18 +37,8 @@ public class Options extends JFrame {
 	GetImageInfo gi = new GetImageInfo(menu);
 	
 	static public ChoiceMenu choiceMenu;
->>>>>>> refs/remotes/origin/jsj
 
-<<<<<<< HEAD
-      defaults();
 
-      setUndecorated(true);
-      setLayout(null);
-      setSize(650, 950);
-      setDefaultCloseOperation(EXIT_ON_CLOSE);
-      getContentPane().setBackground(Color.WHITE);
-      setLocationRelativeTo(null);
-=======
 	public Options(String menu, ChoiceMenu frame) {
 		this.menu = menu;
 		this.frame = frame;
@@ -63,42 +50,22 @@ public class Options extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
->>>>>>> refs/remotes/origin/jsj
+
 
    }
 
-<<<<<<< HEAD
-   public void defaults() {
-      add(new TotalCups());
-=======
 	public void defaults() {
 		cups.setBounds(470, 174, 47, 23);
 		cups.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		cups.setHorizontalAlignment(JLabel.CENTER);
 		cups.setVerticalAlignment(JLabel.CENTER);
->>>>>>> refs/remotes/origin/jsj
 
       add(wi.makeLabel("hy.png", 53, 24, 60, 83));
       add(wi.makeButton("home.png", 543, 44, 52, 52));
 
-<<<<<<< HEAD
-      add(wi.makeButton("minus.png", 457, 763, 18, 18));
-      add(wi.makeButton("plus.png", 556, 763, 18, 18));
-=======
+
 		JButton minus = wi.makeButton("minus.png", 420, 170, 32, 32);
->>>>>>> refs/remotes/origin/jsj
 
-<<<<<<< HEAD
-      // 415 813
-      
-      JButton put = wi.makeButton("put.png", 333,817,192,68);
-=======
->>>>>>> refs/remotes/origin/jsj
-
-<<<<<<< HEAD
-      add(put);
-      put.addActionListener(new ActionListener() {
-=======
 		minus.addActionListener(new ActionListener() {
 
 			@Override
@@ -133,34 +100,8 @@ public class Options extends JFrame {
 
 		JButton put = wi.makeButton("put.png", 333, 817, 192, 68);
 		put.addActionListener(new ActionListener() {
->>>>>>> refs/remotes/origin/jsj
 
-<<<<<<< HEAD
-         @Override
-         public void actionPerformed(ActionEvent e) {
 
-            System.out.println(hotAndIce);
-            System.out.println(decaffein);
-            System.out.println(cup);
-            System.out.println(sizes);
-            System.out.println(shot);
-            System.out.println(ice);
-            System.out.println(milk);
-         }
-      });
-      
-      JButton cancel = wi.makeButton("cancel.png", 124,815,192,68);
-      add(cancel);
-      
-      cancel.addActionListener(new ActionListener() {
-         
-         @Override
-         public void actionPerformed(ActionEvent e) {
-            dispose();
-         }
-      });
-   }
-=======
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 1. 옵션 미선택 된 부분 막기 2. 담아서 장바구니로 넘기기
@@ -194,15 +135,10 @@ public class Options extends JFrame {
 		add(put);
 		add(cancel);
 	}
->>>>>>> refs/remotes/origin/jsj
 
-<<<<<<< HEAD
-   
-   
-   public void hotAndIce(int x, int y) {
-=======
+
 	public void hotAndIce(int x, int y) {
->>>>>>> refs/remotes/origin/jsj
+
 
       add(wi.makeLabel("hot, ice.png", x, y, 45, 16));
       JButton hot = wi.makeButton("hot.png", x + 173, y - 20, 78, 54);
@@ -420,15 +356,7 @@ public class Options extends JFrame {
 
       toLowfat.addActionListener(new ActionListener() {
 
-<<<<<<< HEAD
-         @Override
-         public void actionPerformed(ActionEvent e) {
-            milk = "Lowfat";
-         }
-      });
-   }
-}
-=======
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				milk = "Lowfat";
@@ -439,4 +367,4 @@ public class Options extends JFrame {
 	public static void main(String[] args) {
 	}
 }
->>>>>>> refs/remotes/origin/jsj
+
