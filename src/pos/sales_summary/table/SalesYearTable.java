@@ -70,13 +70,13 @@ public class SalesYearTable extends JTable {
 			pstmt.setString(1, year);
 
 			try (ResultSet rs = pstmt.executeQuery()) {
-				while(rs.next()) {
+				if (model.getRowCount() == 0) {
+					while(rs.next()) {
 						model.addRow(new Object[] {
 								rs.getString(1),
 								rs.getString("total") + "원"});
-						num++;
-				} 
-				
+					} 
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

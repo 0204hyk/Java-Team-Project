@@ -61,15 +61,10 @@ public class SalesSearchButton extends JButton {
 				YearChart chart = new YearChart(year);
 				TitlePanel title = new TitlePanel(year);
 				TotalPanel total = new TotalPanel(year);
-				
-				if (table.num > 1) {
-					table.model.setNumRows(0);
-				}
-				
 			}
-			
 		});
 
+	
 
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기

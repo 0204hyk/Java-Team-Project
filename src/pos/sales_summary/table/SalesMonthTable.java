@@ -72,10 +72,12 @@ public class SalesMonthTable extends JTable {
 			pstmt.setString(1, plus);
 
 			try (ResultSet rs = pstmt.executeQuery()) {
-				while(rs.next()) {
-					model.addRow(new Object[] {
-							rs.getString(1),
-							rs.getString("price") + "원"});
+				if (model.getRowCount() == 0) {
+					while(rs.next()) {
+						model.addRow(new Object[] {
+								rs.getString(1),
+								rs.getString("price") + "원"});
+					}
 				}
 			}
 		} catch (SQLException e) {
