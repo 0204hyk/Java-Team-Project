@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import pos.DigitalClock;
@@ -21,6 +22,7 @@ public class ReceiptCheckFrame extends JFrame{
 	
 	public static JTextArea printTextArea = new PrintTextArea();
 	//JScrollPane s = new JScrollPane();
+	RefundFrame refundFrame = new RefundFrame();
 	
 	public ReceiptCheckFrame() {		
 		
@@ -36,14 +38,22 @@ public class ReceiptCheckFrame extends JFrame{
 		
 		add(titlePanel);
 	
+		
+		// -----------------영수증 조회------------------
+		RefundButton refundButton = new RefundButton();
+		OutputButton outfutButton = new OutputButton();  
+		JScrollPane listScroll = new List(outfutButton, refundButton).scroll;
+		PrintScroll print = new PrintScroll();
+	
 		// 영수증 목록 (Panel)
-		add(new List().scroll);
+		add(listScroll);
+		
 		// 버튼
-		add(new RefundButton(this, new RefundFrame()));
-		add(new OutputButton());
+		add(refundButton);
+		add(outfutButton);
 		
 		// 영수증 출력 
-		add(new PrintScroll());
+		add(print);
 		
 		// 돌아가기 버튼
 		ReceiptCheckEscapeButton escapeBtn = new ReceiptCheckEscapeButton(this);
@@ -60,9 +70,6 @@ public class ReceiptCheckFrame extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);  
 	}
 	
-	public static void main(String[] args) {
-		new ReceiptCheckFrame();
-	}
-	
+
 	
 }

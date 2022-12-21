@@ -10,7 +10,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JTextArea;
 
+import pos.gje.ReceiptCheck.receiptcheck_main.List;
 import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
 
 public class ReceiptCheckEscapeButton extends JButton implements ActionListener{
@@ -47,7 +49,18 @@ public class ReceiptCheckEscapeButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// 뒤로가기 누르면 창 꺼지게
 		f.dispose();
+		
+		// table 초기화
+		List table = new List();
+		table.contents.setNumRows(0);
+		
+		// 영수증 출력 창 초기화
+		JTextArea a = PrintScroll.p;
+		a.setText("");
+	
+		
 	}
 
 }

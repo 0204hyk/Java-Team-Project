@@ -1,5 +1,6 @@
 package pos.gje.ReceiptCheck.receiptcheck_main;
 
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -11,26 +12,37 @@ import java.util.ArrayList;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import database.OjdbcConnection;
+import pos.gje.ReceiptCheck.receiptcheck_main.component.OutputButton;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.PrintScroll;
+import pos.gje.ReceiptCheck.receiptcheck_main.component.RefundButton;
+import pos.gje.ReceiptCheck.refund.RefundFrame;
 
 // 리스트
 public class List {
 
-	static private String[] top = {"순서", "영수증번호"};
-	public static DefaultTableModel contents = new DefaultTableModel(top, 0); // 테이블 안에 들어가는 데이터 값을 채워넣음
-	public static JTable table; 
+	static private String[] top = {" ", "영수증번호"};
+	public static DefaultTableModel contents = new DefaultTableModel(top, 0){ // 테이블 안에 들어가는 데이터 값을 채워넣음
+		public boolean isCellEditable(int row, int column){
+			return false;
+		}
+	};  //셀 수정 못하게 하는 부분
+	public static JTable table = new JTable(contents); 
 	public static JScrollPane scroll;
 	static ArrayList<String> number = new ArrayList<>();
 	static ArrayList<String> point = new ArrayList<>();
 	static ArrayList<String> date = new ArrayList<>();
 	static int num = 1;
+	public static RefundFrame refundFrame;
 	
-	public List() {
+	public List() {	}
+	
+	public List(OutputButton out, RefundButton refund) {
 		
-		String query = "SELECT * FROM membership ";
+		String query = "SELECT * FROM membership "; // 
 		
 		try (Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(query);
@@ -44,7 +56,7 @@ public class List {
 				date.add(rs.getString("member_join"));
 				
 				contents.addRow(new Object[] {
-						num++,
+						num++, // 
 						rs.getString("member_phonenumber") 
 				});
 			}
@@ -53,20 +65,30 @@ public class List {
 			e.printStackTrace();
 		}
 		
+		
 		// 만든 테이블 스크롤에 붙이기
-		table = new JTable(contents);
+		//table = new JTable(contents);
 		scroll = new JScrollPane(table);
 		scroll.setBounds(75, 95, 500, 550);
 		
 		// 크기 조정 
-		table.getColumn("순서").setPreferredWidth(20);
+		table.getColumn(" ").setPreferredWidth(20);
 		table.getColumn("영수증번호").setPreferredWidth(450);
 
 		// 수정 안되게 만들기
 		table.getTableHeader().setReorderingAllowed(false);
         table.getTableHeader().setResizingAllowed(false);
 
-	
+        // 높이
+        table.setRowHeight(25);
+        
+        // 글꼴 설정 
+		table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 23)); 
+		table.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		
+		// 하나만 선택되게 설정 
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -75,12 +97,24 @@ public class List {
 				String d = date.get((int)(table.getValueAt(table.getSelectedRow(), 0)) - 1);
 				String n = (table.getValueAt(table.getSelectedRow(), 1)).toString();
 				
+				// 환불창에 뜨게 만들기
+				refundFrame = new RefundFrame(d, n, d, n);
+				
 				// 영수증을 프린틑하는 메소드에 값을 넣는다 
 				changeTextA(n, d);
+				out.setEnabled(true);
+				refund.setEnabled(true);
+				//select(1);
 			}
 		});
 		
+		
+		
+	
+	            
 	}
+	
+
 	
 	public void changeTextA(String num, String point) {
 		JTextArea a = PrintScroll.p;
@@ -94,13 +128,13 @@ public class List {
 				+ "[대표자] 김XX		[TEL] 031-555-4449\n"
 				+ "[매출일] " + point + "\n"
 				+ "[영수증] " + num + "\n"
-				+ "====================================\n"
+				+ "=====================================\n"
 				+ " 상 품 명\t\t수 량\t단 가\n"
-				+ "-----------------------------------------------------------------\n"
+				+ "--------------------------------------------------------------------\n"
 				+ num + "\t\t" + num + "\t" + num + "\n"
-				+ "-----------------------------------------------------------------\n"
+				+ "--------------------------------------------------------------------\n"
 				+ "\t\t합 계 금 액   "  + num + "\n"
-				+ "------------------------------------------------------------------\n"
+				+ "--------------------------------------------------------------------\n"
 				+ "\t\t받 을 금 액   "  + num + "\n"
 				+ "\t\t받 은 금 액   "  + num + "\n"
 				+ "\t\t받 은 카 드   " + num + "\n"
@@ -111,4 +145,7 @@ public class List {
 				);
 	}
 	
+	public static void main(String[] args) {
+	
+	}
 }
