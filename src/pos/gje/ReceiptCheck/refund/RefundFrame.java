@@ -1,6 +1,7 @@
 package pos.gje.ReceiptCheck.refund;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,18 +11,41 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 
 import pos.WithImage;
+import pos.gje.ReceiptCheck.receiptcheck_main.List;
 
 public class RefundFrame extends JFrame {
 
 	String root = "images/PosImages/영수증 조회 이미지/";
 	WithImage wi = new WithImage(root);
-
+	
 	Timer timer;
-
-	public RefundFrame() {
-
+	
+	public static String amount = "23,000";
+	public static String card = "23,000";
+	public static String point = "0";
+	public static String cardNum = "1234-****-1234-****";
+	List list;
+	JLabel cardLb = new JLabel();
+	JLabel pointLb = new JLabel();
+	JLabel amountLb = new JLabel();
+	JLabel cardNumLb = new JLabel();
+	
+	public RefundFrame (String amount, String card, String point, String cardNum){
+		this.amount = amount;
+		this.card = card;
+		this.point = point;
+		this.cardNum = cardNum;
+		
+		System.out.println(amount + card + point + cardNum);
+		
+//		amountLb.setText(amount);
+//		cardLb.setText(card);
+//		pointLb.setText(point);
+//		cardNumLb.setText(cardNum);
+//		
+//		setVisible(true);
+		
 		JButton exit = wi.makeButton("환불 창 닫기 버튼", 725, 20, 43, 46);
-
 		JButton checkBox = wi.makeButton("체크박스", 215, 394, 27, 27);
 		JLabel check = wi.makeLabel("체크", 222, 388, 24, 24);
 		JButton confirm = wi.makeButton("확인", 493, 371, 85, 74);
@@ -29,13 +53,13 @@ public class RefundFrame extends JFrame {
 		confirm.setHorizontalTextPosition(JButton.CENTER);
 		confirm.setVerticalTextPosition(JButton.BOTTOM);
 		confirm.setOpaque(true);
-
+		
 		check.setVisible(false);
 		
 		
 		checkBox.addActionListener(new ActionListener() {
 			int num = 1;
-
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (num == 0) {
@@ -47,18 +71,19 @@ public class RefundFrame extends JFrame {
 				}
 			}
 		});
-
+		
 		exit.addActionListener(new ActionListener() {
-
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0); //나중에 dispose로 바꿔주기
+				dispose();//나중에 dispose로 바꿔주기
+				
 			}
 		});
-
+		
 		confirm.addActionListener(new ActionListener() {
-			JLabel lb = wi.makeLabel("카드를 꽂아주세요", 0, 0, 401, 255);
-
+			JLabel lb = wi.makeLabel("카드를 꽂아주세요", 0, 0, 401, 255); // 사진 불러
+			
 			// 정보 확인 후 꺼져야됨
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -68,9 +93,9 @@ public class RefundFrame extends JFrame {
 				inputCard.setSize(401, 255);
 				inputCard.setVisible(true);
 				inputCard.setLocationRelativeTo(null);
-
+				
 				timer = new Timer(3000, new ActionListener() {
-
+					
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						inputCard.dispose(); //카드 넣고 환불 완료 창 띄워기
@@ -79,7 +104,36 @@ public class RefundFrame extends JFrame {
 				timer.start();
 			}
 		});
-
+		
+		// setText 
+		amountLb.setText(amount);
+		cardLb.setText(card);
+		pointLb.setText(point);
+		cardNumLb.setText(cardNum);
+		
+		// 오른쪽 정렬
+		amountLb.setHorizontalAlignment(JLabel.RIGHT);
+		cardLb.setHorizontalAlignment(JLabel.RIGHT);
+		pointLb.setHorizontalAlignment(JLabel.RIGHT);
+		cardNumLb.setHorizontalAlignment(JLabel.RIGHT);
+		
+		// 붙이기
+		add(amountLb);
+		add(cardLb);
+		add(pointLb);
+		add(cardNumLb);	
+		
+		amountLb.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		cardLb.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		pointLb.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		cardNumLb.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		
+		//add
+		amountLb.setBounds(362, 126, 200, 50);
+		cardLb.setBounds(362, 192, 200, 50);
+		pointLb.setBounds(362, 229, 200, 50);
+		cardNumLb.setBounds(362, 266, 200, 50);
+		
 		add(exit);
 		add(wi.makeLabel("상단바", 0, 0, 800, 550));
 		add(wi.makeLabel("목록", 218, 143, 88, 157));
@@ -88,7 +142,7 @@ public class RefundFrame extends JFrame {
 		add(check);
 		add(checkBox);
 		add(confirm);
-
+		
 		getContentPane().setBackground(Color.WHITE); // 배경색
 		setSize(800, 550); // 프레임 사이즈
 		setUndecorated(true); // 타이틀바 없애기
@@ -97,10 +151,16 @@ public class RefundFrame extends JFrame {
 		setLocationRelativeTo(null); // 가운데에 뜨게
 		setVisible(false);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
 	}
-
+	
+	public RefundFrame() {
+		this("default", "default", "default", "default");
+		
+	}
+	
 	public static void main(String[] args) {
-
+			
 	}
+
+
 }

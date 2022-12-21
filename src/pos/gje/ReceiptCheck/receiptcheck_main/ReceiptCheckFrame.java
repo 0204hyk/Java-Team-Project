@@ -22,7 +22,7 @@ public class ReceiptCheckFrame extends JFrame{
 	
 	public static JTextArea printTextArea = new PrintTextArea();
 	//JScrollPane s = new JScrollPane();
-	
+	RefundFrame refundFrame = new RefundFrame();
 	
 	public ReceiptCheckFrame() {		
 		
@@ -40,15 +40,10 @@ public class ReceiptCheckFrame extends JFrame{
 	
 		
 		// -----------------영수증 조회------------------
-		RefundFrame refundFrame = new RefundFrame();
-		RefundButton refundButton = new RefundButton(this, refundFrame);
-		OutputButton outfutButton = new OutputButton(); 
-		// OutputButton 안에 영수증 완료 창 생성/
-		// 									생성창이 있을 때 뒤에 클릭안되게 해야함 
+		RefundButton refundButton = new RefundButton();
+		OutputButton outfutButton = new OutputButton();  
 		JScrollPane listScroll = new List(outfutButton, refundButton).scroll;
 		PrintScroll print = new PrintScroll();
-		
-		
 	
 		// 영수증 목록 (Panel)
 		add(listScroll);
@@ -75,9 +70,6 @@ public class ReceiptCheckFrame extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);  
 	}
 	
-	public static void main(String[] args) {
-		new ReceiptCheckFrame();
-	}
-	
+
 	
 }

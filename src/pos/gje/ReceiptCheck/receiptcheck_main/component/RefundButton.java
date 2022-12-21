@@ -11,15 +11,14 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.gje.ReceiptCheck.receiptcheck_main.List;
 import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
 import pos.gje.ReceiptCheck.refund.RefundFrame;
 
 public class RefundButton extends JButton implements ActionListener {
-	ReceiptCheckFrame f1;
-	RefundFrame f2;
-	public RefundButton(ReceiptCheckFrame f1, RefundFrame f2) {
-		this.f1 = f1;
-		this.f2 = f2;
+	
+	public RefundButton() {
+
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/환불 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(250, 80, Image.SCALE_SMOOTH); // 크기 조정
@@ -45,8 +44,10 @@ public class RefundButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		f1.setEnabled(false);
-		f2.setVisible(true);
+		List.refundFrame.setVisible(true);
 	}
 
+	public static void main(String[] args) {
+		
+	}
 }
