@@ -1,20 +1,18 @@
 package pos.product_management.menu_modify.panel;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.io.IOException;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.text.NumberFormatter;
-
-import pos.product_management.menu_add.component.MenuAddButton;
-import pos.product_management.menu_add.message_frame.AddFix;
 
 public class ModifyBackgroundImagePanel extends JPanel {
 
@@ -51,13 +49,18 @@ public class ModifyBackgroundImagePanel extends JPanel {
 		setLayout(null); 
 		setSize(900, 550);
 		
+		JLabel warning = new JLabel("※ 메뉴 이름은 수정이 불가능합니다.");
+		warning.setFont(new Font("맑은 고딕", Font.BOLD, 16));
+		warning.setBounds(500, 105, 700, 49);
+		warning.setForeground(new Color(199, 46, 44));
+		
 		nameField = new JTextField();
 		nameField.setBounds(190, 105, 700, 49);
 		nameField.setOpaque(false);
 		nameField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		nameField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		nameField.setEditable(false);	// 추가, 삭제 기능이 따로 있으므로 수정에서는 메뉴 이름 변경 막아두기
-
+		nameField.setEnabled(false);	// 추가, 삭제 기능이 따로 있으므로 수정에서는 메뉴 이름 변경 막아두기
+		
 		priceField = new JFormattedTextField(new NumberFormatter());
 		priceField.setBounds(190, 213, 700, 49);
 		priceField.setOpaque(false);
@@ -172,6 +175,7 @@ public class ModifyBackgroundImagePanel extends JPanel {
 		optionBtnGroup.add(option7);
 		optionBtnGroup.add(option8);
 		
+		add(warning);
 		add(nameField);
 		add(priceField);
 		add(coffee);

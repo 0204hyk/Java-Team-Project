@@ -1,4 +1,4 @@
-package pos.gje.modify.panel;
+package pos.product_management.menu_modify.message_frame;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class CheckPanel extends JPanel{
+public class ModifyMessagePanel extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
@@ -16,7 +16,7 @@ public class CheckPanel extends JPanel{
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 	
-	public CheckPanel() {
+	public ModifyMessagePanel() {
 		setBounds(0, 0, 400, 200); // Panel 틀
 		setLayout(null); 
 	}	     

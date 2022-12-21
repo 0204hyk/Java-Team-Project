@@ -105,6 +105,7 @@ public class ClosingFrame extends JFrame {
 		add(doCloseBtn);
 		add(escapeBtn);
 		
+		setUndecorated(true);
 		setTitle("마감");
 		setSize(1200, 800);
 		getContentPane().setBackground(new Color(64, 64, 64));	// 프레임 백그라운드 컬러 설정

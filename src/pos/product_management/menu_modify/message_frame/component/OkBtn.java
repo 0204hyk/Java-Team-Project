@@ -1,4 +1,4 @@
-package pos.gje.modify.component;
+package pos.product_management.menu_modify.message_frame.component;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -11,12 +11,12 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.gje.modify.CheckFrame;
+import pos.product_management.menu_modify.message_frame.ModifyMessageFrame;
 
 public class OkBtn extends JButton implements ActionListener{
-	CheckFrame f;
+	ModifyMessageFrame f;
 	
-	public OkBtn(CheckFrame f) {
+	public OkBtn(ModifyMessageFrame f) {
 		this.f = f;
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png"));

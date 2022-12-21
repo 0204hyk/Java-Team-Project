@@ -16,18 +16,17 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import database.OjdbcConnection;
-import pos.gje.modify.CheckFrame;
 import pos.kjh.ProductManagementJFrame;
-import pos.product_management.menu_modify.ModifyFrame;
+import pos.product_management.menu_modify.message_frame.ModifyMessageFrame;
 import pos.product_management.menu_modify.panel.ModifyBackgroundImagePanel;
 
 public class ModifyOKButton extends JButton implements ActionListener{
 	// 수정 버튼 
 		ProductManagementJFrame mainFrame;
-		CheckFrame messageFrame;
+		ModifyMessageFrame messageFrame;
 		ModifyBackgroundImagePanel panel;
 		
-	public ModifyOKButton (ProductManagementJFrame mainFrame, CheckFrame messageFrame, ModifyBackgroundImagePanel panel) {
+	public ModifyOKButton (ProductManagementJFrame mainFrame, ModifyMessageFrame messageFrame, ModifyBackgroundImagePanel panel) {
 		this.mainFrame = mainFrame;
 		this.messageFrame = messageFrame;
 		this.panel = panel;
@@ -57,7 +56,7 @@ public class ModifyOKButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String sql = "UPDATE menu "
-				+ "SET price = ?, category_number = ?, option_category_number = ?"
+				+ "SET price = ?, category_number = ?, option_category_number = ?" 
 				+ "WHERE menu_number = ?";
 		try(
 			Connection conn = OjdbcConnection.getConnection();

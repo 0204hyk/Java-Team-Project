@@ -231,6 +231,7 @@ public class ProductManagementJFrame extends JFrame {
 		add(new ModifyButton(this));
 		add(addBtn);
 
+		setUndecorated(true);
 		setLayout(null);
 		setSize(1200, 800);
 		setVisible(true);
