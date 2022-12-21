@@ -31,6 +31,8 @@ public class All_1 {
 	
 
 	public static void main(String[] args) {
+		
+		
 	}
 
 }

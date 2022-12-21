@@ -19,22 +19,20 @@ public class AMenu extends JPanel {
 	String root = "images/KioskImages/3. 메뉴선택";
 	WithImage wi = new WithImage(root);
 	DecimalFormat df = new DecimalFormat("#,###");
-	static int num = 0;
 	String menu, temparature;
 
 	public static int yy = 695;
 	int x = 0, y = 0;
 	
 	// 장바구니에 한 줄씩 들어감
-	public AMenu(String menu, String temparature) {
+	public AMenu(int num, String menu, String temparature) {
 		this.menu = menu;
 		this.temparature = temparature;
 
 		GetImageInfo gi = new GetImageInfo(menu);
 		
 		// 생성할때마다 증가
-		num++;
-		yy += 48;
+		yy = 695+ (num * 48);
 		
 		// 음료 이름
 		String menuName = "";
@@ -102,9 +100,6 @@ public class AMenu extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				
-				if (num != 1) {
-					num = num - 1;
-				}
 			}
 		});
 
@@ -126,6 +121,10 @@ public class AMenu extends JPanel {
 		setVisible(true);
 		
 
+	}
+	
+	public static void changeMenu(String menu, String temparature) {
+		
 	}
 
 }

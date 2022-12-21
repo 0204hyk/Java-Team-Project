@@ -8,11 +8,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import database.kiosk.GetImageInfo;
 import kiosk.menupan.AMenu;
 import kiosk.menupan.ChoiceMenu;
+import kiosk.menupan.MakeMenuButton;
 import kiosk.tools.GroupButtons;
 import kiosk.tools.WithImage;
 
@@ -29,19 +29,19 @@ public class Options extends JFrame {
 	String milk;
 
 	JLabel cups = new JLabel("1잔");
-	
+
 	String menu;
-	
+
 	ChoiceMenu frame;
-	
+
 	GetImageInfo gi = new GetImageInfo(menu);
-	
+
 	static public ChoiceMenu choiceMenu;
 
 	public Options(String menu, ChoiceMenu frame) {
 		this.menu = menu;
 		this.frame = frame;
-		
+
 		defaults();
 		setUndecorated(true);
 		setLayout(null);
@@ -63,7 +63,6 @@ public class Options extends JFrame {
 
 		JButton minus = wi.makeButton("minus.png", 420, 170, 32, 32);
 
-
 		minus.addActionListener(new ActionListener() {
 
 			@Override
@@ -76,7 +75,7 @@ public class Options extends JFrame {
 					TotalCups.cup = 1;
 				}
 				cups.setText(TotalCups.cup + "잔");
-				
+
 			}
 		});
 
@@ -102,12 +101,12 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 1. 옵션 미선택 된 부분 막기 2. 담아서 장바구니로 넘기기
-				
-				AMenu a = new AMenu(menu, hotAndIce);
-				frame.add(a);
-				frame.invalidate();
+
+				frame.aMenu(menu, hotAndIce);
+				frame.setVisible(true);
+
 				dispose();
-				
+
 			}
 		});
 		JButton cancel = wi.makeButton("cancel.png", 124, 815, 192, 68);
@@ -118,10 +117,11 @@ public class Options extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				TotalCups.cup = 1;
 				if (AMenu.yy > 0) {
-				AMenu.yy -= 48;
+					AMenu.yy -= 48;
 				} else {
 					AMenu.yy = 0;
 				}
+
 				dispose();
 			}
 		});
@@ -145,7 +145,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				hotAndIce = "Hot";
+				hotAndIce = "1"; // "Hot";
 			}
 		});
 
@@ -153,7 +153,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				hotAndIce = "Ice";
+				hotAndIce = "2"; // "Ice";
 			}
 		});
 
@@ -174,7 +174,7 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				decaffein = "NoDecaffein";
+				decaffein = "1"; // "NoDecaffein";
 
 			}
 		});
@@ -184,7 +184,7 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				decaffein = "Decaffein";// TODO Auto-generated method stub
+				decaffein = "2"; // "Decaffein";// TODO Auto-generated method stub
 
 			}
 		});
@@ -203,7 +203,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cup = "Disposal";
+				cup = "1";// "Disposal";
 			}
 		});
 
@@ -211,7 +211,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cup = "Tumbler";
+				cup = "2";// "Tumbler";
 			}
 		});
 	}
@@ -231,7 +231,7 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				sizes = "S";
+				sizes = "1";// "S";
 			}
 		});
 
@@ -239,7 +239,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sizes = "M";
+				sizes = "2";// "M";
 			}
 		});
 
@@ -247,7 +247,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sizes = "L";
+				sizes = "3";// "L";
 			}
 		});
 	}
@@ -267,7 +267,7 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				shot = "NoShot";
+				shot = "1";// "NoShot";
 			}
 		});
 
@@ -275,7 +275,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				shot = "OneShot";
+				shot = "2";// "OneShot";
 			}
 		});
 
@@ -283,7 +283,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				shot = "TwoShot";
+				shot = "3";// "TwoShot";
 			}
 		});
 	}
@@ -302,7 +302,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ice = "Normal";
+				ice = "1";// "Normal";
 			}
 		});
 
@@ -310,7 +310,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ice = "Less";
+				ice = "2";// "Less";
 			}
 		});
 
@@ -318,7 +318,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ice = "None";
+				ice = "3";// "None";
 			}
 		});
 	}
@@ -337,7 +337,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				milk = "Basic";
+				milk = "1";// "Basic";
 			}
 		});
 
@@ -345,7 +345,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				milk = "Soy";
+				milk = "2";// "Soy";
 			}
 		});
 
@@ -353,11 +353,14 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				milk = "Lowfat";
+				milk = "3";// "Lowfat";
 			}
 		});
 	}
-	
-	public static void main(String[] args) {
+
+	public void toDB() {
+		String options = hotAndIce + decaffein + cup + sizes + shot + ice + milk + "";
+
 	}
+
 }
