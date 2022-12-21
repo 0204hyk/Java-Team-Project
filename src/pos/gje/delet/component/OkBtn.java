@@ -43,7 +43,7 @@ public class OkBtn extends JButton implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				
 				f.setVisible(false);
-				
+				MenuListJTable.table.setEnabled(true);
 				// 디비에서 데이터 없애기
 				MenuListJTable.deleteDB(MenuListJTable.menuName.toString());
 				
@@ -51,6 +51,7 @@ public class OkBtn extends JButton implements ActionListener{
 				int index = MenuListJTable.table.getSelectedRow();
 				MenuListJTable.contents.removeRow(index);
 				new OkFrame();
+				
 				
 			}
 		});
