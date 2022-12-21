@@ -1,4 +1,4 @@
-package pos.salessummary.table;
+package pos.sales_summary.table;
 
 import java.awt.Font;
 import java.sql.Connection;

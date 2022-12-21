@@ -1,4 +1,4 @@
-package pos.salessummary.title;
+package pos.sales_summary.title;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

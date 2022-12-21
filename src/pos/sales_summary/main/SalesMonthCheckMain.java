@@ -1,4 +1,4 @@
-package pos.salessummary.main;
+package pos.sales_summary.main;
 
 import java.awt.Color;
 import javax.swing.JButton;
@@ -10,15 +10,15 @@ import javax.swing.JTable;
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.salessummary.button.SalesEscapeButton;
-import pos.salessummary.button.SalesSearchButton;
-import pos.salessummary.chart.MonthChart;
-import pos.salessummary.combobox.MonthComboBox;
-import pos.salessummary.combobox.YearComboBox;
-import pos.salessummary.saleslist.ListImgLabel;
-import pos.salessummary.saleslist.TitlePanel;
-import pos.salessummary.saleslist.TotalPanel;
-import pos.salessummary.table.SalesMonthTable;
+import pos.sales_summary.button.SalesEscapeButton;
+import pos.sales_summary.button.SalesSearchButton;
+import pos.sales_summary.chart.MonthChart;
+import pos.sales_summary.combobox.MonthComboBox;
+import pos.sales_summary.combobox.YearComboBox;
+import pos.sales_summary.saleslist.ListImgLabel;
+import pos.sales_summary.saleslist.TitlePanel;
+import pos.sales_summary.saleslist.TotalPanel;
+import pos.sales_summary.table.SalesMonthTable;
 
 public class SalesMonthCheckMain extends JFrame {
 

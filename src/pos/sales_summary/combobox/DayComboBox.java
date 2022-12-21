@@ -1,4 +1,4 @@
-package pos.salessummary.combobox;
+package pos.sales_summary.combobox;
 
 
 import java.awt.event.ItemEvent;
@@ -6,9 +6,9 @@ import java.awt.event.ItemListener;
 import java.util.Calendar;
 import javax.swing.JComboBox;
 
-import pos.salessummary.table.SalesDayTable;
-import pos.salessummary.table.SalesMonthTable;
-import pos.salessummary.table.SalesYearTable;
+import pos.sales_summary.table.SalesDayTable;
+import pos.sales_summary.table.SalesMonthTable;
+import pos.sales_summary.table.SalesYearTable;
 
 public class DayComboBox extends JComboBox {
 

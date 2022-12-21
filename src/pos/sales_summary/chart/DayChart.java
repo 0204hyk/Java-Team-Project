@@ -1,13 +1,12 @@
-package pos.salessummary.chart;
+package pos.sales_summary.chart;
+
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import javax.swing.JPanel;
-
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -17,7 +16,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 import database.OjdbcConnection;
 
-public class MonthChart extends JPanel {
+public class DayChart extends JPanel {
+
 
 	public static DefaultCategoryDataset dataset;
 
@@ -26,7 +26,8 @@ public class MonthChart extends JPanel {
 	String day;
 	String hap;
 
-	public MonthChart() {
+
+	public DayChart() {
 		CategoryDataset datasetResult = createDataset();
 		JFreeChart chart = createChart(datasetResult);
 		chart.getPlot().setBackgroundPaint(Color.WHITE);
@@ -34,18 +35,24 @@ public class MonthChart extends JPanel {
 		panel.setPreferredSize(new Dimension(500, 500));
 		add(panel);
 		setBounds(50, 150, 500, 500);
+
+
 	}
 
-	// SalesSearchButton에서 year와 month 값을 가져온 후 차트에 대입
-	public MonthChart(String year, String month) {
+	// SalesSearchButton에서 year, month, day 값을 가져온 후 차트에 대입
+	public DayChart(String year, String month, String day) {
 		this.year = year;
 		this.month = month;
-		hap = year + month;
-		String sql = "SELECT to_char(s.saledate, 'YYYY-MM-DD'), sum(p.price) AS total "
+		this.day = day;
+
+		hap = year + month + day;
+
+		String sql = "SELECT to_char(s.saledate, 'HH24'), sum(p.price) AS total "
 				+ "FROM sales s INNER JOIN PAYMENT p "
 				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(s.saledate, 'YYYYMM') = ?"
-				+ "GROUP BY to_char(s.saledate, 'YYYY-MM-DD')";
+				+ "WHERE TO_CHAR(s.saledate, 'YYYYMMDD') = ?"
+				+ "GROUP BY to_char(s.saledate, 'HH24')"
+				+ "ORDER BY to_char(s.saledate, 'HH24')";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -57,13 +64,16 @@ public class MonthChart extends JPanel {
 			try (ResultSet rs = pstmt.executeQuery()) {
 
 				while (rs.next()) {
-					dataset.addValue(rs.getInt("total"), rs.getDate(1), rs.getDate(1));
+					dataset.addValue(rs.getInt("total"), 
+							rs.getString(1) + "H", rs.getString(1) + "H");
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
+
 
 	private static CategoryDataset createDataset() {
 		dataset = new DefaultCategoryDataset();
@@ -74,14 +84,14 @@ public class MonthChart extends JPanel {
 	private static JFreeChart createChart(CategoryDataset dataset) {
 
 		JFreeChart chart = ChartFactory.createBarChart(
-				"HyCafe",         
-				"",               
-				"",                  
-				dataset,                 
-				PlotOrientation.VERTICAL, 
-				true,                     
-				true,                    
-				false                    
+				"HyCafe",        
+				"",               // domain axis label
+				"",                  // range axis label
+				dataset,                  // data
+				PlotOrientation.VERTICAL, // orientation
+				true,                     // include legend
+				true,                     // tooltips
+				false                     // URLs
 				);
 
 		return chart;

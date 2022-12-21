@@ -1,4 +1,4 @@
-package pos.salessummary.chart;
+package pos.sales_summary.chart;
 
 import java.awt.Color;
 import java.awt.Dimension;
