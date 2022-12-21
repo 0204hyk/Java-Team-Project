@@ -1,22 +1,8 @@
---카테고리
+--카테고리 (인기메뉴, 커피, 논커피, 에이드, 프라페)
 CREATE TABLE category (
    category_number   NUMBER(2)
     CONSTRAINT category_number_pk PRIMARY KEY,
    category_name   VARCHAR(40)
-);
-
---테이블명 option은 사용불가 / 옵션 추가정보
-CREATE TABLE extra_option (
-   option_number NUMBER(2)
-   CONSTRAINT option_number_pk PRIMARY KEY,
-   hotandice VARCHAR2(20),
-   decaffein VARCHAR2(20),
-   cup VARCHAR2(2),
-   cup_sizes VARCHAR2(20),
-   shot VARCHAR2(20),
-   ice VARCHAR2(20),
-   milk VARCHAR2(20),  
-   option_price NUMBER(4)
 );
 
 -- 메뉴 
@@ -26,7 +12,7 @@ CREATE TABLE menu(
     menu_name VARCHAR2(40),
     category_number NUMBER(2) 
     CONSTRAINT menu_category_fk REFERENCES category(category_number),
-    option_category_number NUMBER(1),--테이블별 옵션 카테고리 / 8개
+    option_category_number NUMBER(1),--테이블별 옵션 카테고리 (1~8) / 키오스크에서 8개 옵션 패널 중 1개 선택하기 위한 값
     menu_image VARCHAR2(255),
     price NUMBER(5),
     menu_eng_name VARCHAR2(40)
@@ -46,28 +32,27 @@ CREATE TABLE membership(
     member_join DATE
 );
 
---판매정보
+-- 영수증 조회 
 CREATE TABLE sales (
    sales_number   NUMBER(20) 
-   CONSTRAINT sales_number_pk PRIMARY KEY,
+   CONSTRAINT sales_number_fk REFERENCES sales_management (sales_number),
    member_phonenumber VARCHAR2(20) 
    CONSTRAINT member_phonenumber_fk REFERENCES membership (member_phonenumber),
    saledate   DATE
 );
 
---영수증조회 (sales jointable)
+--판매 관리
 CREATE TABLE sales_management (
     sales_number   NUMBER(20)
-    CONSTRAINT sales_number_fk REFERENCES sales (sales_number),
+    CONSTRAINT sales_number_pk PRIMARY KEY,
     menu_number	NUMBER(4)
     CONSTRAINT menu_number_fk REFERENCES menu (menu_number),
-    option_number NUMBER(4)
-    CONSTRAINT option_number_fk REFERENCES extra_option (option_number),
-   product_qty   NUMBER(3),
+    option_number NUMBER(7), -- 7자리 숫자로 옵션 선택 여부 설정 ex > 0122001 (선택 옵션에따른 가격 변화는 자바에서 처리)
+    product_qty   NUMBER(3),
     total_price NUMBER(10)
 );
 
--- 결제방식 조회
+-- 결제방식 조회 -- 얘도 sales에 합쳐도 될듯?
 CREATE TABLE payment(
     sales_number   NUMBER(20)
     CONSTRAINT payment_number_fk REFERENCES sales (sales_number),
