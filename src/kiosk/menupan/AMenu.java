@@ -23,17 +23,19 @@ public class AMenu extends JPanel {
 
 	public static int yy = 695;
 	int x = 0, y = 0;
+
+	int num = 0;
 	
 	// 장바구니에 한 줄씩 들어감
-	public AMenu(int num, String menu, String temparature) {
+	public AMenu(String menu, String temparature) {
 		this.menu = menu;
 		this.temparature = temparature;
 
 		GetImageInfo gi = new GetImageInfo(menu);
-		
+		num++;
 		// 생성할때마다 증가
-		yy = 695+ (num * 48);
-		
+		yy += 48;
+
 		// 음료 이름
 		String menuName = "";
 		if (temparature == null) {
@@ -55,7 +57,7 @@ public class AMenu extends JPanel {
 		// 잔 수
 		JLabel cups = new JLabel(TotalCups.cup + "잔");
 		cups.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		cups.setBounds(x + 374, y+ 9, 35, 22);
+		cups.setBounds(x + 374, y + 9, 35, 22);
 		cups.setHorizontalAlignment(JLabel.CENTER);
 
 		// 더하기 버튼
@@ -99,7 +101,9 @@ public class AMenu extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				
+				num--;
+				yy -= 48;
+
 			}
 		});
 
@@ -116,15 +120,13 @@ public class AMenu extends JPanel {
 		add(minus);
 		add(delete);
 
-		
 		setBounds(31, yy, 505, 41);
 		setVisible(true);
-		
 
 	}
-	
+
 	public static void changeMenu(String menu, String temparature) {
-		
+
 	}
 
 }

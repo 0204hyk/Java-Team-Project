@@ -101,9 +101,8 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 1. 옵션 미선택 된 부분 막기 2. 담아서 장바구니로 넘기기
-
-				frame.aMenu(menu, hotAndIce);
-				frame.setVisible(true);
+				frame.add(new AMenu(menu, hotAndIce));
+				frame.paint(frame.getGraphics()); 
 
 				dispose();
 

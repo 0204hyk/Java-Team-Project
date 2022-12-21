@@ -184,108 +184,109 @@ public class ChoiceMenu extends JFrame {
 	// 메뉴 한줄씩 만들어서 리턴해주기, 리턴할때마다 한칸 밑으로..
 	// 옵션 프레임에서 정보 받아와서 넘기기!
 	// 메뉴명, 온도
-	public void aMenu(String menu, String temparature) {
-		String root = "images/KioskImages/3. 메뉴선택";
-		WithImage wi = new WithImage(root);
-		DecimalFormat df = new DecimalFormat("#,###");
-		GetImageInfo gi = new GetImageInfo(menu);
-
-		// 패널 생성
-		JPanel menuInCart = new JPanel();
-		menuInCart.setOpaque(false);
-		menuInCart.setBorder(null);
-		menuInCart.setLayout(null);
-		menuInCart.setBounds(31, 743, 505, 41);
-		menuInCart.setVisible(true);
-
-		int x = 0, y = 0;
-
-		// 음료 이름
-		String menuName = "";
-		if (temparature == null) {
-			menuName = menu + " (ICE ONLY) ";
-		} else {
-			menuName = menu + " (" + temparature.toUpperCase() + ") ";
-		}
-
-		JLabel menuNamelb = new JLabel(menuName);
-		menuNamelb.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		menuNamelb.setBounds(x + 45, y + 5, 200, 32);
-
-		// 가격
-		String price = df.format(gi.getMenuPrice() * TotalCups.cup) + "원";
-		JLabel menuPricelb = new JLabel(price);
-		menuPricelb.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		menuPricelb.setBounds(x + 250, y + 5, 70, 32);
-
-		// 잔 수
-		JLabel cups = new JLabel(TotalCups.cup + "잔");
-		cups.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-		cups.setBounds(x + 374, y + 9, 35, 22);
-		cups.setHorizontalAlignment(JLabel.CENTER);
-
-		// 더하기 버튼
-		JButton plus = wi.makeButton("plus.png", x + 419, y + 11, 18, 18);
-		plus.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (TotalCups.cup > 0) {
-					TotalCups.cup = TotalCups.cup + 1;
-				} else if (TotalCups.cup > 98) {
-					TotalCups.cup = 99;
-				}
-				cups.setText(TotalCups.cup + "잔");
-				menuPricelb.setText(df.format(gi.getMenuPrice() * TotalCups.cup) + "원");
-
-			}
-		});
-
-		// 빼기
-		JButton minus = wi.makeButton("minus.png", x + 344, y + 11, 18, 18);
-		minus.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (TotalCups.cup > 1) {
-					TotalCups.cup = TotalCups.cup - 1;
-				} else if (TotalCups.cup < 1) {
-					TotalCups.cup = 1;
-				}
-				cups.setText(TotalCups.cup + "잔");
-				menuPricelb.setText(df.format(gi.getMenuPrice() * TotalCups.cup) + "원");
-			}
-		});
-
-		// 삭제 버튼
-		JButton delete = wi.makeButton("delete.png", x + 457, y + 5, 31, 31);
-
-		delete.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-
-			}
-		});
-
-		int num = 1;
-		// 음료 순번
-		menuInCart.add(wi.makeLabel(num + ".png", x + 4, y + 5, 31, 31));
-
-		menuInCart.add(cups);
-		menuInCart.add(menuNamelb);
-		menuInCart.add(menuPricelb);
-		menuInCart.add(plus);
-		menuInCart.add(minus);
-		menuInCart.add(delete);
-
-		menuInCart.setVisible(true);
-		menuInCart.invalidate();
-
-		add(menuInCart);
-		
-	}
+//	public void aMenu(String menu, String temparature) {
+//		String root = "images/KioskImages/3. 메뉴선택";
+//		WithImage wi = new WithImage(root);
+//		DecimalFormat df = new DecimalFormat("#,###");
+//		GetImageInfo gi = new GetImageInfo(menu);
+//
+//		// 패널 생성
+//		JPanel menuInCart = new JPanel();
+//		menuInCart.setOpaque(false);
+//		menuInCart.setBorder(null);
+//		menuInCart.setLayout(null);
+//		menuInCart.setBounds(31, 743, 505, 41);
+//		menuInCart.setVisible(true);
+//
+//		int x = 0, y = 0;
+//
+//		// 음료 이름
+//		String menuName = "";
+//		if (temparature == null) {
+//			menuName = menu + " (ICE ONLY) ";
+//		} else {
+//			menuName = menu + " (" + temparature.toUpperCase() + ") ";
+//		}
+//
+//		JLabel menuNamelb = new JLabel(menuName);
+//		menuNamelb.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+//		menuNamelb.setBounds(x + 45, y + 5, 200, 32);
+//
+//		// 가격
+//		String price = df.format(gi.getMenuPrice() * TotalCups.cup) + "원";
+//		JLabel menuPricelb = new JLabel(price);
+//		menuPricelb.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+//		menuPricelb.setBounds(x + 250, y + 5, 70, 32);
+//
+//		// 잔 수
+//		JLabel cups = new JLabel(TotalCups.cup + "잔");
+//		cups.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+//		cups.setBounds(x + 374, y + 9, 35, 22);
+//		cups.setHorizontalAlignment(JLabel.CENTER);
+//
+//		// 더하기 버튼
+//		JButton plus = wi.makeButton("plus.png", x + 419, y + 11, 18, 18);
+//		plus.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				if (TotalCups.cup > 0) {
+//					TotalCups.cup = TotalCups.cup + 1;
+//				} else if (TotalCups.cup > 98) {
+//					TotalCups.cup = 99;
+//				}
+//				cups.setText(TotalCups.cup + "잔");
+//				menuPricelb.setText(df.format(gi.getMenuPrice() * TotalCups.cup) + "원");
+//
+//			}
+//		});
+//
+//		// 빼기
+//		JButton minus = wi.makeButton("minus.png", x + 344, y + 11, 18, 18);
+//		minus.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				if (TotalCups.cup > 1) {
+//					TotalCups.cup = TotalCups.cup - 1;
+//				} else if (TotalCups.cup < 1) {
+//					TotalCups.cup = 1;
+//				}
+//				cups.setText(TotalCups.cup + "잔");
+//				menuPricelb.setText(df.format(gi.getMenuPrice() * TotalCups.cup) + "원");
+//			}
+//		});
+//
+//		// 삭제 버튼
+//		JButton delete = wi.makeButton("delete.png", x + 457, y + 5, 31, 31);
+//
+//		delete.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				setVisible(false);
+//
+//			}
+//		});
+//
+//		int num = 1;
+//		// 음료 순번
+//		menuInCart.add(wi.makeLabel(num + ".png", x + 4, y + 5, 31, 31));
+//
+//		menuInCart.add(cups);
+//		menuInCart.add(menuNamelb);
+//		menuInCart.add(menuPricelb);
+//		menuInCart.add(plus);
+//		menuInCart.add(minus);
+//		menuInCart.add(delete);
+//
+//		menuInCart.setVisible(true);
+//		menuInCart.invalidate();
+//
+//		add(menuInCart);
+//		
+//		menuInCart.paint(menuInCart.getGraphics()); 
+//	}
 
 	public static void main(String[] args) {
 
