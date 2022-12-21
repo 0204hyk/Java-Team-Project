@@ -23,7 +23,7 @@ import pos.gje.ReceiptCheck.refund.RefundFrame;
 
 // 리스트
 public class List {
-
+	
 	static private String[] top = {" ", "영수증번호"};
 	public static DefaultTableModel contents = new DefaultTableModel(top, 0){ // 테이블 안에 들어가는 데이터 값을 채워넣음
 		public boolean isCellEditable(int row, int column){
@@ -32,17 +32,37 @@ public class List {
 	};  //셀 수정 못하게 하는 부분
 	public static JTable table = new JTable(contents); 
 	public static JScrollPane scroll;
+	
+	/*
+		영수증 조회시 필요한 것 
+	 	 - 영수증 번호
+	 	 - 가격
+	 	 - 결제방식 (포인트, 카드)
+	 	 - 날짜 및 시간
+	 	 -
+	 	
+	 	환불창에 필요한 것
+	 	 - 총 결제금액
+	 	 - 포인트결제금액
+	  	 - 카드결제금액
+	  	 - 카드번호 
+	*/ 
+	
+	public static RefundFrame refundFrame;
+
 	static ArrayList<String> number = new ArrayList<>();
 	static ArrayList<String> point = new ArrayList<>();
 	static ArrayList<String> date = new ArrayList<>();
-	static int num = 1;
-	public static RefundFrame refundFrame;
+	
+	String date1,point1,number1;
+	
+	//static int num = 1;
 	
 	public List() {	}
 	
 	public List(OutputButton out, RefundButton refund) {
 		
-		String query = "SELECT * FROM membership "; // 
+		String query = "SELECT * FROM membership "; 
 		
 		try (Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(query);
@@ -67,7 +87,6 @@ public class List {
 		
 		
 		// 만든 테이블 스크롤에 붙이기
-		//table = new JTable(contents);
 		scroll = new JScrollPane(table);
 		scroll.setBounds(75, 95, 500, 550);
 		
@@ -92,28 +111,85 @@ public class List {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				
+				
 				// 선택한 Row의 순서를 int 타입으로 변경 
 				//(table 은 1부터 시작하기 때문에 - 1 을 해줘야 List에 담긴 값을 정확히 불러올 수 있다.
-				String d = date.get((int)(table.getValueAt(table.getSelectedRow(), 0)) - 1);
-				String n = (table.getValueAt(table.getSelectedRow(), 1)).toString();
+				int num = (int)(table.getValueAt(table.getSelectedRow(), 0)) - 1;
+				
+				String d = date.get(num);
+				String receiptNum = (table.getValueAt(table.getSelectedRow(), 1)).toString();
+				
+				receiptInfo(receiptNum, num);
+				
 				
 				// 환불창에 뜨게 만들기
-				refundFrame = new RefundFrame(d, n, d, n);
+				refundFrame = new RefundFrame(d, receiptNum, d, receiptNum);
 				
 				// 영수증을 프린틑하는 메소드에 값을 넣는다 
-				changeTextA(n, d);
+				changeTextA(receiptNum, d);
 				out.setEnabled(true);
 				refund.setEnabled(true);
-				//select(1);
+				
+				// 영수증 번호 전달
+				
+				
+				
 			}
 		});
-		
-		
-		
-	
-	            
 	}
 	
+	// 영수증번호 (pk/fk) 를 WHERE에 써서 정보를 담아야 한다. 
+	public void receiptInfo (String receiptNum, int num) {
+		String query = "SELECT * FROM membership WHERE sales_number = '?'"; 
+		
+		try (Connection conn = OjdbcConnection.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(query);
+				) {
+			pstmt.setString(1, receiptNum); // 영수증 번호에 관한 정보들 
+
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				// 영수증에 관한 값을 List에 저장 (현재 영수증 테이블에 값이 없엉서 멤버십 테이블로 대신함)
+				// 각각의 메뉴들은 모두 저장 try (ResultSet rs = pstmt.executeQuery();)
+				
+				
+				/*
+				 	for (int i = 1; i <= metadata.getColumnCount(); ++i) { // metadata.getColumnCount(); = 개수
+							
+						1. 메뉴 이름 
+						2. 옵션들
+						3. 개수
+						4. 가격 
+					}
+					
+					System.out.println(i + "번쨰 컬럼라벨: " + metadata.getColumnLabel(i));
+					System.out.println(i + "번째 컬럼의 DisplaySize: " + metadata.getColumnDisplaySize(i));
+					System.out.println(i + "번째 컬럼의 타입: " + metadata.getColumnTypeName(i));
+					
+					
+				}
+				 
+				*/
+				String date1 = date.get(num);
+				String number1 = number.get(num);
+				String point1 = point.get(num);
+				
+				
+			}
+		} catch (SQLException e) {
+			System.out.println(" 오류");
+			e.printStackTrace();
+		}
+		
+		// 영수증 번호에 해당하는 정보들 환불창에 넣기 
+		refundFrame = new RefundFrame(receiptNum, receiptNum, receiptNum, receiptNum);
+		
+		// 영수증 출력하는 곳에 값 넣기 
+		changeTextA(date1, number1);
+		
+	}
 
 	
 	public void changeTextA(String num, String point) {
