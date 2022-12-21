@@ -17,8 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import database.OjdbcConnection;
-import pos.product_management.menu_add.MenuAddFrame;
-import pos.product_management.menu_add.additional_frame.AddFix;
+import pos.product_management.menu_add.message_frame.AddFix;
 import pos.product_management.menu_add.panel.AddBackgroundImagePanel;
 
 public class MenuAddButton extends JButton implements ActionListener{
@@ -54,8 +53,8 @@ public class MenuAddButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-				// 메뉴 넘버, 메뉴 이름, 카테고리 넘버, 옵션 카테고리 넘버, 가격 순
-		String query = "INSERT INTO menu VALUES ((SELECT MAX(menu_number)+1 FROM menu m),?,?,?,?)";
+				// 메뉴 넘버, 메뉴 이름, 카테고리 넘버, 옵션 카테고리 넘버, 이미지 경로,가격, 영어 이름 순
+		String query = "INSERT INTO menu VALUES ((SELECT MAX(menu_number)+1 FROM menu m),?,?,?,'images/KioskImages/menu/defaultimage.png',?,null)";
 		
 		try (
 			Connection conn = OjdbcConnection.getConnection();
@@ -66,8 +65,20 @@ public class MenuAddButton extends JButton implements ActionListener{
 			} else {
 				JOptionPane.showMessageDialog(null, "메뉴 이름을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
 				return;
-			};
+			}
 			
+			if (!panel.priceField.getText().equals("")) {
+				String[] prices = panel.priceField.getText().split(","); 
+				String result = "";
+				for (String price : prices) {
+					result += price;
+				}
+				pstmt.setInt(4, Integer.parseInt(result));								
+			} else {
+				JOptionPane.showMessageDialog(null, "가격을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
+				
 			if (panel.coffee.isSelected()) {
 				pstmt.setInt(2, 2);
 			} else if (panel.nonCoffee.isSelected()) {
@@ -76,7 +87,7 @@ public class MenuAddButton extends JButton implements ActionListener{
 				pstmt.setInt(2, 4);
 			} else {
 				pstmt.setInt(2, 5);
-			};
+			}
 			
 			if (panel.option1.isSelected()) {
 				pstmt.setInt(3, 1);
@@ -94,19 +105,7 @@ public class MenuAddButton extends JButton implements ActionListener{
 				pstmt.setInt(3, 7);
 			} else {
 				pstmt.setInt(3, 8);
-			};			
-			
-			if (!panel.priceField.getText().equals("")) {
-				String[] prices = panel.priceField.getText().split(","); 
-				String result = "";
-				for (String price : prices) {
-					result += price;
-				}
-				pstmt.setInt(4, Integer.parseInt(result));								
-			} else {
-				JOptionPane.showMessageDialog(null, "가격을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
-				return;
-			}
+			}		
 			
 			pstmt.executeUpdate();
 			additionalFrame.setVisible(true);

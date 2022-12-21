@@ -23,13 +23,15 @@ import javax.swing.text.NumberFormatter;
 
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.product_management.menu_add.additional_frame.AddFix;
+import pos.kjh.MenuListJTable;
 import pos.product_management.menu_add.component.MenuAddButton;
+import pos.product_management.menu_add.message_frame.AddFix;
 import pos.product_management.menu_add.panel.AddBackgroundImagePanel;
 
 public class MenuAddFrame extends JFrame{
-
+		
 	public MenuAddFrame() throws IOException {
+		setTitle("메뉴 추가");
 		add(new AddBackgroundImagePanel(this));
 		
 		setUndecorated(true);
@@ -39,9 +41,5 @@ public class MenuAddFrame extends JFrame{
 		setResizable(false); // 크기 조절 안되게
 		setLocationRelativeTo(null); // 가운데에 뜨게
 		
-	}
-
-	public static void main(String[] args) throws IOException {
-		new MenuAddFrame();
 	}
 }

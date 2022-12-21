@@ -17,9 +17,9 @@ public class CalculationButton extends JButton implements ActionListener{
 
 	public CalculationButton() {
 		try {
-			File f = new File("images/PosImages/시작 페이지 버튼 이미지/계산 버튼.png");
+			File f = new File("images/PosImages/카페 로고2.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
-			Image scaledImage = bufferedImage.getScaledInstance(300, 300, Image.SCALE_AREA_AVERAGING);
+			Image scaledImage = bufferedImage.getScaledInstance(200, 250, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage = new ImageIcon(scaledImage);
 			setIcon(btnImage);
 			setSize(300, 300);
@@ -27,9 +27,9 @@ public class CalculationButton extends JButton implements ActionListener{
 			setBorderPainted(false);	// 버튼 테두리 지우기
 			setFocusable(false);	
 			
-			File f2 = new File("images/PosImages/시작 페이지 버튼 이미지/계산 버튼 클릭.png");
+			File f2 = new File("images/PosImages/카페 로고2 클릭.png");
 			BufferedImage bufferedImage2 = ImageIO.read(f2);
-			Image scaledImage2 = bufferedImage2.getScaledInstance(300, 300, Image.SCALE_AREA_AVERAGING);
+			Image scaledImage2 = bufferedImage2.getScaledInstance(200, 250, Image.SCALE_AREA_AVERAGING);
 			ImageIcon btnImage2 = new ImageIcon(scaledImage2);
 
 			setPressedIcon(btnImage2);

@@ -39,6 +39,7 @@ public class NotSelectedFrame extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+
 			}
 		});
 		setBackground(Color.white);

@@ -32,19 +32,7 @@ public class DeleteCheckPanel extends JPanel{
 		menuName.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		return menuName;
 	}
-	
-//	public JLabel deleteQuantity() {
-//		JLabel quantity = new JLabel();
-//		
-//		quantity.setHorizontalAlignment(JLabel.CENTER);
-//		quantity.setText("" + MenuListJTable.quantity);
-//		quantity.setLocation(75, 25);
-//		quantity.setSize(70, 70);
-//		
-//		quantity.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-//		
-//		return quantity;
-//	}
+
 	
 	public DeleteCheckPanel() {
 		//add(deleteQuantity());
