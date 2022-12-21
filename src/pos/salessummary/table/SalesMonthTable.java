@@ -1,5 +1,4 @@
-package pos.salescheck.table;
-
+package pos.salessummary.table;
 
 import java.awt.Font;
 import java.sql.Connection;
@@ -13,9 +12,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import database.OjdbcConnection;
 
-public class SalesDayTable extends JTable {
+public class SalesMonthTable extends JTable {
 
-	private static String colTitle[] = {"시간", "매출액"};
+	private static String colTitle[] = {"날짜", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0) {
 		// 테이블 출력 값 선택되지 않게 설정
 		public boolean isCellEditable(int i, int c) {
@@ -25,9 +24,8 @@ public class SalesDayTable extends JTable {
 
 	String year;
 	String month; 
-	String day;
 
-	public SalesDayTable() {
+	public SalesMonthTable() {
 		JTable table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
 
@@ -53,43 +51,36 @@ public class SalesDayTable extends JTable {
 		setVisible(true);
 	}
 
-	public SalesDayTable(String year, String month, String day) {
+	public SalesMonthTable(String year, String month) {
 		this.year = year;
 		this.month = month;
-		this.day = day;
 
-		String plus = year + month + day;
-
-		String sql = "SELECT to_char(saledate, 'HH24'), trim(to_char(sum(price), '999,999,999')) AS total "
-				+ "FROM sales INNER JOIN payment USING(sales_number) "
-				+ "WHERE to_char(saledate, 'YYYYMMDD') = ? "
-				+ "AND to_char(saledate, 'HH24') = ? "
-				+ "GROUP BY to_char(saledate, 'HH24') "
-				+ "ORDER BY to_char(saledate, 'HH24')";
+		String plus = year + month;
+		String sql = 
+				"SELECT to_char(s.saleDate, 'YYYY-MM-DD'), to_char(sum(p.price), '999,999,999') AS price "
+						+ "FROM sales s INNER JOIN PAYMENT p "
+						+ "USING (sales_number)"
+						+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ?"
+						+ "GROUP BY to_char(s.saledate, 'YYYY-MM-DD')"
+						+ "ORDER BY to_char(s.saledate, 'YYYY-MM-DD')";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				) {
 
-			ResultSet rs = null;
-			for (int i = 10; i < 22; ++i) {
-				pstmt.setString(1, plus);
-				pstmt.setInt(2, i);
-				rs = pstmt.executeQuery();
-				if (rs.next()) {
+			pstmt.setString(1, plus);
+
+			try (ResultSet rs = pstmt.executeQuery()) {
+				while(rs.next()) {
 					model.addRow(new Object[] {
-							i + "시 ~ " + (i + 1) + "시", rs.getString("total") + "원" 
-					});
-				} else {
-					model.addRow(new Object[] {
-							i + "시 ~ " + (i + 1) + "시", "0 원"
-					});
+							rs.getString(1),
+							rs.getString("price") + "원"});
 				}
 			}
-			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 }
+

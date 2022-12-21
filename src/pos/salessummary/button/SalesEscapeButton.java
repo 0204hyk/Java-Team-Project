@@ -1,4 +1,4 @@
-package pos.salescheck.button;
+package pos.salessummary.button;
 
 
 import java.awt.event.ActionEvent;
@@ -6,14 +6,14 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import pos.ImageScaledTool;
-import pos.salescheck.main.SalesDayCheckMain;
-import pos.salescheck.main.SalesMonthCheckMain;
-import pos.salescheck.main.SalesYearCheckMain;
-import pos.salescheck.saleslist.TitlePanel;
-import pos.salescheck.saleslist.TotalPanel;
-import pos.salescheck.table.SalesDayTable;
-import pos.salescheck.table.SalesMonthTable;
-import pos.salescheck.table.SalesYearTable;
+import pos.salessummary.main.SalesDayCheckMain;
+import pos.salessummary.main.SalesMonthCheckMain;
+import pos.salessummary.main.SalesYearCheckMain;
+import pos.salessummary.saleslist.TitlePanel;
+import pos.salessummary.saleslist.TotalPanel;
+import pos.salessummary.table.SalesDayTable;
+import pos.salessummary.table.SalesMonthTable;
+import pos.salessummary.table.SalesYearTable;
 
 public class SalesEscapeButton extends JButton {
 

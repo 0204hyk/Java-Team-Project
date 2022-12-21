@@ -24,7 +24,7 @@ import pos.gje.calcView.CalcViewPanel;
 import pos.gje.calcView.QuantityPanel;
 import pos.gje.calcView.component.FullDeleteButton;
 import pos.gje.calcView.component.PartiallyDeleteButton;
-import pos.salescheck.title.TitleImage;
+import pos.salessummary.title.TitleImage;
 
 public class CalculationMain extends JFrame {
 

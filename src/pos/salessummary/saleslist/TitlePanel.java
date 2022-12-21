@@ -1,4 +1,4 @@
-package pos.salescheck.saleslist;
+package pos.salessummary.saleslist;
 
 import java.awt.Color;
 import java.awt.Font;

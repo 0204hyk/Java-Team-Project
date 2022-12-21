@@ -1,4 +1,4 @@
-package pos.salescheck.table;
+package pos.salessummary.table;
 
 import java.awt.Font;
 import java.sql.Connection;
@@ -12,9 +12,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import database.OjdbcConnection;
 
-public class SalesMonthTable extends JTable {
+public class SalesYearTable extends JTable {
 
-	private static String colTitle[] = {"날짜", "매출액"};
+	private static String colTitle[] = {"선택 연도", "매출액"};
 	public static DefaultTableModel model = new DefaultTableModel(colTitle, 0) {
 		// 테이블 출력 값 선택되지 않게 설정
 		public boolean isCellEditable(int i, int c) {
@@ -23,11 +23,9 @@ public class SalesMonthTable extends JTable {
 	};
 
 	String year;
-	String month; 
 
-	public SalesMonthTable() {
+	public SalesYearTable() {
 		JTable table = new JTable(model);
-		JScrollPane scroll = new JScrollPane(table);
 
 		//테이블 가운데 정렬
 		DefaultTableCellRenderer center =  
@@ -38,10 +36,12 @@ public class SalesMonthTable extends JTable {
 				(DefaultTableCellRenderer)table.getDefaultRenderer(Object.class);
 		renderer.setHorizontalAlignment( SwingConstants.CENTER );
 
+		JScrollPane scroll = new JScrollPane(table);
 		table.setFont(getFont().deriveFont(23f));
 		table.getTableHeader().setFont(new Font("맑은 고딕", Font.PLAIN, 23));
 		scroll.setBounds(0, 0, 450, 360);
 		table.setRowHeight(30);
+
 		table.getTableHeader().setResizingAllowed(false);
 		table.getTableHeader().setReorderingAllowed(false);
 
@@ -51,36 +51,32 @@ public class SalesMonthTable extends JTable {
 		setVisible(true);
 	}
 
-	public SalesMonthTable(String year, String month) {
+	public SalesYearTable(String year) {
 		this.year = year;
-		this.month = month;
 
-		String plus = year + month;
-		String sql = 
-				"SELECT to_char(s.saleDate, 'YYYY-MM-DD'), to_char(sum(p.price), '999,999,999') AS price "
-						+ "FROM sales s INNER JOIN PAYMENT p "
-						+ "USING (sales_number)"
-						+ "WHERE TO_CHAR(s.saleDate, 'YYYYMM') = ?"
-						+ "GROUP BY to_char(s.saledate, 'YYYY-MM-DD')"
-						+ "ORDER BY to_char(s.saledate, 'YYYY-MM-DD')";
+		String sql = "SELECT to_char(s.saledate, 'YYYY-MM'), to_char(sum(p.price), '999,999,999') AS total " 
+				+ "FROM sales s INNER JOIN PAYMENT p "
+				+ "USING (sales_number) "
+				+ "WHERE TO_CHAR(s.saledate, 'YYYY') = ? "
+				+ "GROUP BY to_char(s.saledate, 'YYYY-MM')"
+				+ "ORDER BY to_char(s.saledate, 'YYYY-MM')";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				) {
 
-			pstmt.setString(1, plus);
+			pstmt.setString(1, year);
 
 			try (ResultSet rs = pstmt.executeQuery()) {
 				while(rs.next()) {
 					model.addRow(new Object[] {
 							rs.getString(1),
-							rs.getString("price") + "원"});
+							rs.getString("total") + "원"});
 				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}	
 	}
 }
-

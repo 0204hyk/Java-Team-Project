@@ -1,4 +1,4 @@
-package pos.salescheck.button;
+package pos.salessummary.button;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,17 +6,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import pos.ImageScaledTool;
-import pos.salescheck.chart.DayChart;
-import pos.salescheck.chart.MonthChart;
-import pos.salescheck.chart.YearChart;
-import pos.salescheck.combobox.DayComboBox;
-import pos.salescheck.combobox.MonthComboBox;
-import pos.salescheck.combobox.YearComboBox;
-import pos.salescheck.saleslist.TitlePanel;
-import pos.salescheck.saleslist.TotalPanel;
-import pos.salescheck.table.SalesDayTable;
-import pos.salescheck.table.SalesMonthTable;
-import pos.salescheck.table.SalesYearTable;
+import pos.salessummary.chart.DayChart;
+import pos.salessummary.chart.MonthChart;
+import pos.salessummary.chart.YearChart;
+import pos.salessummary.combobox.DayComboBox;
+import pos.salessummary.combobox.MonthComboBox;
+import pos.salessummary.combobox.YearComboBox;
+import pos.salessummary.saleslist.TitlePanel;
+import pos.salessummary.saleslist.TotalPanel;
+import pos.salessummary.table.SalesDayTable;
+import pos.salessummary.table.SalesMonthTable;
+import pos.salessummary.table.SalesYearTable;
 
 // 매출요약 검색 버튼
 

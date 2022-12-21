@@ -1,4 +1,4 @@
-package pos.salescheck.chart;
+package pos.salessummary.chart;
 
 
 import java.awt.Color;

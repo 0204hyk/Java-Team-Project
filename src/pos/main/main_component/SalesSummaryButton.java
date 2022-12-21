@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.gje.salesType.SalesTypeFrame;
-import pos.salescheck.main.SalesDayCheckMain;
+import pos.salessummary.main.SalesDayCheckMain;
 
 public class SalesSummaryButton extends JButton implements ActionListener{
 	
