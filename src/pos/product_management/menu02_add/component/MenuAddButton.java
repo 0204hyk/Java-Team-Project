@@ -78,16 +78,19 @@ public class MenuAddButton extends JButton implements ActionListener{
 				JOptionPane.showMessageDialog(null, "가격을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
 				return;
 			}
-				
-			if (panel.coffee.isSelected()) {
-				pstmt.setInt(2, 2);
-			} else if (panel.nonCoffee.isSelected()) {
-				pstmt.setInt(2, 3);
-			} else if (panel.ade.isSelected()) {
-				pstmt.setInt(2, 4);
-			} else {
-				pstmt.setInt(2, 5);
-			}
+			
+//			if (panel.coffee.isSelected()) {
+//				pstmt.setInt(2, 2);
+//			} else if (panel.nonCoffee.isSelected()) {
+//				pstmt.setInt(2, 3);
+//			} else if (panel.ade.isSelected()) {
+//				pstmt.setInt(2, 4);
+//			} else {
+//				pstmt.setInt(2, 5);
+//			}
+
+			// 메뉴 추가하면 카테고리 신메뉴로 고정
+			pstmt.setInt(2, 1);
 			
 			if (panel.option1.isSelected()) {
 				pstmt.setInt(3, 1);
