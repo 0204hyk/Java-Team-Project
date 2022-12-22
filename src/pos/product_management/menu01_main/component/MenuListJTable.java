@@ -66,13 +66,16 @@ public class MenuListJTable extends JTable{
 	public void delete() throws IOException, SQLException {
 
 		int index = table.getSelectedRow();
+		
 		if(index < 0){
 			// 아무것도 선택 안하면 뜨는 창
 			new NotSelectedFrame();
+			ProductManagementJFrame.deleteBtn.setEnabled(false);
 		}else{
 			// 삭제 메뉴 확인 창
 			
 			new DeleteFrame();
+			ProductManagementJFrame.deleteBtn.setEnabled(false);
 			table.setEnabled(false);
 
 		}
@@ -158,6 +161,7 @@ public class MenuListJTable extends JTable{
 			table.getTableHeader().setReorderingAllowed(false);
 			table.getTableHeader().setResizingAllowed(false);
 			
+			
 			// 테이블 내용 가운데 정렬하기
 			DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer(); 
 			dtcr.setHorizontalAlignment(SwingConstants.CENTER); // 렌더러의 가로정렬을 CENTER로
@@ -169,9 +173,6 @@ public class MenuListJTable extends JTable{
 				tcm.getColumn(i).setCellRenderer(dtcr);
 			}
 
-			//		      //특정 열에 지정
-			//		      tcm.getColumn(0).setCellRenderer(dtcr);  
-			//		      tcm.getColumn(4).setCellRenderer(dtcr);
 
 
 

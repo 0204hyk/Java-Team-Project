@@ -15,8 +15,8 @@ import pos.sales_summary.chart.YearChart;
 import pos.sales_summary.combobox.DayComboBox;
 import pos.sales_summary.combobox.MonthComboBox;
 import pos.sales_summary.combobox.YearComboBox;
-import pos.sales_summary.saleslist.TitlePanel;
-import pos.sales_summary.saleslist.TotalPanel;
+import pos.sales_summary.panel.TitlePanel;
+import pos.sales_summary.panel.TotalPanel;
 import pos.sales_summary.table.SalesDayTable;
 import pos.sales_summary.table.SalesMonthTable;
 import pos.sales_summary.table.SalesYearTable;
@@ -62,9 +62,9 @@ public class SalesSearchButton extends JButton {
 				TitlePanel title = new TitlePanel(year);
 				TotalPanel total = new TotalPanel(year);
 			}
-			
 		});
 
+	
 
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
@@ -98,6 +98,11 @@ public class SalesSearchButton extends JButton {
 				MonthChart chart = new MonthChart(year, month);
 				TitlePanel title = new TitlePanel(year, month);
 				TotalPanel total = new TotalPanel(year, month);
+				
+			
+				
+				
+				
 			}
 		});
 		

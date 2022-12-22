@@ -26,6 +26,7 @@ public class NotSelectedFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				ProductManagementJFrame.deleteBtn.setEnabled(true);
 				dispose();
 			}
 		});
@@ -36,7 +37,7 @@ public class NotSelectedFrame extends JFrame{
 		notSelectedPanel.setSize(400,200);
 		
 		add(notSelectedPanel);
-		
+		ProductManagementJFrame.deleteBtn.setEnabled(true);
 		
 		setSize(400, 200);
 		setLayout(null); 

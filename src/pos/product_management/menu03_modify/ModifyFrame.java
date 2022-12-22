@@ -19,7 +19,7 @@ public class ModifyFrame extends JFrame{
 		panel = new ModifyBackgroundImagePanel();
 		
 		add(new ModifyEscapeBtn(mainFrame, this));
-		add(new ModifyOKButton(mainFrame, new ModifyMessageFrame(), panel));
+		add(new ModifyOKButton(mainFrame, new ModifyMessageFrame(mainFrame, this), panel));
 		add(panel);
 		
 		setUndecorated(true);

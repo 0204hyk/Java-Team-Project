@@ -21,7 +21,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import pos.PosFrame;
@@ -140,7 +139,7 @@ public class LoginStart extends JFrame{
 
 
 		// 비밀번호 입력
-		pwText = new JPasswordField() ;
+		pwText = new JTextField() ;
 
 		pwText.setBounds(220, 322, 170, 30);
 		pwText.setFont(new Font("맑은 고딕", Font.BOLD, 15));

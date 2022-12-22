@@ -21,7 +21,9 @@ public class DayComboBox extends JComboBox {
 		for (int i = 1; i <= now.getActualMaximum(Calendar.DAY_OF_MONTH); ++i) {
 			addItem(i);
 		}
-
+		
+		setSelectedItem(day);
+		
 		// 콤보박스 값 선택 시 table 리스트 초기화
 		addItemListener(new ItemListener() {
 			@Override
