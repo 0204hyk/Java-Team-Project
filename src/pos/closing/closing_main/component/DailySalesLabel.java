@@ -26,6 +26,7 @@ public class DailySalesLabel extends JLabel {
 			ResultSet rs = pstmt.executeQuery();
 		) {
 			if (rs.next()) {
+
 				if (rs.getString(1) == null) {
 					setText("0");
 				} else {

@@ -24,6 +24,7 @@ import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu02_add.MenuAddFrame;
 import pos.product_management.menu02_add.component.MenuAddButton;
 import pos.product_management.menu02_add.message_frame.AddFix;
+import pos.product_management.menu02_add.message_frame.MenuNameInput;
 
 public class AddBackgroundImagePanel extends JPanel{
 	

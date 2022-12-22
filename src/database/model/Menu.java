@@ -2,6 +2,7 @@ package database.model;
 
 public class Menu {
 
+
 	private Integer menu_number;
 	private String menu_name;
 	private Integer category_number;

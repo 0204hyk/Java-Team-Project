@@ -41,6 +41,7 @@ public class ProductManagementJFrame extends JFrame {
 	PosFrame p;
 	CancelBtn cBtn;
 	DeleteCheckPanel dcp;
+	public static JButton deleteBtn;
 	
 	public ProductManagementJFrame() throws IOException, SQLException {
 
@@ -124,7 +125,7 @@ public class ProductManagementJFrame extends JFrame {
 		JButton backBtn = btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png",
 				"images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 680, 120, 65);
 
-		JButton deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
+		deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
 				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1027, 620, 130, 65);
 
 
@@ -182,7 +183,6 @@ public class ProductManagementJFrame extends JFrame {
 				serchText = new JTextField("키워드를 입력해주세요");
 
 				dispose();
-				
 				MenuListJTable table = null;
 				try {
 					table = new MenuListJTable(allMenu());

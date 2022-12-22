@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu04_delete.DeleteFrame;
 
@@ -45,8 +46,9 @@ public class CancelBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
+		ProductManagementJFrame.deleteBtn.setEnabled(true);
 		MenuListJTable.table.setEnabled(true);
-		
 		f.dispose();
 	}
 }
