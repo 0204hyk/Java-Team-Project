@@ -63,7 +63,7 @@ public class MenuListJTable extends JTable{
 	
 	
 	// JTable 선택값 삭제 메서드
-	public void delete() throws IOException, SQLException {
+	public void delete() {
 
 		int index = table.getSelectedRow();
 		
@@ -107,7 +107,7 @@ public class MenuListJTable extends JTable{
 
 
 	// JTable로 DB값 불러오는 메서드
-	public MenuListJTable(String sqlCondition) throws SQLException {
+	public MenuListJTable(String sqlCondition) {
 
 		String sql = sqlCondition;
 
@@ -152,9 +152,9 @@ public class MenuListJTable extends JTable{
 				public void mouseClicked(MouseEvent e) {					
 					menuName = (table.getValueAt(table.getSelectedRow(), 1)).toString();
 				}
-
+				
 			});
-
+			
 			scroll.setBounds(0, 0, 1100, 400);
 
 			// 테이블 수정 불가하게 설정
@@ -181,6 +181,8 @@ public class MenuListJTable extends JTable{
 			add(scroll);
 			setLayout(null);
 			setVisible(true);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
 		}
 	}
 

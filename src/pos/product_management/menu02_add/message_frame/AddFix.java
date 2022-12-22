@@ -24,7 +24,7 @@ public class AddFix extends JFrame {
 	ProductManagementJFrame prjf;
 	MenuAddFrame frame;
 	
-	public AddFix(ProductManagementJFrame prjf, MenuAddFrame frame) throws IOException {
+	public AddFix(ProductManagementJFrame prjf, MenuAddFrame frame) {
 		this.prjf = prjf;
 		this.frame = frame;
 		
@@ -37,15 +37,11 @@ public class AddFix extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					prjf.mj.contents.setRowCount(0);
-					prjf.mj = new MenuListJTable(prjf.allMenu());
-					prjf.setEnabled(true);
-					dispose();
-					frame.dispose();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
+				prjf.mj.contents.setRowCount(0);
+				prjf.mj = new MenuListJTable(prjf.allMenu());
+				prjf.setEnabled(true);
+				dispose();
+				frame.dispose();
 			}
 		});
 		

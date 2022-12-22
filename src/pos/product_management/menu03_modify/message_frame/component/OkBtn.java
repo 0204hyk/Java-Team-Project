@@ -51,14 +51,10 @@ public class OkBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		try {
-			f1.mj.contents.setRowCount(0);
-			f1.mj = new MenuListJTable(f1.allMenu());
-			f1.setEnabled(true);
-			f3.dispose();
-			f2.dispose();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
+		f1.mj.contents.setRowCount(0);
+		f1.mj = new MenuListJTable(f1.allMenu());
+		f1.setEnabled(true);
+		f3.dispose();
+		f2.dispose();
 	}
 }

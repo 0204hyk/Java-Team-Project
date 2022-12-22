@@ -28,7 +28,6 @@ import pos.PosFrame;
 import pos.product_management.menu01_main.component.AddButton;
 import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu01_main.component.ModifyButton;
-import pos.product_management.menu02_add.MenuAddFrame;
 import pos.product_management.menu04_delete.DeleteCheckPanel;
 import pos.product_management.menu04_delete.component.CancelBtn;
 
@@ -43,7 +42,7 @@ public class ProductManagementJFrame extends JFrame {
 	DeleteCheckPanel dcp;
 	public static JButton deleteBtn;
 	
-	public ProductManagementJFrame() throws IOException, SQLException {
+	public ProductManagementJFrame() {
 
 		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
@@ -106,19 +105,22 @@ public class ProductManagementJFrame extends JFrame {
 
 
 	// 라벨로 이미지 붙이는 메서드
-	public static JLabel labelImage(String image, int a, int b, int c, int d) throws IOException {
+	public static JLabel labelImage(String image, int a, int b, int c, int d) {
 		JLabel l = new JLabel();
-		BufferedImage bufferedlImage = ImageIO.read(new File(image));
-		Image lImage = bufferedlImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
-		l.setIcon(new ImageIcon(lImage));
-		l.setBounds(a, b, c, d);
+		try {
+			BufferedImage bufferedlImage = ImageIO.read(new File(image));
+			Image lImage = bufferedlImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
+			l.setIcon(new ImageIcon(lImage));
+			l.setBounds(a, b, c, d);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		return l;
-
 	}
 
 	// 상품목록에 있는 버튼들
-	public JButton buttons() throws IOException, SQLException {
+	public JButton buttons() {
 		JButton serchBtn = btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", 
 				"images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50);
 
@@ -134,20 +136,16 @@ public class ProductManagementJFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				try {
-					if (serch().getText() == null) {
-						mj.setVisible(true);
-					}
-					else {
-						mj.setVisible(false);
-						MenuListJTable.contents.setNumRows(0);
-						mj = new MenuListJTable(serchMenu(serch().getText()));
-						add(mj);
-					};
-
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				if (serch().getText() == null) {
+					mj.setVisible(true);
 				}
+				else {
+					mj.setVisible(false);
+					MenuListJTable.contents.setNumRows(0);
+					mj = new MenuListJTable(serchMenu(serch().getText()));
+					add(mj);
+				};
+
 			}
 		});
 
@@ -156,20 +154,16 @@ public class ProductManagementJFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					if (serch().getText() == null) {
-						mj.setVisible(true);
-					}
-					else {
-						mj.setVisible(false);
-						MenuListJTable.contents.setNumRows(0);
-						mj = new MenuListJTable(serchMenu(serch().getText()));
-						add(mj);
-					};
-
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				
+				if (serch().getText() == null) {
+					mj.setVisible(true);
 				}
+				else {
+					mj.setVisible(false);
+					MenuListJTable.contents.setNumRows(0);
+					mj = new MenuListJTable(serchMenu(serch().getText()));
+					add(mj);
+				};
 
 			}
 		});
@@ -184,30 +178,19 @@ public class ProductManagementJFrame extends JFrame {
 
 				dispose();
 				MenuListJTable table = null;
-				try {
-					table = new MenuListJTable(allMenu());
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
+				table = new MenuListJTable(allMenu());
 				table.contents.setNumRows(0);
 
 			}
 		});
 
 		// 삭제 버튼
-		deleteBtn.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					mj.delete();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-				
-			}
+		deleteBtn.addActionListener(new ActionListener() {
 			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mj.delete();
+			}
 		});				
 		
 		add(serchBtn);
@@ -258,7 +241,7 @@ public class ProductManagementJFrame extends JFrame {
 
 
 
-	public static void main(String[] args) throws IOException, SQLException {
+	public static void main(String[] args) {
 		new ProductManagementJFrame();
 	}
 

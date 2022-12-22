@@ -19,7 +19,7 @@ public class NotSelectedFrame extends JFrame{
 
 	static JButton ok;
 
-	public NotSelectedFrame() throws IOException {
+	public NotSelectedFrame() {
 		ok = p.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png",
 				"images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼 클릭.png", 140, 110, 120, 60);
 		ok.addActionListener(new ActionListener() {
