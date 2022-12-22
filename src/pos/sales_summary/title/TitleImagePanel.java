@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 import pos.ImageScaledTool;
 
-public class TitleImage extends JPanel {
+public class TitleImagePanel extends JPanel {
 
 	// 상단 메뉴바 이미지
 	public void paintComponent(Graphics g) {
@@ -22,7 +22,7 @@ public class TitleImage extends JPanel {
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}
 
-	public TitleImage() {
+	public TitleImagePanel() {
 		setBounds(0, 0, 1200, 60);
 	}
 
