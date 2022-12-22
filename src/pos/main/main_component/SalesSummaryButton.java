@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import pos.sales_summary.main.SalesDayCheckMain;
-import pos.sales_summary.salestype.SalesTypeMain;
+import pos.sales_summary.main.SalesTypeMain;
 
 public class SalesSummaryButton extends JButton implements ActionListener{
 	

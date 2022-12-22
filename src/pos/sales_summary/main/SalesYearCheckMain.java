@@ -14,11 +14,11 @@ import pos.sales_summary.button.SalesEscapeButton;
 import pos.sales_summary.button.SalesSearchButton;
 import pos.sales_summary.chart.YearChart;
 import pos.sales_summary.combobox.YearComboBox;
+import pos.sales_summary.label.ListImgLabel;
 import pos.sales_summary.panel.TitlePanel;
 import pos.sales_summary.panel.TotalPanel;
 import pos.sales_summary.table.SalesMonthTable;
 import pos.sales_summary.table.SalesYearTable;
-import pos.sales_summary.title.ListImgLabel;
 
 public class SalesYearCheckMain extends JFrame {
 

@@ -16,10 +16,10 @@ import pos.sales_summary.chart.DayChart;
 import pos.sales_summary.combobox.DayComboBox;
 import pos.sales_summary.combobox.MonthComboBox;
 import pos.sales_summary.combobox.YearComboBox;
+import pos.sales_summary.label.ListImgLabel;
 import pos.sales_summary.panel.TitlePanel;
 import pos.sales_summary.panel.TotalPanel;
 import pos.sales_summary.table.SalesDayTable;
-import pos.sales_summary.title.ListImgLabel;
 
 public class SalesDayCheckMain extends JFrame {
 
