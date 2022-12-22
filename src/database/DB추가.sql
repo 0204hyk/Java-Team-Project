@@ -66,6 +66,7 @@ INSERT INTO sales VALUES ('20221221-01-170015', 21, 0000000, 1, 4500);
 select * from sales where sales_number = '20221221-01-165330';
 select * from sales_management;
 
+commit;
+
 SELECT * FROM user_tables;
 SELECT * FROM user_constraints;
-

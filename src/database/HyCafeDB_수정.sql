@@ -10,12 +10,12 @@ CREATE TABLE menu(
     menu_number	NUMBER(4)
     CONSTRAINT menu_number_pk PRIMARY KEY,
     menu_name VARCHAR2(40),
+    menu_eng_name VARCHAR2(40),
     category_number NUMBER(2) 
     CONSTRAINT menu_category_fk REFERENCES category(category_number),
     option_category_number NUMBER(1),--테이블별 옵션 카테고리 (1~8) / 키오스크에서 8개 옵션 패널 중 1개 선택하기 위한 값
     menu_image VARCHAR2(255),
-    price NUMBER(5),
-    menu_eng_name VARCHAR2(40)
+    price NUMBER(5)
 );
 
 --관리자정보 (id 1개만사용)
@@ -26,7 +26,7 @@ CREATE TABLE manager(
 
 --회원정보
 CREATE TABLE membership(
-    member_phonenumber NUMBER(20) 
+    member_phonenumber VARCHAR2(20) 
     CONSTRAINT member_phonenumber_pk PRIMARY KEY,
     member_point NUMBER(6),
     member_join DATE
@@ -51,7 +51,7 @@ CREATE TABLE sales (
 CREATE TABLE sales_management (
     sales_number   VARCHAR2(20) -- 20221221-01-163515
     CONSTRAINT sales_number_pk PRIMARY KEY,
-    member_phonenumber NUMBER(20)
+    member_phonenumber VARCHAR2(20)
     CONSTRAINT member_number_fk REFERENCES membership (member_phonenumber),
     saledate   DATE,
     payment_type NUMBER(1), -- 1 - 카드 / 2 - 포인트 / 3 - 혼합
