@@ -1,4 +1,4 @@
-package pos.sales_summary.salestype.button;
+package pos.sales_summary.button;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -12,21 +12,22 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.ImageScaledTool;
-import pos.sales_summary.main.SalesYearCheckMain;
+import pos.sales_summary.main.SalesMonthCheckMain;
 
-public class YearBtn extends JButton implements ActionListener{
-	
+public class MonthBtn extends JButton implements ActionListener{
+
 	ImageScaledTool tool = new ImageScaledTool();
 	
-
-	public YearBtn() {
-	
+	public MonthBtn() {
+		
+		
 		setIcon(new ImageIcon(tool.getScaledImage(
-				"images/PosImages/매출 요약 이미지/연 매출.png", 300, 300)));
+				"images/PosImages/매출 요약 이미지/월 매출.png", 300, 300)));
 		setPressedIcon(new ImageIcon(tool.getScaledImage(
-				"images/PosImages/매출 요약 이미지/연 매출 클릭.png", 300, 300)));
+				"images/PosImages/매출 요약 이미지/월 매출 클릭.png", 300, 300)));
+		
 		addActionListener(this);
-		setBounds(825, 290, 300, 300); // 위치 및 사이즈 조절
+		setBounds(450, 290, 300, 300); // 위치 및 사이즈 조절
 		setContentAreaFilled(false);
 		setBorderPainted(false); 
 		setOpaque(false);
@@ -34,7 +35,7 @@ public class YearBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new SalesYearCheckMain();
+		new SalesMonthCheckMain();
 		
 	}
 }

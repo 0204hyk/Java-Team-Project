@@ -1,4 +1,4 @@
-package pos.sales_summary.salestype.button;
+package pos.sales_summary.button;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
