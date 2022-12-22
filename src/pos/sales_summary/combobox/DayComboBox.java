@@ -6,6 +6,7 @@ import java.awt.event.ItemListener;
 import java.util.Calendar;
 import javax.swing.JComboBox;
 
+import pos.sales_summary.panel.TotalPanel;
 import pos.sales_summary.table.SalesDayTable;
 import pos.sales_summary.table.SalesMonthTable;
 import pos.sales_summary.table.SalesYearTable;
@@ -35,6 +36,8 @@ public class DayComboBox extends JComboBox {
 				monthTable.model.setNumRows(0);
 				SalesDayTable dayTable = new SalesDayTable();
 				dayTable.model.setNumRows(0);
+				TotalPanel total = new TotalPanel();
+				
 			}
 		});
 		setBounds(320, 100, 100, 25);
