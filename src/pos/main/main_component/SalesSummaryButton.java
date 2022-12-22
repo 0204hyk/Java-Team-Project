@@ -10,7 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import pos.sales_summary.main.SalesDayCheckMain;
-import pos.sales_summary.salestype.SalesTypeFrame;
+import pos.sales_summary.salestype.SalesTypeMain;
 
 public class SalesSummaryButton extends JButton implements ActionListener{
 	
@@ -41,7 +41,7 @@ public class SalesSummaryButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new SalesTypeFrame();
+		new SalesTypeMain();
 		//new SalesCheckMainFrame();
 	}
 

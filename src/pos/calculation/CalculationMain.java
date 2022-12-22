@@ -1,12 +1,10 @@
 package pos.calculation;
 
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import pos.DigitalClock;
 import pos.calculation.categorybutton.CoffeeButton;
 import pos.calculation.categorybutton.FrappeBlendedButton;
@@ -24,7 +22,8 @@ import pos.gje.calcView.CalcViewPanel;
 import pos.gje.calcView.QuantityPanel;
 import pos.gje.calcView.component.FullDeleteButton;
 import pos.gje.calcView.component.PartiallyDeleteButton;
-import pos.sales_summary.title.TitleImagePanel;
+import pos.sales_summary.panel.TitleImagePanel;
+
 
 public class CalculationMain extends JFrame {
 

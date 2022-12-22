@@ -1,4 +1,4 @@
-package pos.sales_summary.salestype;
+package pos.sales_summary.main;
 
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -12,11 +12,9 @@ import pos.sales_summary.button.MonthButton;
 import pos.sales_summary.button.SalesTypeEscapeButton;
 import pos.sales_summary.button.YearButton;
 
-
-
-public class SalesTypeFrame extends JFrame{
+public class SalesTypeMain extends JFrame{
 	
-	public SalesTypeFrame() {
+	public SalesTypeMain() {
 		// 상단 메뉴바 설정
 		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));

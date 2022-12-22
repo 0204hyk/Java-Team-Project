@@ -9,18 +9,18 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
 import pos.ImageScaledTool;
-import pos.sales_summary.salestype.SalesTypeFrame;
+import pos.sales_summary.main.SalesTypeMain;
+
 
 
 public class SalesTypeEscapeButton extends JButton implements ActionListener{
 	
-	SalesTypeFrame f;
+	SalesTypeMain f;
 	ImageScaledTool tool = new ImageScaledTool();
 	
 	
-	public SalesTypeEscapeButton(SalesTypeFrame f) {
+	public SalesTypeEscapeButton(SalesTypeMain f) {
 		this.f = f;
 		
 		
