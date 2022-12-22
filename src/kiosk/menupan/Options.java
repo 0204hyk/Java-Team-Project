@@ -30,9 +30,9 @@ public class Options extends JFrame {
 
 	String menu;
 	ChoiceMenu frame;
-	
+
 	Cups cupText = new Cups();
-	
+
 	static public ChoiceMenu choiceMenu;
 
 	public Options(String menu, ChoiceMenu frame) {
@@ -98,7 +98,7 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				// 1. 옵션 미선택 된 부분 막기 2. 담아서 장바구니로 넘기기
 				GetImageInfo gi = new GetImageInfo(menu);
 				int howManyNull = Collections.frequency(getOptionText(), null);
@@ -107,21 +107,38 @@ public class Options extends JFrame {
 				if (hotAndIce == null) {
 					hotAndIce = "3";
 				}
-				
+
 				if (categoryNum == 1 && howManyNull != 0 || categoryNum == 2 && howManyNull != 1
 						|| categoryNum == 3 && howManyNull != 1 || categoryNum == 4 && howManyNull != 2
 						|| categoryNum == 5 && howManyNull != 5 || categoryNum == 6 && howManyNull != 4
 						|| categoryNum == 7 && howManyNull != 1 || categoryNum == 8 && howManyNull != 4) {
-					System.out.println("옵션을 전부 선택해주세요 ㅡㅡ!");
+					JFrame alert = new JFrame();
+					JButton confirm = wi.makeButton("confirm.png", 149, 131, 80, 41);
+					
+					confirm.addActionListener(new ActionListener() {
+
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							alert.dispose();
+						}
+					});
+					
+					alert.add(confirm);
+					alert.add(wi.makeLabel("pleaseSelectAll.png", 0, 0, 379, 213));
+					alert.setUndecorated(true);
+					alert.setSize(379, 213);
+					alert.setLocationRelativeTo(null);
+					alert.setVisible(true);
 
 				} else {
-					
-					AMenu menuPn = new AMenu(menu, cupText, hotAndIce.equals("1") ? "ICE" : hotAndIce.equals("2") ? "HOT" : "ICE ONLY");
+
+					AMenu menuPn = new AMenu(menu, cupText,
+							hotAndIce.equals("1") ? "ICE" : hotAndIce.equals("2") ? "HOT" : "ICE ONLY");
 					frame.makeMenu(menuPn);
 
 					frame.setVisible(true);
 					frame.paint(frame.getGraphics());
-					
+
 					dispose();
 				}
 
@@ -385,7 +402,7 @@ public class Options extends JFrame {
 	}
 
 	public void toDB() {
-		
+
 		String options = hotAndIce + decaffein + cup + sizes + shot + ice + milk + "";
 
 	}
