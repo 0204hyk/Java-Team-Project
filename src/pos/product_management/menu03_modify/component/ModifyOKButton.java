@@ -77,11 +77,11 @@ public class ModifyOKButton extends JButton implements ActionListener{
 			
 			if (panel.coffee.isSelected()) {
 				pstmt.setInt(2, 2);
-			} else if (panel.nonCoffee.isSelected()) {
+			} else if (panel.frappe.isSelected()){
 				pstmt.setInt(2, 3);
-			} else if (panel.ade.isSelected()) {
+			} else if (panel.nonCoffee.isSelected()) {
 				pstmt.setInt(2, 4);
-			} else {
+			} else if (panel.ade.isSelected()) {
 				pstmt.setInt(2, 5);
 			}
 			
