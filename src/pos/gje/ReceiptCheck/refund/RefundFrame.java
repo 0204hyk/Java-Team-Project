@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,8 +16,8 @@ import pos.gje.ReceiptCheck.receiptcheck_main.List;
 
 public class RefundFrame extends JFrame {
 
-	String root = "images/PosImages/영수증 조회 이미지/";
-	WithImage wi = new WithImage(root);
+	static String root = "images/PosImages/영수증 조회 이미지/";
+	static WithImage wi = new WithImage(root);
 	
 	Timer timer;
 	
@@ -24,20 +25,28 @@ public class RefundFrame extends JFrame {
 	public static int card = 23000;
 	public static int point = 0;
 	public static String cardNum = "1234-****-1234-****";
+	public static HashSet<String> refundNum = new HashSet<>();
+	
 	List list;
 	JLabel cardLb = new JLabel();
 	JLabel pointLb = new JLabel();
 	JLabel amountLb = new JLabel();
 	JLabel cardNumLb = new JLabel();
+	JButton refund = new JButton();
+	
+	public RefundFrame(JButton refund) {
+		this.refund = refund;
+	}
+	
 	
 	//총 가격, 포인트 결제, 카드 결제, 받은 금액
-	public RefundFrame (int amount, int point, int card, String cardNum){
+	public RefundFrame (int amount, int point, int card, String cardNum, String sales_number){
 		this.amount = amount;
 		this.card = card;
 		this.point = point;
 		this.cardNum = cardNum;
 		
-		System.out.println(amount + card + point + cardNum);
+		//System.out.println(amount + card + point + cardNum);
 		
 		JButton exit = wi.makeButton("환불 창 닫기 버튼", 725, 20, 43, 46);
 		JButton checkBox = wi.makeButton("체크박스", 215, 394, 27, 27);
@@ -81,21 +90,16 @@ public class RefundFrame extends JFrame {
 			// 정보 확인 후 꺼져야됨
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame inputCard = new JFrame();
-				inputCard.setUndecorated(true);
-				inputCard.add(lb);
-				inputCard.setSize(401, 255);
-				inputCard.setVisible(true);
-				inputCard.setLocationRelativeTo(null);
+				refundNum.add(sales_number);
+				if (refundNum.contains(sales_number)) {
+					refund.setEnabled(false);
+				}
 				
-				timer = new Timer(3000, new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						inputCard.dispose(); //카드 넣고 환불 완료 창 띄워기
-					}
-				});
-				timer.start();
+				System.out.println(sales_number + "의 환불버튼이 눌렸습니다");
+				//new List(refundNum);
+			
+				
+				dispose();
 			}
 		});
 		
@@ -148,13 +152,13 @@ public class RefundFrame extends JFrame {
 	}
 	
 	public RefundFrame() {
-		this(10000, 0, 0, "default");
+		this(10000, 0, 0, "default", "");
 		
 	}
 	
-	public static void main(String[] args) {
-			
+	public static void DBsave() {
+		
+		
 	}
-
 
 }
