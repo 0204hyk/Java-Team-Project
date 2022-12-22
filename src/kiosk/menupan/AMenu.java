@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,9 +19,7 @@ public class AMenu extends JPanel {
 	String root = "images/KioskImages/3. 메뉴선택";
 	WithImage wi = new WithImage(root);
 	DecimalFormat df = new DecimalFormat("#,###");
-	String menu, temparature;
-
-	Cups cup;
+	String menu, temparature, price;
 
 	int x = 0, y = 0;
 
@@ -30,11 +29,10 @@ public class AMenu extends JPanel {
 	public AMenu(String menu, Cups cup, String temparature, int optionPrice) {
 		this.menu = menu;
 		this.temparature = temparature;
-		this.cup = cup;
-
 		GetImageInfo gi = new GetImageInfo(menu);
+		
 		num++;
-
+		
 		// 음료 이름
 		String menuName = "";
 		if (temparature == null) {
@@ -48,7 +46,7 @@ public class AMenu extends JPanel {
 		menuNamelb.setBounds(x + 45, y + 5, 270, 32);
 
 		// 가격
-		String price = df.format((optionPrice + gi.getMenuPrice()) * cup.getCup()) + "원";
+		price = df.format((optionPrice + gi.getMenuPrice()) * cup.getCup()) + "원";
 		JLabel menuPricelb = new JLabel(price);
 		menuPricelb.setHorizontalAlignment(JLabel.RIGHT);
 		menuPricelb.setFont(new Font("맑은 고딕", Font.PLAIN, 14));
@@ -120,6 +118,17 @@ public class AMenu extends JPanel {
 
 		setVisible(true);
 		setPreferredSize(new Dimension(505, 41));
+	}
+
+	public ArrayList getMenuInfo() {
+		// 음료명 / 잔수 / 금액 (다음줄) 옵션 - HOT, ICE / 사이즈 / 컵 / 옵션들 리스트
+		ArrayList<String> menuInfo = new ArrayList<>();
+
+		menuInfo.add(menu);
+		menuInfo.add("잔수");
+		menuInfo.add(price);
+		
+		return menuInfo;
 	}
 
 }

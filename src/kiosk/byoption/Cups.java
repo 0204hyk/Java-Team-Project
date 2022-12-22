@@ -2,6 +2,7 @@ package kiosk.byoption;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 
 import javax.swing.JLabel;
 
@@ -10,6 +11,7 @@ public class Cups extends JLabel {
 	public int cup = 1;
 
 	public Cups() {
+		
 		setText(cup + "잔");
 		setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		setForeground(Color.black);

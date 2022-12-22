@@ -34,6 +34,7 @@ public class GetImageInfo {
 					menuNameKor = rs.getString("menu_name");
 					menuNameEng = rs.getString("menu_eng_name");
 					menuPrice = rs.getInt("price");
+					
 
 				}
 			}
@@ -69,7 +70,6 @@ public class GetImageInfo {
 	
 	public static void main(String[] args) {
 		GetImageInfo gi = new GetImageInfo("아메리카노");
-		System.out.println(gi.getMenuImageRoot());
 	}
 	
 }

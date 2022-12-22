@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -13,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
 import kiosk.Step1Step2;
+import kiosk.byoption.Cups;
 import kiosk.tools.WithImage;
 
 public class ChoiceMenu extends JFrame {
@@ -21,6 +23,7 @@ public class ChoiceMenu extends JFrame {
 	WithImage wi = new WithImage(root);
 
 	CardLayout card;
+
 	JPanel coffeePns;
 
 	JPanel coffeePn = new PanelsByCategory(2);
@@ -29,7 +32,9 @@ public class ChoiceMenu extends JFrame {
 	JPanel adePn = new PanelsByCategory(5);
 
 	JPanel cart = new JPanel();
-
+	
+	ArrayList<String> menuInfo = new ArrayList<>();
+	
 	public ChoiceMenu() {
 
 		cart();
@@ -169,19 +174,22 @@ public class ChoiceMenu extends JFrame {
 	}
 
 	public void pay() {
+		// 장바구니에 있는것들 보내기, 최종 잔 수 더하기
 		JButton pay = wi.makeButton("pay.png", 548, 748, 78, 93);
-		
+
 		pay.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+
+				// 금액 받아서 10프로 쪼개기
 				new Step1Step2();
+
 			}
 		});
-//		JButton deleteAll = wi.makeButton("deleteAll.png", 548, 854, 78, 71);
 
 		add(pay);
-//		add(deleteAll);
 	}
 
 	public void cart() {
@@ -201,9 +209,13 @@ public class ChoiceMenu extends JFrame {
 
 	}
 
-	public void makeMenu(JPanel pn) {
+	public void makeMenu(JPanel pn, Cups totalCups, ArrayList menuInfo) {
 
 		cart.add(pn);
+
+		this.menuInfo.addAll(menuInfo);
+		System.out.println(this.menuInfo.toString());
+		
 	}
 
 	public static void main(String[] args) {

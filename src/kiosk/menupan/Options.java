@@ -32,7 +32,9 @@ public class Options extends JFrame {
 	ChoiceMenu frame;
 
 	Cups cupText = new Cups();
-
+	
+	ArrayList<String> menuInfo = new ArrayList<>();
+	
 	static public ChoiceMenu choiceMenu;
 
 	public Options(String menu, ChoiceMenu frame) {
@@ -50,6 +52,7 @@ public class Options extends JFrame {
 	}
 
 	public void defaults() {
+		
 		cupText.setBounds(470, 174, 47, 23);
 		cupText.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		cupText.setHorizontalAlignment(JLabel.CENTER);
@@ -92,12 +95,13 @@ public class Options extends JFrame {
 			}
 		});
 
-		// 여기서 컵을 보내줘야한다
+		// 여기서 컵을 보내줘야한다, 옵션 포함된 가격 추가
 		JButton put = wi.makeButton("put.png", 333, 817, 192, 68);
 		put.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 
 				// 1. 옵션 미선택 된 부분 막기 2. 담아서 장바구니로 넘기기
 				GetImageInfo gi = new GetImageInfo(menu);
@@ -139,9 +143,9 @@ public class Options extends JFrame {
 						|| categoryNum == 3 && howManyNull != 1 || categoryNum == 4 && howManyNull != 2
 						|| categoryNum == 5 && howManyNull != 5 || categoryNum == 6 && howManyNull != 4
 						|| categoryNum == 7 && howManyNull != 1 || categoryNum == 8 && howManyNull != 4) {
-					
+
 					JFrame alert = new JFrame();
-					
+
 					JButton confirm = wi.makeButton("confirm.png", 149, 131, 80, 41);
 
 					confirm.addActionListener(new ActionListener() {
@@ -163,8 +167,14 @@ public class Options extends JFrame {
 
 					AMenu menuPn = new AMenu(menu, cupText,
 							hotAndIce.equals("1") ? "ICE" : hotAndIce.equals("2") ? "HOT" : "ICE ONLY", optionPrice);
-					frame.makeMenu(menuPn);
-
+					
+					// 메뉴 정보 담아서 보내기
+					menuInfo.add(menu + " / ");
+					menuInfo.add(cupText.cup +"잔");
+					menuInfo.add(" / " + (optionPrice + gi.getMenuPrice()) + "원");
+					menuInfo.add(numToMenu());
+					
+					frame.makeMenu(menuPn, cupText, menuInfo);
 					frame.setVisible(true);
 					frame.paint(frame.getGraphics());
 
@@ -173,6 +183,7 @@ public class Options extends JFrame {
 
 			}
 		});
+
 		JButton cancel = wi.makeButton("cancel.png", 124, 815, 192, 68);
 
 		cancel.addActionListener(new ActionListener() {
@@ -428,6 +439,89 @@ public class Options extends JFrame {
 		options.add(milk);
 
 		return options;
+	}
+
+	public String numToMenu() {
+
+		ArrayList optionByNum = getOptionText();
+		String menu = "";
+		// hot & ice
+		
+		if (optionByNum.get(0) == null) {
+
+		} else if (optionByNum.get(0).equals("1")) {
+			menu += "HOT";
+		} else if (optionByNum.get(0).equals("2")) {
+			menu += "ICE";
+		} else if (optionByNum.get(0).equals("3")) {
+			menu += "ICE ONLY";
+		}
+
+		// 디카페인
+		if (optionByNum.get(1) == null) {
+
+		} else if (optionByNum.get(1).equals("1")) {
+			
+		} else if (optionByNum.get(1).equals("2")) {
+			menu += " / 디카페인";
+		}
+		
+		// 컵
+		if (optionByNum.get(2) == null) {
+
+		} else if (optionByNum.get(2).equals("1")) {
+			menu += " / 일회용 컵";
+		} else if (optionByNum.get(2).equals("2")) {
+			menu += " / 텀블러 사용";
+		}
+		
+	
+		// 사이즈
+		if (optionByNum.get(3) == null) {
+
+		} else if (optionByNum.get(3).equals("1")) {
+			menu += " / HOT";
+		} else if (optionByNum.get(3).equals("2")) {
+			menu += " / ICE";
+		} else if (optionByNum.get(3).equals("3")) {
+			menu += " / ICE ONLY";
+		}
+		
+		
+		// 샷
+		if (optionByNum.get(4) == null) {
+
+		} else if (optionByNum.get(4).equals("1")) {
+			menu += " / 샷 추가(1)";
+		} else if (optionByNum.get(4).equals("2")) {
+			menu += " / 샷 추가(2)";
+		}
+		
+		
+		// 얼음
+		if (optionByNum.get(5) == null) {
+			
+		} else if (optionByNum.get(5).equals("1")) {
+			
+		} else if (optionByNum.get(5).equals("2")) {
+			menu += " / 얼음 적게";
+		} else if (optionByNum.get(5).equals("3")) {
+			menu += " / 얼음 없음";
+		}
+		
+		// 우유
+		if (optionByNum.get(6) == null) {
+			
+		} else if (optionByNum.get(6).equals("1")) {
+			
+		} else if (optionByNum.get(6).equals("2")) {
+			menu += " / 두유";
+		} else if (optionByNum.get(6).equals("3")) {
+			menu += " / 저지방 우유";
+		}
+
+		return menu;
+
 	}
 
 	public void toDB() {
