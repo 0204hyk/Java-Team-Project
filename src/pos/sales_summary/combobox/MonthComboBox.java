@@ -5,6 +5,8 @@ import java.awt.event.ItemListener;
 import java.util.Calendar;
 import javax.swing.JComboBox;
 
+import pos.sales_summary.chart.MonthChart;
+import pos.sales_summary.chart.YearChart;
 import pos.sales_summary.table.SalesDayTable;
 import pos.sales_summary.table.SalesMonthTable;
 import pos.sales_summary.table.SalesYearTable;
@@ -33,6 +35,9 @@ public class MonthComboBox extends JComboBox {
 				monthTable.model.setNumRows(0);
 				SalesDayTable dayTable = new SalesDayTable();
 				dayTable.model.setNumRows(0);
+				MonthChart chart = new MonthChart();
+				chart.dataset.clear();
+				
 			}
 		});
 	}

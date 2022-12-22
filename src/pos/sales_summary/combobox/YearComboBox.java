@@ -2,7 +2,7 @@ package pos.sales_summary.combobox;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.time.Year;
+
 import java.util.Calendar;
 import javax.swing.JComboBox;
 
@@ -41,7 +41,7 @@ public class YearComboBox extends JComboBox  {
 				SalesDayTable dayTable = new SalesDayTable();
 				dayTable.model.setNumRows(0);
 				YearChart chart = new YearChart();
-				chart.chart.getPlot().setParent(null);
+				chart.dataset.clear();
 			
 //				TotalPanel total = new TotalPanel();
 //				total.text.setText("");
