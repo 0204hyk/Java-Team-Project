@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,22 +16,38 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import pos.main.main_component.ProductManagementButton;
 
 
 public class TeamInfoFrame extends JFrame{
 
-	public JLabel introduction(String message, int a, int b, int c, int d) {
+	public JTextArea introduction(String message, int a, int b, int c, int d) {
 
-		JLabel label = new JLabel(message);
+		JTextArea text = new JTextArea();
+		
+		
+		text.setText(message);
+		
+		text.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		text.setOpaque(false);
+		text.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		text.setBounds(a, b, c, d);
+		
+		text.addKeyListener(new KeyAdapter() {
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == 10) {
+					text.setLineWrap(true);
+				}
+			}
+			
+		});
 
-		label.setFont(new Font("맑은 고딕", Font.BOLD, 18));
-		label.setOpaque(false);
-		label.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		label.setBounds(a, b, c, d);
-
-		return label;
+		return text;
 	}
 
 	public JLabel profile(String message, int a, int b, int c, int d) {
@@ -69,7 +87,7 @@ public class TeamInfoFrame extends JFrame{
 
 	public TeamInfoFrame() throws IOException {
 
-		add(introduction("소개글", 65, 70, 100, 50));
+		add(introduction("소개글", 65, 83, 375, 100));
 /*
 		// 이름
 		add(profile("김하영", 95, 170, 50, 40));

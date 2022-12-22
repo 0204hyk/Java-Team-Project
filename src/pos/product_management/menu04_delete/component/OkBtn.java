@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu04_delete.DeleteFrame;
 import pos.product_management.menu04_delete.message_frame.OkFrame;
@@ -41,7 +42,7 @@ public class OkBtn extends JButton implements ActionListener{
 		addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				ProductManagementJFrame.deleteBtn.setEnabled(true);
 				f.dispose();
 				MenuListJTable.table.setEnabled(true);
 				// 디비에서 데이터 없애기
@@ -68,6 +69,8 @@ public class OkBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
+		ProductManagementJFrame.deleteBtn.setEnabled(true);
 		MenuListJTable.table.setEnabled(true);
 		f.dispose();
 		new OkFrame();

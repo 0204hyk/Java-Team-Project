@@ -27,7 +27,6 @@ public class TeamInfoPanel extends JPanel{
 
 	public TeamInfoPanel() throws IOException {
 		setBounds(0, 0, 500, 450);
-//		setBounds(0, 0, 420, 510);
 		setLayout(null); 
 	}	     
 

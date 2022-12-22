@@ -18,8 +18,8 @@ public class PosFrame extends JFrame {
 	
 	public PosFrame() {
 		
-		TeamInfoButton calculationBtn = new TeamInfoButton();
-		calculationBtn.setLocation(115, 175);
+		TeamInfoButton TeamInfoBtn = new TeamInfoButton();
+		TeamInfoBtn.setLocation(115, 175);
 		
 		ReceiptCheckButton receiptCheckBtn = new ReceiptCheckButton();
 		receiptCheckBtn.setLocation(515, 405);
@@ -37,7 +37,7 @@ public class PosFrame extends JFrame {
 		ExitButton exitBtn = new ExitButton(exitFrame);
 		exitBtn.setLocation(1125, 10);
 		
-		add(calculationBtn);
+		add(TeamInfoBtn);
 		add(receiptCheckBtn);
 		add(productManagementBtn);
 		add(salesSummaryBtn);
