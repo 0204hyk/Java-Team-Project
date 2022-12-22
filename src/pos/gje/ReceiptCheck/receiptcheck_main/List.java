@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -34,7 +35,7 @@ public class List {
 	public static JTable table = new JTable(contents); 
 	public static JScrollPane scroll;
 	public static RefundFrame refundFrame;
-
+	public static HashSet<String> refundNum = new HashSet<>();
 	
 	
 	static ArrayList<String> date = new ArrayList<>(); // 판매 날짜 및 시간
@@ -44,7 +45,13 @@ public class List {
 	
 	String sales_date, sales_number, menu_name;
 	int menu_qty, total_price, menu_price, point;
+	
+	
 	public List() {	}
+	
+	public List(HashSet refund) {
+		refundNum = refund;
+	}
 	
 	public List(OutputButton out, RefundButton refund) {
 		
@@ -97,16 +104,11 @@ public class List {
 		// 하나만 선택되게 설정 
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
-		
-		
-		
-		
-		
 		table.addMouseListener(new MouseAdapter() {
+			// 선택했을 때 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				// 선택한 Row의 순서를 int 타입으로 변경 
-				//(table 은 1부터 시작하기 때문에 - 1 을 해줘야 List에 담긴 값을 정확히 불러올 수 있다.
+				total_price = 0;
 				int num = (int)(table.getValueAt(table.getSelectedRow(), 0)) - 1;
 				String sales_number = (table.getValueAt(table.getSelectedRow(), 1)).toString();
 				String card_number = cardNum.get(num);
@@ -115,11 +117,23 @@ public class List {
 				// 영수증 번호 전달
 				menu(sales_number, num);
 				
+				System.out.println(RefundFrame.refundNum);
+				System.out.println(check(sales_number));
+				
+				// 환불이 된 영수증 번호인지 확인 
+				if (check(sales_number)) {
+					out.setEnabled(true);
+					refund.setEnabled(false);
+				} else {
+					out.setEnabled(true);
+					refund.setEnabled(true);
+				}
+				
 
 				// 영수증을 프린틑하는 메소드에 값을 넣는다 
 				//changeTextA(sales_number, "");
-				out.setEnabled(true);
-				refund.setEnabled(true);
+//				out.setEnabled(true);
+//				refund.setEnabled(true);
 				
 
 			}
@@ -148,21 +162,18 @@ public class List {
 				while (rs.next()) {
 					menu_name = rs.getString("menu_name");
 					menu_qty = rs.getInt("menu_qty");
-					menu_price = rs.getInt("price");
+					menu_price = rs.getInt("price") * menu_qty;
 					
-					sb1.append(menu_name + "\t\t" + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
+					sb1.append(menu_name + "\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
 					
-					total_price = 0; 
+					total_price += menu_price; 
 					
-					for (int i = 1; i <= metadata.getColumnCount(); ++i) {
-						total_price += menu_price; 
-					}
-					System.out.println(metadata.getColumnCount()); 
 					
 					
 					
 				}
 			}
+		
 			int point = point_payment.get(num); 
 			int card = total_price - point;
 			String card_num = cardNum.get(num);
@@ -170,7 +181,7 @@ public class List {
 			
 			// 환불창에 뜨게 하기
 											// 총 가격, 포인트 결제, 카드 결제, 받은 금액
-			refundFrame = new RefundFrame(total_price, point, card , card_num);
+			refundFrame = new RefundFrame(total_price, point, card , card_num, sales_number);
 		
 		
 			// 영수증 출력하는 곳에 값 넣기 
@@ -211,5 +222,11 @@ public class List {
 				+ "====================================="
 				);
 	}
+
+	
+	public boolean check (String sales) {
+		return RefundFrame.refundNum.contains(sales);
+	}
+	
 
 }
