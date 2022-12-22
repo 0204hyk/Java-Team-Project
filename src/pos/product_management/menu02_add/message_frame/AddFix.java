@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.product_management.menu01_main.ProductManagementJFrame;
+import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu02_add.MenuAddFrame;
 import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 
@@ -22,7 +24,8 @@ public class AddFix extends JFrame {
 	ProductManagementJFrame prjf;
 	MenuAddFrame frame;
 	
-	public AddFix(MenuAddFrame frame) throws IOException {
+	public AddFix(ProductManagementJFrame prjf, MenuAddFrame frame) throws IOException {
+		this.prjf = prjf;
 		this.frame = frame;
 		
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
@@ -34,8 +37,15 @@ public class AddFix extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				frame.dispose();
+				try {
+					prjf.mj.contents.setRowCount(0);
+					prjf.mj = new MenuListJTable(prjf.allMenu());
+					prjf.setEnabled(true);
+					dispose();
+					frame.dispose();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 		

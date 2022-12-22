@@ -25,6 +25,7 @@ import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.PosFrame;
+import pos.product_management.menu01_main.component.AddButton;
 import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu01_main.component.ModifyButton;
 import pos.product_management.menu02_add.MenuAddFrame;
@@ -126,9 +127,6 @@ public class ProductManagementJFrame extends JFrame {
 		JButton deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
 				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1027, 620, 130, 65);
 
-		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
-				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 733, 620, 130, 65);
-
 
 		// 검색 버튼
 		serchBtn.addMouseListener(new MouseAdapter() {
@@ -216,26 +214,12 @@ public class ProductManagementJFrame extends JFrame {
 			}
 			
 		});				
-
-		// 추가 버튼
-		addBtn.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				try {
-					new MenuAddFrame();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
 		
 		add(serchBtn);
 		add(backBtn);
 		add(deleteBtn);
 		add(new ModifyButton(this));
-		add(addBtn);
+		add(new AddButton(this));
 
 		setUndecorated(true);
 		setLayout(null);
@@ -246,7 +230,7 @@ public class ProductManagementJFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 
-		return addBtn;
+		return deleteBtn;
 	}
 
 

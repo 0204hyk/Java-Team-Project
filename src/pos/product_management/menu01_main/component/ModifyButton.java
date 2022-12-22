@@ -62,7 +62,6 @@ public class ModifyButton extends JButton implements ActionListener{
 			Connection conn = OjdbcConnection.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql1);			
 		){
-			
 			if (!table.getSelected()) {
 				JOptionPane.showMessageDialog(null, "수정할 메뉴를 선택해주세요", 
 						"Message", JOptionPane.INFORMATION_MESSAGE);
@@ -82,12 +81,12 @@ public class ModifyButton extends JButton implements ActionListener{
 					if (categoryNum == 2) {
 						frame.panel.coffee.setSelected(true);
 					} else if (categoryNum == 3) {
-						frame.panel.nonCoffee.setSelected(true);
-					} else if (categoryNum == 4) {
-						frame.panel.ade.setSelected(true);
-					} else {
 						frame.panel.frappe.setSelected(true);
-					};
+					} else if (categoryNum == 4) {
+						frame.panel.nonCoffee.setSelected(true);
+					} else if (categoryNum == 5) {
+						frame.panel.ade.setSelected(true);
+					} ;
 					
 					if (optionNum == 1) {
 						frame.panel.option1.setSelected(true);

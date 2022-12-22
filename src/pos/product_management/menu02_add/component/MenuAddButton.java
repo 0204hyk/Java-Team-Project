@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import database.OjdbcConnection;
+import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu02_add.message_frame.AddFix;
 import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 
@@ -109,7 +110,7 @@ public class MenuAddButton extends JButton implements ActionListener{
 			} else {
 				pstmt.setInt(3, 8);
 			}		
-			
+
 			pstmt.executeUpdate();
 			additionalFrame.setVisible(true);
 		} catch (SQLException e1) {

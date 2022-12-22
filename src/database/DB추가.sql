@@ -1,5 +1,5 @@
 
---카테고리  1~5번 커피 카테고리 / 6번부터는 옵션 카테고리
+--카테고리  1~5번 커피 카테고리
 INSERT INTO category VALUES (1, '신메뉴');
 INSERT INTO category VALUES (2, '커피');  
 INSERT INTO category VALUES (3, '프라페');
