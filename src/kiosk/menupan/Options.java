@@ -59,7 +59,16 @@ public class Options extends JFrame {
 		cupText.setVerticalAlignment(JLabel.CENTER);
 
 		add(wi.makeLabel("hy.png", 53, 24, 60, 83));
-		add(wi.makeButton("home.png", 543, 44, 52, 52));
+		JButton home = wi.makeButton("home.png", 543, 44, 52, 52);
+	      home.addActionListener(new ActionListener() {
+
+	         @Override
+	         public void actionPerformed(ActionEvent e) {
+
+	            dispose();
+
+	         }
+	      });
 
 		JButton minus = wi.makeButton("minus.png", 420, 170, 32, 32);
 
@@ -253,8 +262,7 @@ public class Options extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				decaffein = "2"; // "Decaffein";// TODO Auto-generated method stub
-
+				decaffein = "2"; // "Decaffein";
 			}
 		});
 
@@ -492,9 +500,9 @@ public class Options extends JFrame {
 		if (optionByNum.get(4) == null) {
 
 		} else if (optionByNum.get(4).equals("1")) {
-			menu += " / 샷 추가(1)";
+			menu += " / 1샷 추가";
 		} else if (optionByNum.get(4).equals("2")) {
-			menu += " / 샷 추가(2)";
+			menu += " / 2샷 추가";
 		}
 		
 		
@@ -527,7 +535,9 @@ public class Options extends JFrame {
 	public void toDB() {
 
 		String options = hotAndIce + decaffein + cup + sizes + shot + ice + milk + "";
-
+		
+		
+		
 	}
 
 }

@@ -152,6 +152,7 @@ public class Step1Step2 extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new CartMainFrame(menuInfo);
+				dispose();
 				// 결제 창으로 넘어가기
 			}
 		});

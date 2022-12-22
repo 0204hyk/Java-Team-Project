@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -14,10 +15,8 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-import kiosk.HomeButton;
-import kiosk.cardPut.CardPutFrame;
-import kiosk.menupan.ChoiceMenu;
-import kiosk.menupan.Options;
+import kiosk.CardPutFrame;
+import kiosk.Step1Step2;
 import kiosk.paymentComplete.PaymentCompleteFrame;
 import kiosk.tools.WithImage;
 
@@ -26,12 +25,21 @@ public class CartMainFrame extends JFrame {
 	WithImage wi = new WithImage(root);
 	Timer timer;
 	ArrayList<String> menuInfo = new ArrayList<>();
-
+	DecimalFormat df = new DecimalFormat("#,###");
+	
 	public CartMainFrame(ArrayList menuInfo) {
+		
 		this.menuInfo = menuInfo;
 
 		panelSetting();
-		setDisplay();
+		
+		setLayout(null);
+		setUndecorated(true);
+		setVisible(true);
+		setSize(650, 950);
+		getContentPane().setBackground(Color.WHITE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 	}
 
 	public void panelSetting() {
@@ -41,15 +49,13 @@ public class CartMainFrame extends JFrame {
 		// home
 		JButton home = wi.makeButton("home.png", 542, 44, 52, 52);
 		home.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				Options.choiceMenu = new ChoiceMenu();
+				dispose();
 			}
 		});
 
-		
 		// 주문정보를 확인해주세요
 		add(wi.makeLabel("pleaseConfirm.png", 58, 163, 358, 34));
 
@@ -94,40 +100,40 @@ public class CartMainFrame extends JFrame {
 			add(menu);
 			add(option);
 		}
-		
+
 		add(home);
 		scroll.setBounds(52, 214, 560, 390);
 		scroll.setViewportView(panel);
 		add(scroll);
 
 		// 주문 금액
-		add(wi.makeLabel("orderPrice.png", 334, 644, 91, 23));
+		add(wi.makeLabel("orderPrice.png", 334, 640, 91, 23));
 		int orderAmount = 0;
 		for (int index = 2; index < menuInfo.size(); index += 4) {
 
 			orderAmount += Integer.parseInt(menuInfo.get(index));
 		}
-		JLabel orderAmountlb = new JLabel(orderAmount + "");
-		orderAmountlb.setBounds(450, 634, 150, 45);
+		JLabel orderAmountlb = new JLabel(df.format(orderAmount) + "원");
+		orderAmountlb.setBounds(450, 630, 150, 45);
 		orderAmountlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		orderAmountlb.setForeground(Color.black);
 		orderAmountlb.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		// 포인트
 		add(wi.makeLabel("point.png", 315, 679, 112, 23));
-		int point = 0;
-		JLabel pointlb = new JLabel();
+		int point = 1323;
+		JLabel pointlb = new JLabel("-"+df.format(point));
 		pointlb.setBounds(450, 666, 150, 45);
 		pointlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		pointlb.setForeground(Color.black);
 		pointlb.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		// 결제 금액
-		add(wi.makeLabel("purchase.png", 299, 716, 126, 32));
-		JLabel purchaseAmountlb = new JLabel((orderAmount - point) + "");
-		purchaseAmountlb.setBounds(450, 696, 150, 45);
+		add(wi.makeLabel("purchase.png", 299, 720, 126, 32));
+		JLabel purchaseAmountlb = new JLabel(df.format(orderAmount - point)+"원");
+		purchaseAmountlb.setBounds(450, 710, 150, 45);
 		purchaseAmountlb.setFont(new Font("맑은 고딕", Font.BOLD, 30));
-		purchaseAmountlb.setForeground(new Color(63, 185, 144));
+		purchaseAmountlb.setForeground(new Color(15, 11, 16));
 		purchaseAmountlb.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		// 돌아가기
@@ -136,6 +142,7 @@ public class CartMainFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				new Step1Step2(getTotalAmounts(),menuInfo);
 				dispose();
 			}
 		});
@@ -170,18 +177,34 @@ public class CartMainFrame extends JFrame {
 		add(cancel);
 	}
 
-	public void setDisplay() {
+	   public int getTotalAmounts() {
 
-		setLayout(null);
-		setUndecorated(true);
-		setVisible(true);
-		setSize(650, 950);
-		getContentPane().setBackground(Color.WHITE);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-	}
+		      int total = 0;
+		      for (int i = 2; i < menuInfo.size(); i += 4) {
+		         total += Integer.parseInt(menuInfo.get(i));
 
+		      }
+
+		      return total / 10;
+		   }
 	public static void main(String[] args) {
-		Options.choiceMenu = new ChoiceMenu();
+		ArrayList<String> a = new ArrayList<>();
+		a.add("아메리카노");
+		a.add("1");
+		a.add("5000");
+		a.add("옵션 이거저거");
+
+		a.add("카페라떼");
+		a.add("3");
+		a.add("1000");
+		a.add("옵션 이거저거");
+
+		a.add("카푸치노");
+		a.add("4");
+		a.add("3000");
+		a.add("옵션 이거저거이거저거이거저거");
+
+		new CartMainFrame(a);
+
 	}
 }
