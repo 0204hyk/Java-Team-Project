@@ -36,7 +36,7 @@ public class RefundFrame extends JFrame {
 	JLabel amountLb = new JLabel();
 	JLabel cardNumLb = new JLabel();
 	
-
+	Timer timer;
 	
 	//총 가격, 포인트 결제, 카드 결제, 받은 금액
 	public RefundFrame 
@@ -92,23 +92,33 @@ public class RefundFrame extends JFrame {
 				int refund_point = 0 - point;
 				int refund_card = 0 - card;
 				
-				new RefundReiceiptFrame(sales_number, menu, refund_amount, refund_point, refund_card);
-
-				sales_delete(sales_number);
+				RefundReiceiptFrame r = 
+						new RefundReiceiptFrame(sales_number, menu, refund_amount, refund_point, refund_card);
 				
-				sales_management_delete(sales_number);
+				timer = new Timer(3000, new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						r.dispose();
+					}
+				});
+				timer.start();
 				
 				if (member_phonenumber != null) {
 					point_refund(point, member_phonenumber);					
 				}
 				
+				int index = List.table.getSelectedRow();
+				
+	            List.contents.removeRow(index);
+				
+				sales_delete(sales_number);
+				
+				sales_management_delete(sales_number);
 				
 				System.out.println(sales_number + "의 환불버튼이 눌렸습니다");
 				
 				dispose();
-				
-			     int index = List.table.getSelectedRow();
-		            List.contents.removeRow(index);
+			     
 			}
 		});
 		
@@ -215,6 +225,11 @@ public class RefundFrame extends JFrame {
 			System.out.println(" 오류");
 			e.printStackTrace();
 		}
+		
+	}
+	
+	public static void main(String[] args) {
+	
 		
 	}
 }

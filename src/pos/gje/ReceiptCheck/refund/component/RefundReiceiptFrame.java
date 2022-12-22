@@ -1,13 +1,15 @@
 package pos.gje.ReceiptCheck.refund.component;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.Timer;
 
-import pos.gje.ReceiptCheck.receiptcheck_main.component.PrintScroll;
 
 public class RefundReiceiptFrame extends JFrame{
 	
@@ -54,7 +56,7 @@ public class RefundReiceiptFrame extends JFrame{
 		
 		
 		print.setEditable(false);
-		scroll.setSize(500, 550);
+		scroll.setSize(300, 550);
 		
 		add(scroll);
 		getContentPane().setBackground(Color.WHITE); // 배경색
@@ -65,42 +67,10 @@ public class RefundReiceiptFrame extends JFrame{
 		setLocationRelativeTo(null); // 가운데에 뜨게
 		setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		
-	}
-	
-	public RefundReiceiptFrame() {
-		
-	
-	}
-	
 
-	
-	public void changeTextA(String date, String sales_number, String menu, int price, int point, int card) {
-		JTextArea a = PrintScroll.p;
 		
-		a.setText("[영수증]\n"
-				+ "\n"
-				+ "[매장명] 구리점\n"
-				+ "[사업자] 123-12-12345\n"
-				+ "[주소] 경기도 구리시 건원대로 44 태영빌딩\n"
-				+ "4층 409호\n"
-				+ "[대표자] 김XX		[TEL] 031-555-4449\n"
-				+ "[매출일] " + date + "\n"
-				+ "[영수증] " + sales_number + "\n"
-				+ "=====================================\n"
-				+ " 상 품 명\t\t수 량\t단 가\n"
-				+ "--------------------------------------------------------------------\n"
-				+ menu
-				+ "--------------------------------------------------------------------\n"
-				+ "\t\t합 계 금 액	"  + price + "\n"
-				+ "--------------------------------------------------------------------\n"
-				+ "\t\t받 을 금 액	"  + price + "\n"
-				+ "\t\t포인트 결제	"  + point + "\n"
-				+ "\t\t카 드 결 제	"  +  card + "\n"
-				+ "\t\t받 은 금 액	"  + price + "\n"
-				+ "====================================="
-				);
 	}
+
 
 	public static void main(String[] args) {
 	

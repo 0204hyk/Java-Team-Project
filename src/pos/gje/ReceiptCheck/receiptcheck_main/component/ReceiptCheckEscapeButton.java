@@ -18,9 +18,14 @@ import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
 public class ReceiptCheckEscapeButton extends JButton implements ActionListener{
 	
 	ReceiptCheckFrame f;
+	RefundButton r;
+	OutputButton o;
 	
-	public ReceiptCheckEscapeButton(ReceiptCheckFrame f) {
+	public ReceiptCheckEscapeButton(ReceiptCheckFrame f, RefundButton r, OutputButton o) {
 		this.f = f;
+		this.r = r;
+		this.o = o;
+		
 		try {
 			// 버튼에 이미지 삽입
 			File file = new File("images/PosImages/영수증 조회 이미지/돌아가기 버튼.png");
@@ -47,6 +52,8 @@ public class ReceiptCheckEscapeButton extends JButton implements ActionListener{
 		
 	}
 	
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// 뒤로가기 누르면 창 꺼지게
@@ -59,6 +66,11 @@ public class ReceiptCheckEscapeButton extends JButton implements ActionListener{
 		// 영수증 출력 창 초기화
 		JTextArea a = PrintScroll.p;
 		a.setText("");
+		
+		// 버튼 초기화
+		r.setEnabled(false);
+		o.setEnabled(false);
+		
 	
 		
 	}
