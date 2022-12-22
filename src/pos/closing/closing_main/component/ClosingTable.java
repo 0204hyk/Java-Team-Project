@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 
 import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.JTable;
@@ -26,11 +27,11 @@ public class ClosingTable extends JTable {
             return false;
         }
 	};
-	String query = "SELECT to_char(saledate, 'HH24'), trim(to_char(sum(price - used_point), '999,999,999'))"
+	String query = "SELECT to_char(saledate, 'HH24'), sum(price) - used_point "
 			+ "FROM sales_management INNER JOIN sales USING(sales_number)"
 			+ "WHERE to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')"
 			+ "AND to_char(saledate, 'HH24') = ?"
-			+ "GROUP BY to_char(saledate, 'HH24')"
+			+ "GROUP BY to_char(saledate, 'HH24'), used_point "
 			+ "ORDER BY to_char(saledate, 'HH24')";
 		
 	public ClosingTable() {
@@ -49,8 +50,9 @@ public class ClosingTable extends JTable {
 				
 				rs = pstmt.executeQuery();
 				if(rs.next()) {
+					DecimalFormat formatter = new DecimalFormat("###,###");
 					model.addRow(new Object[] 
-							{i + "시 ~ " + (i + 1) + "시", rs.getString(2) + " 원"});				
+							{i + "시 ~ " + (i + 1) + "시", formatter.format(rs.getInt(2)) + " 원"});				
 				} else {
 					model.addRow(new Object[] {i + "시 ~ " + (i + 1) + "시", "0 원"});
 				}
