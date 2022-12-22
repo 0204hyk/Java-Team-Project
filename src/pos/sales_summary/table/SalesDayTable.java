@@ -61,7 +61,7 @@ public class SalesDayTable extends JTable {
 		String plus = year + month + day;
 
 		String sql = "SELECT to_char(saledate, 'HH24'), trim(to_char(sum(price), '999,999,999')) AS total "
-				+ "FROM sales INNER JOIN payment USING(sales_number) "
+				+ "FROM sales_management INNER JOIN sales USING(sales_number) "
 				+ "WHERE to_char(saledate, 'YYYYMMDD') = ? "
 				+ "AND to_char(saledate, 'HH24') = ? "
 				+ "GROUP BY to_char(saledate, 'HH24') "
@@ -77,6 +77,7 @@ public class SalesDayTable extends JTable {
 				pstmt.setString(1, plus);
 				pstmt.setInt(2, i);
 				rs = pstmt.executeQuery();
+
 				if (rs.next()) {
 					model.addRow(new Object[] {
 							i + "시 ~ " + (i + 1) + "시", rs.getString("total") + "원" 

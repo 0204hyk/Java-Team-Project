@@ -41,11 +41,11 @@ public class MonthChart extends JPanel {
 		this.year = year;
 		this.month = month;
 		hap = year + month;
-		String sql = "SELECT to_char(s.saledate, 'YYYY-MM-DD'), sum(p.price) AS total "
-				+ "FROM sales s INNER JOIN PAYMENT p "
+		String sql = "SELECT to_char(saledate, 'YYYY-MM-DD'), sum(price) AS total "
+				+ "FROM sales_management INNER JOIN sales "
 				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(s.saledate, 'YYYYMM') = ?"
-				+ "GROUP BY to_char(s.saledate, 'YYYY-MM-DD')";
+				+ "WHERE TO_CHAR(saledate, 'YYYYMM') = ?"
+				+ "GROUP BY to_char(saledate, 'YYYY-MM-DD')";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();

@@ -55,12 +55,14 @@ public class SalesYearTable extends JTable {
 	public SalesYearTable(String year) {
 		this.year = year;
 
-		String sql = "SELECT to_char(s.saledate, 'YYYY-MM'), to_char(sum(p.price), '999,999,999') AS total " 
-				+ "FROM sales s INNER JOIN PAYMENT p "
+		String sql = "SELECT to_char(saledate, 'YYYY-MM'), to_char(sum(price), '999,999,999') AS total "
+				+ "FROM sales_management INNER JOIN sales "
 				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(s.saledate, 'YYYY') = ? "
-				+ "GROUP BY to_char(s.saledate, 'YYYY-MM')"
-				+ "ORDER BY to_char(s.saledate, 'YYYY-MM')";
+				+ "WHERE TO_CHAR(saledate, 'YYYY') = ? "
+				+ "GROUP BY to_char(saledate, 'YYYY-MM')"
+				+ "ORDER BY to_char(saledate, 'YYYY-MM')";
+		
+		
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
