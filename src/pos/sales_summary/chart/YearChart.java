@@ -18,15 +18,16 @@ import database.OjdbcConnection;
 public class YearChart extends JPanel {
 
 	public static DefaultCategoryDataset dataset;
-
+	public static CategoryDataset datasetResult = createDataset();
+	public static JFreeChart chart = createChart(datasetResult);
 	String year;
 	String month;
 	String day;
 	String hap;
 
 	public YearChart() {
-		CategoryDataset datasetResult = createDataset();
-		JFreeChart chart = createChart(datasetResult);
+		
+		
 		chart.getPlot().setBackgroundPaint(Color.WHITE);
 		ChartPanel panel = new ChartPanel(chart);
 		panel.setPreferredSize(new Dimension(500, 500));
@@ -36,7 +37,7 @@ public class YearChart extends JPanel {
 
 	public YearChart(String year) {
 		this.year = year;
-		
+
 		String sql = "SELECT to_char(saledate, 'YYYY-MM'), sum(price) AS total " 
 				+ "FROM sales_management INNER JOIN sales "
 				+ "USING (sales_number) "
@@ -52,7 +53,7 @@ public class YearChart extends JPanel {
 
 			pstmt.setString(1, year);
 			try (ResultSet rs = pstmt.executeQuery()) {
-
+				
 				while (rs.next()) {
 					dataset.addValue(rs.getInt("total"), rs.getString(1), rs.getString(1));
 				}
@@ -63,7 +64,7 @@ public class YearChart extends JPanel {
 
 	}
 
-	private static CategoryDataset createDataset() {
+	public static CategoryDataset createDataset() {
 		dataset = new DefaultCategoryDataset();
 		return dataset;
 	}
@@ -76,7 +77,7 @@ public class YearChart extends JPanel {
 				"",                  
 				dataset,                 
 				PlotOrientation.VERTICAL, 
-				true,                    
+				false,                    
 				true,                     
 				false                    
 				);
