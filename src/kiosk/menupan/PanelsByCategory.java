@@ -1,14 +1,29 @@
 package kiosk.menupan;
 
+import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.ScrollPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import database.kiosk.CheckMenuByCategories;
+import kiosk.tools.WithImage;
 
 public class PanelsByCategory extends JPanel {
-
-
+	String root = "images/KioskImages/3. 메뉴선택";
+	WithImage wi = new WithImage(root);
+	JScrollPane scroll = new JScrollPane();
+	
+	
+	
+	public PanelsByCategory() {
+		
+	}
 	public PanelsByCategory(int ctgNum, int num) {
 
 		CheckMenuByCategories mc = new CheckMenuByCategories(ctgNum);
@@ -29,11 +44,14 @@ public class PanelsByCategory extends JPanel {
 				y += 176;
 			}
 		}
-
+		
+		scroll.setBounds(0, 0, 503, 550);
+		scroll.getViewport().setBackground(Color.WHITE);
+		scroll.setBorder(null);
+		add(scroll);
 		setBounds(74, 212, 503, 508);
 		setLayout(null);
 		setBackground(Color.WHITE);
-		setBorder(null);
 		setVisible(false);
 	}
 

@@ -53,11 +53,9 @@ public class TeaAdeButton extends JButton {
 				teaAdePanel.setVisible(true);
 				setBtnEnabled();
 			}
-			
-		
 		});
-		
 	}
+	
 	public void setBtnDisabled() {
 		setIcon(new ImageIcon(tool.getScaledImage(
 				"images/PosImages/계산 파트 이미지/티 카테고리 비활성화 버튼.png", 160, 100)));

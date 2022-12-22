@@ -27,21 +27,40 @@ public class ChoiceMenu extends JFrame {
 	JPanel noncoffeePn = new PanelsByCategory(4, 5);
 	JPanel adePn = new PanelsByCategory(5, 3);
 	
-	AMenu one;
-	AMenu two;
-	AMenu three;
-	AMenu four;
-	AMenu five;
-	AMenu six;
-	AMenu seven;
-	AMenu eight;
+	static public AMenu one;
+	public AMenu two;
+	public AMenu three;
+	public AMenu four;
+	public AMenu five;
+	public AMenu six;
+	public AMenu seven;
+	public AMenu eight;
 	
 	public ChoiceMenu() {
 		
 		defaults();
 		tabs();
 		pay();
-		cart();
+		
+		
+		one = new AMenu(1,"에스프레소","HOT");
+		two = new AMenu(2,"에스프레소","HOT");
+		three = new AMenu(3,"에스프레소","HOT");
+//		four = new AMenu("에스프레소","HOT");
+//		five = new AMenu("에스프레소","HOT");
+//		six = new AMenu("에스프레소","HOT");
+//		seven = new AMenu("에스프레소","HOT");
+//		eight = new AMenu("에스프레소","HOT");
+		
+		add(one);
+		add(two);
+		add(three);
+//		add(four);
+//		add(five);
+//		add(six);
+//		add(seven);
+//		add(eight);
+		
 		
 		setUndecorated(true);
 		setLayout(null);
@@ -49,7 +68,6 @@ public class ChoiceMenu extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().setBackground(Color.WHITE);
 		setLocationRelativeTo(null);
-		
 		setVisible(true);
 	}
 
@@ -87,13 +105,14 @@ public class ChoiceMenu extends JFrame {
 		add(frappePn);
 		add(noncoffeePn);
 		add(adePn);
-
+		
 		// 해당 카테고리 커피들이 뜨도록 하기
 		coffee.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				showCoffe();
+				
 			}
 		});
 
@@ -127,7 +146,7 @@ public class ChoiceMenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				card.next(coffeePns);
+				card.next(coffeePn);
 			}
 		});
 
@@ -136,7 +155,7 @@ public class ChoiceMenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				card.previous(coffeePns);
+				card.previous(coffeePn);
 			}
 		});
 
@@ -189,23 +208,7 @@ public class ChoiceMenu extends JFrame {
 	
 	public void cart() {
 		
-		one = new AMenu("에스프레소","HOT");
-		two = new AMenu("에스프레소","HOT");
-		three = new AMenu("에스프레소","HOT");
-		four = new AMenu("에스프레소","HOT");
-		five = new AMenu("에스프레소","HOT");
-		six = new AMenu("에스프레소","HOT");
-		seven = new AMenu("에스프레소","HOT");
-		eight = new AMenu("에스프레소","HOT");
-		
-		add(one);
-		add(two);
-		add(three);
-		add(four);
-		add(five);
-		add(six);
-		add(seven);
-		add(eight);
+
 		
 	}
 	
