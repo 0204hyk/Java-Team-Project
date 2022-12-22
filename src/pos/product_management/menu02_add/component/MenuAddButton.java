@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import database.OjdbcConnection;
+import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu02_add.message_frame.AddFix;
 import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 
@@ -53,8 +54,8 @@ public class MenuAddButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-				// 메뉴 넘버, 메뉴 이름, 카테고리 넘버, 옵션 카테고리 넘버, 이미지 경로,가격, 영어 이름 순
-		String query = "INSERT INTO menu VALUES ((SELECT MAX(menu_number)+1 FROM menu m),?,?,?,'images/KioskImages/menu/defaultimage.png',?,null)";
+				// 메뉴 넘버, 메뉴 이름, 영어 이름, 카테고리 넘버, 옵션 카테고리 넘버, 이미지 경로,가격 순
+		String query = "INSERT INTO menu VALUES ((SELECT MAX(menu_number)+1 FROM menu m),?, null, ?,?,'images/KioskImages/menu/defaultimage.png',?)";
 		
 		try (
 			Connection conn = OjdbcConnection.getConnection();
@@ -78,16 +79,19 @@ public class MenuAddButton extends JButton implements ActionListener{
 				JOptionPane.showMessageDialog(null, "가격을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
 				return;
 			}
-				
-			if (panel.coffee.isSelected()) {
-				pstmt.setInt(2, 2);
-			} else if (panel.nonCoffee.isSelected()) {
-				pstmt.setInt(2, 3);
-			} else if (panel.ade.isSelected()) {
-				pstmt.setInt(2, 4);
-			} else {
-				pstmt.setInt(2, 5);
-			}
+			
+//			if (panel.coffee.isSelected()) {
+//				pstmt.setInt(2, 2);
+//			} else if (panel.frappe.isSelected()){
+//				pstmt.setInt(2, 3);
+//			} else if (panel.nonCoffee.isSelected()) {
+//				pstmt.setInt(2, 4);
+//			} else if (panel.ade.isSelected()) {
+//				pstmt.setInt(2, 5);
+//			} 
+
+			// 메뉴 추가하면 카테고리 신메뉴로 고정
+			pstmt.setInt(2, 1);
 			
 			if (panel.option1.isSelected()) {
 				pstmt.setInt(3, 1);
@@ -106,7 +110,7 @@ public class MenuAddButton extends JButton implements ActionListener{
 			} else {
 				pstmt.setInt(3, 8);
 			}		
-			
+
 			pstmt.executeUpdate();
 			additionalFrame.setVisible(true);
 		} catch (SQLException e1) {
