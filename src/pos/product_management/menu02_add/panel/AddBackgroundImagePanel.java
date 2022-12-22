@@ -185,7 +185,7 @@ public class AddBackgroundImagePanel extends JPanel{
 		optionBtnGroup.add(option8);
 		
 		try {
-			MenuAddButton menuAddBtn = new MenuAddButton(this, new AddFix(mainFrame, frame));
+			MenuAddButton menuAddBtn = new MenuAddButton(frame, this, new AddFix(mainFrame, frame));
 			
 			JButton closeBtn = new JButton();
 			BufferedImage bufferedcloseBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/닫기 버튼.png"));

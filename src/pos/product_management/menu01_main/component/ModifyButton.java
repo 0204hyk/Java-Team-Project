@@ -12,16 +12,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
-import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.table.TableModel;
 
 import database.OjdbcConnection;
 import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu03_modify.ModifyFrame;
+import pos.product_management.menu03_modify.message_frame.ModifyWarningFrame;
 
 public class ModifyButton extends JButton implements ActionListener{
 	ProductManagementJFrame mainFrame;
@@ -62,11 +60,11 @@ public class ModifyButton extends JButton implements ActionListener{
 			Connection conn = OjdbcConnection.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql1);			
 		){
+			mainFrame.setEnabled(false);
+			
 			if (!table.getSelected()) {
-				JOptionPane.showMessageDialog(null, "수정할 메뉴를 선택해주세요", 
-						"Message", JOptionPane.INFORMATION_MESSAGE);
+				new ModifyWarningFrame(mainFrame).setVisible(true);
 			} else {
-				mainFrame.setEnabled(false);
 				ModifyFrame frame = new ModifyFrame(mainFrame);
 				
 				pstmt.setInt(1, table.getMenuNumber());

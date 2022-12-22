@@ -187,12 +187,9 @@ public class ProductManagementJFrame extends JFrame {
 				try {
 					table = new MenuListJTable(allMenu());
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				table.contents.setNumRows(0);
-				
-				
 
 			}
 		});
@@ -204,10 +201,8 @@ public class ProductManagementJFrame extends JFrame {
 				try {
 					mj.delete();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
@@ -236,25 +231,28 @@ public class ProductManagementJFrame extends JFrame {
 
 
 	// 버튼에 이미지 붙이는 메서드
-	public static JButton btnImage(String image, String clickImage, int a, int b, int c, int d) throws IOException {
-
+	public static JButton btnImage(String image, String clickImage, int a, int b, int c, int d) {
 		JButton btn = new JButton();
-		BufferedImage bufferedBtnImage = ImageIO.read(new File(image));
-		Image btnImage = bufferedBtnImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
-		btn.setIcon(new ImageIcon(btnImage));
-		btn.setBounds(a, b, c, d);
-
-		btn.setBorderPainted(false);
-		btn.setContentAreaFilled(false);
-		btn.setFocusPainted(false);
-
-		BufferedImage bufferedBtnClickImage = ImageIO.read(new File(clickImage));
-		Image btnClickImage = bufferedBtnClickImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
-		Icon btnClickIcon = new ImageIcon(btnClickImage);
-
-		btn.setPressedIcon(btnClickIcon);
-
-
+		try {
+			BufferedImage bufferedBtnImage = ImageIO.read(new File(image));
+			Image btnImage = bufferedBtnImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
+			btn.setIcon(new ImageIcon(btnImage));
+			btn.setBounds(a, b, c, d);
+			
+			btn.setBorderPainted(false);
+			btn.setContentAreaFilled(false);
+			btn.setFocusPainted(false);
+			
+			BufferedImage bufferedBtnClickImage = ImageIO.read(new File(clickImage));
+			Image btnClickImage = bufferedBtnClickImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
+			Icon btnClickIcon = new ImageIcon(btnClickImage);
+			
+			btn.setPressedIcon(btnClickIcon);
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return btn;
 	}
 

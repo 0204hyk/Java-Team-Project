@@ -16,13 +16,12 @@ import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu02_add.MenuAddFrame;
 
 public class MenuPriceInput extends JFrame{
-	ImageIcon icon;
 
 	ProductManagementJFrame prjf;
 	MenuAddFrame frame;
 
 
-	public MenuPriceInput(MenuAddFrame frame) throws IOException {
+	public MenuPriceInput(MenuAddFrame frame) {
 		this.frame = frame;
 
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
@@ -34,8 +33,8 @@ public class MenuPriceInput extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				frame.setEnabled(true);
 				dispose();
-				frame.dispose();
 			}
 		});
 

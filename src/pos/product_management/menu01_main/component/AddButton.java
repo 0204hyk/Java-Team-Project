@@ -47,12 +47,8 @@ public class AddButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		try {
-			mainFrame.setEnabled(false);
-			new MenuAddFrame(mainFrame);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
+		mainFrame.setEnabled(false);
+		new MenuAddFrame(mainFrame);
 	}
 
 }

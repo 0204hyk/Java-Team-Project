@@ -20,16 +20,20 @@ import javax.swing.JOptionPane;
 
 import database.OjdbcConnection;
 import pos.product_management.menu01_main.component.MenuListJTable;
+import pos.product_management.menu02_add.MenuAddFrame;
 import pos.product_management.menu02_add.message_frame.AddFix;
 import pos.product_management.menu02_add.message_frame.MenuNameInput;
+import pos.product_management.menu02_add.message_frame.MenuPriceInput;
 import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 
 public class MenuAddButton extends JButton implements ActionListener{
 	
+	MenuAddFrame frame;
 	AddBackgroundImagePanel panel;
-	JFrame additionalFrame;
+	AddFix additionalFrame;
 	
-	public MenuAddButton(AddBackgroundImagePanel panel, JFrame additionalFrame) {
+	public MenuAddButton(MenuAddFrame frame, AddBackgroundImagePanel panel, AddFix additionalFrame) {
+		this.frame = frame;
 		this.panel = panel;
 		this.additionalFrame = additionalFrame;
 		
@@ -67,8 +71,8 @@ public class MenuAddButton extends JButton implements ActionListener{
 			if (!panel.nameField.getText().equals("")) {
 				pstmt.setString(1, panel.nameField.getText());				
 			} else {
-				
-				JOptionPane.showMessageDialog(null, "메뉴 이름을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
+				new MenuNameInput(frame).setVisible(true);
+				frame.setEnabled(false);
 				return;
 			}
 			
@@ -80,7 +84,8 @@ public class MenuAddButton extends JButton implements ActionListener{
 				}
 				pstmt.setInt(4, Integer.parseInt(result));								
 			} else {
-				JOptionPane.showMessageDialog(null, "가격을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
+				new MenuPriceInput(frame).setVisible(true);
+				frame.setEnabled(false);
 				return;
 			}
 			
@@ -118,7 +123,6 @@ public class MenuAddButton extends JButton implements ActionListener{
 			pstmt.executeUpdate();
 			additionalFrame.setVisible(true);
 		} catch (SQLException e1) {
-//			JOptionPane.showMessageDialog(null, "중복된 이름의 메뉴가 존재합니다", "Message", JOptionPane.INFORMATION_MESSAGE);
 			e1.printStackTrace();
 		}
 		

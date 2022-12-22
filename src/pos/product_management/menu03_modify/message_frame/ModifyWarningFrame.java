@@ -1,11 +1,9 @@
-package pos.product_management.menu02_add.message_frame;
+package pos.product_management.menu03_modify.message_frame;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,29 +12,27 @@ import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu02_add.MenuAddFrame;
-import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 
-public class MenuNameInput extends JFrame{
-	
+public class ModifyWarningFrame extends JFrame{
 	ProductManagementJFrame prjf;
-	MenuAddFrame frame;
-	
-	public MenuNameInput(MenuAddFrame frame) {
-		this.frame = frame;
-		
+
+	public ModifyWarningFrame(ProductManagementJFrame prjf) {
+		this.prjf = prjf;
+
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
-				"images/PosImages/상품 관리 이미지/메뉴 입력 경고창.png", 400, 200));
+				"images/PosImages/상품 관리 이미지/메뉴 선택 경고창.png", 400, 200));
 
 		JButton addFixBtn = prjf.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png", 
 				"images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼 클릭.png", 140,110,120,60);
 		addFixBtn.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				frame.setEnabled(true);
+				prjf.setEnabled(true);
 				dispose();
 			}
 		});
+
 		background.add(addFixBtn);	
 
 		add(background);
@@ -48,5 +44,5 @@ public class MenuNameInput extends JFrame{
 		setLocationRelativeTo(null);
 
 	}
-	
+
 }
