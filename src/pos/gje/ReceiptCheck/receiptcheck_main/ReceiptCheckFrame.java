@@ -44,7 +44,7 @@ public class ReceiptCheckFrame extends JFrame{
 		OutputButton outfutButton = new OutputButton();  
 		JScrollPane listScroll = new List(outfutButton, refundButton).scroll;
 		PrintScroll print = new PrintScroll();
-		new RefundFrame(refundButton);
+		//new RefundFrame(refundButton);
 		// 영수증 목록 (Panel)
 		add(listScroll);
 		

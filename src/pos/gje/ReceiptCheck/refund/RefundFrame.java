@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashSet;
 
 import javax.swing.JButton;
@@ -11,42 +15,37 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
+import database.OjdbcConnection;
 import pos.WithImage;
 import pos.gje.ReceiptCheck.receiptcheck_main.List;
+import pos.gje.ReceiptCheck.refund.component.RefundReiceiptFrame;
 
 public class RefundFrame extends JFrame {
 
 	static String root = "images/PosImages/영수증 조회 이미지/";
 	static WithImage wi = new WithImage(root);
-	
-	Timer timer;
-	
+
 	public static int amount = 10000;
 	public static int card = 23000;
 	public static int point = 0;
 	public static String cardNum = "1234-****-1234-****";
-	public static HashSet<String> refundNum = new HashSet<>();
 	
-	List list;
+	
 	JLabel cardLb = new JLabel();
 	JLabel pointLb = new JLabel();
 	JLabel amountLb = new JLabel();
 	JLabel cardNumLb = new JLabel();
-	JButton refund = new JButton();
 	
-	public RefundFrame(JButton refund) {
-		this.refund = refund;
-	}
-	
+
 	
 	//총 가격, 포인트 결제, 카드 결제, 받은 금액
-	public RefundFrame (int amount, int point, int card, String cardNum, String sales_number){
+	public RefundFrame 
+		(int amount, int point, int card, String cardNum, String sales_number, String member_phonenumber, String menu){
 		this.amount = amount;
 		this.card = card;
 		this.point = point;
 		this.cardNum = cardNum;
-		
-		//System.out.println(amount + card + point + cardNum);
+
 		
 		JButton exit = wi.makeButton("환불 창 닫기 버튼", 725, 20, 43, 46);
 		JButton checkBox = wi.makeButton("체크박스", 215, 394, 27, 27);
@@ -85,23 +84,34 @@ public class RefundFrame extends JFrame {
 		});
 		
 		confirm.addActionListener(new ActionListener() {
-			JLabel lb = wi.makeLabel("카드를 꽂아주세요", 0, 0, 401, 255); // 사진 불러
 			
-			// 정보 확인 후 꺼져야됨
-			@Override
+		
+			@Override // 환불 진행
 			public void actionPerformed(ActionEvent e) {
-				refundNum.add(sales_number);
-				if (refundNum.contains(sales_number)) {
-					refund.setEnabled(false);
+				int refund_amount = 0 - amount;
+				int refund_point = 0 - point;
+				int refund_card = 0 - card;
+				
+				new RefundReiceiptFrame(sales_number, menu, refund_amount, refund_point, refund_card);
+
+				sales_delete(sales_number);
+				
+				sales_management_delete(sales_number);
+				
+				if (member_phonenumber != null) {
+					point_refund(point, member_phonenumber);					
 				}
 				
+				
 				System.out.println(sales_number + "의 환불버튼이 눌렸습니다");
-				//new List(refundNum);
-			
 				
 				dispose();
+				
+			     int index = List.table.getSelectedRow();
+		            List.contents.removeRow(index);
 			}
 		});
+		
 		
 		// setText 
 		amountLb.setText(amount + "");
@@ -152,13 +162,59 @@ public class RefundFrame extends JFrame {
 	}
 	
 	public RefundFrame() {
-		this(10000, 0, 0, "default", "");
-		
+		this(10000, 0, 0, "default", "", "", "");
 	}
 	
-	public static void DBsave() {
+	
+	// 삭제 
+	public static void sales_delete(String sales_number) {
+		String query = "DELETE FROM sales WHERE sales_number = '" + sales_number + "'"; 
 		
+		try (Connection conn = OjdbcConnection.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(query);
+				) {
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println(" 오류");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	// 삭제 
+	public static void sales_management_delete(String sales_number) {
+		String query = "DELETE FROM sales_management WHERE sales_number = '" + sales_number +"'"; 
 		
+		try (Connection conn = OjdbcConnection.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(query);
+				) {
+		pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println(" 오류");
+			e.printStackTrace();
+		}
 	}
 
+	
+	// 포인트 환불
+	public static void point_refund(int point, String member_phonenumber) {
+		
+		String query = 
+				"UPDATE membership SET member_point = member_point + " + point 
+		+ " WHERE member_phonenumber = '" + member_phonenumber + "'"; 
+		
+		try (Connection conn = OjdbcConnection.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(query);
+				) {
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println(" 오류");
+			e.printStackTrace();
+		}
+		
+	}
 }

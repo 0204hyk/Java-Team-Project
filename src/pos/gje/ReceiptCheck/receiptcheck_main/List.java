@@ -35,13 +35,13 @@ public class List {
 	public static JTable table = new JTable(contents); 
 	public static JScrollPane scroll;
 	public static RefundFrame refundFrame;
-	public static HashSet<String> refundNum = new HashSet<>();
+
 	
 	
 	static ArrayList<String> date = new ArrayList<>(); // 판매 날짜 및 시간
 	static ArrayList<String> cardNum = new ArrayList<>(); // 카드 번호 
 	static ArrayList<Integer> point_payment = new ArrayList<>(); // 포인트 결제  
-
+	static ArrayList<String> mem_number = new ArrayList<>(); //멤버십 정보
 	
 	String sales_date, sales_number, menu_name;
 	int menu_qty, total_price, menu_price, point;
@@ -49,9 +49,6 @@ public class List {
 	
 	public List() {	}
 	
-	public List(HashSet refund) {
-		refundNum = refund;
-	}
 	
 	public List(OutputButton out, RefundButton refund) {
 		
@@ -68,11 +65,12 @@ public class List {
 				point_payment.add(rs.getInt("used_point")); // 포인트 결제
 				cardNum.add(rs.getString("card_number")); // 카드 번호
 				date.add(rs.getString("saledate")); // 결제 날짜 
+				mem_number.add(rs.getString("member_phonenumber"));
 				
+				// Table 목록 생성
 				contents.addRow(new Object[] {
-						num++, // 
+						num++, 
 						rs.getString("sales_number") 
-						// Table 목록 생성 
 				});
 			}
 			
@@ -106,37 +104,28 @@ public class List {
 		
 		table.addMouseListener(new MouseAdapter() {
 			// 선택했을 때 
+			
+			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				total_price = 0;
+				
 				int num = (int)(table.getValueAt(table.getSelectedRow(), 0)) - 1;
+				
 				String sales_number = (table.getValueAt(table.getSelectedRow(), 1)).toString();
 				String card_number = cardNum.get(num);
 				String sales_date = date.get(num);
 				
+				
 				// 영수증 번호 전달
 				menu(sales_number, num);
 				
-				System.out.println(RefundFrame.refundNum);
-				System.out.println(check(sales_number));
 				
-				// 환불이 된 영수증 번호인지 확인 
-				if (check(sales_number)) {
-					out.setEnabled(true);
-					refund.setEnabled(false);
-				} else {
-					out.setEnabled(true);
-					refund.setEnabled(true);
-				}
+				out.setEnabled(true);
+				refund.setEnabled(true);
 				
 
-				// 영수증을 프린틑하는 메소드에 값을 넣는다 
-				//changeTextA(sales_number, "");
-//				out.setEnabled(true);
-//				refund.setEnabled(true);
-				
-
-			}
+			} 
 		});
 	}
 	
@@ -147,7 +136,7 @@ public class List {
 				+ "from sales s, menu m "
 				+ "where sales_number = '" + sales_number + "'"
 				+ "AND s.menu_number = m.menu_number"; 
-		
+		String query2 = "옵션들 추가";
 		
 		StringBuilder sb1 = new StringBuilder();
 		
@@ -167,10 +156,7 @@ public class List {
 					sb1.append(menu_name + "\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
 					
 					total_price += menu_price; 
-					
-					
-					
-					
+
 				}
 			}
 		
@@ -178,10 +164,11 @@ public class List {
 			int card = total_price - point;
 			String card_num = cardNum.get(num);
 			String sale_date = date.get(num);
+			String member_phonenumber = mem_number.get(num);
 			
 			// 환불창에 뜨게 하기
 											// 총 가격, 포인트 결제, 카드 결제, 받은 금액
-			refundFrame = new RefundFrame(total_price, point, card , card_num, sales_number);
+			refundFrame = new RefundFrame(total_price, point, card , card_num, sales_number, member_phonenumber, sb1.toString());
 		
 		
 			// 영수증 출력하는 곳에 값 넣기 
@@ -223,10 +210,6 @@ public class List {
 				);
 	}
 
-	
-	public boolean check (String sales) {
-		return RefundFrame.refundNum.contains(sales);
-	}
 	
 
 }
