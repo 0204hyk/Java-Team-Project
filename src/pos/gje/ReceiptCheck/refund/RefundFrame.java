@@ -20,9 +20,9 @@ public class RefundFrame extends JFrame {
 	
 	Timer timer;
 	
-	public static String amount = "23,000";
-	public static String card = "23,000";
-	public static String point = "0";
+	public static int amount = 10000;
+	public static int card = 23000;
+	public static int point = 0;
 	public static String cardNum = "1234-****-1234-****";
 	List list;
 	JLabel cardLb = new JLabel();
@@ -30,20 +30,14 @@ public class RefundFrame extends JFrame {
 	JLabel amountLb = new JLabel();
 	JLabel cardNumLb = new JLabel();
 	
-	public RefundFrame (String amount, String card, String point, String cardNum){
+	//총 가격, 포인트 결제, 카드 결제, 받은 금액
+	public RefundFrame (int amount, int point, int card, String cardNum){
 		this.amount = amount;
 		this.card = card;
 		this.point = point;
 		this.cardNum = cardNum;
 		
 		System.out.println(amount + card + point + cardNum);
-		
-//		amountLb.setText(amount);
-//		cardLb.setText(card);
-//		pointLb.setText(point);
-//		cardNumLb.setText(cardNum);
-//		
-//		setVisible(true);
 		
 		JButton exit = wi.makeButton("환불 창 닫기 버튼", 725, 20, 43, 46);
 		JButton checkBox = wi.makeButton("체크박스", 215, 394, 27, 27);
@@ -106,9 +100,9 @@ public class RefundFrame extends JFrame {
 		});
 		
 		// setText 
-		amountLb.setText(amount);
-		cardLb.setText(card);
-		pointLb.setText(point);
+		amountLb.setText(amount + "");
+		cardLb.setText(card + "");
+		pointLb.setText(point + "");
 		cardNumLb.setText(cardNum);
 		
 		// 오른쪽 정렬
@@ -154,7 +148,7 @@ public class RefundFrame extends JFrame {
 	}
 	
 	public RefundFrame() {
-		this("default", "default", "default", "default");
+		this(10000, 0, 0, "default");
 		
 	}
 	
