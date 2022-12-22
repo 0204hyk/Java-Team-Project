@@ -23,7 +23,7 @@ public class CardPutFrame extends JFrame {
 
 	public void setDisplay() {
 
-		// setUndecorated(true);
+		 setUndecorated(true);
 		setVisible(true);
 		setSize(434, 320);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

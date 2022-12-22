@@ -129,7 +129,6 @@ public class Step2_PointWithNoID extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new Step2_PointWithNoID();
 
 	}
 }

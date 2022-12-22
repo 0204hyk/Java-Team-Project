@@ -2,6 +2,8 @@ package kiosk.cartFrame;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -10,7 +12,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import kiosk.tools.WithImage;
+
 public class CartComponent {
+	
+	String root = "images/KioskImages/7. 주문정보 확인";
+	WithImage wi = new WithImage(root);
 	
 	//로고
 	public JLabel logo() {
@@ -59,17 +66,6 @@ public class CartComponent {
 	}	
 		
 	//메인라벨 ("주문 정보를 확인해주세요.")
-	public JLabel mainLabel() {
-		JLabel label = new JLabel();
-		
-		Font font = new Font("맑은 고딕", Font.BOLD, 27);
-		label.setFont(font);
-		label.setText("주문 정보를 확인해주세요.");
-		label.setBounds(80, 110, 350, 150);
-		
-		return label;
-	}
-	
 	//가격라벨
 	public JLabel priceLabel() {
 		JLabel label = new JLabel();
@@ -144,62 +140,5 @@ public class CartComponent {
 		label.setHorizontalAlignment(JLabel.RIGHT);
 		
 		return label;
-	}
-	
-	
-	public JButton payButton() {
-		JButton payButton = new JButton();
-		payButton.setContentAreaFilled(false);
-		payButton.setFocusable(false);
-		
-		
-		try {
-			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("images/KioskImages/7_주문정보_확인/payScaled.png"));			
-			payButton.setIcon(new ImageIcon(logoBufferedImage));
-		
-			BufferedImage pressedBufferedImage =
-			ImageIO.read(new File("images/KioskImages/7_주문정보_확인/payPressedScaled.png"));			
-			payButton.setPressedIcon(new ImageIcon(pressedBufferedImage));
-			
-			payButton.setBorderPainted(false);	
-			payButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
-			payButton.setOpaque(false);
-			
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-		
-		//cancelButton.setBounds(125, 790, 192, 68);
-		payButton.setBounds(335, 790, 192, 68);
-		return payButton;
-	}
-	
-	public JButton cancelButton() {
-		JButton cancelButton = new JButton();
-		
-		
-		try {
-			BufferedImage logoBufferedImage =
-			ImageIO.read(new File("images/KioskImages/7_주문정보_확인/cancelScaled.png"));			
-			cancelButton.setIcon(new ImageIcon(logoBufferedImage));
-			
-			BufferedImage pressedBufferedImage =
-					ImageIO.read(new File("images/KioskImages/7_주문정보_확인/cancelPressedScaled.png"));			
-					cancelButton.setPressedIcon(new ImageIcon(pressedBufferedImage));
-			
-			cancelButton.setContentAreaFilled(false);
-			cancelButton.setFocusable(false);
-			cancelButton.setBorderPainted(false);	
-			cancelButton.setBackground(Color.white); // Opaque 사용위해서 아무색이나 지정
-			cancelButton.setOpaque(false);
-			
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-		
-		cancelButton.setBounds(125, 790, 192, 68);
-
-		return cancelButton;
 	}
 }

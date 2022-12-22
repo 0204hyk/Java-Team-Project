@@ -32,9 +32,9 @@ public class ChoiceMenu extends JFrame {
 	JPanel adePn = new PanelsByCategory(5);
 
 	JPanel cart = new JPanel();
-	
+
 	ArrayList<String> menuInfo = new ArrayList<>();
-	
+
 	public ChoiceMenu() {
 
 		cart();
@@ -174,17 +174,16 @@ public class ChoiceMenu extends JFrame {
 	}
 
 	public void pay() {
-		// 장바구니에 있는것들 보내기, 최종 잔 수 더하기
+		// 장바구니에 있는것들 보내기
 		JButton pay = wi.makeButton("pay.png", 548, 748, 78, 93);
 
 		pay.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 
-				// 금액 받아서 10프로 쪼개기
-				new Step1Step2();
+				// 총 금액의 10프로 보내기(포인트)
+				new Step1Step2(getTotalAmounts(), menuInfo);
 
 			}
 		});
@@ -213,9 +212,20 @@ public class ChoiceMenu extends JFrame {
 
 		cart.add(pn);
 
+		// 메뉴,잔,최종금액,옵션
 		this.menuInfo.addAll(menuInfo);
-		System.out.println(this.menuInfo.toString());
-		
+
+	}
+
+	public int getTotalAmounts() {
+
+		int total = 0;
+		for (int i = 2; i < menuInfo.size(); i += 4) {
+			total += Integer.parseInt(menuInfo.get(i));
+
+		}
+
+		return total / 10;
 	}
 
 	public static void main(String[] args) {

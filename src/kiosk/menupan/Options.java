@@ -169,9 +169,9 @@ public class Options extends JFrame {
 							hotAndIce.equals("1") ? "ICE" : hotAndIce.equals("2") ? "HOT" : "ICE ONLY", optionPrice);
 					
 					// 메뉴 정보 담아서 보내기
-					menuInfo.add(menu + " / ");
-					menuInfo.add(cupText.cup +"잔");
-					menuInfo.add(" / " + (optionPrice + gi.getMenuPrice()) + "원");
+					menuInfo.add(menu);
+					menuInfo.add(cupText.cup + "");
+					menuInfo.add((optionPrice + gi.getMenuPrice()) + "");
 					menuInfo.add(numToMenu());
 					
 					frame.makeMenu(menuPn, cupText, menuInfo);

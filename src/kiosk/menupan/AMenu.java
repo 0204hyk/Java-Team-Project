@@ -68,6 +68,7 @@ public class AMenu extends JPanel {
 					cup.plus();
 				} else if (cup.cup > 98) {
 					cup.setCup(99);
+					
 				}
 				cups.setText(cup.cup + "잔");
 				menuPricelb.setText(df.format((optionPrice + gi.getMenuPrice()) * cup.cup) + "원");
@@ -112,8 +113,8 @@ public class AMenu extends JPanel {
 		add(cups);
 		add(menuNamelb);
 		add(menuPricelb);
-		add(plus);
-		add(minus);
+//		add(plus);
+//		add(minus);
 		add(delete);
 
 		setVisible(true);

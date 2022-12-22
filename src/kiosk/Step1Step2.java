@@ -1,10 +1,9 @@
 package kiosk;
 
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
+import kiosk.cartFrame.CartMainFrame;
 import kiosk.tools.WithImage;
 
 public class Step1Step2 extends JFrame {
@@ -29,11 +29,16 @@ public class Step1Step2 extends JFrame {
 	static JLabel pointActive;
 	Timer timer;
 
+	int totalPoint;
 	static String member_phonenumber;
 	Step1_EnterPhoneNum ep;
+	ArrayList<String> menuInfo = new ArrayList<>();
 
-	public Step1Step2() {
+	// 총 금액의 10% 받아옴
+	public Step1Step2(int point, ArrayList menuInfo) {
+		this.menuInfo = menuInfo;
 
+		totalPoint = point;
 		labels();
 		buttons();
 
@@ -55,7 +60,7 @@ public class Step1Step2 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ep = new Step1_EnterPhoneNum();
+				ep = new Step1_EnterPhoneNum(totalPoint);
 				ep.add(wi.makeLabel("confirmPoint.png", 187, 42, 70, 20));
 				ep.showPoint();
 
@@ -69,7 +74,7 @@ public class Step1Step2 extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ep = new Step1_EnterPhoneNum();
+				ep = new Step1_EnterPhoneNum(totalPoint);
 				ep.add(wi.makeLabel("joinText.png", 193, 42, 58, 20));
 				ep.simpleJoin();
 			}
@@ -122,21 +127,7 @@ public class Step1Step2 extends JFrame {
 			}
 		});
 
-		// 자동종료
-		// JFrame cp = new CardPutFrame();
-		// 시간이 좀 지나면 자동으로 결제 완료
 
-//		timer = new Timer(3000, new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				cp.dispose();
-//				new PaymentCompleteFrame();
-//				timer.stop();
-//				// 적립 업데이트 해주기
-//			}
-//		});
-//		timer.start();
 
 		// 포인트 사용
 		point = wi.makeButton("point.png", 254, 519, 158, 141);
@@ -160,6 +151,7 @@ public class Step1Step2 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				new CartMainFrame(menuInfo);
 				// 결제 창으로 넘어가기
 			}
 		});
@@ -189,9 +181,9 @@ public class Step1Step2 extends JFrame {
 	public void labels() {
 
 		add(wi.makeLabel("hy.png", 52, 25, 60, 83));
-		
-		add(wi.makeLabel("step1.png", 89,201,240,22));
-		add(wi.makeLabel("step2.png", 89,473,119,22));
+
+		add(wi.makeLabel("step1.png", 89, 201, 240, 22));
+		add(wi.makeLabel("step2.png", 89, 473, 119, 22));
 
 		String root = "images/KioskImages/5. step1 Selected";
 		WithImage wi = new WithImage(root);
@@ -240,7 +232,7 @@ public class Step1Step2 extends JFrame {
 		point.setVisible(false);
 		pointActive.setVisible(true);
 	}
-	
+
 	public void step2Disabled() {
 		card.setEnabled(false);
 		point.setEnabled(false);
@@ -260,9 +252,7 @@ public class Step1Step2 extends JFrame {
 	public static String getMemberPhone() {
 		return member_phonenumber;
 	}
-
+	
 	public static void main(String[] args) {
-		new Step1Step2();
-
 	}
 }
