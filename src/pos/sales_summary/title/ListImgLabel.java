@@ -1,4 +1,4 @@
-package pos.sales_summary.saleslist;
+package pos.sales_summary.title;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
