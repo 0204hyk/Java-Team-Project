@@ -38,6 +38,5 @@ public class DigitalClock extends JLabel implements Runnable{
 				e.printStackTrace();
 			}
 		}
-		
 	}
 }

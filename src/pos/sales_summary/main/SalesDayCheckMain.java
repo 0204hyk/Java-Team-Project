@@ -1,14 +1,12 @@
 package pos.sales_summary.main;
 
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
@@ -18,9 +16,9 @@ import pos.sales_summary.chart.DayChart;
 import pos.sales_summary.combobox.DayComboBox;
 import pos.sales_summary.combobox.MonthComboBox;
 import pos.sales_summary.combobox.YearComboBox;
-import pos.sales_summary.saleslist.ListImgLabel;
-import pos.sales_summary.saleslist.TitlePanel;
-import pos.sales_summary.saleslist.TotalPanel;
+import pos.sales_summary.label.ListImgLabel;
+import pos.sales_summary.panel.TitlePanel;
+import pos.sales_summary.panel.TotalPanel;
 import pos.sales_summary.table.SalesDayTable;
 
 public class SalesDayCheckMain extends JFrame {
@@ -77,6 +75,7 @@ public class SalesDayCheckMain extends JFrame {
 		setLayout(null);
 		setResizable(false);	// 사이즈 조절 불가능하게 만들기
 		setLocationRelativeTo(null);	// 창 화면 가운데에 나오게하기
+		setUndecorated(true);     
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}

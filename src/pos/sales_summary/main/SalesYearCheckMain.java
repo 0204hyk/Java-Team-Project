@@ -14,9 +14,9 @@ import pos.sales_summary.button.SalesEscapeButton;
 import pos.sales_summary.button.SalesSearchButton;
 import pos.sales_summary.chart.YearChart;
 import pos.sales_summary.combobox.YearComboBox;
-import pos.sales_summary.saleslist.ListImgLabel;
-import pos.sales_summary.saleslist.TitlePanel;
-import pos.sales_summary.saleslist.TotalPanel;
+import pos.sales_summary.label.ListImgLabel;
+import pos.sales_summary.panel.TitlePanel;
+import pos.sales_summary.panel.TotalPanel;
 import pos.sales_summary.table.SalesMonthTable;
 import pos.sales_summary.table.SalesYearTable;
 
@@ -69,6 +69,7 @@ public class SalesYearCheckMain extends JFrame {
 		setLayout(null);
 		setResizable(false);	// 사이즈 조절 불가능하게 만들기
 		setLocationRelativeTo(null);	// 창 화면 가운데에 나오게하기
+		setUndecorated(true);     
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 

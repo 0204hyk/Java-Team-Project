@@ -29,11 +29,11 @@ public class UsePoint extends JFrame {
 		phoneNum.setForeground(Color.black);
 		phoneNum.setBounds(32, 65, 86, 32);
 
-		JLabel currentPoint = new JLabel("" + cp.currentPoint());
-		currentPoint.setHorizontalAlignment(JLabel.RIGHT);
+		JLabel currentPoint = new JLabel(cp.currentPoint()+"포인트");
+		currentPoint.setHorizontalAlignment(JLabel.CENTER);
 		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 34));
 		currentPoint.setForeground(new Color(15, 11, 65));
-		currentPoint.setBounds(100, 260, 100, 35);
+		currentPoint.setBounds(0, 260, 461, 35);
 
 		JTextArea ta = new JTextArea();
 		ta.setBackground(new Color(242, 242, 242));
@@ -43,7 +43,6 @@ public class UsePoint extends JFrame {
 		ta.setForeground(Color.BLACK);
 
 		add(wi.makeLabel("leftPointText.png", 33, 67, 335, 83));
-		add(wi.makeLabel("useAll.png", 85, 384, 63, 14));
 		add(wi.makeLabel("usePointBox.png", 171, 368, 105, 46));
 
 		JButton use = wi.makeButton("use.png", 290, 368, 97, 46);
@@ -63,12 +62,12 @@ public class UsePoint extends JFrame {
 			}
 		});
 
-		add(wi.makeLabel("pointText.png", 205, 264, 90, 28));
+//		add(wi.makeLabel("pointText.png", 205, 264, 90, 28));
 		JLabel check = wi.makeLabel("check.png", 61, 366, 28, 27);
 
 		check.setVisible(false);
 
-		JButton checkBox = wi.makeButton("checkBox.png", 64, 384, 14, 14);
+		JButton checkBox = wi.makeButton("checkBox.png", 64, 384, 84, 15);
 		checkBox.addActionListener(new ActionListener() {
 			int num = 1;
 

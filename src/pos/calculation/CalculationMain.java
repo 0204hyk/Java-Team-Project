@@ -1,12 +1,10 @@
 package pos.calculation;
 
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import pos.DigitalClock;
 import pos.calculation.categorybutton.CoffeeButton;
 import pos.calculation.categorybutton.FrappeBlendedButton;
@@ -24,7 +22,8 @@ import pos.gje.calcView.CalcViewPanel;
 import pos.gje.calcView.QuantityPanel;
 import pos.gje.calcView.component.FullDeleteButton;
 import pos.gje.calcView.component.PartiallyDeleteButton;
-import pos.sales_summary.title.TitleImage;
+import pos.sales_summary.panel.TitleImagePanel;
+
 
 public class CalculationMain extends JFrame {
 
@@ -32,7 +31,7 @@ public class CalculationMain extends JFrame {
 		// 메뉴 상단 타이틀 구현
 		JLabel calcCenterTitle = new DigitalClock();
 		calcCenterTitle.setBounds(1000, 10, 400, 30);
-		JPanel titleBar = new TitleImage();
+		JPanel titleBar = new TitleImagePanel();
 		titleBar.add(calcCenterTitle);
 
 		// 주문 리스트 구현 ----
