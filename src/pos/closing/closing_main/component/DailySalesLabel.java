@@ -26,20 +26,7 @@ public class DailySalesLabel extends JLabel {
 			ResultSet rs = pstmt.executeQuery();
 		) {
 			if (rs.next()) {
-<<<<<<< HEAD
-				setText(rs.getString(1));
-			} else {
-				setText("0");
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		setSize(300, 30);
-		setHorizontalAlignment(JLabel.RIGHT);
-		setFont(new Font("맑은 고딕", Font.BOLD, 25));
-=======
+
 				if (rs.getString(1) == null) {
 					setText("0");
 				} else {
@@ -54,6 +41,5 @@ public class DailySalesLabel extends JLabel {
 		setSize(300, 30);
 		setHorizontalAlignment(JLabel.RIGHT);
 		setFont(new Font("맑은 고딕", Font.BOLD, 32));
->>>>>>> refs/remotes/origin/main
 	}
 }

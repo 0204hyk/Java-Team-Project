@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
-import kiosk.menuFrame.MenuFrame;
+//import kiosk.menuFrame.MenuFrame;
 import kiosk.tools.WithImage;
 
 public class TouchToPlaceAnOrder extends JFrame {
@@ -58,7 +58,7 @@ public class TouchToPlaceAnOrder extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new MenuFrame();
+//				new MenuFrame();
 				
 			}
 		});

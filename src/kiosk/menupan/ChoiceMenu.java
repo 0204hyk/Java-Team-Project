@@ -188,9 +188,5 @@ public class ChoiceMenu extends JFrame {
 		
 	}
 	
-	public static void main(String[] args) {
-		
-		Options.choiceMenu = new ChoiceMenu();
-	}
 
 }

@@ -22,13 +22,8 @@ public class WithImage {
 	public JLabel setMenuImage(String root) {
 		JLabel lb = new JLabel();
 
-<<<<<<< HEAD
-		lb.setIcon(new ImageIcon(readImage(root, 120, 120)));
-		lb.setBounds(-5, -5, 120, 120);
-=======
 		lb.setIcon(new ImageIcon(readImage(root, 100, 100)));
 		lb.setBounds(234, 127, 100, 100);
->>>>>>> refs/remotes/origin/main
 
 		return lb;
 	}

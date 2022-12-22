@@ -70,23 +70,23 @@ public class MakeMenuButton extends JButton implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		TotalCups.cup = 1; // 장바구니에서 수량을 올리면 그 숫자부터 시작하기 때문에 초기화 시켜놓기
-		if (ctgNum == 1) {
-			new All_1(new TopImage(menu), menu);
-		} else if (ctgNum == 2) {
-			new NoMilk_2(new TopImage(menu), menu);
-		} else if (ctgNum == 3) {
-			new NoHot_3(new TopImage(menu), menu);
-		} else if (ctgNum == 4) {
-			new NoHotMilk_4(new TopImage(menu), menu);
-		} else if (ctgNum == 5) {
-			new OnlyShotCup_5(new TopImage(menu), menu);
-		} else if (ctgNum == 6) {
-			new OnlyDecafShotCup_6(new TopImage(menu), menu);
-		} else if (ctgNum == 7) {
-			new NoDecaf_7(new TopImage(menu), menu);
-		} else if (ctgNum == 8) {
-			new OnlyShotIceCup_8(new TopImage(menu), menu);
-		}
+//		if (ctgNum == 1) {
+//			new All_1(new TopImage(menu), menu);
+//		} else if (ctgNum == 2) {
+//			new NoMilk_2(new TopImage(menu), menu);
+//		} else if (ctgNum == 3) {
+//			new NoHot_3(new TopImage(menu), menu);
+//		} else if (ctgNum == 4) {
+//			new NoHotMilk_4(new TopImage(menu), menu);
+//		} else if (ctgNum == 5) {
+//			new OnlyShotCup_5(new TopImage(menu), menu);
+//		} else if (ctgNum == 6) {
+//			new OnlyDecafShotCup_6(new TopImage(menu), menu);
+//		} else if (ctgNum == 7) {
+//			new NoDecaf_7(new TopImage(menu), menu);
+//		} else if (ctgNum == 8) {
+//			new OnlyShotIceCup_8(new TopImage(menu), menu);
+//		}
 	}
 
 }

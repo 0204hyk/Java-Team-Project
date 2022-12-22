@@ -12,10 +12,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.calculation.CalculationMain;
+import pos.kjh.TeamInfoFrame;
 
-public class CalculationButton extends JButton implements ActionListener{
+public class TeamInfoButton extends JButton implements ActionListener{
 
-	public CalculationButton() {
+	public TeamInfoButton() {
 		try {
 			File f = new File("images/PosImages/시작 페이지 버튼 이미지/카페 로고2.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
@@ -43,7 +44,12 @@ public class CalculationButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new CalculationMain();
+		try {
+			new TeamInfoFrame();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 }

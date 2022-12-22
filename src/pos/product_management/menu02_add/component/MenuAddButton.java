@@ -1,5 +1,6 @@
 package pos.product_management.menu02_add.component;
 
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,18 +15,20 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import database.OjdbcConnection;
 import pos.product_management.menu02_add.message_frame.AddFix;
+import pos.product_management.menu02_add.message_frame.MenuNameInput;
 import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 
 public class MenuAddButton extends JButton implements ActionListener{
 	
 	AddBackgroundImagePanel panel;
-	AddFix additionalFrame;
+	JFrame additionalFrame;
 	
-	public MenuAddButton(AddBackgroundImagePanel panel, AddFix additionalFrame) {
+	public MenuAddButton(AddBackgroundImagePanel panel, JFrame additionalFrame) {
 		this.panel = panel;
 		this.additionalFrame = additionalFrame;
 		
@@ -63,6 +66,7 @@ public class MenuAddButton extends JButton implements ActionListener{
 			if (!panel.nameField.getText().equals("")) {
 				pstmt.setString(1, panel.nameField.getText());				
 			} else {
+				
 				JOptionPane.showMessageDialog(null, "메뉴 이름을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
 				return;
 			}
@@ -115,5 +119,7 @@ public class MenuAddButton extends JButton implements ActionListener{
 		}
 		
 	}
+
+
 
 }
