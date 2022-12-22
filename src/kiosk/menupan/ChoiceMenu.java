@@ -38,7 +38,9 @@ public class ChoiceMenu extends JFrame {
 	public ChoiceMenu() {
 
 		cart();
-		defaults();
+		
+		add(wi.makeLabel("hy.png", 53, 24, 60, 83));
+
 		tabs();
 		pay();
 
@@ -50,15 +52,6 @@ public class ChoiceMenu extends JFrame {
 		setLocationRelativeTo(null);
 
 		setVisible(true);
-	}
-
-	public void defaults() {
-
-		add(wi.makeLabel("hy.png", 53, 24, 60, 83));
-		JButton home = wi.makeButton("home.png", 543, 44, 52, 52);
-
-		add(home);
-
 	}
 
 	public void tabs() {

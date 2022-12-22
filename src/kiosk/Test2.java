@@ -1,14 +1,14 @@
 package kiosk;
 
 import java.awt.Color;
+import java.awt.Dimension;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import kiosk.byoption.Cups;
-import kiosk.menupan.AMenu;
 import kiosk.tools.WithImage;
 
 public class Test2 {
@@ -29,19 +29,19 @@ public class Test2 {
 
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-//		for (int i = 0; i < 9; i++) {
-//			JPanel a = new JPanel(); //메뉴
-//			a.setBackground(Color.BLACK);
-//			a.setPreferredSize(new Dimension(300, 100)); // 상관없다
-//			panel.add(a); //카트
-//			panel.add(Box.createVerticalStrut(10));
-//		}
+		for (int i = 0; i < 9; i++) {
+			JPanel a = new JPanel(); //메뉴
+			a.setBackground(Color.BLACK);
+			a.setPreferredSize(new Dimension(300, 100)); // 상관없다
+			panel.add(a); //카트
+			panel.add(Box.createVerticalStrut(10));
+		}
 
-		JPanel a = new AMenu("아메리카노", new Cups(), "ICE", 2000);
-		a.setSize(505, 41);
-		a.setBackground(Color.white);
-		a.setOpaque(false);
-		panel.add(a);
+//		JPanel a = new AMenu("아메리카노", new Cups(), "ICE", 2000);
+//		a.setSize(505, 41);
+//		a.setBackground(Color.white);
+//		a.setOpaque(false);
+//		panel.add(a);
 //		JPanel b = new AMenu("아메리카노", new Cups(),"ICE");
 //		panel.add(b);
 //		JPanel c = new AMenu("아메리카노", new Cups(),"ICE");

@@ -39,8 +39,17 @@ public class CartMainFrame extends JFrame {
 		add(wi.makeLabel("hy.png", 52, 24, 60, 83));
 
 		// home
-		add(new HomeButton());
+		JButton home = wi.makeButton("home.png", 542, 44, 52, 52);
+		home.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				Options.choiceMenu = new ChoiceMenu();
+			}
+		});
 
+		
 		// 주문정보를 확인해주세요
 		add(wi.makeLabel("pleaseConfirm.png", 58, 163, 358, 34));
 
@@ -85,7 +94,8 @@ public class CartMainFrame extends JFrame {
 			add(menu);
 			add(option);
 		}
-
+		
+		add(home);
 		scroll.setBounds(52, 214, 560, 390);
 		scroll.setViewportView(panel);
 		add(scroll);
