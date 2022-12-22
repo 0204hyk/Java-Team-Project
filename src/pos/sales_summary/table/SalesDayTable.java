@@ -30,7 +30,7 @@ public class SalesDayTable extends JTable {
 	public SalesDayTable() {
 		JTable table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
-
+		
 		//테이블 가운데 정렬
 		DefaultTableCellRenderer center =  
 				(DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer();

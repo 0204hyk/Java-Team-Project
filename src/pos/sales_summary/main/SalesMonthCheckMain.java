@@ -74,6 +74,7 @@ public class SalesMonthCheckMain extends JFrame {
 		setLayout(null);
 		setResizable(false);	// 사이즈 조절 불가능하게 만들기
 		setLocationRelativeTo(null);	// 창 화면 가운데에 나오게하기
+		setUndecorated(true);     
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
