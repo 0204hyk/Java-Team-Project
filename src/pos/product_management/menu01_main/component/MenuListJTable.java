@@ -155,7 +155,7 @@ public class MenuListJTable extends JTable{
 				
 			});
 			
-			scroll.setBounds(0, 0, 1100, 400);
+			scroll.setBounds(0, 0, 1100, 435);
 
 			// 테이블 수정 불가하게 설정
 			table.getTableHeader().setReorderingAllowed(false);
@@ -177,7 +177,7 @@ public class MenuListJTable extends JTable{
 
 
 			table.setLayout(null);
-			setBounds(48, 190, 1100, 400);
+			setBounds(48, 190, 1100, 435);
 			add(scroll);
 			setLayout(null);
 			setVisible(true);

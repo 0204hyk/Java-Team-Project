@@ -13,7 +13,7 @@ import database.OjdbcConnection;
 public class DailySalesLabel extends JLabel {
 	// 총 금액 라벨
 	
-	String query = "SELECT trim(to_char(sum(price), '999,999,999')) "
+	String query = "SELECT trim(to_char(sum(price - used_point), '999,999,999')) "
 			+ "FROM sales_management INNER JOIN sales USING (sales_number)"
 			+ "WHERE to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')"
 			+ "AND to_char(saledate, 'HH24') BETWEEN 10 AND 21";

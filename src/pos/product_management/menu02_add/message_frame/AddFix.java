@@ -40,6 +40,7 @@ public class AddFix extends JFrame {
 				prjf.mj.contents.setRowCount(0);
 				prjf.mj = new MenuListJTable(prjf.allMenu());
 				prjf.setEnabled(true);
+				prjf.addBtn.setEnabled(true);
 				dispose();
 				frame.dispose();
 			}

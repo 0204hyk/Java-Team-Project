@@ -53,6 +53,7 @@ public class OkBtn extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		f1.mj.contents.setRowCount(0);
 		f1.mj = new MenuListJTable(f1.allMenu());
+		f1.modifyBtn.setEnabled(true);
 		f1.setEnabled(true);
 		f3.dispose();
 		f2.dispose();

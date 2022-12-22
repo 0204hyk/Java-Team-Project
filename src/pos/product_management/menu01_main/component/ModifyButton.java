@@ -28,16 +28,16 @@ public class ModifyButton extends JButton implements ActionListener{
 		
 		try {
 			BufferedImage bufferedfixBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/수정 시작 버튼.png"));
-			Image fixBtnImage = bufferedfixBtnImage.getScaledInstance(130,65, Image.SCALE_SMOOTH);
+			Image fixBtnImage = bufferedfixBtnImage.getScaledInstance(180,80, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(fixBtnImage));
-			setBounds(880, 620, 130, 65);
+			setBounds(760, 675, 180, 80);
 			
 			setBorderPainted(false);
 			setContentAreaFilled(false);
 			setFocusPainted(false);
 			
 			BufferedImage bufferedBtnClickImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png"));
-			Image btnClickImage = bufferedBtnClickImage.getScaledInstance(130,65, Image.SCALE_SMOOTH);
+			Image btnClickImage = bufferedBtnClickImage.getScaledInstance(180,80, Image.SCALE_SMOOTH);
 			Icon btnClickIcon = new ImageIcon(btnClickImage);
 			setPressedIcon(btnClickIcon);
 		} catch (IOException e1) {
@@ -60,6 +60,7 @@ public class ModifyButton extends JButton implements ActionListener{
 			Connection conn = OjdbcConnection.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql1);			
 		){
+			mainFrame.modifyBtn.setEnabled(false);
 			mainFrame.setEnabled(false);
 			
 			if (!table.getSelected()) {

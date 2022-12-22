@@ -198,6 +198,7 @@ public class AddBackgroundImagePanel extends JPanel{
 			closeBtn.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					mainFrame.addBtn.setEnabled(true);
 					mainFrame.setEnabled(true);
 					frame.dispose();
 				}

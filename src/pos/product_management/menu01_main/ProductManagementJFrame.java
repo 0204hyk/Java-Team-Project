@@ -40,6 +40,8 @@ public class ProductManagementJFrame extends JFrame {
 	PosFrame p;
 	CancelBtn cBtn;
 	DeleteCheckPanel dcp;
+	public AddButton addBtn = new AddButton(this);
+	public ModifyButton modifyBtn = new ModifyButton(this);
 	public static JButton deleteBtn;
 	
 	public ProductManagementJFrame() {
@@ -122,13 +124,13 @@ public class ProductManagementJFrame extends JFrame {
 	// 상품목록에 있는 버튼들
 	public JButton buttons() {
 		JButton serchBtn = btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", 
-				"images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50);
+				"images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,120,50);
 
 		JButton backBtn = btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png",
-				"images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 680, 120, 65);
+				"images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 45, 675, 180, 80);
 
 		deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
-				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1027, 620, 130, 65);
+				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 980, 675, 180, 80);
 
 
 		// 검색 버튼
@@ -195,9 +197,9 @@ public class ProductManagementJFrame extends JFrame {
 		
 		add(serchBtn);
 		add(backBtn);
+		add(addBtn);
+		add(modifyBtn);
 		add(deleteBtn);
-		add(new ModifyButton(this));
-		add(new AddButton(this));
 
 		setUndecorated(true);
 		setLayout(null);

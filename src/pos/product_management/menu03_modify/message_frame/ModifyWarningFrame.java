@@ -28,6 +28,7 @@ public class ModifyWarningFrame extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				prjf.modifyBtn.setEnabled(true);
 				prjf.setEnabled(true);
 				dispose();
 			}
