@@ -14,13 +14,13 @@ import pos.ImageScaledTool;
 import pos.sales_summary.salestype.SalesTypeFrame;
 
 
-public class SalesTypeEscapeBtn extends JButton implements ActionListener{
+public class SalesTypeEscapeButton extends JButton implements ActionListener{
 	
 	SalesTypeFrame f;
 	ImageScaledTool tool = new ImageScaledTool();
 	
 	
-	public SalesTypeEscapeBtn(SalesTypeFrame f) {
+	public SalesTypeEscapeButton(SalesTypeFrame f) {
 		this.f = f;
 		
 		

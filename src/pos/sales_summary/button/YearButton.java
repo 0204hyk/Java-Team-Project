@@ -14,12 +14,12 @@ import javax.swing.JButton;
 import pos.ImageScaledTool;
 import pos.sales_summary.main.SalesYearCheckMain;
 
-public class YearBtn extends JButton implements ActionListener{
+public class YearButton extends JButton implements ActionListener{
 	
 	ImageScaledTool tool = new ImageScaledTool();
 	
 
-	public YearBtn() {
+	public YearButton() {
 	
 		setIcon(new ImageIcon(tool.getScaledImage(
 				"images/PosImages/매출 요약 이미지/연 매출.png", 300, 300)));

@@ -7,10 +7,10 @@ import javax.swing.JPanel;
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
-import pos.sales_summary.button.DayBtn;
-import pos.sales_summary.button.MonthBtn;
-import pos.sales_summary.button.SalesTypeEscapeBtn;
-import pos.sales_summary.button.YearBtn;
+import pos.sales_summary.button.DayButton;
+import pos.sales_summary.button.MonthButton;
+import pos.sales_summary.button.SalesTypeEscapeButton;
+import pos.sales_summary.button.YearButton;
 
 
 
@@ -26,11 +26,11 @@ public class SalesTypeFrame extends JFrame{
 		clock.setBounds(375, 10, 400, 30);
 		titlePanel.add(clock);
 		
-		add(new SalesTypeEscapeBtn(this));
+		add(new SalesTypeEscapeButton(this));
 		add(titlePanel);
-		add(new DayBtn());
-		add(new MonthBtn());
-		add(new YearBtn());
+		add(new DayButton());
+		add(new MonthButton());
+		add(new YearButton());
 		getContentPane().setBackground(new Color(64, 64, 64));	// 프레임 백그라운드 컬러 설정
 		setUndecorated(true); // 타이틀바 없애기
 		setSize(1200, 800); // 프레임 사이즈
