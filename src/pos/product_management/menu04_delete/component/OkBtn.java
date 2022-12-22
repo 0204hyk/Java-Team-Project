@@ -45,13 +45,13 @@ public class OkBtn extends JButton implements ActionListener{
 				ProductManagementJFrame.deleteBtn.setEnabled(true);
 				f.dispose();
 				MenuListJTable.table.setEnabled(true);
+				
 				// 디비에서 데이터 없애기
 				MenuListJTable.deleteDB(MenuListJTable.menuName.toString());
 				
 				// JTable에서 선택행 삭제하기
 				int index = MenuListJTable.table.getSelectedRow();
 				MenuListJTable.contents.removeRow(index);
-//				new OkFrame();
 				
 				f2.setVisible(true);
 				

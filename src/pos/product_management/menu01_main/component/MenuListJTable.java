@@ -73,7 +73,6 @@ public class MenuListJTable extends JTable{
 			ProductManagementJFrame.deleteBtn.setEnabled(false);
 		}else{
 			// 삭제 메뉴 확인 창
-			
 			new DeleteFrame();
 			ProductManagementJFrame.deleteBtn.setEnabled(false);
 			table.setEnabled(false);
@@ -90,9 +89,9 @@ public class MenuListJTable extends JTable{
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 
 				){
-
+ 
 			pstmt.setString(1, keyword);
-			ResultSet rs = pstmt.executeQuery();
+			pstmt.executeUpdate();
 
 			
 		} catch (SQLException e) {
@@ -173,6 +172,9 @@ public class MenuListJTable extends JTable{
 				tcm.getColumn(i).setCellRenderer(dtcr);
 			}
 
+			// 특정 열에 지정
+			// tcm.getColumn(0).setCellRenderer(dtcr);  
+			// tcm.getColumn(4).setCellRenderer(dtcr);
 
 
 
