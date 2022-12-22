@@ -64,8 +64,6 @@ public class SalesSearchButton extends JButton {
 			}
 		});
 
-	
-
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
 		setFocusable(false);	
@@ -98,11 +96,7 @@ public class SalesSearchButton extends JButton {
 				MonthChart chart = new MonthChart(year, month);
 				TitlePanel title = new TitlePanel(year, month);
 				TotalPanel total = new TotalPanel(year, month);
-				
-			
-				
-				
-				
+
 			}
 		});
 		
