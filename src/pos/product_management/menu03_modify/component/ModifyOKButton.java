@@ -17,17 +17,21 @@ import javax.swing.JOptionPane;
 
 import database.OjdbcConnection;
 import pos.product_management.menu01_main.ProductManagementJFrame;
+import pos.product_management.menu03_modify.ModifyFrame;
+import pos.product_management.menu03_modify.message_frame.MenuPriceInput2;
 import pos.product_management.menu03_modify.message_frame.ModifyMessageFrame;
 import pos.product_management.menu03_modify.panel.ModifyBackgroundImagePanel;
 
 public class ModifyOKButton extends JButton implements ActionListener{
 	// 수정 버튼 
 		ProductManagementJFrame mainFrame;
+		ModifyFrame frame;
 		ModifyMessageFrame messageFrame;
 		ModifyBackgroundImagePanel panel;
 		
-	public ModifyOKButton (ProductManagementJFrame mainFrame, ModifyMessageFrame messageFrame, ModifyBackgroundImagePanel panel) {
+	public ModifyOKButton (ProductManagementJFrame mainFrame, ModifyFrame frame, ModifyMessageFrame messageFrame, ModifyBackgroundImagePanel panel) {
 		this.mainFrame = mainFrame;
+		this.frame = frame;
 		this.messageFrame = messageFrame;
 		this.panel = panel;
 		
@@ -71,17 +75,18 @@ public class ModifyOKButton extends JButton implements ActionListener{
 				}
 				pstmt.setInt(1, Integer.parseInt(result));								
 			} else {
-				JOptionPane.showMessageDialog(null, "가격을 입력하세요", "Message", JOptionPane.INFORMATION_MESSAGE);
+				new MenuPriceInput2(frame).setVisible(true);
+				frame.setEnabled(false);
 				return;
 			}
 			
 			if (panel.coffee.isSelected()) {
 				pstmt.setInt(2, 2);
-			} else if (panel.nonCoffee.isSelected()) {
+			} else if (panel.frappe.isSelected()){
 				pstmt.setInt(2, 3);
-			} else if (panel.ade.isSelected()) {
+			} else if (panel.nonCoffee.isSelected()) {
 				pstmt.setInt(2, 4);
-			} else {
+			} else if (panel.ade.isSelected()) {
 				pstmt.setInt(2, 5);
 			}
 			

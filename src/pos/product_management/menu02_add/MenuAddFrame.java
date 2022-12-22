@@ -23,15 +23,17 @@ import javax.swing.text.NumberFormatter;
 
 import pos.ImagePanel;
 import pos.ImageScaledTool;
+import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu02_add.component.MenuAddButton;
 import pos.product_management.menu02_add.message_frame.AddFix;
 import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 
 public class MenuAddFrame extends JFrame{
-		
-	public MenuAddFrame() throws IOException {
-		add(new AddBackgroundImagePanel(this));
+	ProductManagementJFrame mainFrame;
+	
+	public MenuAddFrame(ProductManagementJFrame mainFrame) {
+		add(new AddBackgroundImagePanel(mainFrame, this));
 		
 		setUndecorated(true);
 		setSize(900, 550); // 프레임 사이즈

@@ -12,16 +12,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
-import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.table.TableModel;
 
 import database.OjdbcConnection;
 import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu03_modify.ModifyFrame;
+import pos.product_management.menu03_modify.message_frame.ModifyWarningFrame;
 
 public class ModifyButton extends JButton implements ActionListener{
 	ProductManagementJFrame mainFrame;
@@ -30,16 +28,16 @@ public class ModifyButton extends JButton implements ActionListener{
 		
 		try {
 			BufferedImage bufferedfixBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/수정 시작 버튼.png"));
-			Image fixBtnImage = bufferedfixBtnImage.getScaledInstance(130,65, Image.SCALE_SMOOTH);
+			Image fixBtnImage = bufferedfixBtnImage.getScaledInstance(180,80, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(fixBtnImage));
-			setBounds(880, 620, 130, 65);
+			setBounds(760, 675, 180, 80);
 			
 			setBorderPainted(false);
 			setContentAreaFilled(false);
 			setFocusPainted(false);
 			
 			BufferedImage bufferedBtnClickImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/수정 시작 버튼 클릭.png"));
-			Image btnClickImage = bufferedBtnClickImage.getScaledInstance(130,65, Image.SCALE_SMOOTH);
+			Image btnClickImage = bufferedBtnClickImage.getScaledInstance(180,80, Image.SCALE_SMOOTH);
 			Icon btnClickIcon = new ImageIcon(btnClickImage);
 			setPressedIcon(btnClickIcon);
 		} catch (IOException e1) {
@@ -62,12 +60,12 @@ public class ModifyButton extends JButton implements ActionListener{
 			Connection conn = OjdbcConnection.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql1);			
 		){
+			mainFrame.modifyBtn.setEnabled(false);
+			mainFrame.setEnabled(false);
 			
 			if (!table.getSelected()) {
-				JOptionPane.showMessageDialog(null, "수정할 메뉴를 선택해주세요", 
-						"Message", JOptionPane.INFORMATION_MESSAGE);
+				new ModifyWarningFrame(mainFrame).setVisible(true);
 			} else {
-				mainFrame.setEnabled(false);
 				ModifyFrame frame = new ModifyFrame(mainFrame);
 				
 				pstmt.setInt(1, table.getMenuNumber());
@@ -82,12 +80,12 @@ public class ModifyButton extends JButton implements ActionListener{
 					if (categoryNum == 2) {
 						frame.panel.coffee.setSelected(true);
 					} else if (categoryNum == 3) {
-						frame.panel.nonCoffee.setSelected(true);
-					} else if (categoryNum == 4) {
-						frame.panel.ade.setSelected(true);
-					} else {
 						frame.panel.frappe.setSelected(true);
-					};
+					} else if (categoryNum == 4) {
+						frame.panel.nonCoffee.setSelected(true);
+					} else if (categoryNum == 5) {
+						frame.panel.ade.setSelected(true);
+					} ;
 					
 					if (optionNum == 1) {
 						frame.panel.option1.setSelected(true);

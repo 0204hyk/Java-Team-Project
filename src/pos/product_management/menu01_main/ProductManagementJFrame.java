@@ -25,9 +25,9 @@ import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.PosFrame;
+import pos.product_management.menu01_main.component.AddButton;
 import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu01_main.component.ModifyButton;
-import pos.product_management.menu02_add.MenuAddFrame;
 import pos.product_management.menu04_delete.DeleteCheckPanel;
 import pos.product_management.menu04_delete.component.CancelBtn;
 
@@ -40,8 +40,11 @@ public class ProductManagementJFrame extends JFrame {
 	PosFrame p;
 	CancelBtn cBtn;
 	DeleteCheckPanel dcp;
+	public AddButton addBtn = new AddButton(this);
+	public ModifyButton modifyBtn = new ModifyButton(this);
+	public static JButton deleteBtn;
 	
-	public ProductManagementJFrame() throws IOException, SQLException {
+	public ProductManagementJFrame() {
 
 		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상단 메뉴바.png", 1200, 60));
@@ -104,30 +107,30 @@ public class ProductManagementJFrame extends JFrame {
 
 
 	// 라벨로 이미지 붙이는 메서드
-	public static JLabel labelImage(String image, int a, int b, int c, int d) throws IOException {
+	public static JLabel labelImage(String image, int a, int b, int c, int d) {
 		JLabel l = new JLabel();
-		BufferedImage bufferedlImage = ImageIO.read(new File(image));
-		Image lImage = bufferedlImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
-		l.setIcon(new ImageIcon(lImage));
-		l.setBounds(a, b, c, d);
+		try {
+			BufferedImage bufferedlImage = ImageIO.read(new File(image));
+			Image lImage = bufferedlImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
+			l.setIcon(new ImageIcon(lImage));
+			l.setBounds(a, b, c, d);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		return l;
-
 	}
 
 	// 상품목록에 있는 버튼들
-	public JButton buttons() throws IOException, SQLException {
+	public JButton buttons() {
 		JButton serchBtn = btnImage("images/PosImages/상품 관리 이미지/검색 버튼.png", 
-				"images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,95,50);
+				"images/PosImages/상품 관리 이미지/검색 버튼 클릭.png",  910,100,120,50);
 
 		JButton backBtn = btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png",
-				"images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 20, 680, 120, 65);
+				"images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 45, 675, 180, 80);
 
-		JButton deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
-				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 1027, 620, 130, 65);
-
-		JButton addBtn = btnImage("images/PosImages/상품 관리 이미지/추가 시작 버튼.png",
-				"images/PosImages/상품 관리 이미지/추가 시작 버튼 클릭.png", 733, 620, 130, 65);
+		deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
+				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 980, 675, 180, 80);
 
 
 		// 검색 버튼
@@ -135,20 +138,16 @@ public class ProductManagementJFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				try {
-					if (serch().getText() == null) {
-						mj.setVisible(true);
-					}
-					else {
-						mj.setVisible(false);
-						MenuListJTable.contents.setNumRows(0);
-						mj = new MenuListJTable(serchMenu(serch().getText()));
-						add(mj);
-					};
-
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				if (serch().getText() == null) {
+					mj.setVisible(true);
 				}
+				else {
+					mj.setVisible(false);
+					MenuListJTable.contents.setNumRows(0);
+					mj = new MenuListJTable(serchMenu(serch().getText()));
+					add(mj);
+				};
+
 			}
 		});
 
@@ -157,20 +156,16 @@ public class ProductManagementJFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					if (serch().getText() == null) {
-						mj.setVisible(true);
-					}
-					else {
-						mj.setVisible(false);
-						MenuListJTable.contents.setNumRows(0);
-						mj = new MenuListJTable(serchMenu(serch().getText()));
-						add(mj);
-					};
-
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				
+				if (serch().getText() == null) {
+					mj.setVisible(true);
 				}
+				else {
+					mj.setVisible(false);
+					MenuListJTable.contents.setNumRows(0);
+					mj = new MenuListJTable(serchMenu(serch().getText()));
+					add(mj);
+				};
 
 			}
 		});
@@ -184,58 +179,27 @@ public class ProductManagementJFrame extends JFrame {
 				serchText = new JTextField("키워드를 입력해주세요");
 
 				dispose();
-				
 				MenuListJTable table = null;
-				try {
-					table = new MenuListJTable(allMenu());
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				table = new MenuListJTable(allMenu());
 				table.contents.setNumRows(0);
-				
-				
 
 			}
 		});
 
 		// 삭제 버튼
-		deleteBtn.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				try {
-					mj.delete();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-			}
+		deleteBtn.addActionListener(new ActionListener() {
 			
-		});				
-
-		// 추가 버튼
-		addBtn.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				try {
-					new MenuAddFrame();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+				mj.delete();
 			}
-		});
+		});				
 		
 		add(serchBtn);
 		add(backBtn);
-		add(deleteBtn);
-		add(new ModifyButton(this));
 		add(addBtn);
+		add(modifyBtn);
+		add(deleteBtn);
 
 		setUndecorated(true);
 		setLayout(null);
@@ -246,37 +210,40 @@ public class ProductManagementJFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 
-		return addBtn;
+		return deleteBtn;
 	}
 
 
 
 	// 버튼에 이미지 붙이는 메서드
-	public static JButton btnImage(String image, String clickImage, int a, int b, int c, int d) throws IOException {
-
+	public static JButton btnImage(String image, String clickImage, int a, int b, int c, int d) {
 		JButton btn = new JButton();
-		BufferedImage bufferedBtnImage = ImageIO.read(new File(image));
-		Image btnImage = bufferedBtnImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
-		btn.setIcon(new ImageIcon(btnImage));
-		btn.setBounds(a, b, c, d);
-
-		btn.setBorderPainted(false);
-		btn.setContentAreaFilled(false);
-		btn.setFocusPainted(false);
-
-		BufferedImage bufferedBtnClickImage = ImageIO.read(new File(clickImage));
-		Image btnClickImage = bufferedBtnClickImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
-		Icon btnClickIcon = new ImageIcon(btnClickImage);
-
-		btn.setPressedIcon(btnClickIcon);
-
-
+		try {
+			BufferedImage bufferedBtnImage = ImageIO.read(new File(image));
+			Image btnImage = bufferedBtnImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
+			btn.setIcon(new ImageIcon(btnImage));
+			btn.setBounds(a, b, c, d);
+			
+			btn.setBorderPainted(false);
+			btn.setContentAreaFilled(false);
+			btn.setFocusPainted(false);
+			
+			BufferedImage bufferedBtnClickImage = ImageIO.read(new File(clickImage));
+			Image btnClickImage = bufferedBtnClickImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
+			Icon btnClickIcon = new ImageIcon(btnClickImage);
+			
+			btn.setPressedIcon(btnClickIcon);
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return btn;
 	}
 
 
 
-	public static void main(String[] args) throws IOException, SQLException {
+	public static void main(String[] args) {
 		new ProductManagementJFrame();
 	}
 

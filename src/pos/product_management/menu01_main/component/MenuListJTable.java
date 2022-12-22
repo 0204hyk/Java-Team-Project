@@ -63,16 +63,19 @@ public class MenuListJTable extends JTable{
 	
 	
 	// JTable 선택값 삭제 메서드
-	public void delete() throws IOException, SQLException {
+	public void delete() {
 
 		int index = table.getSelectedRow();
+		
 		if(index < 0){
 			// 아무것도 선택 안하면 뜨는 창
 			new NotSelectedFrame();
+			ProductManagementJFrame.deleteBtn.setEnabled(false);
 		}else{
 			// 삭제 메뉴 확인 창
 			
 			new DeleteFrame();
+			ProductManagementJFrame.deleteBtn.setEnabled(false);
 			table.setEnabled(false);
 
 		}
@@ -104,7 +107,7 @@ public class MenuListJTable extends JTable{
 
 
 	// JTable로 DB값 불러오는 메서드
-	public MenuListJTable(String sqlCondition) throws SQLException {
+	public MenuListJTable(String sqlCondition) {
 
 		String sql = sqlCondition;
 
@@ -149,14 +152,15 @@ public class MenuListJTable extends JTable{
 				public void mouseClicked(MouseEvent e) {					
 					menuName = (table.getValueAt(table.getSelectedRow(), 1)).toString();
 				}
-
+				
 			});
-
-			scroll.setBounds(0, 0, 1100, 400);
+			
+			scroll.setBounds(0, 0, 1100, 435);
 
 			// 테이블 수정 불가하게 설정
 			table.getTableHeader().setReorderingAllowed(false);
 			table.getTableHeader().setResizingAllowed(false);
+			
 			
 			// 테이블 내용 가운데 정렬하기
 			DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer(); 
@@ -169,17 +173,16 @@ public class MenuListJTable extends JTable{
 				tcm.getColumn(i).setCellRenderer(dtcr);
 			}
 
-			//		      //특정 열에 지정
-			//		      tcm.getColumn(0).setCellRenderer(dtcr);  
-			//		      tcm.getColumn(4).setCellRenderer(dtcr);
 
 
 
 			table.setLayout(null);
-			setBounds(48, 190, 1100, 400);
+			setBounds(48, 190, 1100, 435);
 			add(scroll);
 			setLayout(null);
 			setVisible(true);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
 		}
 	}
 

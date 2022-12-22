@@ -18,7 +18,6 @@ import pos.gje.ReceiptCheck.refund.RefundFrame;
 public class RefundButton extends JButton implements ActionListener {
 	
 	public RefundButton() {
-
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/영수증 조회 이미지/환불 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(250, 80, Image.SCALE_SMOOTH); // 크기 조정

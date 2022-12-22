@@ -6,18 +6,28 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.product_management.menu01_main.ProductManagementJFrame;
+import pos.product_management.menu01_main.component.MenuListJTable;
+import pos.product_management.menu03_modify.ModifyFrame;
 import pos.product_management.menu03_modify.message_frame.ModifyMessageFrame;
 
 public class OkBtn extends JButton implements ActionListener{
-	ModifyMessageFrame f;
 	
-	public OkBtn(ModifyMessageFrame f) {
-		this.f = f;
+	ProductManagementJFrame f1;
+	ModifyFrame f2;
+	ModifyMessageFrame f3;
+	
+	public OkBtn(ProductManagementJFrame f1, ModifyFrame f2, ModifyMessageFrame f3) {
+		this.f1 = f1;
+		this.f2 = f2;
+		this.f3 = f3;
+		
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png"));
 			Image scaledImage = bufferedImage.getScaledInstance(120, 60, Image.SCALE_SMOOTH); // 크기 조정
@@ -41,7 +51,11 @@ public class OkBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		f.dispose();
-
+		f1.mj.contents.setRowCount(0);
+		f1.mj = new MenuListJTable(f1.allMenu());
+		f1.modifyBtn.setEnabled(true);
+		f1.setEnabled(true);
+		f3.dispose();
+		f2.dispose();
 	}
 }

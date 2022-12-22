@@ -20,12 +20,15 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.text.NumberFormatter;
 
+import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu02_add.MenuAddFrame;
 import pos.product_management.menu02_add.component.MenuAddButton;
 import pos.product_management.menu02_add.message_frame.AddFix;
+import pos.product_management.menu02_add.message_frame.MenuNameInput;
 
 public class AddBackgroundImagePanel extends JPanel{
 	
+	ProductManagementJFrame mainFrame;
 	MenuAddFrame frame;
 	
 	public JTextField nameField;
@@ -54,7 +57,8 @@ public class AddBackgroundImagePanel extends JPanel{
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}
 	
-	public AddBackgroundImagePanel(MenuAddFrame frame) {
+	public AddBackgroundImagePanel(ProductManagementJFrame mainFrame, MenuAddFrame frame) {
+		this.mainFrame = mainFrame;
 		this.frame = frame;
 		
 		setLayout(null); 
@@ -181,7 +185,7 @@ public class AddBackgroundImagePanel extends JPanel{
 		optionBtnGroup.add(option8);
 		
 		try {
-			MenuAddButton menuAddBtn = new MenuAddButton(this, new AddFix(frame));
+			MenuAddButton menuAddBtn = new MenuAddButton(frame, this, new AddFix(mainFrame, frame));
 			
 			JButton closeBtn = new JButton();
 			BufferedImage bufferedcloseBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/닫기 버튼.png"));
@@ -194,6 +198,8 @@ public class AddBackgroundImagePanel extends JPanel{
 			closeBtn.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					mainFrame.addBtn.setEnabled(true);
+					mainFrame.setEnabled(true);
 					frame.dispose();
 				}
 			});

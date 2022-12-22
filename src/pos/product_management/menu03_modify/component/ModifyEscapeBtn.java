@@ -38,6 +38,7 @@ public class ModifyEscapeBtn extends JButton implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		mainFrame.modifyBtn.setEnabled(true);
 		mainFrame.setEnabled(true);
 		modifyFrame.dispose();
 	}
