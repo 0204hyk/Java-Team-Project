@@ -103,6 +103,33 @@ public class Options extends JFrame {
 				GetImageInfo gi = new GetImageInfo(menu);
 				int howManyNull = Collections.frequency(getOptionText(), null);
 				int categoryNum = gi.getMenuOptionCategory();
+				int optionPrice = 0;
+
+				// 디카페인
+				if (getOptionText().get(1) == "2") {
+					optionPrice += 1000;
+				}
+
+				// 사이즈
+				if (getOptionText().get(3) == "2") {
+					optionPrice += 500;
+				} else if (getOptionText().get(3) == "3") {
+					optionPrice += 1000;
+				}
+
+				// 샷
+				if (getOptionText().get(4) == "2") {
+					optionPrice += 300;
+				} else if (getOptionText().get(4) == "3") {
+					optionPrice += 600;
+				}
+
+				// 우유
+				if (getOptionText().get(6) == "2") {
+					optionPrice += 300;
+				} else if (getOptionText().get(6) == "3") {
+					optionPrice += 300;
+				}
 
 				if (hotAndIce == null) {
 					hotAndIce = "3";
@@ -112,9 +139,11 @@ public class Options extends JFrame {
 						|| categoryNum == 3 && howManyNull != 1 || categoryNum == 4 && howManyNull != 2
 						|| categoryNum == 5 && howManyNull != 5 || categoryNum == 6 && howManyNull != 4
 						|| categoryNum == 7 && howManyNull != 1 || categoryNum == 8 && howManyNull != 4) {
-					JFrame alert = new JFrame();
-					JButton confirm = wi.makeButton("confirm.png", 149, 131, 80, 41);
 					
+					JFrame alert = new JFrame();
+					
+					JButton confirm = wi.makeButton("confirm.png", 149, 131, 80, 41);
+
 					confirm.addActionListener(new ActionListener() {
 
 						@Override
@@ -122,7 +151,7 @@ public class Options extends JFrame {
 							alert.dispose();
 						}
 					});
-					
+
 					alert.add(confirm);
 					alert.add(wi.makeLabel("pleaseSelectAll.png", 0, 0, 379, 213));
 					alert.setUndecorated(true);
@@ -133,7 +162,7 @@ public class Options extends JFrame {
 				} else {
 
 					AMenu menuPn = new AMenu(menu, cupText,
-							hotAndIce.equals("1") ? "ICE" : hotAndIce.equals("2") ? "HOT" : "ICE ONLY");
+							hotAndIce.equals("1") ? "ICE" : hotAndIce.equals("2") ? "HOT" : "ICE ONLY", optionPrice);
 					frame.makeMenu(menuPn);
 
 					frame.setVisible(true);

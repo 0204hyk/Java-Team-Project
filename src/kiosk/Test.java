@@ -39,7 +39,7 @@ public class Test {
 //		}
 		
 		
-		JPanel a = new AMenu("아메리카노", new Cups(),"ICE");
+		JPanel a = new AMenu("아메리카노", new Cups(),"ICE", 2000);
 		a.setSize(505, 41);
 		a.setBackground(Color.white);
 		a.setOpaque(false);

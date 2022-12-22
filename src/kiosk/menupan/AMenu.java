@@ -27,7 +27,7 @@ public class AMenu extends JPanel {
 	static int num = 0;
 
 	// 장바구니에 한 줄씩 들어감, Options에서 만든 cup을 가져온다
-	public AMenu(String menu, Cups cup, String temparature) {
+	public AMenu(String menu, Cups cup, String temparature, int optionPrice) {
 		this.menu = menu;
 		this.temparature = temparature;
 		this.cup = cup;
@@ -48,7 +48,7 @@ public class AMenu extends JPanel {
 		menuNamelb.setBounds(x + 45, y + 5, 270, 32);
 
 		// 가격
-		String price = df.format(gi.getMenuPrice() * cup.getCup()) + "원";
+		String price = df.format((optionPrice + gi.getMenuPrice()) * cup.getCup()) + "원";
 		JLabel menuPricelb = new JLabel(price);
 		menuPricelb.setHorizontalAlignment(JLabel.RIGHT);
 		menuPricelb.setFont(new Font("맑은 고딕", Font.PLAIN, 14));
@@ -72,7 +72,7 @@ public class AMenu extends JPanel {
 					cup.setCup(99);
 				}
 				cups.setText(cup.cup + "잔");
-				menuPricelb.setText(df.format(gi.getMenuPrice() * cup.cup) + "원");
+				menuPricelb.setText(df.format((optionPrice + gi.getMenuPrice()) * cup.cup) + "원");
 
 			}
 		});
@@ -89,7 +89,7 @@ public class AMenu extends JPanel {
 					cup.setCup(1);
 				}
 				cups.setText(cup.cup + "잔");
-				menuPricelb.setText(df.format(gi.getMenuPrice() * cup.cup) + "원");
+				menuPricelb.setText(df.format((optionPrice + gi.getMenuPrice()) * cup.cup) + "원");
 			}
 		});
 

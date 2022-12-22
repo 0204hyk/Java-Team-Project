@@ -26,12 +26,12 @@ public class PanelsByCategory extends JPanel {
 			}
 		}
 		//550
-		scroll.setBounds(74, 212, 503, 308);
+		scroll.setBounds(74, 212, 503, 508);
 		scroll.getViewport().setBackground(Color.WHITE);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scroll.setBorder(null);
 		add(scroll);
-//		setBounds(74, 212, 503, 308);
+		setBounds(74, 212, 503, 508);
 		setLayout(null);
 		setBackground(Color.WHITE);
 		setBorder(null);
