@@ -12,26 +12,22 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import pos.ImageScaledTool;
 import pos.sales_summary.chart.DayChart;
 import pos.sales_summary.main.SalesDayCheckMain;
 
 public class DayBtn extends JButton implements ActionListener{
 	
+	ImageScaledTool tool = new ImageScaledTool();
+	
 	public DayBtn() {
+
+		setIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/매출 요약 이미지/일 매출.png", 300, 300)));
 		
-		try {
-			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/매출 요약 이미지/일 매출.png"));
-			Image scaledImage = bufferedImage.getScaledInstance(300, 300, Image.SCALE_SMOOTH); // 크기 조정
-			setIcon(new ImageIcon(scaledImage));
-			
-			BufferedImage bufferedImage2 = ImageIO.read(new File("images/PosImages/매출 요약 이미지/일 매출 클릭.png"));
-			Image scaledImage2 = bufferedImage2.getScaledInstance(300, 300, Image.SCALE_SMOOTH); // 크기 조정
-			ImageIcon img = new ImageIcon(scaledImage2);
-			setPressedIcon(img);
-			
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
+		setPressedIcon(new ImageIcon(tool.getScaledImage(
+				"images/PosImages/매출 요약 이미지/일 매출 클릭.png", 300, 300)));
+		
 		
 		addActionListener(this);
 		setBounds(75, 290, 300, 300); // 위치 및 사이즈 조절
