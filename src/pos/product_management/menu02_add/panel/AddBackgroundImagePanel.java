@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +28,6 @@ import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu02_add.MenuAddFrame;
 import pos.product_management.menu02_add.component.MenuAddButton;
 import pos.product_management.menu02_add.message_frame.AddFix;
-import pos.product_management.menu02_add.message_frame.MenuNameInput;
 
 public class AddBackgroundImagePanel extends JPanel{
 		
@@ -78,6 +79,12 @@ public class AddBackgroundImagePanel extends JPanel{
 			public void keyTyped(KeyEvent ke) {
 				JFormattedTextField pf = (JFormattedTextField)ke.getSource();
 				if (pf.getText().length() >= 5) ke.consume();
+			}
+		});
+		priceField.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				priceField.setText("");
 			}
 		});
 
