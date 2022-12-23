@@ -46,7 +46,8 @@ public class MonthChart extends JPanel {
 				+ "FROM sales_management INNER JOIN sales "
 				+ "USING (sales_number) "
 				+ "WHERE TO_CHAR(saledate, 'YYYYMM') = ?"
-				+ "GROUP BY to_char(saledate, 'YYYY-MM-DD')";
+				+ "GROUP BY to_char(saledate, 'YYYY-MM-DD')"
+				+ "ORDER BY to_char(saledate, 'YYYY-MM-DD')";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();

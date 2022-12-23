@@ -34,10 +34,10 @@ public class TotalPanel extends JPanel {
 		this.year = year;
 
 		// 해당 년의 합계
-		String sql = "SELECT to_char(sum(price) - sum(used_point), '999,999,999') AS total "
+		String sql = "SELECT NVL(to_char(sum(price) - sum(used_point), '999,999,999'), 0) AS total "
 				+ "FROM sales INNER JOIN sales_management USING(sales_number) "
 				+ "WHERE to_char(saledate, 'YYYY') = ?";
-		try (
+		try ( 
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				) {
@@ -45,6 +45,8 @@ public class TotalPanel extends JPanel {
 			try (ResultSet rs = pstmt.executeQuery()) {
 				if (rs.next()) {
 					text.setText(rs.getString("total")+"원");
+				} else {
+					text.setText("0원");
 				}
 			}
 		} catch (SQLException e) {
@@ -59,7 +61,7 @@ public class TotalPanel extends JPanel {
 		hap = year + month;
 
 		// 해당 월의 합계 sql문
-		String sql = "SELECT to_char(sum(price) - sum(used_point), '999,999,999') AS total "
+		String sql = "SELECT NVL(to_char(sum(price) - sum(used_point), '999,999,999'), 0) AS total "
 				+ "FROM sales INNER JOIN sales_management USING(sales_number) "
 				+ "WHERE to_char(saledate, 'YYYYMM') = ?";
 
@@ -90,7 +92,7 @@ public class TotalPanel extends JPanel {
 
 		// 해당 일의 합계 sql문
 
-		String sql = "SELECT to_char(sum(price) - sum(used_point), '999,999,999') AS total "
+		String sql = "SELECT NVL(to_char(sum(price) - sum(used_point), '999,999,999'), 0) AS total "
 				+ "FROM sales INNER JOIN sales_management USING(sales_number) "
 				+ "WHERE to_char(saledate, 'YYYYMMDD') = ? "
 				+ "AND to_char(saledate, 'HH24') BETWEEN 10 AND 21";
