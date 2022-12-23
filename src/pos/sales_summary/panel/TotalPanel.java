@@ -19,7 +19,7 @@ public class TotalPanel extends JPanel {
 	public static JLabel text = new JLabel();
 
 	public TotalPanel() {
-		setBounds(800, 592, 310, 45);
+		setBounds(900, 592, 200, 45);
 		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
 		add(text);
 	}
@@ -86,11 +86,12 @@ public class TotalPanel extends JPanel {
 		hap = year + month + day;
 
 		// 해당 일의 합계 sql문
+
 		String sql = "SELECT to_char(sum(price), '999,999,999') as total "
 				+ "FROM sales_management INNER JOIN sales "
 				+ "USING (sales_number) "
 				+ "WHERE to_char(saledate, 'YYYYMMDD') = ? "
-				+ "GROUP BY to_char(saledate, 'YYYYMMDD')"; 
+				+ "GROUP BY to_char(saledate, 'YYYYMMDD')";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();

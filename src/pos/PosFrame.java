@@ -55,4 +55,5 @@ public class PosFrame extends JFrame {
 		setVisible(true);
 
 	}
+	
 }
