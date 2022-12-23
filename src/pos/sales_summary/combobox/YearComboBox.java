@@ -44,8 +44,7 @@ public class YearComboBox extends JComboBox  {
 				dayTable.model.setNumRows(0);
 				YearChart chart = new YearChart();
 				chart.dataset.clear();
-				TotalPanel total = new TotalPanel();
-				total.text.setText("");
+			
 				
 				
 			}
