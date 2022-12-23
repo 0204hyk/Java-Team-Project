@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.swing.JPanel;
@@ -119,10 +120,12 @@ public class MenuListJTable extends JTable{
 
 			while (rs.next()) {
 
+				DecimalFormat formatter = new DecimalFormat("###,###");
+				
 				contents.addRow(new Object[] {
 						rs.getInt("menu_number"),
 						rs.getString("menu_name"),
-						rs.getInt("price")
+						formatter.format(rs.getInt("price"))
 				});
 
 			}

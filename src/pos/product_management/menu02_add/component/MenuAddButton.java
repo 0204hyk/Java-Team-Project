@@ -62,7 +62,7 @@ public class MenuAddButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 				// 메뉴 넘버, 메뉴 이름, 영어 이름, 카테고리 넘버, 옵션 카테고리 넘버, 이미지 경로,가격 순
-		String query = "INSERT INTO menu VALUES ((SELECT MAX(menu_number)+1 FROM menu m),?, null, ?,?,'images/KioskImages/menu/defaultimage.png',?)";
+		String query = "INSERT INTO menu VALUES ((SELECT MAX(menu_number)+1 FROM menu m),?, null, ?, ?, null, ?)";
 		
 		try (
 			Connection conn = OjdbcConnection.getConnection();
