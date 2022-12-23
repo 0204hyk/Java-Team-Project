@@ -48,6 +48,8 @@ public class CheckMenuByCategories {
 	}
 
 	public static void main(String[] args) {
-		CheckMenuByCategories cc = new CheckMenuByCategories(4);
+		CheckMenuByCategories cc = new CheckMenuByCategories(2);
+		
+		
 	}
 }
