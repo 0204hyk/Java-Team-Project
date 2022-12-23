@@ -18,12 +18,14 @@ import pos.product_management.menu04_delete.message_frame.OkFrame;
 
 public class OkBtn extends JButton implements ActionListener{
 	// 삭제하시겠습니까 확인 버튼
+	ProductManagementJFrame mainFrame;
 	DeleteFrame f;
-	OkFrame f2;
+//	OkFrame f2;
 	
-	public OkBtn(DeleteFrame f, OkFrame f2) {
+	public OkBtn(ProductManagementJFrame mainFrame, DeleteFrame f) {
+		this.mainFrame = mainFrame;
 		this.f = f;
-		this.f2 = f2;
+//		this.f2 = f2;
 		
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png"));
@@ -39,25 +41,7 @@ public class OkBtn extends JButton implements ActionListener{
 			e1.printStackTrace();
 		}
 		
-		addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ProductManagementJFrame.deleteBtn.setEnabled(true);
-				f.dispose();
-				MenuListJTable.table.setEnabled(true);
-				// 디비에서 데이터 없애기
-				MenuListJTable.deleteDB(MenuListJTable.menuName);
-				
-				// JTable에서 선택행 삭제하기
-				int index = MenuListJTable.table.getSelectedRow();
-				MenuListJTable.contents.removeRow(index);
-//				new OkFrame();
-				
-				f2.setVisible(true);
-				
-				
-			}
-		});
+		addActionListener(this);
 			
 		
 		setBounds(110, 160, 120, 60);
@@ -69,11 +53,17 @@ public class OkBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
-		ProductManagementJFrame.deleteBtn.setEnabled(true);
-		MenuListJTable.table.setEnabled(true);
+		mainFrame.setEnabled(true);
+		mainFrame.deleteBtn.setEnabled(true);
+		MenuListJTable.deleteDB(MenuListJTable.menuName);
+		
+		// JTable에서 선택행 삭제하기
+		int index = MenuListJTable.table.getSelectedRow();
+		MenuListJTable.contents.removeRow(index);
 		f.dispose();
-		new OkFrame();
+		new OkFrame(mainFrame);
+		mainFrame.setEnabled(false);
+		mainFrame.deleteBtn.setEnabled(false);
 	}
 	
 }

@@ -4,17 +4,19 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
+import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu04_delete.component.CancelBtn;
 import pos.product_management.menu04_delete.component.OkBtn;
 import pos.product_management.menu04_delete.message_frame.OkFrame;
 
 public class DeleteFrame extends JFrame{
 	
-	public DeleteFrame() {
-
+	ProductManagementJFrame mainFrame;
+	public DeleteFrame(ProductManagementJFrame mainFrame) {
+		this.mainFrame = mainFrame;
 		
-		add(new OkBtn(this, new OkFrame()));
-		add(new CancelBtn(this));
+		add(new OkBtn(mainFrame, this));
+		add(new CancelBtn(mainFrame, this));
 		add(new DeleteCheckPanel());
 		
 		setSize(500, 250);

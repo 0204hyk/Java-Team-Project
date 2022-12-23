@@ -16,10 +16,12 @@ import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu04_delete.DeleteFrame;
 
 public class CancelBtn extends JButton implements ActionListener{
-
+	
+	ProductManagementJFrame mainFrame;
 	DeleteFrame f;
 	
-	public CancelBtn(DeleteFrame f) {
+	public CancelBtn(ProductManagementJFrame mainFrame, DeleteFrame f) {
+		this.mainFrame = mainFrame;
 		this.f = f;
 		
 		try {
@@ -46,9 +48,8 @@ public class CancelBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
-		ProductManagementJFrame.deleteBtn.setEnabled(true);
-		MenuListJTable.table.setEnabled(true);
+		mainFrame.setEnabled(true);
+		mainFrame.deleteBtn.setEnabled(true);
 		f.dispose();
 	}
 }

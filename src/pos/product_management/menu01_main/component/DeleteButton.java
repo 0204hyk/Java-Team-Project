@@ -24,16 +24,16 @@ public class DeleteButton extends JButton implements ActionListener{
 		
 		try {
 			BufferedImage bufferedfixBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/삭제 버튼.png"));
-			Image fixBtnImage = bufferedfixBtnImage.getScaledInstance(130,65, Image.SCALE_SMOOTH);
+			Image fixBtnImage = bufferedfixBtnImage.getScaledInstance(180,80, Image.SCALE_SMOOTH);
 			setIcon(new ImageIcon(fixBtnImage));
-			setBounds(1027, 620, 130, 65);
+			setBounds(980, 675, 180, 80);
 			
 			setBorderPainted(false);
 			setContentAreaFilled(false);
 			setFocusPainted(false);
 			
 			BufferedImage bufferedBtnClickImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png"));
-			Image btnClickImage = bufferedBtnClickImage.getScaledInstance(130,65, Image.SCALE_SMOOTH);
+			Image btnClickImage = bufferedBtnClickImage.getScaledInstance(180,80, Image.SCALE_SMOOTH);
 			Icon btnClickIcon = new ImageIcon(btnClickImage);
 			setPressedIcon(btnClickIcon);
 		} catch (IOException e1) {
@@ -46,10 +46,15 @@ public class DeleteButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		mainFrame.setEnabled(false);
-		
-		new NotSelectedFrame();
-		new DeleteFrame();
+		if (!mainFrame.mj.getSelected()) {
+			mainFrame.setEnabled(false);
+			mainFrame.deleteBtn.setEnabled(false);
+			new NotSelectedFrame(mainFrame);			
+		} else {
+			mainFrame.setEnabled(false);
+			mainFrame.deleteBtn.setEnabled(false);
+			new DeleteFrame(mainFrame);			
+		}
 	}
 
 }

@@ -66,23 +66,24 @@ public class MenuListJTable extends JTable{
 	
 	
 	// JTable 선택값 삭제 메서드
-	public void delete() {
-
-		int index = table.getSelectedRow();
-		
-		if(index < 0){
-			// 아무것도 선택 안하면 뜨는 창
-			new NotSelectedFrame();
-			ProductManagementJFrame.deleteBtn.setEnabled(false);
-		}else{
-			// 삭제 메뉴 확인 창
-			
-			new DeleteFrame();
-			ProductManagementJFrame.deleteBtn.setEnabled(false);
-			table.setEnabled(false);
-
-		}
-	}
+//	public void delete() {
+//
+//		int index = table.getSelectedRow();
+//		
+//		if(index < 0){
+//			// 아무것도 선택 안하면 뜨는 창
+//			p.setEnabled(false);
+//			new NotSelectedFrame(p);
+//			p.deleteBtn.setEnabled(false);
+//		}else{
+//			// 삭제 메뉴 확인 창
+//			
+//			new DeleteFrame();
+//			p.deleteBtn.setEnabled(false);
+//			table.setEnabled(false);
+//
+//		}
+//	}
 
 	// 선택된 메뉴 DB에서 삭제하는 메서드
 	public static void deleteDB(String keyword) {
