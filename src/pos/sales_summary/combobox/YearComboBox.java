@@ -25,7 +25,8 @@ public class YearComboBox extends JComboBox  {
 	// 매출요약 년도 콤보박스 생성.
 	Calendar now = Calendar.getInstance();
 	int year = now.get(Calendar.YEAR);
-	
+	TotalPanel total = new TotalPanel();
+	TitlePanel title = new TitlePanel();
 	public YearComboBox() {
 		for (int i = year - 10; i <= year; ++i) {
 			addItem(i);
@@ -34,7 +35,7 @@ public class YearComboBox extends JComboBox  {
 		setSelectedItem(year);
 		setBounds(90, 100, 100, 25);
 		
-		// 콤보박스 값 선택 시 table 리스트 초기화
+		// 콤보박스 값 선택 시 table 리스트 초기화, Chart 초기화
 		addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
@@ -50,7 +51,8 @@ public class YearComboBox extends JComboBox  {
 				monthChart.dataset.clear();
 				DayChart dayChart = new DayChart();
 				dayChart.dataset.clear();
-				
+				title.text.setText("");
+				total.text.setText("");
 				
 			}
 		});
