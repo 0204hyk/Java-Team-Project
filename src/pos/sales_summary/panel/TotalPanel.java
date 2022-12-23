@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import database.OjdbcConnection;
@@ -16,12 +18,13 @@ public class TotalPanel extends JPanel {
 	String day;
 	String hap;
 
+	
 	public static JLabel text = new JLabel();
 
 	public TotalPanel() {
+
 		setBounds(900, 592, 200, 45);
 		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
-	
 		add(text);
 	}
 
@@ -104,6 +107,7 @@ public class TotalPanel extends JPanel {
 				) {
 			pstmt.setString(1, hap);
 			try (ResultSet rs = pstmt.executeQuery()) {
+			
 				if (rs.next()) {
 					text.setText(rs.getString("total")+"원");
 				} else  {
