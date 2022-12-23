@@ -43,11 +43,13 @@ public class List {
 	static ArrayList<String> mem_number = new ArrayList<>(); //멤버십 정보
 	static ArrayList<String> options = new ArrayList<>(); // 옵션 번호 
 	
-	
+
 	
 	
 	String sales_date, sales_number, menu_name;
 	int menu_qty, total_price, menu_price, point;
+	
+	String tem, caf, tum, size, shot, ice, milk;
 	
 	
 	public List() {	}
@@ -113,6 +115,7 @@ public class List {
 			public void mouseClicked(MouseEvent e) {
 				total_price = 0;
 				options.clear();
+				tem = "";
 				
 				int num = (int)(table.getValueAt(table.getSelectedRow(), 0)) - 1;
 				
@@ -152,34 +155,53 @@ public class List {
 			while (rs.next()) {
 				// 영수증에 관한 값을 List에 저장 (현재 영수증 테이블에 값이 없엉서 멤버십 테이블로 대신함)
 				ResultSetMetaData metadata = rs.getMetaData();
-				while (rs.next()) {
+				while (rs.next()) {	
 
 					menu_name = rs.getString("menu_name");
 					menu_qty = rs.getInt("menu_qty");
 					menu_price = rs.getInt("price") * menu_qty;
+				
+					// 처음에 메뉴 개수나 옵션 개수가 몇 개인지 몰라서 list로 받음 
 					options.add(rs.getInt("menu_options") + "");
 					
+					String[] options1 = new String[options.size()];
+					String[] option = new String[7];
 					
+					// list를 배열로 저장 
 					for (int i = 0; i < options.size(); i++) {
-						System.out.println(options.get(i));
-						
-					
-						
+						options1[i] = options.get(i).substring(0, 1);
 					}
-					
-					
-					
-				
-					if (menu_name.length() < 7) {
-						sb1.append("  " + menu_name + "\t\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
-						
-					}else {
-						sb1.append("  " + menu_name + "\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
-					}
-					
-					total_price += menu_price; 
 
+					for (int i = 0; i < options1.length; ++i) {
+						System.out.println("optins1[i] = " + options1[i]);
+					
+						
+						if (options1[i].equals("1")) {
+							tem = "(HOT)";
+						} else if (options1[i].equals("2")) {
+							tem = "(ICE)";
+						} else {
+							tem = "";
+						}
+					}
+					menu_name += tem;
+					String menu = String.format("  %-15s\t\t%2d\t%d\n", menu_name, menu_qty, menu_price);
+				
+					sb1.append(menu);
+					
+//					if (menu_name.length() < 9) {
+//							sb1.append("  " + menu_name + "\t\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
+//							
+//						}else {
+//							sb1.append("  " + menu_name + "\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
+//						}
+					
+					total_price += menu_price;
 				}
+				
+				 
+
+				
 			}
 		
 			int point = point_payment.get(num); 
@@ -231,11 +253,11 @@ public class List {
 				+ " =========================================="
 				);
 		
-		System.out.println(options);
+		
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(options);
+		//System.out.println(options);
 	}
 	
 
