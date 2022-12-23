@@ -45,7 +45,7 @@ public class ClosingButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new ClosingFrame(pos);
+		new ClosingFrame();
 	}
 	
 }

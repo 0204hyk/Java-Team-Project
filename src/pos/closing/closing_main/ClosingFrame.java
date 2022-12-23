@@ -23,11 +23,9 @@ public class ClosingFrame extends JFrame {
 	// 마감 파트 프레임
 	
 	// 마감하기 버튼
-	PosFrame pos;
 	public DoCloseButton doCloseBtn;
 	
-	public ClosingFrame(PosFrame pos) {
-		this.pos = pos;
+	public ClosingFrame() {
 		
 		// 상단 메뉴바 설정
 		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
@@ -93,7 +91,7 @@ public class ClosingFrame extends JFrame {
 		panelC.add(dateLabel);
 
 		// 마감하기 버튼 누르면 나오는 마감 확인 안내 프레임
-		ClosingMessageFrame messageFrame = new ClosingMessageFrame(pos, this);
+		ClosingMessageFrame messageFrame = new ClosingMessageFrame(this);
 		
 		// 마감하기 버튼
 		doCloseBtn = new DoCloseButton(this ,messageFrame);

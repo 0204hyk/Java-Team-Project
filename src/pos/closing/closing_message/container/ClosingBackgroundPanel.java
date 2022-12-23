@@ -14,7 +14,6 @@ import pos.closing.closing_message.component.ClosingRejectButton;
 
 public class ClosingBackgroundPanel extends JPanel {
 	// 마감확인안내창 배경 이미지 프레임
-	PosFrame pos;
 	ClosingFrame mainFrame;
 	ClosingMessageFrame frame;
 	Image background;
@@ -25,13 +24,13 @@ public class ClosingBackgroundPanel extends JPanel {
 		g.drawImage(background, 0, 0, d.width, d.height, null);		
 	}	
 	
-	public ClosingBackgroundPanel(PosFrame pos, ClosingFrame mainFrame, ClosingMessageFrame frame, Image background) {
+	public ClosingBackgroundPanel(ClosingFrame mainFrame, ClosingMessageFrame frame, Image background) {
 		this.background = background;
 		setSize(new Dimension(background.getWidth(null), background.getHeight(null)));
 		setLayout(null);
 		setSize(500, 250);
 		
-		ClosingAcceptButton acceptBtn = new ClosingAcceptButton(pos, mainFrame, frame);
+		ClosingAcceptButton acceptBtn = new ClosingAcceptButton(mainFrame, frame);
 		acceptBtn.setLocation(80, 140);
 
 		ClosingRejectButton rejectBtn = new ClosingRejectButton(mainFrame,frame);

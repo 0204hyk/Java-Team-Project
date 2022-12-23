@@ -20,12 +20,10 @@ import pos.kjh.LoginStart;
 
 public class ClosingAcceptButton extends JButton implements ActionListener {
 	// 마감 확인 안내 프레임의 "네" 버튼
-	PosFrame pos;
 	ClosingFrame mainFrame;
 	ClosingMessageFrame messageFrame;
 	
-	public ClosingAcceptButton(PosFrame pos, ClosingFrame mainFrame, ClosingMessageFrame messageFrame) {
-		this.pos = pos;
+	public ClosingAcceptButton(ClosingFrame mainFrame, ClosingMessageFrame messageFrame) {
 		this.mainFrame = mainFrame;
 		this.messageFrame = messageFrame;
 		try {
@@ -58,7 +56,5 @@ public class ClosingAcceptButton extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		messageFrame.dispose();
 		mainFrame.dispose();
-		pos.dispose();
-		new LoginSelectFrame();
 	}
 }

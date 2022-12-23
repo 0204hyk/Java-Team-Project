@@ -33,7 +33,7 @@ public class PosFrame extends JFrame {
 		ClosingButton closingBtn = new ClosingButton(this);
 		closingBtn.setLocation(805, 115);
 		
-		ExitMessageFrame exitFrame = new ExitMessageFrame();
+		ExitMessageFrame exitFrame = new ExitMessageFrame(this);
 		ExitButton exitBtn = new ExitButton(exitFrame);
 		exitBtn.setLocation(1125, 10);
 		

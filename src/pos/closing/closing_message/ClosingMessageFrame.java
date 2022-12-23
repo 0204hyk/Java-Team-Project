@@ -12,12 +12,10 @@ import pos.closing.closing_message.container.ClosingBackgroundPanel;
 
 public class ClosingMessageFrame extends JFrame {
 	// 마감 확인 안내창
-	PosFrame pos;
 	ClosingFrame mainFrame;
-	public ClosingMessageFrame(PosFrame pos, ClosingFrame mainFrame) {
-		this.pos = pos;
+	public ClosingMessageFrame(ClosingFrame mainFrame) {
 		this.mainFrame = mainFrame;
-		add(new ClosingBackgroundPanel(pos, mainFrame, this, ImageScaledTool.getScaledImage(
+		add(new ClosingBackgroundPanel(mainFrame, this, ImageScaledTool.getScaledImage(
 				"images/PosImages/마감 이미지/마감 확인 안내창.png", 500, 250)));
 		
 		setSize(500, 250);
