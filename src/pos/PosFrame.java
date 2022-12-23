@@ -30,7 +30,7 @@ public class PosFrame extends JFrame {
 		SalesSummaryButton salesSummaryBtn = new SalesSummaryButton();
 		salesSummaryBtn.setLocation(805, 405);
 		
-		ClosingButton closingBtn = new ClosingButton(this);
+		ClosingButton closingBtn = new ClosingButton();
 		closingBtn.setLocation(805, 115);
 		
 		ExitMessageFrame exitFrame = new ExitMessageFrame(this);
