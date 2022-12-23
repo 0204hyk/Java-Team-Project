@@ -39,5 +39,8 @@ public class SalesTypeMain extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
+	public static void main(String[] args) {
+		new SalesTypeMain();
+	}
 
 }

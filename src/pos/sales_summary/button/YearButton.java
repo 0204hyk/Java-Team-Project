@@ -26,7 +26,7 @@ public class YearButton extends JButton implements ActionListener{
 		setPressedIcon(new ImageIcon(tool.getScaledImage(
 				"images/PosImages/매출 요약 이미지/연 매출 클릭.png", 300, 300)));
 		addActionListener(this);
-		setBounds(825, 290, 300, 300); // 위치 및 사이즈 조절
+		setBounds(825, 265, 300, 300); // 위치 및 사이즈 조절
 		setContentAreaFilled(false);
 		setBorderPainted(false); 
 		setOpaque(false);

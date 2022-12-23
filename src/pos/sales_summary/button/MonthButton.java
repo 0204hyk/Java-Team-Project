@@ -27,7 +27,7 @@ public class MonthButton extends JButton implements ActionListener{
 				"images/PosImages/매출 요약 이미지/월 매출 클릭.png", 300, 300)));
 		
 		addActionListener(this);
-		setBounds(450, 290, 300, 300); // 위치 및 사이즈 조절
+		setBounds(450, 265, 300, 300); // 위치 및 사이즈 조절
 		setContentAreaFilled(false);
 		setBorderPainted(false); 
 		setOpaque(false);
