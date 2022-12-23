@@ -72,6 +72,7 @@ public class MenuAddButton extends JButton implements ActionListener{
 				pstmt.setString(1, panel.nameField.getText());				
 			} else {
 				new MenuNameInput(frame).setVisible(true);
+				panel.menuAddBtn.setEnabled(false);
 				frame.setEnabled(false);
 				return;
 			}
@@ -85,6 +86,7 @@ public class MenuAddButton extends JButton implements ActionListener{
 				pstmt.setInt(4, Integer.parseInt(result));								
 			} else {
 				new MenuPriceInput(frame).setVisible(true);
+				panel.menuAddBtn.setEnabled(false);
 				frame.setEnabled(false);
 				return;
 			}
@@ -122,6 +124,8 @@ public class MenuAddButton extends JButton implements ActionListener{
 
 			pstmt.executeUpdate();
 			additionalFrame.setVisible(true);
+			frame.setEnabled(false);
+			panel.menuAddBtn.setEnabled(false);
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}

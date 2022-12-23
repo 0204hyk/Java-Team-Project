@@ -20,7 +20,7 @@ public class OkFrame extends JFrame{
 		setLayout(null); 
 		setUndecorated(true);
 		setBackground(new Color(0, 0, 0, 0));
-		setVisible(true); 
+//		setVisible(true); 
 		setResizable(false); // 크기 조절 안되게
 		setLocationRelativeTo(null); // 가운데에 뜨게
 		setDefaultCloseOperation(EXIT_ON_CLOSE); 

@@ -32,8 +32,11 @@ import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 public class MenuAddFrame extends JFrame{
 	ProductManagementJFrame mainFrame;
 	
+	public AddBackgroundImagePanel panel;
+	
 	public MenuAddFrame(ProductManagementJFrame mainFrame) {
-		add(new AddBackgroundImagePanel(mainFrame, this));
+		panel = new AddBackgroundImagePanel(mainFrame, this);
+		add(panel);
 		
 		setUndecorated(true);
 		setSize(900, 550); // 프레임 사이즈

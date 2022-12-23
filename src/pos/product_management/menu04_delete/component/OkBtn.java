@@ -20,12 +20,12 @@ public class OkBtn extends JButton implements ActionListener{
 	// 삭제하시겠습니까 확인 버튼
 	ProductManagementJFrame mainFrame;
 	DeleteFrame f;
-//	OkFrame f2;
+	OkFrame f2;
 	
-	public OkBtn(ProductManagementJFrame mainFrame, DeleteFrame f) {
+	public OkBtn(ProductManagementJFrame mainFrame, DeleteFrame f, OkFrame f2) {
 		this.mainFrame = mainFrame;
 		this.f = f;
-//		this.f2 = f2;
+		this.f2 = f2;
 		
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png"));
@@ -60,8 +60,8 @@ public class OkBtn extends JButton implements ActionListener{
 		// JTable에서 선택행 삭제하기
 		int index = MenuListJTable.table.getSelectedRow();
 		MenuListJTable.contents.removeRow(index);
+		f2.setVisible(true);
 		f.dispose();
-		new OkFrame(mainFrame);
 		mainFrame.setEnabled(false);
 		mainFrame.deleteBtn.setEnabled(false);
 	}

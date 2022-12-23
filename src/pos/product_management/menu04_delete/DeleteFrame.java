@@ -15,7 +15,7 @@ public class DeleteFrame extends JFrame{
 	public DeleteFrame(ProductManagementJFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		
-		add(new OkBtn(mainFrame, this));
+		add(new OkBtn(mainFrame, this, new OkFrame(mainFrame)));
 		add(new CancelBtn(mainFrame, this));
 		add(new DeleteCheckPanel());
 		

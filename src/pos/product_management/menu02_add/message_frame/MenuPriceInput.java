@@ -33,6 +33,7 @@ public class MenuPriceInput extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				frame.panel.menuAddBtn.setEnabled(true);
 				frame.setEnabled(true);
 				dispose();
 			}
