@@ -64,27 +64,6 @@ public class MenuListJTable extends JTable{
 		
 		return Integer.parseInt(table.getValueAt(row, 0).toString());
 	}
-	
-	
-	// JTable 선택값 삭제 메서드
-//	public void delete() {
-//
-//		int index = table.getSelectedRow();
-//		
-//		if(index < 0){
-//			// 아무것도 선택 안하면 뜨는 창
-//			p.setEnabled(false);
-//			new NotSelectedFrame(p);
-//			p.deleteBtn.setEnabled(false);
-//		}else{
-//			// 삭제 메뉴 확인 창
-//			
-//			new DeleteFrame();
-//			p.deleteBtn.setEnabled(false);
-//			table.setEnabled(false);
-//
-//		}
-//	}
 
 	// 선택된 메뉴 DB에서 삭제하는 메서드
 	public static void deleteDB(String keyword) {
@@ -109,7 +88,7 @@ public class MenuListJTable extends JTable{
 
 	
 	// 테이블에 값 넣는 메서드
-	public void selectTable(String sqlCondition) {
+	public void dataInput(String sqlCondition) {
 		String sql = sqlCondition;
 
 		try (
@@ -138,7 +117,7 @@ public class MenuListJTable extends JTable{
 	// JTable로 DB값 불러오는 메서드
 	public MenuListJTable(String sqlCondition) {
 		
-		selectTable(sqlCondition);
+		dataInput(sqlCondition);
 
 		table = new JTable(contents);
 
@@ -160,7 +139,6 @@ public class MenuListJTable extends JTable{
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		ListSelectionModel rowSelect = table.getSelectionModel();
-		rowSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		rowSelect.addListSelectionListener(new ListSelectionListener() {
 			
 			@Override

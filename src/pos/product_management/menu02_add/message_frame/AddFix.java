@@ -35,7 +35,7 @@ public class AddFix extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				prjf.mj.contents.setRowCount(0);
-				prjf.mj.selectTable(prjf.allMenu());
+				prjf.mj.dataInput(prjf.allMenu());
 				prjf.setEnabled(true);
 				prjf.addBtn.setEnabled(true);
 				dispose();
