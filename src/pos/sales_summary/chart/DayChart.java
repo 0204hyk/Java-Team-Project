@@ -51,7 +51,8 @@ public class DayChart extends JPanel {
 		String sql = "SELECT to_char(saledate, 'HH24'), sum(price) AS total "
 				+ "FROM sales_management INNER JOIN sales "
 				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(saledate, 'YYYYMMDD') = ?"
+				+ "WHERE to_char(saledate, 'YYYYMMDD') = ?  "
+				+ "AND to_char(saledate, 'HH24') BETWEEN 10 AND 21"
 				+ "GROUP BY to_char(saledate, 'HH24')"
 				+ "ORDER BY to_char(saledate, 'HH24')";
 

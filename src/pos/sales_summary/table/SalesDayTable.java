@@ -61,17 +61,11 @@ public class SalesDayTable extends JTable {
 		String plus = year + month + day;
 
 		String sql = 
-//				"SELECT to_char(saledate, 'HH24'), trim(to_char(sum(price), '999,999,999')) AS total "
-//				+ "FROM sales_management INNER JOIN sales USING(sales_number) "
-//				+ "WHERE to_char(saledate, 'YYYYMMDD') = ? "
-//				+ "AND to_char(saledate, 'HH24') = ? "
-//				+ "GROUP BY to_char(saledate, 'HH24') "
-//				+ "ORDER BY to_char(saledate, 'HH24')";
-				"SELECT to_char(saledate, 'HH24'), trim(to_char(sum(price - used_point), '999,999,999')) AS total "
-				+ "FROM sales_management INNER JOIN sales USING(sales_number) "
-				+ "WHERE to_char(saledate, 'YYYYMMDD') = ? "
+				"SELECT to_char(saledate, 'HH24'), to_char(sum(price) - sum(used_point), '999,999,999') AS total "
+				+ "FROM sales INNER JOIN sales_management USING(sales_number) "
+				+ "WHERE to_char(saledate, 'YYYYMMDD') = ?"
 				+ "AND to_char(saledate, 'HH24') = ? "
-				+ "GROUP BY to_char(saledate, 'HH24'), used_point "
+				+ "GROUP BY to_char(saledate, 'HH24') "
 				+ "ORDER BY to_char(saledate, 'HH24')";
 
 		try (
