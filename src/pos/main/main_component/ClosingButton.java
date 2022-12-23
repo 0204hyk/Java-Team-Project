@@ -11,11 +11,14 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.PosFrame;
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_main.component.DoCloseButton;
 
 public class ClosingButton extends JButton implements ActionListener{
-	public ClosingButton() {
+	PosFrame pos;
+	public ClosingButton(PosFrame pos) {
+		this.pos = pos;
 		try {
 			File f = new File("images/PosImages/시작 페이지 버튼 이미지/마감 버튼.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
@@ -42,7 +45,7 @@ public class ClosingButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		new ClosingFrame();
+		new ClosingFrame(pos);
 	}
 	
 }

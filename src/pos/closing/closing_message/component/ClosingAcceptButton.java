@@ -12,11 +12,22 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.ImageScaledTool;
+import pos.PosFrame;
 import pos.closing.closing_main.ClosingFrame;
+import pos.closing.closing_message.ClosingMessageFrame;
+import pos.kjh.LoginSelectFrame;
+import pos.kjh.LoginStart;
 
 public class ClosingAcceptButton extends JButton implements ActionListener {
 	// 마감 확인 안내 프레임의 "네" 버튼
-	public ClosingAcceptButton() {
+	PosFrame pos;
+	ClosingFrame mainFrame;
+	ClosingMessageFrame messageFrame;
+	
+	public ClosingAcceptButton(PosFrame pos, ClosingFrame mainFrame, ClosingMessageFrame messageFrame) {
+		this.pos = pos;
+		this.mainFrame = mainFrame;
+		this.messageFrame = messageFrame;
 		try {
 			// 버튼에 이미지 삽입
 			File f = new File("images/PosImages/마감 이미지/안내창 - 네.png");
@@ -45,6 +56,9 @@ public class ClosingAcceptButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("네 버튼 구현X");
+		messageFrame.dispose();
+		mainFrame.dispose();
+		pos.dispose();
+		new LoginSelectFrame();
 	}
 }

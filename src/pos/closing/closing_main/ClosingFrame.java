@@ -12,6 +12,7 @@ import javax.swing.JScrollPane;
 import pos.DigitalClock;
 import pos.ImagePanel;
 import pos.ImageScaledTool;
+import pos.PosFrame;
 import pos.closing.closing_main.component.ClosingEscapeButton;
 import pos.closing.closing_main.component.ClosingTable;
 import pos.closing.closing_main.component.DailySalesLabel;
@@ -22,10 +23,11 @@ public class ClosingFrame extends JFrame {
 	// 마감 파트 프레임
 	
 	// 마감하기 버튼
+	PosFrame pos;
 	public DoCloseButton doCloseBtn;
-
 	
-	public ClosingFrame() {
+	public ClosingFrame(PosFrame pos) {
+		this.pos = pos;
 		
 		// 상단 메뉴바 설정
 		JPanel titlePanel = new ImagePanel(ImageScaledTool.getScaledImage(
@@ -91,7 +93,7 @@ public class ClosingFrame extends JFrame {
 		panelC.add(dateLabel);
 
 		// 마감하기 버튼 누르면 나오는 마감 확인 안내 프레임
-		ClosingMessageFrame messageFrame = new ClosingMessageFrame(this);
+		ClosingMessageFrame messageFrame = new ClosingMessageFrame(pos, this);
 		
 		// 마감하기 버튼
 		doCloseBtn = new DoCloseButton(this ,messageFrame);

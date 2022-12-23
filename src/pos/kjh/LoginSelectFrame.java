@@ -24,11 +24,12 @@ public class LoginSelectFrame extends JFrame{
 		b.setBorderPainted(false);
 		b.setContentAreaFilled(false);
 		b.setFocusPainted(false);
+		b.setFocusable(false);
 	}
 	
 	
 	
-	public LoginSelectFrame() throws IOException {
+	public LoginSelectFrame() {
 		
 		
 		// 키오스크 로그인 버튼
@@ -49,33 +50,32 @@ public class LoginSelectFrame extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					dispose();
-					new LoginStart();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				} 
+				dispose();
+				new LoginStart(); 
 			}
 		});
 		
 		
 		// 닫기 버튼
 		JButton xBtn = new JButton();
-		BufferedImage bufferedxImage = ImageIO.read(new File("images/KioskImages/1. 관리자, 키오스크 모드/닫기 버튼.png"));
-		Image xBtnImage = bufferedxImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-		xBtn.setIcon(new ImageIcon(xBtnImage));
-		xBtn.setBounds(520, 10, 40, 40);
-		
-		xBtn.addActionListener(new ActionListener() {
+		try {
+			BufferedImage bufferedxImage = ImageIO.read(new File("images/KioskImages/1. 관리자, 키오스크 모드/닫기 버튼.png"));
+			Image xBtnImage = bufferedxImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+			xBtn.setIcon(new ImageIcon(xBtnImage));
+			xBtn.setBounds(520, 10, 40, 40);
 			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
-		
-		
-		
+			xBtn.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+			
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+				
 		add(xBtn);
 		add(posBtn);
 		add(kioskBtn);
