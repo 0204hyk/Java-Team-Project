@@ -12,14 +12,17 @@ public class ModifyFrame extends JFrame{
 	
 	ProductManagementJFrame mainFrame;
 	public ModifyBackgroundImagePanel panel;
+	public ModifyOKButton modifyOkBtn;
 	
 	public ModifyFrame(ProductManagementJFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		
 		panel = new ModifyBackgroundImagePanel();
 		
+		modifyOkBtn = new ModifyOKButton(mainFrame, this, new ModifyMessageFrame(mainFrame, this), panel);
+
 		add(new ModifyEscapeBtn(mainFrame, this));
-		add(new ModifyOKButton(mainFrame, this, new ModifyMessageFrame(mainFrame, this), panel));
+		add(modifyOkBtn);
 		add(panel);
 		
 		setUndecorated(true);

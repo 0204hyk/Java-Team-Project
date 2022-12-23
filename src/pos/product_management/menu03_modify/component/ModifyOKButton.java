@@ -67,6 +67,9 @@ public class ModifyOKButton extends JButton implements ActionListener{
 			PreparedStatement pstmt = conn.prepareStatement(sql);				
 		) {
 			
+			frame.modifyOkBtn.setEnabled(false);
+			frame.setEnabled(false);
+			
 			if (!panel.priceField.getText().equals("")) {
 				String[] prices = panel.priceField.getText().split(","); 
 				String result = "";
@@ -76,7 +79,6 @@ public class ModifyOKButton extends JButton implements ActionListener{
 				pstmt.setInt(1, Integer.parseInt(result));								
 			} else {
 				new MenuPriceInput2(frame).setVisible(true);
-				frame.setEnabled(false);
 				return;
 			}
 			

@@ -34,6 +34,7 @@ public class MenuPriceInput2 extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				frame.modifyOkBtn.setEnabled(true);
 				frame.setEnabled(true);
 				dispose();
 			}

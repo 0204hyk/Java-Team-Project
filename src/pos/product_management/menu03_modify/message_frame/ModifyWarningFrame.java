@@ -45,5 +45,4 @@ public class ModifyWarningFrame extends JFrame{
 		setLocationRelativeTo(null);
 
 	}
-
 }
