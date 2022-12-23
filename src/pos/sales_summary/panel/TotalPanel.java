@@ -43,7 +43,9 @@ public class TotalPanel extends JPanel {
 			try (ResultSet rs = pstmt.executeQuery()) {
 				if (rs.next()) {
 					text.setText(rs.getString("total")+"원");
-				} 
+				} else {
+					text.setText("0원");
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -72,7 +74,9 @@ public class TotalPanel extends JPanel {
 			try (ResultSet rs = pstmt.executeQuery()) {
 				if(rs.next()) {
 					text.setText(rs.getString("total")+"원");
-				} 
+				} else {
+					text.setText("0원");
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
