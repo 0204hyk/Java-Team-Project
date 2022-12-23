@@ -41,22 +41,22 @@ public class ReceiptCheckFrame extends JFrame{
 		
 		// -----------------영수증 조회------------------
 		//RefundButton refundButton = new RefundButton();
-		OutputButton outfutButton = new OutputButton();  
-		JScrollPane listScroll = new List(outfutButton, refundButton).scroll;
+		OutputButton outputButton = new OutputButton();  
+		JScrollPane listScroll = new List(outputButton, refundButton).scroll;
 		PrintScroll print = new PrintScroll();
-		new RefundFrame(refundButton);
+		//new RefundFrame(refundButton);
 		// 영수증 목록 (Panel)
 		add(listScroll);
 		
 		// 버튼
 		add(refundButton);
-		add(outfutButton);
+		add(outputButton);
 		
 		// 영수증 출력 
 		add(print);
 		
 		// 돌아가기 버튼
-		ReceiptCheckEscapeButton escapeBtn = new ReceiptCheckEscapeButton(this);
+		ReceiptCheckEscapeButton escapeBtn = new ReceiptCheckEscapeButton(this, refundButton, outputButton);
 		escapeBtn.setLocation(75, 670);
 		add(escapeBtn);
 		
