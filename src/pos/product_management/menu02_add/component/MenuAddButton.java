@@ -1,6 +1,5 @@
 package pos.product_management.menu02_add.component;
 
-import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,16 +9,14 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Vector;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 import database.OjdbcConnection;
-import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu02_add.MenuAddFrame;
 import pos.product_management.menu02_add.message_frame.AddFix;
 import pos.product_management.menu02_add.message_frame.MenuNameInput;
@@ -118,8 +115,8 @@ public class MenuAddButton extends JButton implements ActionListener{
 				pstmt.setInt(3, 7);
 			} else {
 				pstmt.setInt(3, 8);
-			}		
-
+			}					
+			
 			pstmt.executeUpdate();
 			additionalFrame.setVisible(true);
 		} catch (SQLException e1) {

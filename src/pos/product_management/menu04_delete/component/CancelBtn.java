@@ -48,7 +48,7 @@ public class CancelBtn extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 
 		ProductManagementJFrame.deleteBtn.setEnabled(true);
-		MenuListJTable.table.setEnabled(true);
+//		MenuListJTable.table.setEnabled(true);
 		f.dispose();
 	}
 }

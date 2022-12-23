@@ -40,22 +40,12 @@ INSERT INTO menu VALUES (27, '청포도 에이드','Green Grape Ade',5,8,'images/Kiosk
 INSERT INTO manager VALUES ('hyCafe', 1234);
 
 -- 임시 회원 데이터
-<<<<<<< HEAD
-INSERT INTO membership VALUES ('01067447970', 50000, '2022-12-21');
-=======
 INSERT INTO membership VALUES ('01067447970', 50000, '2022-12-22');
->>>>>>> branch 'khy' of https://github.com/0204hyk/Java-Team-Project.git
 
 -- 임시 회원 판매 데이터
-<<<<<<< HEAD
-INSERT INTO sales_management VALUES ('20221221-01-165330',
-'01067447970',
-to_date('2022-12-21 16:53:30', 'YYYY-MM-DD HH24:MI:SS'),
-=======
 INSERT INTO sales_management VALUES ('20221222-01-165330',
 '01067447970',
 to_date('2022-12-22 16:53:30', 'YYYY-MM-DD HH24:MI:SS'),
->>>>>>> branch 'khy' of https://github.com/0204hyk/Java-Team-Project.git
 3, 5000, '1234-1234-1234');
                                          -- 상품코드, 옵션, 갯수 , 가격
 INSERT INTO sales VALUES ('20221222-01-165330', 2, 0000000, 1, 3500);
@@ -70,7 +60,6 @@ INSERT INTO sales VALUES ('20221222-01-170015', 9, 0000000, 1, 5000);
 INSERT INTO sales VALUES ('20221222-01-170015', 9, 0120000, 1, 5300);
 INSERT INTO sales VALUES ('20221222-01-170015', 21, 0000000, 1, 4500);
 
-
 select * from sales where sales_number = '20221222-01-165330';
 select * from sales_management;
 
@@ -78,3 +67,32 @@ commit;
 
 SELECT * FROM user_tables;
 SELECT * FROM user_constraints;
+
+SELECT
+    to_char(saledate, 'HH24'),
+    TRIM(to_char(SUM(price) - used_point,
+                 '999,999,999'))
+FROM
+         sales_management
+    INNER JOIN sales USING ( sales_number )
+WHERE
+        to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')
+    AND to_char(saledate, 'HH24') = 16
+GROUP BY
+    to_char(saledate, 'HH24'), used_point
+ORDER BY
+    to_char(saledate, 'HH24');
+
+
+SELECT
+    TRIM(to_char(SUM(price) - used_point,
+                 '999,999,999'))
+FROM
+         sales_management
+    INNER JOIN sales USING ( sales_number )
+WHERE
+        to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')
+    AND to_char(saledate, 'HH24') BETWEEN 10 AND 21
+GROUP BY
+    used_point;
+	
