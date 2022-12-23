@@ -21,6 +21,10 @@ import pos.closing.closing_message.ClosingMessageFrame;
 public class ClosingFrame extends JFrame {
 	// 마감 파트 프레임
 	
+	// 마감하기 버튼
+	public DoCloseButton doCloseBtn;
+
+	
 	public ClosingFrame() {
 		
 		// 상단 메뉴바 설정
@@ -90,7 +94,7 @@ public class ClosingFrame extends JFrame {
 		ClosingMessageFrame messageFrame = new ClosingMessageFrame(this);
 		
 		// 마감하기 버튼
-		DoCloseButton doCloseBtn = new DoCloseButton(this ,messageFrame);
+		doCloseBtn = new DoCloseButton(this ,messageFrame);
 		doCloseBtn.setLocation(800, 670);
 		
 		// 뒤로가기 버튼

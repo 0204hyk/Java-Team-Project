@@ -51,6 +51,7 @@ public class DoCloseButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		frame.setVisible(true);
+		mainFrame.doCloseBtn.setEnabled(false);
 		mainFrame.setEnabled(false);
 	}
 }
