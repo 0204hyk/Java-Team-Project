@@ -11,9 +11,7 @@ import pos.product_management.menu04_delete.message_frame.OkFrame;
 
 public class DeleteFrame extends JFrame{
 	
-	ProductManagementJFrame mainFrame;
 	public DeleteFrame(ProductManagementJFrame mainFrame) {
-		this.mainFrame = mainFrame;
 		
 		add(new OkBtn(mainFrame, this, new OkFrame(mainFrame)));
 		add(new CancelBtn(mainFrame, this));

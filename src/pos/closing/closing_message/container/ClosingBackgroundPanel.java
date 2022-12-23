@@ -6,7 +6,6 @@ import java.awt.Image;
 
 import javax.swing.JPanel;
 
-import pos.PosFrame;
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_message.ClosingMessageFrame;
 import pos.closing.closing_message.component.ClosingAcceptButton;
@@ -14,8 +13,6 @@ import pos.closing.closing_message.component.ClosingRejectButton;
 
 public class ClosingBackgroundPanel extends JPanel {
 	// 마감확인안내창 배경 이미지 프레임
-	ClosingFrame mainFrame;
-	ClosingMessageFrame frame;
 	Image background;
 	
 	public void paintComponent(Graphics g) {

@@ -9,9 +9,7 @@ import pos.product_management.menu04_delete.message_frame.component.CompletionBt
 
 public class OkFrame extends JFrame{
 
-	ProductManagementJFrame mainFrame;
 	public OkFrame(ProductManagementJFrame mainFrame) {
-		this.mainFrame = mainFrame;
 		
 		add (new CompletionBtn(mainFrame, this));
 		add(new OkPanel());

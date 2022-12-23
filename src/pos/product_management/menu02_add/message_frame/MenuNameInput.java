@@ -19,10 +19,8 @@ import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 public class MenuNameInput extends JFrame{
 	
 	ProductManagementJFrame prjf;
-	MenuAddFrame frame;
 	
 	public MenuNameInput(MenuAddFrame frame) {
-		this.frame = frame;
 		
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상품 관리 이미지/메뉴 입력 경고창.png", 400, 200));
