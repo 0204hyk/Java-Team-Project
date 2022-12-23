@@ -50,7 +50,7 @@ public class RefundFrame extends JFrame {
 		JButton exit = wi.makeButton("환불 창 닫기 버튼", 725, 20, 43, 46);
 		JButton checkBox = wi.makeButton("체크박스", 215, 394, 27, 27);
 		JLabel check = wi.makeLabel("체크", 222, 388, 24, 24);
-		JButton confirm = wi.makeButton("확인", 493, 371, 85, 74);
+		JButton confirm = wi.makeButton("확인", 353, 380, 85, 74);
 		confirm.setLayout(null);
 		confirm.setHorizontalTextPosition(JButton.CENTER);
 		confirm.setVerticalTextPosition(JButton.BOTTOM);
@@ -156,9 +156,9 @@ public class RefundFrame extends JFrame {
 		add(wi.makeLabel("상단바", 0, 0, 800, 550));
 		add(wi.makeLabel("목록", 218, 143, 88, 157));
 		add(wi.makeLabel("선", 218, 184, 363, 1));
-		add(wi.makeLabel("영수증 출력 여부", 254, 402, 109, 14));
-		add(check);
-		add(checkBox);
+//		add(wi.makeLabel("영수증 출력 여부", 254, 402, 109, 14));
+//		add(check);
+//		add(checkBox);
 		add(confirm);
 		
 		getContentPane().setBackground(Color.WHITE); // 배경색
@@ -228,8 +228,5 @@ public class RefundFrame extends JFrame {
 		
 	}
 	
-	public static void main(String[] args) {
-	
-		
-	}
+
 }

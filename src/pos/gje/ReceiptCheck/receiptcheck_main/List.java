@@ -43,9 +43,6 @@ public class List {
 	static ArrayList<String> mem_number = new ArrayList<>(); //멤버십 정보
 	static ArrayList<String> options = new ArrayList<>(); // 옵션 번호 
 	
-
-	
-	
 	String sales_date, sales_number, menu_name;
 	int menu_qty, total_price, menu_price, point;
 	
@@ -143,7 +140,6 @@ public class List {
 				+ "from sales s, menu m "
 				+ "where sales_number = '" + sales_number + "'"
 				+ "AND s.menu_number = m.menu_number"; 
-		String query2 = "옵션들 추가";
 		
 		StringBuilder sb1 = new StringBuilder();
 		
@@ -157,10 +153,12 @@ public class List {
 				ResultSetMetaData metadata = rs.getMetaData();
 				while (rs.next()) {	
 
+					
 					menu_name = rs.getString("menu_name");
 					menu_qty = rs.getInt("menu_qty");
 					menu_price = rs.getInt("price") * menu_qty;
 				
+					System.out.printf("%s / %d / %d\n ", menu_name, menu_qty, menu_price);
 					// 처음에 메뉴 개수나 옵션 개수가 몇 개인지 몰라서 list로 받음 
 					options.add(rs.getInt("menu_options") + "");
 					
@@ -173,7 +171,7 @@ public class List {
 					}
 
 					for (int i = 0; i < options1.length; ++i) {
-						System.out.println("optins1[i] = " + options1[i]);
+						//System.out.println("optins1[i] = " + options1[i]);
 					
 						
 						if (options1[i].equals("1")) {
@@ -201,10 +199,10 @@ public class List {
 					total_price += menu_price;
 				}
 				
-				 
 
 				
 			}
+			
 		
 			int point = point_payment.get(num); 
 			int card = total_price - point;
