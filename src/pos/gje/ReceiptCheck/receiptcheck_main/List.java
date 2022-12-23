@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 import javax.swing.JScrollPane;
@@ -35,13 +36,15 @@ public class List {
 	public static JTable table = new JTable(contents); 
 	public static JScrollPane scroll;
 	public static RefundFrame refundFrame;
-
-	
 	
 	static ArrayList<String> date = new ArrayList<>(); // 판매 날짜 및 시간
 	static ArrayList<String> cardNum = new ArrayList<>(); // 카드 번호 
 	static ArrayList<Integer> point_payment = new ArrayList<>(); // 포인트 결제  
 	static ArrayList<String> mem_number = new ArrayList<>(); //멤버십 정보
+	static ArrayList<String> options = new ArrayList<>(); // 옵션 번호 
+	
+	
+	
 	
 	String sales_date, sales_number, menu_name;
 	int menu_qty, total_price, menu_price, point;
@@ -109,6 +112,7 @@ public class List {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				total_price = 0;
+				options.clear();
 				
 				int num = (int)(table.getValueAt(table.getSelectedRow(), 0)) - 1;
 				
@@ -132,7 +136,7 @@ public class List {
 	// 메뉴를 담는 클래스 
 	public void menu (String sales_number, int num) {
 		
-		String query = "select menu_name, menu_qty, m.price "
+		String query = "select menu_name, menu_qty, m.price, menu_options "
 				+ "from sales s, menu m "
 				+ "where sales_number = '" + sales_number + "'"
 				+ "AND s.menu_number = m.menu_number"; 
@@ -149,15 +153,28 @@ public class List {
 				// 영수증에 관한 값을 List에 저장 (현재 영수증 테이블에 값이 없엉서 멤버십 테이블로 대신함)
 				ResultSetMetaData metadata = rs.getMetaData();
 				while (rs.next()) {
+
 					menu_name = rs.getString("menu_name");
 					menu_qty = rs.getInt("menu_qty");
 					menu_price = rs.getInt("price") * menu_qty;
+					options.add(rs.getInt("menu_options") + "");
 					
-					if (menu_name.length() < 8) {
-						sb1.append(" " + menu_name + "\t\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
+					
+					for (int i = 0; i < options.size(); i++) {
+						System.out.println(options.get(i));
+						
+					
+						
+					}
+					
+					
+					
+				
+					if (menu_name.length() < 7) {
+						sb1.append("  " + menu_name + "\t\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
 						
 					}else {
-						sb1.append(" " + menu_name + "\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
+						sb1.append("  " + menu_name + "\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
 					}
 					
 					total_price += menu_price; 
@@ -213,8 +230,13 @@ public class List {
 				+ " \t\t\t받 은 금 액	"  + price + "\n"
 				+ " =========================================="
 				);
+		
+		System.out.println(options);
 	}
-
+	
+	public static void main(String[] args) {
+		System.out.println(options);
+	}
 	
 
 }

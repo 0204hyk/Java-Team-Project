@@ -95,7 +95,7 @@ public class RefundFrame extends JFrame {
 				RefundReiceiptFrame r = 
 						new RefundReiceiptFrame(sales_number, menu, refund_amount, refund_point, refund_card);
 				
-				timer = new Timer(3000, new ActionListener() {
+				timer = new Timer(30000, new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						r.dispose();
