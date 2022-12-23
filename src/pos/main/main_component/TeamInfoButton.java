@@ -43,12 +43,7 @@ public class TeamInfoButton extends JButton implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		try {
-			new TeamInfoFrame();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		new TeamInfoFrame();
 	}
 
 }

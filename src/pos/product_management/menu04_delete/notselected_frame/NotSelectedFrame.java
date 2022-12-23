@@ -15,12 +15,8 @@ import pos.product_management.menu01_main.ProductManagementJFrame;
 
 public class NotSelectedFrame extends JFrame{
 
-	ProductManagementJFrame mainFrame;
-	JButton ok;
-
 	public NotSelectedFrame(ProductManagementJFrame mainFrame) {
-		this.mainFrame = mainFrame;
-		ok = mainFrame.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png",
+		JButton ok = mainFrame.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png",
 				"images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼 클릭.png", 140, 110, 120, 60);
 		ok.addActionListener(new ActionListener() {
 			

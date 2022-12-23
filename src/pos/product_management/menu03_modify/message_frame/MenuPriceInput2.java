@@ -19,11 +19,8 @@ import pos.product_management.menu03_modify.ModifyFrame;
 public class MenuPriceInput2 extends JFrame{
 
 	ProductManagementJFrame prjf;
-	ModifyFrame frame;
-
 
 	public MenuPriceInput2(ModifyFrame frame) {
-		this.frame = frame;
 
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상품 관리 이미지/가격 입력 경고창.png", 400, 200));

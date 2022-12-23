@@ -21,13 +21,8 @@ import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 
 public class AddFix extends JFrame {
 	ImageIcon icon;
-	
-	ProductManagementJFrame prjf;
-	MenuAddFrame frame;
-	
+		
 	public AddFix(ProductManagementJFrame prjf, MenuAddFrame frame) {
-		this.prjf = prjf;
-		this.frame = frame;
 		
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상품 관리 이미지/메뉴 추가 완료 안내 창.png", 400, 200));

@@ -74,18 +74,21 @@ public class TeamInfoFrame extends JFrame{
 		return label;
 	}
 
-	public static JLabel labelImage(String image, int a, int b, int c, int d) throws IOException {
+	public static JLabel labelImage(String image, int a, int b, int c, int d) {
 		JLabel l = new JLabel();
-		BufferedImage bufferedlImage = ImageIO.read(new File(image));
-		Image lImage = bufferedlImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
-		l.setIcon(new ImageIcon(lImage));
-		l.setBounds(a, b, c, d);
-
+		try {
+			BufferedImage bufferedlImage = ImageIO.read(new File(image));
+			Image lImage = bufferedlImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
+			l.setIcon(new ImageIcon(lImage));
+			l.setBounds(a, b, c, d);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return l;
 
 	}
 
-	public TeamInfoFrame() throws IOException {
+	public TeamInfoFrame() {
 
 		add(introduction("소개글", 65, 83, 375, 100));
 /*
@@ -114,18 +117,23 @@ public class TeamInfoFrame extends JFrame{
 		add(labelImage("images/PosImages/시작 페이지 버튼 이미지/프사 6.jpg", 43, 420, 40, 40));
 */
 		JButton xBtn = new JButton();
-		BufferedImage bufferedxImage = ImageIO.read(new File("images/KioskImages/1. 관리자, 키오스크 모드/닫기 버튼.png"));
-		Image xBtnImage = bufferedxImage.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-		xBtn.setIcon(new ImageIcon(xBtnImage));
-		xBtn.setBounds(455, 15, 30, 30);
-
-		xBtn.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
+		try {
+			BufferedImage bufferedxImage = ImageIO.read(new File("images/KioskImages/1. 관리자, 키오스크 모드/닫기 버튼.png"));
+			Image xBtnImage = bufferedxImage.getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+			xBtn.setIcon(new ImageIcon(xBtnImage));
+			xBtn.setBounds(455, 15, 30, 30);
+			
+			xBtn.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		add(xBtn);
 		LoginSelectFrame.buttonSetting(xBtn);
@@ -144,7 +152,7 @@ public class TeamInfoFrame extends JFrame{
 
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		new TeamInfoFrame();
 	}
 

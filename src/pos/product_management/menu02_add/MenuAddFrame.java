@@ -30,7 +30,6 @@ import pos.product_management.menu02_add.message_frame.AddFix;
 import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 
 public class MenuAddFrame extends JFrame{
-	ProductManagementJFrame mainFrame;
 	
 	public AddBackgroundImagePanel panel;
 	

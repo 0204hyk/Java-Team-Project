@@ -18,13 +18,8 @@ import pos.product_management.menu03_modify.ModifyFrame;
 import pos.product_management.menu03_modify.message_frame.component.OkBtn;
 
 public class ModifyMessageFrame extends JFrame{
-	
-	ProductManagementJFrame f1;
-	ModifyFrame f2;
-	
+		
 	public ModifyMessageFrame(ProductManagementJFrame f1, ModifyFrame f2) {
-		this.f1 = f1;
-		this.f2 = f2;
 		
 		add(new OkBtn(f1, f2, this));
 		add(new ModifyMessagePanel());

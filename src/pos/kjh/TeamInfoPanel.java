@@ -25,7 +25,7 @@ public class TeamInfoPanel extends JPanel{
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 
-	public TeamInfoPanel() throws IOException {
+	public TeamInfoPanel() {
 		setBounds(0, 0, 500, 450);
 		setLayout(null); 
 	}	     

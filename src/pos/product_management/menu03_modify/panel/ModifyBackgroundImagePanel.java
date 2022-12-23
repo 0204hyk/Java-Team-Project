@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -66,6 +68,12 @@ public class ModifyBackgroundImagePanel extends JPanel {
 		priceField.setOpaque(false);
 		priceField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		priceField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		priceField.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent ke) {
+				JFormattedTextField pf = (JFormattedTextField)ke.getSource();
+				if (pf.getText().length() >= 5) ke.consume();
+			}
+		});
 
 		
 		// 카테고리 분류
