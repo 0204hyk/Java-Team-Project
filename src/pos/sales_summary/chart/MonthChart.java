@@ -22,9 +22,9 @@ public class MonthChart extends JPanel {
 	public static DefaultCategoryDataset dataset;
 	private static CategoryDataset datasetResult = createDataset();
 	private static JFreeChart chart = createChart(datasetResult);
+	
 	String year;
 	String month;
-	String day;
 	String hap;
 
 	public MonthChart() {
