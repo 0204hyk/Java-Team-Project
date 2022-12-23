@@ -8,7 +8,7 @@ public class PrintTextArea extends JTextArea{
 
 	public PrintTextArea() {
 
-		setFont(new Font("맑은 고딕", Font.PLAIN, 15));
+		setFont(new Font("굴림체", Font.PLAIN, 15));
 		setEditable(false);
 
 	}
