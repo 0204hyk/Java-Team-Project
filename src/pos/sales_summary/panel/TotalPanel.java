@@ -33,7 +33,7 @@ public class TotalPanel extends JPanel {
 		this.year = year;
 
 		// 해당 년의 합계
-		String sql = "SELECT to_char(sum(price), '999,999,999') as total "
+		String sql = "SELECT to_char(sum(price - used_point), '999,999,999') as total "
 				+ "FROM sales_management INNER JOIN sales "
 				+ "USING (sales_number) "
 				+ "WHERE to_char(saledate, 'YYYY') = ? "
@@ -62,7 +62,7 @@ public class TotalPanel extends JPanel {
 		hap = year + month;
 
 		// 해당 월의 합계 sql문
-		String sql = "SELECT to_char(sum(price), '999,999,999') as total "
+		String sql = "SELECT to_char(sum(price - used_point), '999,999,999') as total "
 				+ "FROM sales_management INNER JOIN sales "
 				+ "USING (sales_number) "
 				+ "WHERE to_char(saledate, 'YYYYMM') = ? "
@@ -95,7 +95,7 @@ public class TotalPanel extends JPanel {
 
 		// 해당 일의 합계 sql문
 
-		String sql = "SELECT to_char(sum(price), '999,999,999') as total "
+		String sql = "SELECT to_char(sum(price - used_point), '999,999,999') as total "
 				+ "FROM sales_management INNER JOIN sales "
 				+ "USING (sales_number) "
 				+ "WHERE to_char(saledate, 'YYYYMMDD') = ? "
