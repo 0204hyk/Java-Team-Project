@@ -46,8 +46,7 @@ public class DayComboBox extends JComboBox {
 				monthChart.dataset.clear();
 				DayChart dayChart = new DayChart();
 				dayChart.dataset.clear();
-				TitlePanel title = new TitlePanel();
-				title.text.setText("날짜를 조회 하세요.");
+				
 				
 			}
 		});

@@ -42,7 +42,8 @@ public class MonthComboBox extends JComboBox {
 				yearChart.dataset.clear();
 				MonthChart monthChart = new MonthChart();
 				monthChart.dataset.clear();
-				
+				DayChart dayChart = new DayChart();
+				dayChart.dataset.clear();
 			}
 		});
 	}
