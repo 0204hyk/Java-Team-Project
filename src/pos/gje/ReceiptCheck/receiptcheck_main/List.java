@@ -184,17 +184,19 @@ public class List {
 							tem = "";
 						}
 					}
-					menu_name += tem;
-					String menu = String.format("  %-15s\t\t%2d\t%d\n", menu_name, menu_qty, menu_price);
-				
-					sb1.append(menu);
 					
-//					if (menu_name.length() < 9) {
-//							sb1.append("  " + menu_name + "\t\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
-//							
-//						}else {
-//							sb1.append("  " + menu_name + "\t\t " + menu_qty + "\t" + menu_price + "\n"); // 메뉴 프린트
-//						}
+//					String menu = String.format("  %-20s\t%-10d%-10d\n", menu_name, menu_qty, menu_price);
+//				
+//					sb1.append(menu);
+					
+					if (menu_name.length() < 6) {
+							sb1.append("  " + menu_name + tem + "\t\t\t " + menu_qty + "\t\t" + menu_price + "\n"); // 메뉴 프린트
+							
+						} else if (menu_name.length() > 10) {
+							sb1.append("  " + menu_name + tem + "\t " + menu_qty + "\t\t" + menu_price + "\n");
+						}else {
+							sb1.append("  " + menu_name + tem + "\t\t " + menu_qty + "\t\t" + menu_price + "\n"); // 메뉴 프린트
+						} 
 					
 					total_price += menu_price;
 				}
@@ -239,26 +241,24 @@ public class List {
 				+ " [대표자] 김XX\t\t\t[TEL] 031-555-4449\n"
 				+ " [매출일] " + date + "\n"
 				+ " [영수증] " + sales_number + "\n"
-				+ " =========================================\n"
-				+ "  상 품 명\t\t\t수 량\t단 가\n"
-				+ " ----------------------------------------------------------------------------\n"
+				+ " =========================================================\n"
+				+ "  상 품 명\t\t\t수 량\t\t단 가\n"
+				+ " ---------------------------------------------------------\n"
 				+ menu
-				+ " ----------------------------------------------------------------------------\n"
-				+ " \t\t\t합 계 금 액	"  + price + "\n"
-				+ " ----------------------------------------------------------------------------\n"
-				+ " \t\t\t받 을 금 액	"  + price + "\n"
-				+ " \t\t\t포인트 결제	"  + point + "\n"
-				+ " \t\t\t카 드 결 제	"  +  card + "\n"
-				+ " \t\t\t받 은 금 액	"  + price + "\n"
-				+ " =========================================="
+				+ " ---------------------------------------------------------\n"
+				+ " \t\t\t\t합 계 금 액	"  + price + "\n"
+				+ " ---------------------------------------------------------\n"
+				+ " \t\t\t\t받 을 금 액	"  + price + "\n"
+				+ " \t\t\t\t포인트 결제	"  + point + "\n"
+				+ " \t\t\t\t카 드 결 제	"  +  card + "\n"
+				+ " \t\t\t\t받 은 금 액	"  + price + "\n"
+				+ " =========================================================\n"
 				);
 		
 		
 	}
 	
-	public static void main(String[] args) {
-		//System.out.println(options);
-	}
+	
 	
 
 }
