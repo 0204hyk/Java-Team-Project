@@ -29,7 +29,7 @@ public class UsePoint extends JFrame {
 		phoneNum.setForeground(Color.black);
 		phoneNum.setBounds(32, 65, 86, 32);
 
-		JLabel currentPoint = new JLabel(cp.currentPoint()+"포인트");
+		JLabel currentPoint = new JLabel(cp.currentPoint() + "포인트");
 		currentPoint.setHorizontalAlignment(JLabel.CENTER);
 		currentPoint.setFont(new Font("맑은 고딕", Font.BOLD, 34));
 		currentPoint.setForeground(new Color(15, 11, 65));
@@ -42,6 +42,21 @@ public class UsePoint extends JFrame {
 		ta.setFont(new Font("맑은 고딕", Font.BOLD, 26));
 		ta.setForeground(Color.BLACK);
 
+		JLabel cantUsePoint = wi.makeLabel("cantUsePoint.png", 126, 337, 194, 11);
+
+		add(cantUsePoint);
+		cantUsePoint.setVisible(false);
+
+		JLabel pleaseInputLess = wi.makeLabel("pleaseInputLess.png", 126, 337, 194, 11);
+
+		add(pleaseInputLess);
+		pleaseInputLess.setVisible(false);
+		
+		if (cp.currentPoint() == 0) {
+			cantUsePoint.setVisible(true);
+			ta.setEnabled(false);
+		}
+
 		add(wi.makeLabel("leftPointText.png", 33, 67, 335, 83));
 		add(wi.makeLabel("usePointBox.png", 171, 368, 105, 46));
 
@@ -52,17 +67,17 @@ public class UsePoint extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (Integer.parseInt(ta.getText()) > cp.currentPoint()) {
-					System.out.println("갖고 있는 포인트보다 적게 입력해주세요"); // 빨간 글씨로 띄워주기
+					pleaseInputLess.setVisible(true);
 				} else {
 					dispose();
-					System.out.println("통과");
 					Step1Step2.pointActive();
+					Step1Step2.setUsingPoint();
+					
 				}
 
 			}
 		});
 
-//		add(wi.makeLabel("pointText.png", 205, 264, 90, 28));
 		JLabel check = wi.makeLabel("check.png", 61, 366, 28, 27);
 
 		check.setVisible(false);
@@ -115,7 +130,7 @@ public class UsePoint extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
-public static void main(String[] args) {
-	new UsePoint("01042361724");
-}
+
+	public static void main(String[] args) {
+	}
 }

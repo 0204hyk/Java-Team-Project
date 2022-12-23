@@ -19,20 +19,24 @@ public class AMenu extends JPanel {
 	String root = "images/KioskImages/3. 메뉴선택";
 	WithImage wi = new WithImage(root);
 	DecimalFormat df = new DecimalFormat("#,###");
-	String menu, temparature, price;
+	String menu, temparature, price, optionNums;
 
 	int x = 0, y = 0;
 
 	static int num = 0;
 
 	// 장바구니에 한 줄씩 들어감, Options에서 만든 cup을 가져온다
-	public AMenu(String menu, Cups cup, String temparature, int optionPrice) {
+
+	public AMenu(String menu, Cups cup, String temparature, int optionPrice, ChoiceMenu frame, String name, String optionNums) {
 		this.menu = menu;
 		this.temparature = temparature;
+		this.optionNums = optionNums;
+		
+		int position = frame.getMenuPosition(name);
 		GetImageInfo gi = new GetImageInfo(menu);
-		
+
 		num++;
-		
+
 		// 음료 이름
 		String menuName = "";
 		if (temparature == null) {
@@ -68,11 +72,13 @@ public class AMenu extends JPanel {
 					cup.plus();
 				} else if (cup.cup > 98) {
 					cup.setCup(99);
-					
+
 				}
 				cups.setText(cup.cup + "잔");
 				menuPricelb.setText(df.format((optionPrice + gi.getMenuPrice()) * cup.cup) + "원");
 
+				frame.menuInfo.set(position + 1, cup.cup + "");
+				frame.menuInfo.set(position + 2, (optionPrice + gi.getMenuPrice()) * cup.cup + "");
 			}
 		});
 
@@ -89,21 +95,30 @@ public class AMenu extends JPanel {
 				}
 				cups.setText(cup.cup + "잔");
 				menuPricelb.setText(df.format((optionPrice + gi.getMenuPrice()) * cup.cup) + "원");
+
+				frame.menuInfo.set(position + 1, cup.cup + "");
+				frame.menuInfo.set(position + 2, (optionPrice + gi.getMenuPrice()) * cup.cup + "");
 			}
 		});
 
-		// 메뉴 삭제 버튼
+		// 메뉴 삭제 버튼 - 메뉴 리스트 재 업데이트 필요
 		JButton delete = wi.makeButton("delete.png", x + 457, y + 5, 31, 31);
+
 
 		delete.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				for (int i = 0; i < 4; i++) {
+					frame.menuInfo.remove(position);
+				}
 				setVisible(false);
 				num--;
 
 			}
 		});
+		
+		
 
 		setBorder(null);
 		setLayout(null);
@@ -113,8 +128,8 @@ public class AMenu extends JPanel {
 		add(cups);
 		add(menuNamelb);
 		add(menuPricelb);
-//		add(plus);
-//		add(minus);
+		add(plus);
+		add(minus);
 		add(delete);
 
 		setVisible(true);
@@ -128,7 +143,8 @@ public class AMenu extends JPanel {
 		menuInfo.add(menu);
 		menuInfo.add("잔수");
 		menuInfo.add(price);
-		
+		menuInfo.add(optionNums);
+
 		return menuInfo;
 	}
 

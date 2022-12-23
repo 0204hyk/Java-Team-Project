@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -32,9 +33,9 @@ public class Options extends JFrame {
 	ChoiceMenu frame;
 
 	Cups cupText = new Cups();
-	
+
 	ArrayList<String> menuInfo = new ArrayList<>();
-	
+
 	static public ChoiceMenu choiceMenu;
 
 	public Options(String menu, ChoiceMenu frame) {
@@ -52,7 +53,7 @@ public class Options extends JFrame {
 	}
 
 	public void defaults() {
-		
+
 		cupText.setBounds(470, 174, 47, 23);
 		cupText.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		cupText.setHorizontalAlignment(JLabel.CENTER);
@@ -60,15 +61,15 @@ public class Options extends JFrame {
 
 		add(wi.makeLabel("hy.png", 53, 24, 60, 83));
 		JButton home = wi.makeButton("home.png", 543, 44, 52, 52);
-	      home.addActionListener(new ActionListener() {
+		home.addActionListener(new ActionListener() {
 
-	         @Override
-	         public void actionPerformed(ActionEvent e) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 
-	            dispose();
+				dispose();
 
-	         }
-	      });
+			}
+		});
 
 		JButton minus = wi.makeButton("minus.png", 420, 170, 32, 32);
 
@@ -110,7 +111,6 @@ public class Options extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 
 				// 1. 옵션 미선택 된 부분 막기 2. 담아서 장바구니로 넘기기
 				GetImageInfo gi = new GetImageInfo(menu);
@@ -175,14 +175,16 @@ public class Options extends JFrame {
 				} else {
 
 					AMenu menuPn = new AMenu(menu, cupText,
-							hotAndIce.equals("1") ? "ICE" : hotAndIce.equals("2") ? "HOT" : "ICE ONLY", optionPrice);
-					
+							hotAndIce.equals("1") ? "HOT" : hotAndIce.equals("2") ? "ICE" : "ICE ONLY", optionPrice,
+							frame, numToMenu(), optionNums());
+
 					// 메뉴 정보 담아서 보내기
 					menuInfo.add(menu);
 					menuInfo.add(cupText.cup + "");
 					menuInfo.add((optionPrice + gi.getMenuPrice()) + "");
 					menuInfo.add(numToMenu());
-					
+					menuInfo.add(optionNums());
+
 					frame.makeMenu(menuPn, cupText, menuInfo);
 					frame.setVisible(true);
 					frame.paint(frame.getGraphics());
@@ -454,7 +456,7 @@ public class Options extends JFrame {
 		ArrayList optionByNum = getOptionText();
 		String menu = "";
 		// hot & ice
-		
+
 		if (optionByNum.get(0) == null) {
 
 		} else if (optionByNum.get(0).equals("1")) {
@@ -469,11 +471,11 @@ public class Options extends JFrame {
 		if (optionByNum.get(1) == null) {
 
 		} else if (optionByNum.get(1).equals("1")) {
-			
+
 		} else if (optionByNum.get(1).equals("2")) {
 			menu += " / 디카페인";
 		}
-		
+
 		// 컵
 		if (optionByNum.get(2) == null) {
 
@@ -482,8 +484,7 @@ public class Options extends JFrame {
 		} else if (optionByNum.get(2).equals("2")) {
 			menu += " / 텀블러 사용";
 		}
-		
-	
+
 		// 사이즈
 		if (optionByNum.get(3) == null) {
 
@@ -494,8 +495,7 @@ public class Options extends JFrame {
 		} else if (optionByNum.get(3).equals("3")) {
 			menu += " / ICE ONLY";
 		}
-		
-		
+
 		// 샷
 		if (optionByNum.get(4) == null) {
 
@@ -504,24 +504,23 @@ public class Options extends JFrame {
 		} else if (optionByNum.get(4).equals("2")) {
 			menu += " / 2샷 추가";
 		}
-		
-		
+
 		// 얼음
 		if (optionByNum.get(5) == null) {
-			
+
 		} else if (optionByNum.get(5).equals("1")) {
-			
+
 		} else if (optionByNum.get(5).equals("2")) {
 			menu += " / 얼음 적게";
 		} else if (optionByNum.get(5).equals("3")) {
 			menu += " / 얼음 없음";
 		}
-		
+
 		// 우유
 		if (optionByNum.get(6) == null) {
-			
+
 		} else if (optionByNum.get(6).equals("1")) {
-			
+
 		} else if (optionByNum.get(6).equals("2")) {
 			menu += " / 두유";
 		} else if (optionByNum.get(6).equals("3")) {
@@ -532,12 +531,33 @@ public class Options extends JFrame {
 
 	}
 
-	public void toDB() {
+	public String optionNums() {
 
-		String options = hotAndIce + decaffein + cup + sizes + shot + ice + milk + "";
-		
-		
-		
+		if (hotAndIce == null) {
+			hotAndIce = "0";
+		}
+		if (decaffein == null) {
+			decaffein = "0";
+		}
+		if (cup == null) {
+			cup = "0";
+		}
+		if (sizes == null) {
+			sizes = "0";
+		}
+
+		if (shot == null) {
+			shot = "0";
+		}
+		if (ice == null) {
+			ice = "0";
+		}
+		if (milk == null) {
+			milk = "0";
+		}
+
+		return hotAndIce + decaffein + cup + sizes + shot + ice + milk + "";
+
 	}
 
 }

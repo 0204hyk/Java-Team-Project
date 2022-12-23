@@ -29,7 +29,9 @@ public class Step1Step2 extends JFrame {
 	static JLabel pointActive;
 	Timer timer;
 
+	public static int payMethod = 1;
 	int totalPoint;
+	
 	static String member_phonenumber;
 	Step1_EnterPhoneNum ep;
 	ArrayList<String> menuInfo = new ArrayList<>();
@@ -63,6 +65,7 @@ public class Step1Step2 extends JFrame {
 				ep = new Step1_EnterPhoneNum(totalPoint);
 				ep.add(wi.makeLabel("confirmPoint.png", 187, 42, 70, 20));
 				ep.showPoint();
+				
 
 			}
 		});
@@ -128,7 +131,6 @@ public class Step1Step2 extends JFrame {
 		});
 
 
-
 		// 포인트 사용
 		point = wi.makeButton("point.png", 254, 519, 158, 141);
 		point.addActionListener(new ActionListener() {
@@ -137,6 +139,7 @@ public class Step1Step2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					new UsePoint(Step1Step2.getMemberPhone());
+					
 				} catch (NullPointerException e1) {
 					// 번호입력창 띄우기
 					Step2_PointWithNoID sp = new Step2_PointWithNoID();
@@ -151,7 +154,7 @@ public class Step1Step2 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CartMainFrame(menuInfo);
+				new CartMainFrame(menuInfo, totalPoint, Step1Step2.getMemberPhone(), payMethod);
 				dispose();
 				// 결제 창으로 넘어가기
 			}
@@ -253,6 +256,20 @@ public class Step1Step2 extends JFrame {
 	public static String getMemberPhone() {
 		return member_phonenumber;
 	}
+	
+	public void setUsingOnlyPoint() {
+		payMethod = 3;
+	}
+	
+	public static void setUsingPoint() {
+		
+		payMethod = 2;
+	}
+	public int getPayMethod() {
+		
+		return payMethod;
+	}
+	
 	
 	public static void main(String[] args) {
 	}

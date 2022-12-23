@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import database.kiosk.JoinMembership;
+import database.kiosk.infotodb.JoinMembership;
 import kiosk.tools.WithImage;
 
 public class Agreement extends JFrame {

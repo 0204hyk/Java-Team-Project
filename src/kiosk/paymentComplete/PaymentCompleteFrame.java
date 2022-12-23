@@ -45,7 +45,7 @@ public class PaymentCompleteFrame extends JFrame {
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
 
-			int count = 9;
+			int count = 5;
 
 			@Override
 			public void run() {
@@ -58,7 +58,7 @@ public class PaymentCompleteFrame extends JFrame {
 				}
 			}
 		};
-		timer.schedule(task, 1000, 1000);
+		timer.schedule(task, 500, 500);
 	}
 
 }

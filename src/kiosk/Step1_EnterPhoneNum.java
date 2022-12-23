@@ -18,7 +18,7 @@ import javax.swing.JTextArea;
 
 import database.kiosk.CheckPhoneNum;
 import database.kiosk.CheckPoint;
-import database.kiosk.JoinMembership;
+import database.kiosk.infotodb.JoinMembership;
 import kiosk.tools.WithImage;
 
 public class Step1_EnterPhoneNum extends JFrame {

@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+import database.kiosk.CheckMenuByCategories;
 import kiosk.Step1Step2;
 import kiosk.byoption.Cups;
 import kiosk.tools.WithImage;
@@ -21,15 +22,22 @@ public class ChoiceMenu extends JFrame {
 
 	String root = "images/KioskImages/3. 메뉴선택";
 	WithImage wi = new WithImage(root);
+	
+	int category = 0;
 
 	CardLayout card;
 
-	JPanel coffeePns;
+	JPanel cardPanel;
 
-	JPanel coffeePn = new PanelsByCategory(2);
-	JPanel frappePn = new PanelsByCategory(3);
-	JPanel noncoffeePn = new PanelsByCategory(4);
-	JPanel adePn = new PanelsByCategory(5);
+	JPanel coffeePn = PanelsByCategory(2);
+	JPanel frappePn = PanelsByCategory(3);
+	JPanel noncoffeePn = PanelsByCategory(4);
+	JPanel adePn = PanelsByCategory(5);
+
+	JPanel coffeePn2 = PanelsByCategory2(2);
+	JPanel frappePn2 = PanelsByCategory2(3);
+	JPanel noncoffeePn2 = PanelsByCategory2(4);
+	JPanel adePn2 = PanelsByCategory2(5);
 
 	JPanel cart = new JPanel();
 
@@ -38,7 +46,7 @@ public class ChoiceMenu extends JFrame {
 	public ChoiceMenu() {
 
 		cart();
-		
+
 		add(wi.makeLabel("hy.png", 53, 24, 60, 83));
 
 		tabs();
@@ -55,9 +63,10 @@ public class ChoiceMenu extends JFrame {
 	}
 
 	public void tabs() {
+		
 		// 카테고리 탭
 		card = new CardLayout();
-		coffeePns = new JPanel(card);
+		cardPanel = new JPanel(card);
 
 		int x = 22;
 		int y = 130;
@@ -68,13 +77,18 @@ public class ChoiceMenu extends JFrame {
 		JButton frappe = wi.makeButton("프라페.png", x + 372, y, 110, 46);
 		JButton ade = wi.makeButton("에이드.png", x + 496, y, 110, 46);
 
-		coffeePns.add(coffeePn);
-		coffeePns.setBounds(74, 212, 503, 508);
+		cardPanel.add(coffeePn);
+		cardPanel.setBounds(74, 212, 503, 508);
 
 		add(coffeePn);
 		add(frappePn);
 		add(noncoffeePn);
 		add(adePn);
+
+		add(noncoffeePn2);
+		add(frappePn2);
+		add(coffeePn2);
+		add(adePn2);
 
 		// 해당 카테고리 커피들이 뜨도록 하기
 		coffee.addActionListener(new ActionListener() {
@@ -82,6 +96,7 @@ public class ChoiceMenu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				showCoffe();
+				category = 1;
 			}
 		});
 
@@ -90,6 +105,7 @@ public class ChoiceMenu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				showFrappe();
+				category = 2;
 			}
 		});
 
@@ -98,6 +114,7 @@ public class ChoiceMenu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				showNonCoffee();
+				category = 3;
 			}
 		});
 
@@ -106,6 +123,7 @@ public class ChoiceMenu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				showAde();
+				category = 4;
 			}
 		});
 
@@ -115,7 +133,17 @@ public class ChoiceMenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				card.next(coffeePns);
+
+				if (category == 1) {
+					showCoffe();
+
+				} else if (category == 2) {
+					showFrappe();
+				} else if (category == 3) {
+					showNonCoffee();
+				} else if (category == 4) {
+					showAde();
+				}
 			}
 		});
 
@@ -124,7 +152,20 @@ public class ChoiceMenu extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				card.previous(coffeePns);
+
+				if (category == 1) {
+					showCoffe2();
+
+				} else if (category == 2) {
+					showFrappe2();
+
+				} else if (category == 3) {
+					showNonCoffee2();
+
+				} else if (category == 4) {
+					showAde2();
+
+				}
 			}
 		});
 
@@ -143,6 +184,12 @@ public class ChoiceMenu extends JFrame {
 		frappePn.setVisible(false);
 		noncoffeePn.setVisible(false);
 		adePn.setVisible(false);
+
+		coffeePn2.setVisible(false);
+		frappePn2.setVisible(false);
+		adePn2.setVisible(false);
+		noncoffeePn2.setVisible(false);
+
 	}
 
 	public void showFrappe() {
@@ -150,6 +197,11 @@ public class ChoiceMenu extends JFrame {
 		frappePn.setVisible(true);
 		noncoffeePn.setVisible(false);
 		adePn.setVisible(false);
+
+		coffeePn2.setVisible(false);
+		frappePn2.setVisible(false);
+		adePn2.setVisible(false);
+		noncoffeePn2.setVisible(false);
 	}
 
 	public void showNonCoffee() {
@@ -157,6 +209,11 @@ public class ChoiceMenu extends JFrame {
 		frappePn.setVisible(false);
 		noncoffeePn.setVisible(true);
 		adePn.setVisible(false);
+
+		coffeePn2.setVisible(false);
+		frappePn2.setVisible(false);
+		adePn2.setVisible(false);
+		noncoffeePn2.setVisible(false);
 	}
 
 	public void showAde() {
@@ -164,6 +221,63 @@ public class ChoiceMenu extends JFrame {
 		frappePn.setVisible(false);
 		noncoffeePn.setVisible(false);
 		adePn.setVisible(true);
+
+		coffeePn2.setVisible(false);
+		frappePn2.setVisible(false);
+		adePn2.setVisible(false);
+		noncoffeePn2.setVisible(false);
+	}
+
+	public void showCoffe2() {
+		coffeePn.setVisible(false);
+		frappePn.setVisible(false);
+		noncoffeePn.setVisible(false);
+		adePn.setVisible(false);
+
+		coffeePn2.setVisible(true);
+		frappePn2.setVisible(false);
+		adePn2.setVisible(false);
+		noncoffeePn2.setVisible(false);
+
+	}
+
+	public void showFrappe2() {
+		coffeePn.setVisible(false);
+		frappePn.setVisible(false);
+		noncoffeePn.setVisible(false);
+		adePn.setVisible(false);
+
+		coffeePn2.setVisible(false);
+		frappePn2.setVisible(true);
+		adePn2.setVisible(false);
+		noncoffeePn2.setVisible(false);
+
+	}
+
+	public void showAde2() {
+		coffeePn.setVisible(false);
+		frappePn.setVisible(false);
+		noncoffeePn.setVisible(false);
+		adePn.setVisible(false);
+
+		coffeePn2.setVisible(false);
+		frappePn2.setVisible(false);
+		adePn2.setVisible(true);
+		noncoffeePn2.setVisible(false);
+
+	}
+
+	public void showNonCoffee2() {
+		coffeePn.setVisible(false);
+		frappePn.setVisible(false);
+		noncoffeePn.setVisible(false);
+		adePn.setVisible(false);
+
+		coffeePn2.setVisible(false);
+		frappePn2.setVisible(false);
+		adePn2.setVisible(false);
+		noncoffeePn2.setVisible(true);
+
 	}
 
 	public void pay() {
@@ -207,18 +321,85 @@ public class ChoiceMenu extends JFrame {
 
 		// 메뉴,잔,최종금액,옵션
 		this.menuInfo.addAll(menuInfo);
-
 	}
 
 	public int getTotalAmounts() {
 
 		int total = 0;
-		for (int i = 2; i < menuInfo.size(); i += 4) {
+		for (int i = 2; i < menuInfo.size(); i += 5) {
 			total += Integer.parseInt(menuInfo.get(i));
 
 		}
 
 		return total / 10;
+	}
+
+	public int getMenuPosition(String name) {
+		int position = 3;
+		for (int i = 3; i < menuInfo.size(); i += 4) {
+			if (name == menuInfo.get(i)) {
+				position = i;
+			}
+		}
+		return position - 3;
+	}
+
+	public JPanel PanelsByCategory(int ctgNum) {
+		CheckMenuByCategories mc = new CheckMenuByCategories(ctgNum);
+		JPanel PBC = new JPanel();
+		int x = 0, y = 0;
+
+		for (int i = 0; i < mc.getListSize(); i++) {
+
+			PBC.add(new MakeMenuButton(ctgNum, mc.getOptionNumber().get(i), mc.getMenu().get(i), x, y));
+			x += 176;
+			if (i == 2 || i == 5 || i == 8) {
+				x = 0;
+				y += 176;
+			}
+		}
+		// 550
+
+		PBC.setBounds(74, 212, 503, 508);
+		PBC.setLayout(null);
+		PBC.setBackground(Color.WHITE);
+		PBC.setBorder(null);
+		PBC.setVisible(false);
+		return PBC;
+	}
+
+	public JPanel PanelsByCategory2(int ctgNum) {
+
+		CheckMenuByCategories mc = new CheckMenuByCategories(ctgNum);
+		JPanel PBC2 = new JPanel();
+		int x = 0, y = 0;
+
+		for (int i = 0; i < mc.getListSize(); i++) {
+
+			if (mc.getListSize() < 10) {
+				PBC2 = PanelsByCategory(ctgNum);
+				break;
+
+			} else {
+
+				if (i >= 9) {
+
+					PBC2.add(new MakeMenuButton(ctgNum, mc.getOptionNumber().get(i), mc.getMenu().get(i), x, y));
+					x += 176;
+					if (i == 2 || i == 5 || i == 8) {
+						x = 0;
+						y += 176;
+					}
+				}
+			}
+
+		}
+		PBC2.setBounds(74, 212, 503, 508);
+		PBC2.setLayout(null);
+		PBC2.setBackground(Color.WHITE);
+		PBC2.setBorder(null);
+		PBC2.setVisible(false);
+		return PBC2;
 	}
 
 	public static void main(String[] args) {

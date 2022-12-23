@@ -5,8 +5,12 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,10 +19,19 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
+import database.kiosk.GetImageInfo;
+import database.kiosk.infotodb.ToSales;
+import database.kiosk.infotodb.ToSalesManagement;
 import kiosk.CardPutFrame;
 import kiosk.Step1Step2;
+import kiosk.TouchToPlaceAnOrder;
+import kiosk.menupan.ChoiceMenu;
+import kiosk.menupan.MenuPanelForConfirmOrder;
+import kiosk.menupan.Options;
 import kiosk.paymentComplete.PaymentCompleteFrame;
 import kiosk.tools.WithImage;
+
+// 마지막 페이지!!!!!!
 
 public class CartMainFrame extends JFrame {
 	String root = "images/KioskImages/7. 주문정보 확인";
@@ -26,13 +39,25 @@ public class CartMainFrame extends JFrame {
 	Timer timer;
 	ArrayList<String> menuInfo = new ArrayList<>();
 	DecimalFormat df = new DecimalFormat("#,###");
+	String salesNum = getTimeNow();
+	JPanel cart = new JPanel();
+
+	ArrayList<String> orderInfo = new ArrayList<>();
 	
-	public CartMainFrame(ArrayList menuInfo) {
-		
+	
+	public CartMainFrame(ArrayList menuInfo, int totalPoint, String phoneNum, int payMethod) {
 		this.menuInfo = menuInfo;
+	
+		orderInfo.add(salesNum);
+		orderInfo.add(phoneNum+"");
+		orderInfo.add(salesNum.substring(0,6));
+		orderInfo.add(payMethod+"");
+		orderInfo.add(totalPoint+"");
+		orderInfo.add(new GenerateCardNum().randomCardNumber());
+		
 
 		panelSetting();
-		
+
 		setLayout(null);
 		setUndecorated(true);
 		setVisible(true);
@@ -43,6 +68,7 @@ public class CartMainFrame extends JFrame {
 	}
 
 	public void panelSetting() {
+
 		// hy
 		add(wi.makeLabel("hy.png", 52, 24, 60, 83));
 
@@ -60,56 +86,31 @@ public class CartMainFrame extends JFrame {
 		add(wi.makeLabel("pleaseConfirm.png", 58, 163, 358, 34));
 
 		// 배경 (스크롤)
-		JPanel panel = new JPanel();
-		JScrollPane scroll = new JScrollPane();
+		ArrayList<String> sub = new ArrayList<>();
 
-		int i;
-		int x = 133, y = 245;
-		int series = 1;
-		for (i = 0; i < menuInfo.size(); i++) {
+		for (int i = 0; i < menuInfo.size(); i++) {
+			sub.addAll(menuInfo.subList(i, i + 5));
+			cart.add(new MenuPanelForConfirmOrder(sub));
+			sub.removeAll(sub);
+			i = i + 4;
 
-			JLabel menu = new JLabel(
-					menuInfo.get(i) + " / " + menuInfo.get(i + 1) + "잔 / " + menuInfo.get(i + 2) + "원");
-			menu.setFont(new Font("맑은 고딕", Font.BOLD, 22));
-			menu.setForeground(Color.BLACK);
-			menu.setBounds(x, y, 400, 25);
-
-			JLabel num = new JLabel("" + series);
-			num.setBounds(x - 47, y + 4, 31, 31);
-			num.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-			num.setForeground(Color.WHITE);
-			num.setHorizontalAlignment(SwingConstants.CENTER);
-			num.setVerticalAlignment(SwingConstants.CENTER);
-
-			JLabel numBg = wi.makeLabel("bg.png", x - 47, y + 4, 31, 31);
-			y += 28;
-
-			JLabel option = new JLabel("└ " + menuInfo.get(i + 3));
-			option.setBounds(x, y, 400, 15);
-			option.setFont(new Font("맑은 고딕", Font.PLAIN, 15));
-			option.setForeground(new Color(181, 185, 183));
-
-			y += 34;
-
-			i = i + 3;
-
-			series++;
-
-			add(num);
-			add(numBg);
-			add(menu);
-			add(option);
 		}
+		JScrollPane scroll = new JScrollPane();
+		JPanel bg = new JPanel();
 
-		add(home);
+		scroll.setBorder(null);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+		cart.setLayout(new BoxLayout(cart, BoxLayout.Y_AXIS));
+		scroll.setViewportView(bg);
+		bg.add(cart);
 		scroll.setBounds(52, 214, 560, 390);
-		scroll.setViewportView(panel);
 		add(scroll);
 
 		// 주문 금액
 		add(wi.makeLabel("orderPrice.png", 334, 640, 91, 23));
 		int orderAmount = 0;
-		for (int index = 2; index < menuInfo.size(); index += 4) {
+		for (int index = 2; index < menuInfo.size(); index += 5) {
 
 			orderAmount += Integer.parseInt(menuInfo.get(index));
 		}
@@ -119,21 +120,21 @@ public class CartMainFrame extends JFrame {
 		orderAmountlb.setForeground(Color.black);
 		orderAmountlb.setHorizontalAlignment(SwingConstants.RIGHT);
 
-		// 포인트
+		// 포인트 입력피료
 		add(wi.makeLabel("point.png", 315, 679, 112, 23));
 		int point = 1323;
-		JLabel pointlb = new JLabel("-"+df.format(point));
-		pointlb.setBounds(450, 666, 150, 45);
+		JLabel pointlb = new JLabel("-" + df.format(point));
+		pointlb.setBounds(450, 667, 150, 45);
 		pointlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		pointlb.setForeground(Color.black);
 		pointlb.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		// 결제 금액
 		add(wi.makeLabel("purchase.png", 299, 720, 126, 32));
-		JLabel purchaseAmountlb = new JLabel(df.format(orderAmount - point)+"원");
+		JLabel purchaseAmountlb = new JLabel(df.format(orderAmount - point) + "원");
 		purchaseAmountlb.setBounds(450, 710, 150, 45);
 		purchaseAmountlb.setFont(new Font("맑은 고딕", Font.BOLD, 30));
-		purchaseAmountlb.setForeground(new Color(15, 11, 16));
+		purchaseAmountlb.setForeground(new Color(15, 11, 65));
 		purchaseAmountlb.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		// 돌아가기
@@ -142,7 +143,7 @@ public class CartMainFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new Step1Step2(getTotalAmounts(),menuInfo);
+				new Step1Step2(getTotalAmounts(), menuInfo);
 				dispose();
 			}
 		});
@@ -156,20 +157,44 @@ public class CartMainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// 자동종료
 				JFrame cp = new CardPutFrame();
+				
 				timer = new Timer(3000, new ActionListener() {
 
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						cp.dispose();
+						
 						new PaymentCompleteFrame();
+						
 						timer.stop();
-						// 적립 업데이트 해주기
+
+						// 판매관리 데이터 입력
+						new ToSalesManagement(orderInfo);
+						
+						// 판매 데이터 입력
+						new ToSales(completeInfoMenu(menuInfo));
+						
+						// 종료
+						dispose();
+							
+						// 포인트 적립
+//						new SavePoint(포인트, 멤버십번호);
+
+						// 포인트 차감
+//						new UsePoint(포인트, 멤버십번호);
+
+						/*
+						 * 결제 후 필요 한 동작
+						 * 
+						 * 1.멤버십적립 2.판매테이블 3.판매관리테이블
+						 */
+
 					}
 				});
 				timer.start();
 			}
 		});
-
+		add(home);
 		add(orderAmountlb);
 		add(pointlb);
 		add(purchaseAmountlb);
@@ -177,34 +202,50 @@ public class CartMainFrame extends JFrame {
 		add(cancel);
 	}
 
-	   public int getTotalAmounts() {
+	// 판매 테이블 전달용
+	public ArrayList<String> completeInfoMenu(ArrayList<String> menuInfo) {
+		ArrayList<String> menuInfoComplete = menuInfo;
+		
+		for (int i = 0; i < menuInfo.size() - 3; i++) {
+			menuInfoComplete.add(i, salesNum);
+			i = i + 5;
+			menuInfoComplete.add(i, "" + getMenuNum(menuInfo.get(i - 4)));
+			i = i + 1;
+		}
 
-		      int total = 0;
-		      for (int i = 2; i < menuInfo.size(); i += 4) {
-		         total += Integer.parseInt(menuInfo.get(i));
+		return menuInfoComplete;
+	}
+	
+	public int getMenuNum(String menu) {
 
-		      }
+		GetImageInfo gi = new GetImageInfo(menu);
 
-		      return total / 10;
-		   }
+		return gi.getMenuNum();
+	}
+
+	public String getTimeNow() {
+
+		Calendar now = Calendar.getInstance();
+		SimpleDateFormat myDateFormat = new SimpleDateFormat("yyyyMMdd-01-HHmmss");
+
+		Date date = now.getTime();
+
+		return myDateFormat.format(date);
+	}
+
+	public int getTotalAmounts() {
+
+		int total = 0;
+		for (int i = 2; i < menuInfo.size(); i += 4) {
+			total += Integer.parseInt(menuInfo.get(i));
+
+		}
+
+		return total / 10;
+	}
+
 	public static void main(String[] args) {
-		ArrayList<String> a = new ArrayList<>();
-		a.add("아메리카노");
-		a.add("1");
-		a.add("5000");
-		a.add("옵션 이거저거");
 
-		a.add("카페라떼");
-		a.add("3");
-		a.add("1000");
-		a.add("옵션 이거저거");
-
-		a.add("카푸치노");
-		a.add("4");
-		a.add("3000");
-		a.add("옵션 이거저거이거저거이거저거");
-
-		new CartMainFrame(a);
-
+		Options.choiceMenu = new ChoiceMenu();
 	}
 }
