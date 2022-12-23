@@ -21,6 +21,7 @@ public class TotalPanel extends JPanel {
 	public TotalPanel() {
 		setBounds(900, 592, 200, 45);
 		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		text.setText("0원");
 		add(text);
 	}
 

@@ -43,8 +43,8 @@ public class DayComboBox extends JComboBox {
 				yearChart.dataset.clear();
 				MonthChart monthChart = new MonthChart();
 				monthChart.dataset.clear();
-				TotalPanel total = new TotalPanel();
-				total.text.setText("");
+				DayChart dayChart = new DayChart();
+				dayChart.dataset.clear();
 				
 				
 			}
