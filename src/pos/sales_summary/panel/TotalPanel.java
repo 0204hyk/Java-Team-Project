@@ -70,7 +70,7 @@ public class TotalPanel extends JPanel {
 
 			pstmt.setString(1, hap);
 			try (ResultSet rs = pstmt.executeQuery()) {
-				while (rs.next()) {
+				if(rs.next()) {
 					text.setText(rs.getString("total")+"원");
 				} 
 			}
