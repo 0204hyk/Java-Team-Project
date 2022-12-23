@@ -19,7 +19,8 @@ public class MonthComboBox extends JComboBox {
 	// 매출요약 월 콤보박스 생성.
 	Calendar now = Calendar.getInstance();
 	int month = now.get(Calendar.MONTH) + 1;
-	
+	TotalPanel total = new TotalPanel();
+	TitlePanel title = new TitlePanel();
 	public MonthComboBox() {
 		for (int i = 1; i <= 12; ++i ) {
 			addItem(i);
@@ -27,7 +28,7 @@ public class MonthComboBox extends JComboBox {
 		setSelectedItem(month);
 		setBounds(210, 100, 100, 25);
 
-		// 콤보박스 값 선택 시 table 리스트 초기화
+		// 콤보박스 값 선택 시 table 리스트 초기화, Chart 초기화
 		addItemListener(new ItemListener() {
 			
 			@Override
@@ -44,6 +45,8 @@ public class MonthComboBox extends JComboBox {
 				monthChart.dataset.clear();
 				DayChart dayChart = new DayChart();
 				dayChart.dataset.clear();
+				title.text.setText("");
+				total.text.setText("");
 			}
 		});
 	}

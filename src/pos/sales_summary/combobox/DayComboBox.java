@@ -21,6 +21,9 @@ public class DayComboBox extends JComboBox {
 	Calendar now = Calendar.getInstance();
 	int day = now.get(Calendar.DATE);
 	
+	TotalPanel total = new TotalPanel();
+	TitlePanel title = new TitlePanel();
+	
 	public DayComboBox() {
 		
 		for (int i = 1; i <= now.getActualMaximum(Calendar.DAY_OF_MONTH); ++i) {
@@ -29,7 +32,7 @@ public class DayComboBox extends JComboBox {
 		
 		setSelectedItem(day);
 		
-		// 콤보박스 값 선택 시 table 리스트 초기화
+		// 콤보박스 값 선택 시 table 리스트 초기화, Chart 초기화
 		addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
@@ -46,6 +49,8 @@ public class DayComboBox extends JComboBox {
 				monthChart.dataset.clear();
 				DayChart dayChart = new DayChart();
 				dayChart.dataset.clear();
+				total.text.setText("");
+				title.text.setText("");
 				
 				
 			}
