@@ -20,8 +20,8 @@ import database.OjdbcConnection;
 public class MonthChart extends JPanel {
 
 	public static DefaultCategoryDataset dataset;
-	public static CategoryDataset datasetResult = createDataset();
-	public static JFreeChart chart = createChart(datasetResult);
+	private static CategoryDataset datasetResult = createDataset();
+	private static JFreeChart chart = createChart(datasetResult);
 	String year;
 	String month;
 	String day;

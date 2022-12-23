@@ -20,8 +20,8 @@ import database.OjdbcConnection;
 public class YearChart extends JPanel {
 
 	public static DefaultCategoryDataset dataset;
-	public static CategoryDataset datasetResult = createDataset();
-	public static JFreeChart chart = createChart(datasetResult);
+	private static CategoryDataset datasetResult = createDataset();
+	private static JFreeChart chart = createChart(datasetResult);
 	String year;
 	String month;
 	String day;
@@ -30,12 +30,11 @@ public class YearChart extends JPanel {
 	public YearChart() {
 
 		chart.getPlot().setBackgroundPaint(Color.WHITE);
-		
 		ChartPanel panel = new ChartPanel(chart);
 		panel.setPreferredSize(new Dimension(500, 500));
 		add(panel);
 		setBounds(50, 150, 500, 500);
-	}
+	} 
 
 	public YearChart(String year) {
 		this.year = year;
@@ -66,12 +65,11 @@ public class YearChart extends JPanel {
 
 	}
 
-	public static CategoryDataset createDataset() {
+	private static CategoryDataset createDataset() {
 		dataset = new DefaultCategoryDataset();
 		return dataset;
 	}
-
-
+	
 	private static JFreeChart createChart(CategoryDataset dataset) {
 		JFreeChart chart = ChartFactory.createBarChart(
 				"HyCafe",        

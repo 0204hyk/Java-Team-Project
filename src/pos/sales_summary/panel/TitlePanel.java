@@ -17,8 +17,7 @@ public class TitlePanel extends JPanel {
 
 	public TitlePanel() {
 
-		setBounds(710, 180, 305, 45);
-		//setBackground(new Color(16, 41, 64));
+		setBounds(710, 180, 325, 45);
 		add(text);
 	}
 
