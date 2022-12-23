@@ -176,9 +176,9 @@ public class List {
 			
 			while (rs.next()) {
 				// 영수증에 관한 값을 List에 저장 (현재 영수증 테이블에 값이 없엉서 멤버십 테이블로 대신함)
-				ResultSetMetaData metadata = rs.getMetaData();
+//				ResultSetMetaData metadata = rs.getMetaData();
 				while (rs.next()) {	
-
+					
 					menu_name = rs.getString("menu_name");
 					menu_qty = rs.getInt("menu_qty");
 					menu_price = rs.getInt("price") * menu_qty;
@@ -226,7 +226,7 @@ public class List {
 					total_price += menu_price;
 				}
 				
-				 
+				
 
 				
 			}
@@ -245,7 +245,8 @@ public class List {
 			// 영수증 출력하는 곳에 값 넣기 
 						// 날짜, 영수증번호, 메뉴, 총 가격, 포인트결제, 카드결제
 			changeTextA(sale_date, sales_number, sb1.toString(), total_price , point, card);
-		
+			
+			rs.close();
 		} catch (SQLException e) {
 			System.out.println(" 오류");
 			e.printStackTrace();
