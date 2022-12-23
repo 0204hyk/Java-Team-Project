@@ -25,6 +25,7 @@ public class TotalPanel extends JPanel {
 
 		setBounds(900, 592, 200, 45);
 		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		text.setText("0원");
 		add(text);
 	}
 
@@ -33,11 +34,9 @@ public class TotalPanel extends JPanel {
 		this.year = year;
 
 		// 해당 년의 합계
-		String sql = "SELECT to_char(sum(price - used_point), '999,999,999') as total "
-				+ "FROM sales_management INNER JOIN sales "
-				+ "USING (sales_number) "
-				+ "WHERE to_char(saledate, 'YYYY') = ? "
-				+ "GROUP BY to_char(saledate, 'YYYY')"; 
+		String sql = "SELECT to_char(sum(price) - sum(used_point), '999,999,999') AS total "
+				+ "FROM sales INNER JOIN sales_management USING(sales_number) "
+				+ "WHERE to_char(saledate, 'YYYY') = ?";
 		try (
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -46,8 +45,6 @@ public class TotalPanel extends JPanel {
 			try (ResultSet rs = pstmt.executeQuery()) {
 				if (rs.next()) {
 					text.setText(rs.getString("total")+"원");
-				} else {
-					text.setText("0원");
 				}
 			}
 		} catch (SQLException e) {
@@ -62,11 +59,9 @@ public class TotalPanel extends JPanel {
 		hap = year + month;
 
 		// 해당 월의 합계 sql문
-		String sql = "SELECT to_char(sum(price - used_point), '999,999,999') as total "
-				+ "FROM sales_management INNER JOIN sales "
-				+ "USING (sales_number) "
-				+ "WHERE to_char(saledate, 'YYYYMM') = ? "
-				+ "GROUP BY to_char(saledate, 'YYYYMM')"; 
+		String sql = "SELECT to_char(sum(price) - sum(used_point), '999,999,999') AS total "
+				+ "FROM sales INNER JOIN sales_management USING(sales_number) "
+				+ "WHERE to_char(saledate, 'YYYYMM') = ?";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
@@ -95,17 +90,17 @@ public class TotalPanel extends JPanel {
 
 		// 해당 일의 합계 sql문
 
-		String sql = "SELECT to_char(sum(price - used_point), '999,999,999') as total "
-				+ "FROM sales_management INNER JOIN sales "
-				+ "USING (sales_number) "
+		String sql = "SELECT to_char(sum(price) - sum(used_point), '999,999,999') AS total "
+				+ "FROM sales INNER JOIN sales_management USING(sales_number) "
 				+ "WHERE to_char(saledate, 'YYYYMMDD') = ? "
-				+ "GROUP BY to_char(saledate, 'YYYYMMDD')";
+				+ "AND to_char(saledate, 'HH24') BETWEEN 10 AND 21";
 
 		try (
 				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				) {
 			pstmt.setString(1, hap);
+			
 			try (ResultSet rs = pstmt.executeQuery()) {
 			
 				if (rs.next()) {
