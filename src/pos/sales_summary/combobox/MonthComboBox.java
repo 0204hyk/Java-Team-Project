@@ -35,8 +35,10 @@ public class MonthComboBox extends JComboBox {
 				monthTable.model.setNumRows(0);
 				SalesDayTable dayTable = new SalesDayTable();
 				dayTable.model.setNumRows(0);
-				MonthChart chart = new MonthChart();
-				chart.dataset.clear();
+				YearChart yearChart = new YearChart();
+				yearChart.dataset.clear();
+				MonthChart monthChart = new MonthChart();
+				monthChart.dataset.clear();
 				
 			}
 		});

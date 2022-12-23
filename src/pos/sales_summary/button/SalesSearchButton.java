@@ -61,6 +61,8 @@ public class SalesSearchButton extends JButton {
 				YearChart chart = new YearChart(year);
 				TitlePanel title = new TitlePanel(year);
 				TotalPanel total = new TotalPanel(year);
+			
+				
 			}
 		});
 

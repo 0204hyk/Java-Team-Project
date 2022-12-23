@@ -2,6 +2,7 @@ package pos.sales_summary.chart;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +10,7 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -26,9 +28,9 @@ public class YearChart extends JPanel {
 	String hap;
 
 	public YearChart() {
-		
-		
+
 		chart.getPlot().setBackgroundPaint(Color.WHITE);
+		
 		ChartPanel panel = new ChartPanel(chart);
 		panel.setPreferredSize(new Dimension(500, 500));
 		add(panel);
@@ -77,7 +79,7 @@ public class YearChart extends JPanel {
 				"",                  
 				dataset,                 
 				PlotOrientation.VERTICAL, 
-				false,                    
+				true,                    
 				true,                     
 				false                    
 				);

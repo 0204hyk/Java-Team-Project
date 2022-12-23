@@ -29,6 +29,7 @@ public class TitlePanel extends JPanel {
 		text.setText(year + "년");
 		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
 		text.setForeground(Color.WHITE);
+		
 	}
 
 	// 매출 테이블 타이틀 년, 월 생성

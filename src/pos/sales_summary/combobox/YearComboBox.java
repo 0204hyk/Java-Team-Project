@@ -11,6 +11,8 @@ import org.jfree.data.general.DatasetChangeEvent;
 import org.jfree.data.general.DatasetChangeListener;
 
 import pos.sales_summary.chart.YearChart;
+import pos.sales_summary.panel.TitleImagePanel;
+import pos.sales_summary.panel.TitlePanel;
 import pos.sales_summary.panel.TotalPanel;
 import pos.sales_summary.table.SalesDayTable;
 import pos.sales_summary.table.SalesMonthTable;
@@ -42,9 +44,9 @@ public class YearComboBox extends JComboBox  {
 				dayTable.model.setNumRows(0);
 				YearChart chart = new YearChart();
 				chart.dataset.clear();
-			
-//				TotalPanel total = new TotalPanel();
-//				total.text.setText("");
+				TotalPanel total = new TotalPanel();
+				total.text.setText("");
+				
 				
 			}
 		});
