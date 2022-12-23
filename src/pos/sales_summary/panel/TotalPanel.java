@@ -21,7 +21,7 @@ public class TotalPanel extends JPanel {
 	public TotalPanel() {
 		setBounds(900, 592, 200, 45);
 		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
-		text.setText("0원");
+	
 		add(text);
 	}
 
@@ -70,7 +70,7 @@ public class TotalPanel extends JPanel {
 
 			pstmt.setString(1, hap);
 			try (ResultSet rs = pstmt.executeQuery()) {
-				if (rs.next()) {
+				while (rs.next()) {
 					text.setText(rs.getString("total")+"원");
 				} 
 			}
@@ -102,7 +102,9 @@ public class TotalPanel extends JPanel {
 			try (ResultSet rs = pstmt.executeQuery()) {
 				if (rs.next()) {
 					text.setText(rs.getString("total")+"원");
-				} 
+				} else  {
+					text.setText("0원");
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
