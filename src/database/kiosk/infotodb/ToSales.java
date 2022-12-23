@@ -24,6 +24,7 @@ public class ToSales {
 			pstmt.setInt(5, Integer.parseInt(orderInfo.get(3)));
 
 			pstmt.executeUpdate();
+			
 			System.out.println("판매 테이블 DB입력 완료");
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -56,6 +56,8 @@ public class PaymentCompleteFrame extends JFrame {
 				} else {
 					timer.cancel();
 				}
+				
+				dispose();
 			}
 		};
 		timer.schedule(task, 500, 500);
