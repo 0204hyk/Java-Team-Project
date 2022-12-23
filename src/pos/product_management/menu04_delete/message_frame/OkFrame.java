@@ -4,15 +4,14 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
+import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu04_delete.message_frame.component.CompletionBtn;
 
 public class OkFrame extends JFrame{
 
-	
-	public OkFrame() {
-	
+	public OkFrame(ProductManagementJFrame mainFrame) {
 		
-		add (new CompletionBtn(this));
+		add (new CompletionBtn(mainFrame, this));
 		add(new OkPanel());
 		
 		setSize(400, 200); // 프레임 사이즈

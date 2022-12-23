@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 import pos.ImageScaledTool;
+import pos.PosFrame;
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_main.component.DoCloseButton;
 import pos.closing.closing_message.container.ClosingBackgroundPanel;

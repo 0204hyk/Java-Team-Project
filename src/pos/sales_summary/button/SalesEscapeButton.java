@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import pos.ImageScaledTool;
+import pos.sales_summary.chart.DayChart;
+import pos.sales_summary.chart.MonthChart;
+import pos.sales_summary.chart.YearChart;
 import pos.sales_summary.main.SalesDayCheckMain;
 import pos.sales_summary.main.SalesMonthCheckMain;
 import pos.sales_summary.main.SalesYearCheckMain;
@@ -57,6 +60,10 @@ public class SalesEscapeButton extends JButton {
 				// 버튼 클릭 시 기존 TotalPanel 총 금액 값 초기화.
 				TotalPanel total = new TotalPanel();
 				total.text.setText("");
+				
+				YearChart yearChart = new YearChart();
+				yearChart.dataset.clear();
+				
 				yearFrame.dispose();
 			}
 		});
@@ -94,6 +101,11 @@ public class SalesEscapeButton extends JButton {
 				// 버튼 클릭 시 기존 TotalPanel 총 금액 값 초기화.
 				TotalPanel total = new TotalPanel();
 				total.text.setText("");
+				
+				// 버튼 클릭 시 기존 Chart 초기화.
+				MonthChart monthChart = new MonthChart();
+				monthChart.dataset.clear();
+				
 				monthFrame.dispose();
 			}
 		});
@@ -132,6 +144,11 @@ public class SalesEscapeButton extends JButton {
 				// 버튼 클릭 시 기존 TotalPanel 총 금액 값 초기화.
 				TotalPanel total = new TotalPanel();
 				total.text.setText("");
+				
+				// 버튼 클릭 시 기존 Chart 초기화.
+				DayChart dayChart = new DayChart();
+				dayChart.dataset.clear();
+				
 				dayFrame.dispose();
 			}
 		});

@@ -51,6 +51,7 @@ public class ClosingRejectButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		mainFrame.doCloseBtn.setEnabled(true);
 		mainFrame.setEnabled(true);
 		frame.setVisible(false);
 	}

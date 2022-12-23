@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 import pos.ImagePanel;
 import pos.ImageScaledTool;
@@ -21,13 +22,8 @@ import pos.product_management.menu02_add.panel.AddBackgroundImagePanel;
 
 public class AddFix extends JFrame {
 	ImageIcon icon;
-	
-	ProductManagementJFrame prjf;
-	MenuAddFrame frame;
-	
+		
 	public AddFix(ProductManagementJFrame prjf, MenuAddFrame frame) {
-		this.prjf = prjf;
-		this.frame = frame;
 		
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상품 관리 이미지/메뉴 추가 완료 안내 창.png", 400, 200));
@@ -39,7 +35,7 @@ public class AddFix extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				prjf.mj.contents.setRowCount(0);
-				prjf.mj = new MenuListJTable(prjf.allMenu());
+				prjf.mj.selectTable(prjf.allMenu());
 				prjf.setEnabled(true);
 				prjf.addBtn.setEnabled(true);
 				dispose();

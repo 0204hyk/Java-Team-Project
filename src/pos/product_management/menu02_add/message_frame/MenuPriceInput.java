@@ -18,11 +18,8 @@ import pos.product_management.menu02_add.MenuAddFrame;
 public class MenuPriceInput extends JFrame{
 
 	ProductManagementJFrame prjf;
-	MenuAddFrame frame;
-
 
 	public MenuPriceInput(MenuAddFrame frame) {
-		this.frame = frame;
 
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상품 관리 이미지/가격 입력 경고창.png", 400, 200));
@@ -33,6 +30,7 @@ public class MenuPriceInput extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				frame.panel.menuAddBtn.setEnabled(true);
 				frame.setEnabled(true);
 				dispose();
 			}

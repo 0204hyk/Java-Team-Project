@@ -15,18 +15,15 @@ import pos.product_management.menu01_main.ProductManagementJFrame;
 
 public class NotSelectedFrame extends JFrame{
 
-	static ProductManagementJFrame p;
-
-	static JButton ok;
-
-	public NotSelectedFrame() {
-		ok = p.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png",
+	public NotSelectedFrame(ProductManagementJFrame mainFrame) {
+		JButton ok = mainFrame.btnImage("images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼.png",
 				"images/PosImages/상품 관리 이미지/멘트만 있는 안내 창 확인 버튼 클릭.png", 140, 110, 120, 60);
 		ok.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ProductManagementJFrame.deleteBtn.setEnabled(true);
+				mainFrame.setEnabled(true);
+				mainFrame.deleteBtn.setEnabled(true);
 				dispose();
 			}
 		});
@@ -37,7 +34,6 @@ public class NotSelectedFrame extends JFrame{
 		notSelectedPanel.setSize(400,200);
 		
 		add(notSelectedPanel);
-		ProductManagementJFrame.deleteBtn.setEnabled(true);
 		
 		setSize(400, 200);
 		setLayout(null); 
@@ -48,7 +44,4 @@ public class NotSelectedFrame extends JFrame{
 		setLocationRelativeTo(null);
 	}
 
-	public static void main(String[] args) throws IOException {
-		new NotSelectedFrame();
-	}
 }

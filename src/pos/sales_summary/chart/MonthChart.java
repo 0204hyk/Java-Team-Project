@@ -20,15 +20,16 @@ import database.OjdbcConnection;
 public class MonthChart extends JPanel {
 
 	public static DefaultCategoryDataset dataset;
-
+	private static CategoryDataset datasetResult = createDataset();
+	private static JFreeChart chart = createChart(datasetResult);
+	
 	String year;
 	String month;
-	String day;
 	String hap;
 
 	public MonthChart() {
-		CategoryDataset datasetResult = createDataset();
-		JFreeChart chart = createChart(datasetResult);
+		
+		
 		chart.getPlot().setBackgroundPaint(Color.WHITE);
 		ChartPanel panel = new ChartPanel(chart);
 		panel.setPreferredSize(new Dimension(500, 500));

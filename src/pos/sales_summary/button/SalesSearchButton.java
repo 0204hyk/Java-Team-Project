@@ -61,10 +61,10 @@ public class SalesSearchButton extends JButton {
 				YearChart chart = new YearChart(year);
 				TitlePanel title = new TitlePanel(year);
 				TotalPanel total = new TotalPanel(year);
+	
+				
 			}
 		});
-
-	
 
 		setContentAreaFilled(false);	// 버튼 배경 지우기
 		setBorderPainted(false);	// 버튼 테두리 지우기
@@ -98,11 +98,7 @@ public class SalesSearchButton extends JButton {
 				MonthChart chart = new MonthChart(year, month);
 				TitlePanel title = new TitlePanel(year, month);
 				TotalPanel total = new TotalPanel(year, month);
-				
 			
-				
-				
-				
 			}
 		});
 		
@@ -145,6 +141,7 @@ public class SalesSearchButton extends JButton {
 				DayChart chart = new DayChart(year, month, day);
 				TitlePanel title = new TitlePanel(year, month, day);
 				TotalPanel total = new TotalPanel(year, month, day);
+				
 			}
 		});
 

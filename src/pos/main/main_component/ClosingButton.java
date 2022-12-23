@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.PosFrame;
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_main.component.DoCloseButton;
 

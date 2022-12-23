@@ -14,10 +14,8 @@ import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu02_add.MenuAddFrame;
 
 public class ModifyWarningFrame extends JFrame{
-	ProductManagementJFrame prjf;
 
 	public ModifyWarningFrame(ProductManagementJFrame prjf) {
-		this.prjf = prjf;
 
 		JPanel background = new ImagePanel(ImageScaledTool.getScaledImage(
 				"images/PosImages/상품 관리 이미지/메뉴 선택 경고창.png", 400, 200));
@@ -45,5 +43,4 @@ public class ModifyWarningFrame extends JFrame{
 		setLocationRelativeTo(null);
 
 	}
-
 }

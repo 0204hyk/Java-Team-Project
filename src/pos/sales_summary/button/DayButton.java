@@ -30,7 +30,7 @@ public class DayButton extends JButton implements ActionListener{
 		
 		
 		addActionListener(this);
-		setBounds(75, 290, 300, 300); // 위치 및 사이즈 조절
+		setBounds(75, 265, 300, 300); // 위치 및 사이즈 조절
 		setContentAreaFilled(false);
 		setBorderPainted(false); 
 		setOpaque(false);

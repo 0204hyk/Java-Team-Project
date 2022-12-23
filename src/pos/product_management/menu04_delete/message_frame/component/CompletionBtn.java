@@ -11,13 +11,15 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu04_delete.message_frame.OkFrame;
 
 public class CompletionBtn extends JButton implements ActionListener{
+	ProductManagementJFrame mainFrame;	
 	OkFrame f;
-
 	
-	public CompletionBtn(OkFrame f) {
+	public CompletionBtn(ProductManagementJFrame mainFrame, OkFrame f) {
+		this.mainFrame = mainFrame;
 		this.f = f;
 
 		
@@ -44,8 +46,9 @@ public class CompletionBtn extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		mainFrame.setEnabled(true);
+		mainFrame.deleteBtn.setEnabled(true);
 		f.dispose();
-		
 	}
 	
 }

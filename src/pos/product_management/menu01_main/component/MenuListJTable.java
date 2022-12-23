@@ -10,12 +10,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -63,23 +67,24 @@ public class MenuListJTable extends JTable{
 	
 	
 	// JTable 선택값 삭제 메서드
-	public void delete() {
-
-		int index = table.getSelectedRow();
-		
-		if(index < 0){
-			// 아무것도 선택 안하면 뜨는 창
-			new NotSelectedFrame();
-			ProductManagementJFrame.deleteBtn.setEnabled(false);
-		}else{
-			// 삭제 메뉴 확인 창
-			
-			new DeleteFrame();
-			ProductManagementJFrame.deleteBtn.setEnabled(false);
-			table.setEnabled(false);
-
-		}
-	}
+//	public void delete() {
+//
+//		int index = table.getSelectedRow();
+//		
+//		if(index < 0){
+//			// 아무것도 선택 안하면 뜨는 창
+//			p.setEnabled(false);
+//			new NotSelectedFrame(p);
+//			p.deleteBtn.setEnabled(false);
+//		}else{
+//			// 삭제 메뉴 확인 창
+//			
+//			new DeleteFrame();
+//			p.deleteBtn.setEnabled(false);
+//			table.setEnabled(false);
+//
+//		}
+//	}
 
 	// 선택된 메뉴 DB에서 삭제하는 메서드
 	public static void deleteDB(String keyword) {
@@ -103,12 +108,8 @@ public class MenuListJTable extends JTable{
 	}
 
 	
-
-
-
-	// JTable로 DB값 불러오는 메서드
-	public MenuListJTable(String sqlCondition) {
-
+	// 테이블에 값 넣는 메서드
+	public void selectTable(String sqlCondition) {
 		String sql = sqlCondition;
 
 		try (
@@ -119,71 +120,85 @@ public class MenuListJTable extends JTable{
 
 			while (rs.next()) {
 
+				DecimalFormat formatter = new DecimalFormat("###,###");
+				
 				contents.addRow(new Object[] {
 						rs.getInt("menu_number"),
 						rs.getString("menu_name"),
-						rs.getInt("price")
+						formatter.format(rs.getInt("price"))
 				});
 
 			}
-
-			table = new JTable(contents);
-
-			JScrollPane scroll = new JScrollPane(table);
-
-			table.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-			
-			// 헤더 높이 조절
-			JTableHeader th = table.getTableHeader();
-			th.setPreferredSize(new Dimension(50, 50));
-			th.setBackground(new Color(217, 217, 217));
-			th.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-			
-			table.setRowHeight(35);
-			table.getColumnModel().getColumn(0).setPreferredWidth(10);
-			table.getColumnModel().getColumn(1).setPreferredWidth(600);
-			table.getColumnModel().getColumn(2).setPreferredWidth(90);
-			
-			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-			
-			table.addMouseListener(new MouseAdapter() {
-
-				@Override
-				public void mouseClicked(MouseEvent e) {					
-					menuName = (table.getValueAt(table.getSelectedRow(), 1)).toString();
-				}
-				
-			});
-			
-			scroll.setBounds(0, 0, 1100, 435);
-
-			// 테이블 수정 불가하게 설정
-			table.getTableHeader().setReorderingAllowed(false);
-			table.getTableHeader().setResizingAllowed(false);
-			
-			
-			// 테이블 내용 가운데 정렬하기
-			DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer(); 
-			dtcr.setHorizontalAlignment(SwingConstants.CENTER); // 렌더러의 가로정렬을 CENTER로
-
-			TableColumnModel tcm = table.getColumnModel() ; // 정렬할 테이블의 컬럼모델을 가져옴
-
-			//전체 열에 지정
-			for(int i = 0 ; i < tcm.getColumnCount() ; i++){
-				tcm.getColumn(i).setCellRenderer(dtcr);
-			}
-
-
-
-
-			table.setLayout(null);
-			setBounds(48, 190, 1100, 435);
-			add(scroll);
-			setLayout(null);
-			setVisible(true);
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
+	}
+
+
+	// JTable로 DB값 불러오는 메서드
+	public MenuListJTable(String sqlCondition) {
+		
+		selectTable(sqlCondition);
+
+		table = new JTable(contents);
+
+		JScrollPane scroll = new JScrollPane(table);
+
+		table.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		
+		// 헤더 높이 조절
+		JTableHeader th = table.getTableHeader();
+		th.setPreferredSize(new Dimension(50, 50));
+		th.setBackground(new Color(217, 217, 217));
+		th.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		
+		table.setRowHeight(35);
+		table.getColumnModel().getColumn(0).setPreferredWidth(10);
+		table.getColumnModel().getColumn(1).setPreferredWidth(600);
+		table.getColumnModel().getColumn(2).setPreferredWidth(90);
+		
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		ListSelectionModel rowSelect = table.getSelectionModel();
+		rowSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		rowSelect.addListSelectionListener(new ListSelectionListener() {
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				if(e.getValueIsAdjusting()) {
+					ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+					int rowIndex = lsm.getMinSelectionIndex();
+					menuName = table.getValueAt(rowIndex, 1).toString();
+				}
+			}
+		});
+					
+		scroll.setBounds(0, 0, 1100, 435);
+
+		// 테이블 수정 불가하게 설정
+		table.getTableHeader().setReorderingAllowed(false);
+		table.getTableHeader().setResizingAllowed(false);
+		
+		
+		// 테이블 내용 가운데 정렬하기
+		DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer(); 
+		dtcr.setHorizontalAlignment(SwingConstants.CENTER); // 렌더러의 가로정렬을 CENTER로
+
+		TableColumnModel tcm = table.getColumnModel() ; // 정렬할 테이블의 컬럼모델을 가져옴
+
+		//전체 열에 지정
+		for(int i = 0 ; i < tcm.getColumnCount() ; i++){
+			tcm.getColumn(i).setCellRenderer(dtcr);
+		}
+
+
+
+
+		table.setLayout(null);
+		setBounds(48, 190, 1100, 435);
+		add(scroll);
+		setLayout(null);
+		setVisible(true);
 	}
 
 

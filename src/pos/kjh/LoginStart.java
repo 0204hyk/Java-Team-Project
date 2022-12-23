@@ -21,17 +21,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import database.OjdbcConnection;
 import pos.PosFrame;
 import pos.product_management.menu01_main.ProductManagementJFrame;
 
 public class LoginStart extends JFrame{
-
-	private static String driver = "oracle.jdbc.driver.OracleDriver";
-	private static String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
-	private static String id = "hyCafe";
-	private static String pw = "1234";
 
 	String idCheck;
 	String pwCheck;
@@ -42,34 +39,29 @@ public class LoginStart extends JFrame{
 	static JLabel idNoInput = loginCheck("아이디를 입력해주세요.");
 	static JLabel pwNoInput = loginCheck("비밀번호를 입력해주세요.");
 
-	static {
-		try {
-			Class.forName(driver);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			System.out.println("드라이브 연결 안됨");
-		}
-	}
-
-	public JLabel labelSetting(String image, int a, int b, int c, int d) throws IOException {
+	public JLabel labelSetting(String image, int a, int b, int c, int d) {
 		JLabel label = new JLabel();
 
-		BufferedImage bufferedlabelImage = ImageIO.read(new File(image));
-		Image labelImage = bufferedlabelImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
-		label.setIcon(new ImageIcon(labelImage));
-		label.setBounds(a, b, c, d);
+		try {
+			BufferedImage bufferedlabelImage = ImageIO.read(new File(image));
+			Image labelImage = bufferedlabelImage.getScaledInstance(c, d, Image.SCALE_SMOOTH);
+			label.setIcon(new ImageIcon(labelImage));
+			label.setBounds(a, b, c, d);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 		return label;
 	}
 
 
 	// DB 아이디 체크
-	public String checkIdDB() throws SQLException {
+	public String checkIdDB() {
 
 		String sql = "SELECT manager_id FROM manager";
 
 		try (
-				Connection conn = DriverManager.getConnection(url, id, pw);
+				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();
 				){
@@ -77,18 +69,20 @@ public class LoginStart extends JFrame{
 			while (rs.next()) {
 				idCheck = rs.getString("manager_id");
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
 		return idCheck;
 	}
 
 	// DB 비번 체크
-	public String checkPwDB() throws SQLException {
+	public String checkPwDB() {
 
 		String sql = "SELECT manager_password FROM manager";
 
 		try (
-				Connection conn = DriverManager.getConnection(url, id, pw);
+				Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery();
 				){
@@ -96,6 +90,8 @@ public class LoginStart extends JFrame{
 			while (rs.next()) {
 				pwCheck = rs.getString("manager_password");
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
 		return pwCheck;
@@ -111,38 +107,44 @@ public class LoginStart extends JFrame{
 		return l;
 	}
 
-	public LoginStart() throws IOException {
+	public LoginStart() {
 
 		// 닫기 버튼
 		JButton xBtn = new JButton();
-		BufferedImage bufferedxImage = ImageIO.read(new File("images/KioskImages/1. 관리자, 키오스크 모드/닫기 버튼.png"));
-		Image xBtnImage = bufferedxImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-		xBtn.setIcon(new ImageIcon(xBtnImage));
-		xBtn.setBounds(520, 10, 40, 40);
-
-		xBtn.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-			}
-		});
+		try {
+			BufferedImage bufferedxImage = ImageIO.read(new File("images/KioskImages/1. 관리자, 키오스크 모드/닫기 버튼.png"));
+			Image xBtnImage = bufferedxImage.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+			xBtn.setIcon(new ImageIcon(xBtnImage));
+			xBtn.setBounds(520, 10, 40, 40);
+			
+			xBtn.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					System.exit(0);
+				}
+			});
+		} catch (IOException e2) {
+			e2.printStackTrace();
+		}
 
 		// 아이디 입력
 		
 		idText = new JTextField();
 
-		idText.setBounds(220, 265, 170, 30);
+		idText.setBounds(220, 266, 170, 30);
 		idText.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		idText.setFocusable(true);
 		idText.setOpaque(false);
 		idText.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 
 
 		// 비밀번호 입력
-		pwText = new JTextField() ;
+		pwText = new JPasswordField() ;
 
-		pwText.setBounds(220, 322, 170, 30);
+		pwText.setBounds(220, 325, 170, 30);
 		pwText.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		pwText.setFocusable(true);
 		pwText.setOpaque(false);
 		pwText.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 
@@ -170,40 +172,35 @@ public class LoginStart extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-
-					// 값이 입력되지 않았다면
-					if (idText.getText().length() == 0 && pwText.getText().length() == 0) {
-						discordance.setVisible(false);
-							idNoInput.setVisible(true);
-						
-					} else if (idText.getText().length() > 0 && pwText.getText().length() == 0){
-						discordance.setVisible(false);
-						idNoInput.setVisible(false);
-						pwNoInput.setVisible(true);
-						
-						
-					} else if (idText.getText().length() == 0 && pwText.getText().length() > 0) {
-						discordance.setVisible(false);
-						pwNoInput.setVisible(false);
+				// 값이 입력되지 않았다면
+				if (idText.getText().length() == 0 && pwText.getText().length() == 0) {
+					discordance.setVisible(false);
 						idNoInput.setVisible(true);
-						
-					} else {
-						
-						if (checkIdDB().equals(idText.getText()) && checkPwDB().equals(pwText.getText())) {
-
-							dispose();
-							new PosFrame();
-
-						} else if (!(checkIdDB().equals(idText.getText())) || !(checkPwDB().equals(pwText.getText()))){
-							idNoInput.setVisible(false);
-							pwNoInput.setVisible(false);
-							discordance.setVisible(true);
-						}
 					
+				} else if (idText.getText().length() > 0 && pwText.getText().length() == 0){
+					discordance.setVisible(false);
+					idNoInput.setVisible(false);
+					pwNoInput.setVisible(true);
+					
+					
+				} else if (idText.getText().length() == 0 && pwText.getText().length() > 0) {
+					discordance.setVisible(false);
+					pwNoInput.setVisible(false);
+					idNoInput.setVisible(true);
+					
+				} else {
+					
+					if (checkIdDB().equals(idText.getText()) && checkPwDB().equals(pwText.getText())) {
+
+						dispose();
+						new PosFrame();
+
+					} else if (!(checkIdDB().equals(idText.getText())) || !(checkPwDB().equals(pwText.getText()))){
+						idNoInput.setVisible(false);
+						pwNoInput.setVisible(false);
+						discordance.setVisible(true);
 					}
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				
 				}
 			}
 		});

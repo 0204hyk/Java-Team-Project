@@ -21,11 +21,11 @@ public class TeamInfoPanel extends JPanel{
 	public void paintComponent(Graphics g) {
 		Dimension d = getSize();
 		ImageIcon image = new ImageIcon
-				("images/PosImages/시작 페이지 버튼 이미지/프로젝트 구성원 창3.png");
+				("images/PosImages/시작 페이지 버튼 이미지/프로젝트 구성원 창4.png");
 		g.drawImage(image.getImage(), 0, 0, d.width, d.height, null);
 	}	
 
-	public TeamInfoPanel() throws IOException {
+	public TeamInfoPanel() {
 		setBounds(0, 0, 500, 450);
 		setLayout(null); 
 	}	     

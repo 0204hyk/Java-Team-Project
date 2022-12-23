@@ -6,6 +6,10 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,12 +28,10 @@ import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu02_add.MenuAddFrame;
 import pos.product_management.menu02_add.component.MenuAddButton;
 import pos.product_management.menu02_add.message_frame.AddFix;
-import pos.product_management.menu02_add.message_frame.MenuNameInput;
 
 public class AddBackgroundImagePanel extends JPanel{
-	
-	ProductManagementJFrame mainFrame;
-	MenuAddFrame frame;
+		
+	public MenuAddButton menuAddBtn;
 	
 	public JTextField nameField;
 	public JFormattedTextField priceField;
@@ -58,8 +60,6 @@ public class AddBackgroundImagePanel extends JPanel{
 	}
 	
 	public AddBackgroundImagePanel(ProductManagementJFrame mainFrame, MenuAddFrame frame) {
-		this.mainFrame = mainFrame;
-		this.frame = frame;
 		
 		setLayout(null); 
 		setSize(900, 550);
@@ -75,6 +75,18 @@ public class AddBackgroundImagePanel extends JPanel{
 		priceField.setOpaque(false);
 		priceField.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		priceField.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		priceField.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent ke) {
+				JFormattedTextField pf = (JFormattedTextField)ke.getSource();
+				if (pf.getText().length() >= 5) ke.consume();
+			}
+		});
+		priceField.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				priceField.setText("");
+			}
+		});
 
 		
 		// 카테고리 분류
@@ -185,7 +197,7 @@ public class AddBackgroundImagePanel extends JPanel{
 		optionBtnGroup.add(option8);
 		
 		try {
-			MenuAddButton menuAddBtn = new MenuAddButton(frame, this, new AddFix(mainFrame, frame));
+			menuAddBtn = new MenuAddButton(frame, this, new AddFix(mainFrame, frame));
 			
 			JButton closeBtn = new JButton();
 			BufferedImage bufferedcloseBtnImage = ImageIO.read(new File("images/PosImages/상품 관리 이미지/닫기 버튼.png"));

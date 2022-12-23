@@ -26,6 +26,7 @@ import pos.ImagePanel;
 import pos.ImageScaledTool;
 import pos.PosFrame;
 import pos.product_management.menu01_main.component.AddButton;
+import pos.product_management.menu01_main.component.DeleteButton;
 import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu01_main.component.ModifyButton;
 import pos.product_management.menu04_delete.DeleteCheckPanel;
@@ -42,7 +43,7 @@ public class ProductManagementJFrame extends JFrame {
 	DeleteCheckPanel dcp;
 	public AddButton addBtn = new AddButton(this);
 	public ModifyButton modifyBtn = new ModifyButton(this);
-	public static JButton deleteBtn;
+	public JButton deleteBtn = new DeleteButton(this);
 	
 	public ProductManagementJFrame() {
 
@@ -56,16 +57,29 @@ public class ProductManagementJFrame extends JFrame {
 
 		titlePanel.add(clock);
 
-
+		
 		add(titlePanel);
-
+		
 		add(serch());
 
 		add(labelImage("images/PosImages/상품 관리 이미지/검색바.png", 200, 100, 700, 51));
 		
 		add(mj);
-
+		
+		add(addBtn);
+		add(modifyBtn);
+		add(deleteBtn);
+		
 		buttons();
+		
+		setUndecorated(true);
+		setLayout(null);
+		setSize(1200, 800);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setBackground(new Color(64, 64, 64));
+		setLocationRelativeTo(null);
+		setResizable(false);
 	}
 
 
@@ -129,10 +143,6 @@ public class ProductManagementJFrame extends JFrame {
 		JButton backBtn = btnImage("images/PosImages/상품 관리 이미지/돌아가기 버튼.png",
 				"images/PosImages/상품 관리 이미지/돌아가기 버튼 클릭.png", 45, 675, 180, 80);
 
-		deleteBtn = btnImage("images/PosImages/상품 관리 이미지/삭제 버튼.png",
-				"images/PosImages/상품 관리 이미지/삭제 버튼 클릭.png", 980, 675, 180, 80);
-
-
 		// 검색 버튼
 		serchBtn.addMouseListener(new MouseAdapter() {
 			@Override
@@ -184,33 +194,12 @@ public class ProductManagementJFrame extends JFrame {
 				table.contents.setNumRows(0);
 
 			}
-		});
-
-		// 삭제 버튼
-		deleteBtn.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mj.delete();
-			}
-		});				
+		});	
 		
 		add(serchBtn);
 		add(backBtn);
-		add(addBtn);
-		add(modifyBtn);
-		add(deleteBtn);
 
-		setUndecorated(true);
-		setLayout(null);
-		setSize(1200, 800);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setBackground(new Color(64, 64, 64));
-		setLocationRelativeTo(null);
-		setResizable(false);
-
-		return deleteBtn;
+		return serchBtn;
 	}
 
 
