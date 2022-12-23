@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 import pos.ImagePanel;
 import pos.ImageScaledTool;
@@ -38,7 +39,7 @@ public class AddFix extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				prjf.mj.contents.setRowCount(0);
-				prjf.mj = new MenuListJTable(prjf.allMenu());
+				prjf.mj.selectTable(prjf.allMenu());
 				prjf.setEnabled(true);
 				prjf.addBtn.setEnabled(true);
 				dispose();
