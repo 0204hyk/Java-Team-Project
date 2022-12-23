@@ -19,7 +19,7 @@ public class TotalPanel extends JPanel {
 	public static JLabel text = new JLabel();
 
 	public TotalPanel() {
-		setBounds(890, 592, 220, 45);
+		setBounds(900, 592, 200, 45);
 		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
 		add(text);
 	}
