@@ -17,8 +17,8 @@ public class TitlePanel extends JPanel {
 
 	public TitlePanel() {
 
-		setBounds(710, 180, 315, 45);
-		setBackground(new Color(16, 41, 64));
+		setBounds(710, 180, 305, 45);
+		//setBackground(new Color(16, 41, 64));
 		add(text);
 	}
 
@@ -28,7 +28,7 @@ public class TitlePanel extends JPanel {
 
 		text.setText(year + "년");
 		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
-		text.setForeground(Color.WHITE);
+		text.setForeground(Color.BLACK);
 		
 	}
 
@@ -39,7 +39,7 @@ public class TitlePanel extends JPanel {
 
 		text.setText(year + "년 " + month + "월 ");
 		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
-		text.setForeground(Color.WHITE);
+		text.setForeground(Color.BLACK);
 	}
 
 	// 매출 테이블 타이틀 년, 월, 일 생성
@@ -50,6 +50,6 @@ public class TitlePanel extends JPanel {
 
 		text.setText(year + "년 " + month + "월 " + day + "일");
 		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
-		text.setForeground(Color.WHITE);
+		text.setForeground(Color.BLACK);
 	}
 }
