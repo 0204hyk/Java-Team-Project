@@ -27,6 +27,9 @@ public class AMenu extends JPanel {
 
 	// 장바구니에 한 줄씩 들어감, Options에서 만든 cup을 가져온다
 
+	public AMenu() {
+		// TODO Auto-generated constructor stub
+	}
 	public AMenu(String menu, Cups cup, String temparature, int optionPrice, ChoiceMenu frame, String name, String optionNums) {
 		this.menu = menu;
 		this.temparature = temparature;
@@ -114,9 +117,8 @@ public class AMenu extends JPanel {
 				}
 				setVisible(false);
 				num--;
-				// 삭제하자 마자 실시간으로 AMenu JPanel이 수정되야함 현재 상태로는 불가능해 보임
-				// 1, 2, 3번 추가 후 2번 지우면 1, 3이 나타나고 다음 메뉴 추가하면 1, 3, 3이 됨
-				
+				wi.makeLabel(num + ".png", x + 4, y + 5, 31, 31);
+			
 			}
 		});
 		
@@ -127,6 +129,7 @@ public class AMenu extends JPanel {
 		setLayout(null);
 
 		// 음료 순번 - 수정 필요
+		
 		add(wi.makeLabel(num + ".png", x + 4, y + 5, 31, 31));
 		add(cups);
 		add(menuNamelb);
