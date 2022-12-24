@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class OjdbcConnection {
 	//하영씨 192.168.0.116 //121.132.80.134
 	private static String driver = "oracle.jdbc.driver.OracleDriver";
-	private static String url = "jdbc:oracle:thin:@192.168.0.116:1521:XE";
+	private static String url = "jdbc:oracle:thin:@121.132.80.134:1521:XE";
 	private static String id = "hyCafe";
 	private static String password = "1234";
 	
