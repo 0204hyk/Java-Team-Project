@@ -114,7 +114,7 @@ public class AMenu extends JPanel {
 				}
 				setVisible(false);
 				num--;
-				
+				// 실시간으로 수정되야함 현재 상태로는 불가능해 보임
 			}
 		});
 		
