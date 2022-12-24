@@ -40,7 +40,7 @@ public class ChoiceMenu extends JFrame {
 	JPanel adePn2 = PanelsByCategory2(5);
 
 	JPanel cart = new JPanel();
-
+	JButton pay;
 	ArrayList<String> menuInfo = new ArrayList<>();
 
 	public ChoiceMenu() {
@@ -282,7 +282,7 @@ public class ChoiceMenu extends JFrame {
 
 	public void pay() {
 		// 장바구니에 있는것들 보내기
-		JButton pay = wi.makeButton("pay.png", 548, 748, 78, 93);
+		pay = wi.makeButton("pay.png", 548, 748, 78, 93);
 
 		pay.addActionListener(new ActionListener() {
 
@@ -294,7 +294,7 @@ public class ChoiceMenu extends JFrame {
 
 			}
 		});
-
+		pay.setEnabled(false);
 		add(pay);
 	}
 
@@ -316,7 +316,7 @@ public class ChoiceMenu extends JFrame {
 	}
 
 	public void makeMenu(JPanel pn, Cups totalCups, ArrayList menuInfo) {
-
+		pay.setEnabled(true);
 		cart.add(pn);
 
 		// 메뉴,잔,최종금액,옵션
