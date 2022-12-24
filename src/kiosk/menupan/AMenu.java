@@ -114,12 +114,13 @@ public class AMenu extends JPanel {
 				}
 				setVisible(false);
 				num--;
-
+				
 			}
 		});
 		
 		
-
+		revalidate();
+		repaint();
 		setBorder(null);
 		setLayout(null);
 
