@@ -114,7 +114,9 @@ public class AMenu extends JPanel {
 				}
 				setVisible(false);
 				num--;
-				// 실시간으로 수정되야함 현재 상태로는 불가능해 보임
+				// 삭제하자 마자 실시간으로 AMenu JPanel이 수정되야함 현재 상태로는 불가능해 보임
+				// 1, 2, 3번 추가 후 2번 지우면 1, 3이 나타나고 다음 메뉴 추가하면 1, 3, 3이 됨
+				
 			}
 		});
 		
