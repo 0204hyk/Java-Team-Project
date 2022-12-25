@@ -123,13 +123,13 @@ public class AMenu extends JPanel {
 		});
 		
 		
-		revalidate();
-		repaint();
+		
 		setBorder(null);
 		setLayout(null);
 
 		// 음료 순번 - 수정 필요
-		
+		revalidate();
+		repaint();
 		add(wi.makeLabel(num + ".png", x + 4, y + 5, 31, 31));
 		add(cups);
 		add(menuNamelb);
