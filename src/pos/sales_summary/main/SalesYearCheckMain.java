@@ -40,7 +40,7 @@ public class SalesYearCheckMain extends JFrame {
 
 		// 매출요약 콤보박스 
 		JComboBox yearCombo = new YearComboBox();
-
+		yearCombo.setBounds(180, 100, 100, 25);
 		// 매출요약 검색 버튼
 		JButton searchBtn = new SalesSearchButton(yearCombo);
 

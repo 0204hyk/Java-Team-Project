@@ -46,7 +46,7 @@ public class SalesSearchButton extends JButton {
 		// 매출요약 검색 버튼 눌렀을 때 설정.
 		setPressedIcon(new ImageIcon(tool.getScaledImage(
 				"images/PosImages/매출 요약 이미지/날짜 검색 버튼 클릭.png", 100, 50)));
-		setBounds(200, 90, 100, 50);
+		setBounds(300, 90, 100, 50);
 		setBorder(null);
 		
 		// 검색 버튼 마우스 클릭 이벤트 
@@ -82,7 +82,7 @@ public class SalesSearchButton extends JButton {
 		// 매출요약 검색 버튼 눌렀을 때 설정.
 		setPressedIcon(new ImageIcon(tool.getScaledImage(
 				"images/PosImages/매출 요약 이미지/날짜 검색 버튼 클릭.png", 100, 50)));
-		setBounds(320, 90, 100, 50);
+		setBounds(350, 90, 100, 50);
 		setBorder(null);
 		
 		// 마우스 클릭 이벤트
