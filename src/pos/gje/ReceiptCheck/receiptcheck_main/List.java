@@ -180,7 +180,7 @@ public class List {
             
             menu_name = rs.getString("menu_name");
             menu_qty = rs.getInt("menu_qty");
-            menu_price = rs.getInt("price") * menu_qty;
+            menu_price = rs.getInt("price");
          
             // 처음에 메뉴 개수나 옵션 개수가 몇 개인지 몰라서 list로 받음 
             options.add(rs.getInt("menu_options") + "");
