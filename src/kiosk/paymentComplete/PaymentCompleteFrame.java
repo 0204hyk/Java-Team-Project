@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import kiosk.Point;
 import kiosk.TouchToPlaceAnOrder;
+import kiosk.cartFrame.CartMainFrame;
 import kiosk.menupan.ChoiceMenu;
 import kiosk.tools.WithImage;
 
@@ -16,10 +16,10 @@ public class PaymentCompleteFrame extends JFrame {
 	String root = "images/KioskImages/7_1. 영수증 출력 여부, 카드, 결제완료";
 	WithImage wi = new WithImage(root);
 	JLabel num;
-	ChoiceMenu f;
+	CartMainFrame f2;
 
-	public PaymentCompleteFrame(ChoiceMenu f) {
-		this.f = f;
+	public PaymentCompleteFrame(CartMainFrame f2) {
+		this.f2 = f2;
 		num();
 		add(wi.makeLabel("payComplete.png", 0, 0, 414, 301));
 		setDisplay();
@@ -46,7 +46,7 @@ public class PaymentCompleteFrame extends JFrame {
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
 
-			int count = 5;
+			int count = 4;
 
 			@Override
 			public void run() {
@@ -57,12 +57,13 @@ public class PaymentCompleteFrame extends JFrame {
 				} else {
 					timer.cancel();
 					dispose();
-					f.dispose();
-					
+					f2.dispose();
 					new TouchToPlaceAnOrder();
+					
 				}
 				
-				dispose();
+				//dispose();
+				
 			}
 		};
 		timer.schedule(task, 500, 500);
