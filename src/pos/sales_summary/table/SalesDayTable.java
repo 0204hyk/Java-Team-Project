@@ -40,8 +40,8 @@ public class SalesDayTable extends JTable {
 				(DefaultTableCellRenderer)table.getDefaultRenderer(Object.class);
 		renderer.setHorizontalAlignment( SwingConstants.CENTER );
 
-		table.setFont(getFont().deriveFont(23f));
-		table.getTableHeader().setFont(new Font("맑은 고딕", Font.PLAIN, 23));
+		table.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		scroll.setBounds(0, 0, 450, 360);
 		table.setRowHeight(30);
 		table.getTableHeader().setResizingAllowed(false);
