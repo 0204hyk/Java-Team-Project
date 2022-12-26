@@ -41,8 +41,9 @@ public class SalesMonthCheckMain extends JFrame {
 
 		// 매출요약 콤보박스 구현
 		JComboBox yearCombo = new YearComboBox();
+		yearCombo.setBounds(120, 100, 100, 25);
 		JComboBox monthCombo = new MonthComboBox();
-
+		monthCombo.setBounds(235, 100, 100, 25);
 
 		// 매출요약 검색 버튼 구현
 		JButton searchBtn = new SalesSearchButton(yearCombo, monthCombo);

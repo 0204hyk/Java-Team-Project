@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -72,6 +74,12 @@ public class ModifyBackgroundImagePanel extends JPanel {
 			public void keyTyped(KeyEvent ke) {
 				JFormattedTextField pf = (JFormattedTextField)ke.getSource();
 				if (pf.getText().length() >= 5) ke.consume();
+			}
+		});
+		priceField.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				priceField.setText("");
 			}
 		});
 

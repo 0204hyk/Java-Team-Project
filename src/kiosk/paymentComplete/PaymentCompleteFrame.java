@@ -61,6 +61,8 @@ public class PaymentCompleteFrame extends JFrame {
 					
 					new TouchToPlaceAnOrder();
 				}
+				
+				dispose();
 			}
 		};
 		timer.schedule(task, 500, 500);

@@ -13,12 +13,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
+import kiosk.logout.KioskHomeBtn;
 import kiosk.menupan.ChoiceMenu;
 import kiosk.menupan.Options;
 import kiosk.tools.WithImage;
 
 public class TouchToPlaceAnOrder extends JFrame {
-
 	String root = "images/KioskImages/2_1. touchScreen";
 	JButton pic;
 	Timer tm;
@@ -28,7 +28,10 @@ public class TouchToPlaceAnOrder extends JFrame {
 	String[] list = { root + "/poster1.png", root + "/poster2.png", root + "/poster3.png", root + "/poster4.png",
 			root + "/poster5.png" };
 
+	public KioskHomeBtn home = new KioskHomeBtn(this); 
 	public TouchToPlaceAnOrder() {
+		setUndecorated(true);
+		add(home);
 		
 		add(wi.makeLabel("hy.png", 53, 23, 60, 83));
 		add(wi.makeLabel("touchScreen.png", 38, 752, 573, 83));
@@ -37,7 +40,7 @@ public class TouchToPlaceAnOrder extends JFrame {
 		setLocationRelativeTo(null);
 
 		pic = new JButton();
-		pic.setBounds(0, 0, 650, 920);
+		pic.setBounds(0, 0, 650, 950);
 
 		setImageSize(4);
 

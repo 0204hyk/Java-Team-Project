@@ -56,19 +56,12 @@ public class SalesYearTable extends JTable {
 		this.year = year;
 
 		String sql = 
-//				"SELECT to_char(saledate, 'YYYY-MM'), to_char(sum(price), '999,999,999') AS total "
-//				+ "FROM sales_management INNER JOIN sales "
-//				+ "USING (sales_number) "
-//				+ "WHERE TO_CHAR(saledate, 'YYYY') = ? "
-//				+ "GROUP BY to_char(saledate, 'YYYY-MM')"
-//				+ "ORDER BY to_char(saledate, 'YYYY-MM')";
-				"SELECT to_char(saleDate, 'YYYY-MM'), "
-				+ "to_char(sum(price) - used_point, '999,999,999') AS total "
-				+ "FROM sales_management INNER JOIN sales "
-				+ "USING (sales_number) "
-				+ "WHERE TO_CHAR(saleDate, 'YYYY') = ? "
-				+ "GROUP BY to_char(saledate, 'YYYY-MM'), used_point "
+				"SELECT to_char(saledate, 'YYYY-MM'), to_char(sum(price) - sum(used_point), '999,999,999') as total "
+				+ "FROM sales INNER JOIN sales_management USING(sales_number) "
+				+ "WHERE to_char(saledate, 'YYYY') = ? "
+				+ "GROUP BY to_char(saledate, 'YYYY-MM') "
 				+ "ORDER BY to_char(saledate, 'YYYY-MM')";
+
 		
 
 		try (

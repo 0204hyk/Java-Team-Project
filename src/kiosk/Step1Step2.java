@@ -48,6 +48,7 @@ public class Step1Step2 extends JFrame {
 		labels();
 		buttons();
 
+		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -269,11 +270,10 @@ public class Step1Step2 extends JFrame {
 	}
 	
 	public static void setUsingPoint() {
-		
+
 		payMethod = 2;
 	}
 	public int getPayMethod() {
-		
 		return payMethod;
 	}
 	
