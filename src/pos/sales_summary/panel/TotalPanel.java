@@ -107,7 +107,7 @@ public class TotalPanel extends JPanel {
 			
 				if (rs.next()) {
 					text.setText(rs.getString("total")+"원");
-				} else  {
+				} else {
 					text.setText("0원");
 				}
 			}
