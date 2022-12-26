@@ -143,7 +143,7 @@ public class List {
 				+ "from sales s, menu m "
 				+ "where sales_number = '" + sales_number + "'"
 				+ "AND s.menu_number = m.menu_number"; 
-		String query2 = "옵션들 추가";
+		
 		
 		StringBuilder sb1 = new StringBuilder();
 		

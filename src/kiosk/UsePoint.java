@@ -5,12 +5,10 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
 
 import database.kiosk.CheckPoint;
 import kiosk.tools.WithImage;
@@ -19,6 +17,7 @@ public class UsePoint extends JFrame {
 
 	String root = "images/KioskImages/5_4. step2 usePoint";
 	WithImage wi = new WithImage(root);
+	Point point2 = new Point();
 
 	public UsePoint(String phonenumber) {
 
@@ -69,6 +68,9 @@ public class UsePoint extends JFrame {
 				if (Integer.parseInt(ta.getText()) > cp.currentPoint()) {
 					pleaseInputLess.setVisible(true);
 				} else {
+					
+					point2.setPoint(Integer.parseInt(ta.getText()));
+					//new CartMainFrame(Integer.parseInt(ta.getText()));
 					dispose();
 					Step1Step2.pointActive();
 					Step1Step2.setUsingPoint();
@@ -85,6 +87,8 @@ public class UsePoint extends JFrame {
 		JButton checkBox = wi.makeButton("checkBox.png", 64, 384, 84, 15);
 		checkBox.addActionListener(new ActionListener() {
 			int num = 1;
+			int setpoint;
+			int order = Order.getOrder();
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -94,12 +98,22 @@ public class UsePoint extends JFrame {
 					ta.setText("");
 				} else if (num == 1) {
 					num = 0;
+					
+					
+					if (cp.currentPoint() > order) {
+						setpoint = order;
+					} else {
+						setpoint = cp.currentPoint();
+					}
+					
 					check.setVisible(true);
-					ta.setText("" + cp.currentPoint());
+					
+					ta.setText("" + setpoint);
+					
 					ta.setVisible(true);
 					ta.paint(ta.getGraphics());
+				
 				}
-
 			}
 		});
 
@@ -132,5 +146,8 @@ public class UsePoint extends JFrame {
 	}
 
 	public static void main(String[] args) {
+		new UsePoint("010-2757-2135");
+		
 	}
+	
 }

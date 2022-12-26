@@ -23,10 +23,11 @@ import database.kiosk.GetImageInfo;
 import database.kiosk.infotodb.ToSales;
 import database.kiosk.infotodb.ToSalesManagement;
 import kiosk.CardPutFrame;
+import kiosk.Order;
+import kiosk.Point;
 import kiosk.Step1Step2;
 import kiosk.menupan.ChoiceMenu;
 import kiosk.menupan.MenuPanelForConfirmOrder;
-import kiosk.menupan.Options;
 import kiosk.paymentComplete.PaymentCompleteFrame;
 import kiosk.tools.WithImage;
 
@@ -41,6 +42,7 @@ public class CartMainFrame extends JFrame {
 	String salesNum = getTimeNow();
 	JPanel cart = new JPanel();
 	ChoiceMenu f;
+	int point = 0;
 	
 	ArrayList<String> orderInfo = new ArrayList<>();
 	
@@ -115,6 +117,9 @@ public class CartMainFrame extends JFrame {
 
 			orderAmount += Integer.parseInt(menuInfo.get(index));
 		}
+		
+		
+		
 		JLabel orderAmountlb = new JLabel(df.format(orderAmount) + "원");
 		orderAmountlb.setBounds(450, 630, 150, 45);
 		orderAmountlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
@@ -123,7 +128,10 @@ public class CartMainFrame extends JFrame {
 
 		// 포인트 입력피료
 		add(wi.makeLabel("point.png", 315, 679, 112, 23));
-		int point = 1323;
+		// 입력된 포인트 적용시키기 
+		
+		point = Point.getPoint(); 
+		
 		JLabel pointlb = new JLabel("-" + df.format(point));
 		pointlb.setBounds(450, 667, 150, 45);
 		pointlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
@@ -154,23 +162,26 @@ public class CartMainFrame extends JFrame {
 
 		pay.addActionListener(new ActionListener() {
 
+		
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				pay.setEnabled(false);
+				cancel.setEnabled(false);
 				// 자동종료
 				JFrame cp = new CardPutFrame();
 				
-				timer = new Timer(3000, new ActionListener() {
+				timer = new Timer(2000, new ActionListener() {
 
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						timer.stop();
 						cp.dispose();
+						f.dispose();
 						
 						// 결제가 완료되었습니다
 						new PaymentCompleteFrame(f);
 						
 						
-						
-						timer.stop();
 
 						// 판매관리 데이터 입력
 						new ToSalesManagement(orderInfo);
@@ -247,9 +258,9 @@ public class CartMainFrame extends JFrame {
 
 		return total / 10;
 	}
+	
 
 	public static void main(String[] args) {
 
-		Options.choiceMenu = new ChoiceMenu();
 	}
 }

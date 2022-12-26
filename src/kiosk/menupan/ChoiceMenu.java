@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
 import database.kiosk.CheckMenuByCategories;
+import kiosk.Order;
 import kiosk.Step1Step2;
 import kiosk.byoption.Cups;
 import kiosk.tools.WithImage;
@@ -45,6 +46,9 @@ public class ChoiceMenu extends JFrame {
 
 	ArrayList<String> menuInfo = new ArrayList<>();
 
+	
+	Order order = new Order();
+	
 	public ChoiceMenu() {
 		this.f = this;
 		cart();
@@ -332,7 +336,7 @@ public class ChoiceMenu extends JFrame {
 			total += Integer.parseInt(menuInfo.get(i));
 
 		}
-
+		order.setOrder(total);
 		return total / 10;
 	}
 

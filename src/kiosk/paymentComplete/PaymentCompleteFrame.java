@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import kiosk.Point;
 import kiosk.TouchToPlaceAnOrder;
 import kiosk.menupan.ChoiceMenu;
 import kiosk.tools.WithImage;
@@ -16,7 +17,7 @@ public class PaymentCompleteFrame extends JFrame {
 	WithImage wi = new WithImage(root);
 	JLabel num;
 	ChoiceMenu f;
-	
+
 	public PaymentCompleteFrame(ChoiceMenu f) {
 		this.f = f;
 		num();
