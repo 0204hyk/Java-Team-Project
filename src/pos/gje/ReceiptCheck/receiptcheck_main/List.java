@@ -174,7 +174,7 @@ public class List {
 				) {
 			ResultSet rs = pstmt.executeQuery();
 			
-			while (rs.next()) {
+			
 				// 영수증에 관한 값을 List에 저장 (현재 영수증 테이블에 값이 없엉서 멤버십 테이블로 대신함)
 //				ResultSetMetaData metadata = rs.getMetaData();
 				while (rs.next()) {	
@@ -228,8 +228,7 @@ public class List {
 				
 				
 
-				
-			}
+			
 		
 			int point = point_payment.get(num); 
 			int card = total_price - point;
