@@ -78,7 +78,7 @@ public class KioskAccessPanel extends JPanel{
 //		return pw;
 //	}
 
-	public KioskAccessPanel(TouchToPlaceAnOrder mainframe, KioskEndFrame frame) throws IOException {
+	public KioskAccessPanel(TouchToPlaceAnOrder mainframe, KioskEndFrame frame) {
 		this.mainframe = mainframe;
 		this.frame = frame;
 
@@ -89,21 +89,25 @@ public class KioskAccessPanel extends JPanel{
 		KioskEndCheckBtn kioskBtn = new KioskEndCheckBtn(mainframe, this, frame);
 		
 		JButton closeBtn = new JButton();
-		BufferedImage bufferedcloseBtnImage = ImageIO.read(new File("images/PosImages/계산 파트 이미지/안내 멘트 창 닫기 버튼.png"));
-		Image closeBtnImage = bufferedcloseBtnImage.getScaledInstance(35,35, Image.SCALE_SMOOTH);
-		closeBtn.setIcon(new ImageIcon(closeBtnImage));
-		closeBtn.setBounds(410, 10, 35, 35);
-		closeBtn.setBorderPainted(false);
-		closeBtn.setContentAreaFilled(false);
-		closeBtn.setFocusPainted(false);
-		closeBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mainframe.home.setEnabled(true);
-				mainframe.setEnabled(true);
-				frame.dispose();
-			}
-		});
+		try {
+			BufferedImage bufferedcloseBtnImage = ImageIO.read(new File("images/PosImages/계산 파트 이미지/안내 멘트 창 닫기 버튼.png"));
+			Image closeBtnImage = bufferedcloseBtnImage.getScaledInstance(35,35, Image.SCALE_SMOOTH);
+			closeBtn.setIcon(new ImageIcon(closeBtnImage));
+			closeBtn.setBounds(410, 10, 35, 35);
+			closeBtn.setBorderPainted(false);
+			closeBtn.setContentAreaFilled(false);
+			closeBtn.setFocusPainted(false);
+			closeBtn.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					mainframe.home.setEnabled(true);
+					mainframe.setEnabled(true);
+					frame.dispose();
+				}
+			});
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 		add(closeBtn);
 		add(kioskBtn);
 		add(managerAccess());

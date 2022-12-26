@@ -37,7 +37,7 @@ public class TouchToPlaceAnOrder extends JFrame {
 		setLocationRelativeTo(null);
 
 		pic = new JButton();
-		pic.setBounds(0, 0, 650, 920);
+		pic.setBounds(0, 0, 650, 950);
 
 		setImageSize(4);
 
