@@ -4,8 +4,12 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.Timestamp;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -29,6 +33,7 @@ import kiosk.menupan.MenuPanelForConfirmOrder;
 import kiosk.menupan.Options;
 import kiosk.paymentComplete.PaymentCompleteFrame;
 import kiosk.tools.WithImage;
+import oracle.sql.DATE;
 
 // 마지막 페이지!!!!!!
 
@@ -46,10 +51,13 @@ public class CartMainFrame extends JFrame {
 	
 	public CartMainFrame(ArrayList menuInfo, int totalPoint, String phoneNum, int payMethod) {
 		this.menuInfo = menuInfo;
-	
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String now = formatter.format(LocalDateTime.now()).toString();
+
+		
 		orderInfo.add(salesNum);
 		orderInfo.add(phoneNum+"");
-		orderInfo.add(getDate()); // 여기를..날짜를 넣어야하는데 (시간포함)
+		orderInfo.add(now);
 		orderInfo.add(payMethod+"");
 		orderInfo.add(totalPoint+"");
 		orderInfo.add(new GenerateCardNum().randomCardNumber());

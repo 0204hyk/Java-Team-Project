@@ -29,7 +29,7 @@ public class ChoiceMenu extends JFrame {
 	CardLayout card;
 
 	JPanel cardPanel;
-
+	
 	JPanel newMenuPn = PanelsByCategory(1);
 	JPanel coffeePn = PanelsByCategory(2);
 	JPanel frappePn = PanelsByCategory(3);
@@ -54,7 +54,7 @@ public class ChoiceMenu extends JFrame {
 		tabs();
 		pay();
 
-	//	setUndecorated(true);
+		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -65,7 +65,7 @@ public class ChoiceMenu extends JFrame {
 	}
 
 	public void tabs() {
-
+		
 		// 카테고리 탭
 		card = new CardLayout();
 		cardPanel = new JPanel(card);
@@ -81,7 +81,7 @@ public class ChoiceMenu extends JFrame {
 
 		cardPanel.add(coffeePn);
 		cardPanel.setBounds(74, 212, 503, 508);
-
+		
 		add(newMenuPn);
 		add(coffeePn);
 		add(frappePn);
@@ -94,8 +94,8 @@ public class ChoiceMenu extends JFrame {
 		add(adePn2);
 
 		newMenu.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택 Selected/신메뉴.png"));
-
-		// 해당 카테고리 커피들이 뜨도록 하기
+		
+		
 		newMenu.addActionListener(new ActionListener() {
 
 			@Override
@@ -111,20 +111,20 @@ public class ChoiceMenu extends JFrame {
 
 			}
 		});
-
+		
+		// 해당 카테고리 커피들이 뜨도록 하기
 		coffee.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				showCoffe();
 				category = 1;
-
+				
 				newMenu.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/신메뉴.png"));
 				coffee.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택 Selected/커피.png"));
 				noncoffee.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/논커피.png"));
 				frappe.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/프라페.png"));
 				ade.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/에이드.png"));
-
 			}
 		});
 
@@ -134,13 +134,12 @@ public class ChoiceMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				showFrappe();
 				category = 2;
-
+				
 				newMenu.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/신메뉴.png"));
 				coffee.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/커피.png"));
 				noncoffee.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/논커피.png"));
 				frappe.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택 Selected/프라페.png"));
 				ade.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/에이드.png"));
-
 			}
 		});
 
@@ -150,13 +149,12 @@ public class ChoiceMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				showNonCoffee();
 				category = 3;
-
+				
 				newMenu.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/신메뉴.png"));
 				coffee.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/커피.png"));
 				noncoffee.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택 Selected/논커피.png"));
 				frappe.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/프라페.png"));
 				ade.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/에이드.png"));
-
 			}
 		});
 
@@ -166,13 +164,12 @@ public class ChoiceMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				showAde();
 				category = 4;
-
+				
 				newMenu.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/신메뉴.png"));
 				coffee.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/커피.png"));
 				noncoffee.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/논커피.png"));
 				frappe.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택/프라페.png"));
 				ade.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택 Selected/에이드.png"));
-
 			}
 		});
 
@@ -197,7 +194,7 @@ public class ChoiceMenu extends JFrame {
 			}
 		});
 
-		JButton right = wi.makeButton("right.png", 590, 448, 40, 40);
+		JButton right = wi.makeButton("right.png", 596, 448, 40, 40);
 		right.addActionListener(new ActionListener() {
 
 			@Override
