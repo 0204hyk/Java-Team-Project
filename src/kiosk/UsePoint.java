@@ -11,13 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import database.kiosk.CheckPoint;
+import kiosk.cartFrame.CartMainFrame;
 import kiosk.tools.WithImage;
 
 public class UsePoint extends JFrame {
 
 	String root = "images/KioskImages/5_4. step2 usePoint";
 	WithImage wi = new WithImage(root);
-	Point point2 = new Point();
+	//Point point2 = new Point();
 
 	public UsePoint(String phonenumber) {
 
@@ -69,7 +70,9 @@ public class UsePoint extends JFrame {
 					pleaseInputLess.setVisible(true);
 				} else {
 					
-					point2.setPoint(Integer.parseInt(ta.getText()));
+					CartMainFrame.usedPoint = Integer.parseInt(ta.getText());
+					
+					//point2.setPoint(Integer.parseInt(ta.getText()));
 					//new CartMainFrame(Integer.parseInt(ta.getText()));
 					
 					dispose();

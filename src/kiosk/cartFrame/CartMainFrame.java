@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.security.Timestamp;
 import java.text.DecimalFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -24,17 +22,17 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 import database.kiosk.GetImageInfo;
+import database.kiosk.infotodb.SavePoint;
 import database.kiosk.infotodb.ToSales;
 import database.kiosk.infotodb.ToSalesManagement;
+import database.kiosk.infotodb.UsePoint;
 import kiosk.CardPutFrame;
-import kiosk.Order;
 import kiosk.Point;
 import kiosk.Step1Step2;
 import kiosk.menupan.ChoiceMenu;
 import kiosk.menupan.MenuPanelForConfirmOrder;
 import kiosk.paymentComplete.PaymentCompleteFrame;
 import kiosk.tools.WithImage;
-import oracle.sql.DATE;
 
 // 마지막 페이지!!!!!!
 
@@ -47,7 +45,14 @@ public class CartMainFrame extends JFrame {
 	String salesNum = getTimeNow();
 	JPanel cart = new JPanel();
 	ChoiceMenu f;
-	int point = 0;
+	//int point = 0;
+	
+	String phoneNum = "";
+	int totalPoint = 0;
+	
+	CartMainFrame f2 = this;
+	
+	public static int usedPoint;
 	
 	ArrayList<String> orderInfo = new ArrayList<>();
 	
@@ -55,10 +60,12 @@ public class CartMainFrame extends JFrame {
 	public CartMainFrame(ArrayList menuInfo, int totalPoint, String phoneNum, int payMethod, ChoiceMenu f) {
 		this.menuInfo = menuInfo;
 		this.f = f;
+		this.totalPoint = totalPoint;
+		this.phoneNum = phoneNum; 
+		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		String now = formatter.format(LocalDateTime.now()).toString();
-
-		
+		 
 		orderInfo.add(salesNum);
 		orderInfo.add(phoneNum+"");
 		orderInfo.add(now);
@@ -137,10 +144,10 @@ public class CartMainFrame extends JFrame {
 		add(wi.makeLabel("point.png", 315, 679, 112, 23));
 		// 입력된 포인트 적용시키기 
 		
-		point = Point.getPoint();
-		int tb = point;
+		//usedPoint = Point.getPoint();
 		
-		JLabel pointlb = new JLabel("-" + df.format(point));
+		
+		JLabel pointlb = new JLabel("-" + df.format(usedPoint));
 		pointlb.setBounds(450, 667, 150, 45);
 		pointlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		pointlb.setForeground(Color.black);
@@ -148,7 +155,7 @@ public class CartMainFrame extends JFrame {
 
 		// 결제 금액
 		add(wi.makeLabel("purchase.png", 299, 720, 126, 32));
-		JLabel purchaseAmountlb = new JLabel(df.format(orderAmount - tb) + "원");
+		JLabel purchaseAmountlb = new JLabel(df.format(orderAmount - usedPoint) + "원");
 		purchaseAmountlb.setBounds(450, 710, 150, 45);
 		purchaseAmountlb.setFont(new Font("맑은 고딕", Font.BOLD, 30));
 		purchaseAmountlb.setForeground(new Color(15, 11, 65));
@@ -185,10 +192,10 @@ public class CartMainFrame extends JFrame {
 						timer.stop();
 						cp.dispose();
 						f.dispose();
-						dispose();
+						
 						
 						// 결제가 완료되었습니다
-						new PaymentCompleteFrame(f);
+						new PaymentCompleteFrame(f2);
 						
 						
 						// 판매관리 데이터 입력
@@ -200,10 +207,10 @@ public class CartMainFrame extends JFrame {
 						// 종료
 							
 						// 포인트 적립
-//						new SavePoint(포인트, 멤버십번호);
+						new SavePoint(totalPoint, phoneNum);
 
 						// 포인트 차감
-//						new UsePoint(포인트, 멤버십번호);
+						new UsePoint(usedPoint, phoneNum);
 
 						/*
 						 * 결제 후 필요 한 동작
