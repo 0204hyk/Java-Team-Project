@@ -8,3 +8,4 @@ public class Test {
 		new PosFrame();
 	}
 }
+

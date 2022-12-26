@@ -3,7 +3,7 @@ package kiosk;
 public class Point {
 	
 	static int point = 0;
-	static int order = 0;
+
 	
 	public static int getPoint() {
 		return point;
