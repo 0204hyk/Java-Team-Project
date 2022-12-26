@@ -104,11 +104,4 @@ public class LoginSelectFrame extends JFrame{
 	}
 	
 
-
-	public static void main(String[] args) throws IOException {
-		new LoginSelectFrame();
-	}
-		
-	
-
 }

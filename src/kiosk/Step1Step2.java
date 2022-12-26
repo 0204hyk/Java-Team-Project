@@ -262,11 +262,17 @@ public class Step1Step2 extends JFrame {
 	}
 	
 	public static void setUsingPoint() {
+<<<<<<< HEAD
 		
 		payMethod = 2;
 	}
 	public int getPayMethod() {
 		
+=======
+		payMethod = 2;
+	}
+	public int getPayMethod() {
+>>>>>>> refs/remotes/origin/jsj
 		return payMethod;
 	}
 	

@@ -82,6 +82,7 @@ commit;
 SELECT to_char(saledate, 'HH24'), sum(price) - used_point FROM sales_management INNER JOIN sales USING(sales_number) WHERE to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD') GROUP BY to_char(saledate, 'HH24'), used_point ORDER BY to_char(saledate, 'HH24');
 
 
+<<<<<<< HEAD
 select menu_name, menu_qty, m.price, menu_options
             from sales s, menu m 
             where sales_number = '20221223-01-163219'
@@ -116,3 +117,6 @@ GROUP BY
     used_point;
 	
 >>>>>>> branch 'khy' of https://github.com/0204hyk/Java-Team-Project.git
+=======
+COMMIT;
+>>>>>>> refs/remotes/origin/jsj
