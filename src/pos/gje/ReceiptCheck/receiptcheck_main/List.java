@@ -161,7 +161,7 @@ public class List {
    // 메뉴를 담는 클래스 
    public void menu (String sales_number, int num) {
       
-      String query = "select menu_name, menu_qty, m.price, menu_options "
+      String query = "select menu_name, menu_qty, s.price, menu_options "
             + "from sales s, menu m "
             + "where sales_number = '" + sales_number + "'"
             + "AND s.menu_number = m.menu_number"; 
