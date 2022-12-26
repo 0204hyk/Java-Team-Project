@@ -5,12 +5,12 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 import pos.ImageScaledTool;
+import pos.PosFrame;
 
 public class ExitMessageFrame extends JFrame {
-	
-	public ExitMessageFrame() {
+	public ExitMessageFrame(PosFrame pos) {
 		
-		add(new ExitMessageBackgroundPanel(this, ImageScaledTool.getScaledImage(
+		add(new ExitMessageBackgroundPanel(pos, this, ImageScaledTool.getScaledImage(
 				"images/PosImages/시작 페이지 버튼 이미지/로그아웃 창.png", 500, 250)));
 				
 		setSize(500, 250);

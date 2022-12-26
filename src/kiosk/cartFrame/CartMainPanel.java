@@ -28,7 +28,6 @@ public class CartMainPanel extends JPanel {
 		
 		add(compo.logo());
 		add(compo.homeButton());
-		add(compo.mainLabel());
 		
 		add(compo.priceLabel());
 		add(compo.price());
@@ -39,8 +38,6 @@ public class CartMainPanel extends JPanel {
 		add(compo.totalPriceLabel());
 		add(compo.totalPrice());
 		
-		add(compo.payButton());
-		add(compo.cancelButton());
 		
 		add(new CartMenuPanel());
 		add(new CartMainPanelComponet().imageLabel());

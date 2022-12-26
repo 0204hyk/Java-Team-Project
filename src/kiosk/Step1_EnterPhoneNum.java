@@ -18,7 +18,7 @@ import javax.swing.JTextArea;
 
 import database.kiosk.CheckPhoneNum;
 import database.kiosk.CheckPoint;
-import database.kiosk.JoinMembership;
+import database.kiosk.infotodb.JoinMembership;
 import kiosk.tools.WithImage;
 
 public class Step1_EnterPhoneNum extends JFrame {
@@ -31,7 +31,12 @@ public class Step1_EnterPhoneNum extends JFrame {
 	JTextArea ta;
 	JLabel notValidNum;
 
-	public Step1_EnterPhoneNum() {
+	int point;
+
+	public Step1_EnterPhoneNum(int point) {
+		setUndecorated(true);
+		this.point = point;
+
 		notValidNum = wi.makeLabel("notValidNum.png", 70, 169, 177, 14);
 		add(notValidNum);
 		notValidNum.setVisible(false);
@@ -70,9 +75,6 @@ public class Step1_EnterPhoneNum extends JFrame {
 			}
 		});
 
-		// 휴대폰 번호 찾음 -> 적립 예정 포인트 보여주기
-		// 휴대폰 번호 없음 -> 없다고 하기
-
 		confirm = wi.makeButton("confirm.png", 280, 562, 96, 49);
 
 		add(cancel);
@@ -92,9 +94,9 @@ public class Step1_EnterPhoneNum extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				// 휴대폰 번호 찾음 -> 적립 예정 포인트 보여주기
 
 				String ph = "010" + ta.getText();
-				int point = 100;
 				int currentPoint = new CheckPoint(ph).currentPoint();
 
 				// 유효한 휴대폰 번호인지 확인
@@ -117,7 +119,7 @@ public class Step1_EnterPhoneNum extends JFrame {
 							}
 						});
 					} else {
-						// 없다고하기
+						// 휴대폰 번호 없음 -> 없다고 하기
 						notValidNum.setVisible(false);
 						JFrame jf = new JFrame();
 						String root = "images/KioskImages/5_1. step1 없는 회원";
@@ -161,7 +163,7 @@ public class Step1_EnterPhoneNum extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				String ph = "010" + ta.getText();
-				int point = 100;
+
 				int currentPoint = new CheckPoint(ph).currentPoint();
 
 				// 유효한 번호
@@ -220,13 +222,13 @@ public class Step1_EnterPhoneNum extends JFrame {
 						jf.getContentPane().setBackground(new Color(250, 250, 250));
 						jf.setVisible(true);
 
-					// 휴대폰 번호가 중복이 아닌 경우 -> 바로 가입 후 포인트 적립
+						// 휴대폰 번호가 중복이 아닌 경우 -> 바로 가입 후 포인트 적립
 					} else if (!new CheckPhoneNum(ph).check()) {
 						notValidNum.setVisible(false);
 						new Agreement(ph, point, currentPoint);
 						dispose();
 					}
-				// 유효한 번호가 아닐경우
+					// 유효한 번호가 아닐경우
 				} else {
 					notValidNum.setVisible(true);
 				}
@@ -236,8 +238,8 @@ public class Step1_EnterPhoneNum extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		Step1_EnterPhoneNum ep = new Step1_EnterPhoneNum();
-		ep.simpleJoin();
+//		Step1_EnterPhoneNum ep = new Step1_EnterPhoneNum();
+//		ep.simpleJoin();
 
 	}
 }

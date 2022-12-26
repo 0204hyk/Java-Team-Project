@@ -1,27 +1,28 @@
 package kiosk.byoption;
 
-import java.awt.Color;
+import javax.swing.JPanel;
 
-import javax.swing.JFrame;
-
+import kiosk.menupan.Options;
 import kiosk.tools.WithImage;
 
 public class OnlyShotCup_5 {
 	String root = "images/KioskImages/4. detailedOption";
 	WithImage wi = new WithImage(root);
-	Options op = new Options();
 
-	public OnlyShotCup_5() {
-		
-		op.cup(78, 269);
-		op.shot(78, 339);
+	public OnlyShotCup_5(JPanel topImage, String menu) {
+		Options op = new Options(menu, Options.choiceMenu);
+		int x = 78;
+		int y = 330;
+		op.cup(x, y);
+		op.shot(x, y + 70);
+		op.add(topImage);
 		op.setVisible(true);
-		
+
 	}
 
 	public static void main(String[] args) {
-
-		new OnlyShotCup_5();
+		new OnlyShotCup_5(new TopImage("그린티 프라페"), "그린티 프라페");
+		
 	}
 
 }

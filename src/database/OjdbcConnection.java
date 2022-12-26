@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class OjdbcConnection {
-
+	//하영씨 192.168.0.116 //121.132.80.134
 	private static String driver = "oracle.jdbc.driver.OracleDriver";
 	private static String url = "jdbc:oracle:thin:@192.168.0.116:1521:XE";
 	private static String id = "hyCafe";
@@ -13,7 +13,7 @@ public class OjdbcConnection {
 	
 	// 학원 컴퓨터 : 127.0.0.1
 	// static 클래스.
-	static {
+	static { 
 		try {
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {

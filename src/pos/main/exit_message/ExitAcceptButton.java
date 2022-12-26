@@ -11,9 +11,15 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import pos.PosFrame;
+import pos.kjh.LoginSelectFrame;
+
 public class ExitAcceptButton extends JButton implements ActionListener{
-	
-	public ExitAcceptButton() {
+	PosFrame pos;
+	ExitMessageFrame frame;
+	public ExitAcceptButton(PosFrame pos, ExitMessageFrame frame) {
+		this.pos = pos;
+		this.frame = frame;
 		try {
 			File f = new File("images/PosImages/시작 페이지 버튼 이미지/로그아웃 확인 버튼.png");
 			BufferedImage bufferedImage = ImageIO.read(f);
@@ -40,8 +46,9 @@ public class ExitAcceptButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// 종료
-		System.exit(0);
+		frame.dispose();
+		pos.dispose();
+		new LoginSelectFrame();
 	}
 	
 }

@@ -7,15 +7,23 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+
 import kiosk.TouchToPlaceAnOrder;
+
+import kiosk.Point;
+import kiosk.TouchToPlaceAnOrder;
+import kiosk.menupan.ChoiceMenu;
+
 import kiosk.tools.WithImage;
 
 public class PaymentCompleteFrame extends JFrame {
 	String root = "images/KioskImages/7_1. 영수증 출력 여부, 카드, 결제완료";
 	WithImage wi = new WithImage(root);
 	JLabel num;
+	ChoiceMenu f;
 
-	public PaymentCompleteFrame() {
+	public PaymentCompleteFrame(ChoiceMenu f) {
+		this.f = f;
 		num();
 		add(wi.makeLabel("payComplete.png", 0, 0, 414, 301));
 		setDisplay();
@@ -23,11 +31,12 @@ public class PaymentCompleteFrame extends JFrame {
 	}
 
 	public void setDisplay() {
-
+		setUndecorated(true);
 		setVisible(true);
-		setSize(434, 320);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setSize(414, 301);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
+		
 
 	}
 
@@ -41,7 +50,7 @@ public class PaymentCompleteFrame extends JFrame {
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
 
-			int count = 9;
+			int count = 5;
 
 			@Override
 			public void run() {
@@ -51,11 +60,20 @@ public class PaymentCompleteFrame extends JFrame {
 					count--;
 				} else {
 					timer.cancel();
+					f.dispose();
+					dispose();
 					new TouchToPlaceAnOrder();
 				}
+				
+				dispose();
 			}
 		};
-		timer.schedule(task, 1000, 1000);
+		timer.schedule(task, 500, 500);
 	}
+	
 
+	public static void main(String[] args) {
+
+		
+	}
 }

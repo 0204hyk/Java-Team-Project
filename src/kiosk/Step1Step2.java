@@ -1,10 +1,9 @@
 package kiosk;
 
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 
+import kiosk.cartFrame.CartMainFrame;
+import kiosk.menupan.ChoiceMenu;
 import kiosk.tools.WithImage;
 
 public class Step1Step2 extends JFrame {
@@ -28,15 +29,26 @@ public class Step1Step2 extends JFrame {
 	static JLabel cardActive;
 	static JLabel pointActive;
 	Timer timer;
-
+	ChoiceMenu f;
+	
+	
+	public static int payMethod = 1;
+	int totalPoint;
+	
 	static String member_phonenumber;
 	Step1_EnterPhoneNum ep;
+	ArrayList<String> menuInfo = new ArrayList<>();
 
-	public Step1Step2() {
-
+	// 총 금액의 10% 받아옴
+	public Step1Step2(int point, ArrayList menuInfo, ChoiceMenu f) {
+		this.menuInfo = menuInfo;
+		this.f = f;
+		
+		totalPoint = point;
 		labels();
 		buttons();
 
+		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -55,9 +67,10 @@ public class Step1Step2 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ep = new Step1_EnterPhoneNum();
+				ep = new Step1_EnterPhoneNum(totalPoint);
 				ep.add(wi.makeLabel("confirmPoint.png", 187, 42, 70, 20));
 				ep.showPoint();
+				
 
 			}
 		});
@@ -69,7 +82,7 @@ public class Step1Step2 extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ep = new Step1_EnterPhoneNum();
+				ep = new Step1_EnterPhoneNum(totalPoint);
 				ep.add(wi.makeLabel("joinText.png", 193, 42, 58, 20));
 				ep.simpleJoin();
 			}
@@ -122,21 +135,6 @@ public class Step1Step2 extends JFrame {
 			}
 		});
 
-		// 자동종료
-		// JFrame cp = new CardPutFrame();
-		// 시간이 좀 지나면 자동으로 결제 완료
-
-//		timer = new Timer(3000, new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				cp.dispose();
-//				new PaymentCompleteFrame();
-//				timer.stop();
-//				// 적립 업데이트 해주기
-//			}
-//		});
-//		timer.start();
 
 		// 포인트 사용
 		point = wi.makeButton("point.png", 254, 519, 158, 141);
@@ -146,6 +144,7 @@ public class Step1Step2 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					new UsePoint(Step1Step2.getMemberPhone());
+					
 				} catch (NullPointerException e1) {
 					// 번호입력창 띄우기
 					Step2_PointWithNoID sp = new Step2_PointWithNoID();
@@ -157,9 +156,14 @@ public class Step1Step2 extends JFrame {
 		// 결제하기
 		JButton pay = wi.makeButton("pay.png", 324, 771, 192, 67);
 		pay.addActionListener(new ActionListener() {
-
+		
+			int num = 0;
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				num++;
+				new CartMainFrame(menuInfo, totalPoint, Step1Step2.getMemberPhone(), payMethod, f);
+				dispose();
+				
 				// 결제 창으로 넘어가기
 			}
 		});
@@ -171,6 +175,7 @@ public class Step1Step2 extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 장바구니가 유지된 첫 화면으로 돌아가야 됨
+				dispose();
 			}
 		});
 
@@ -188,9 +193,9 @@ public class Step1Step2 extends JFrame {
 	public void labels() {
 
 		add(wi.makeLabel("hy.png", 52, 25, 60, 83));
-		
-		add(wi.makeLabel("step1.png", 89,201,240,22));
-		add(wi.makeLabel("step2.png", 89,473,119,22));
+
+		add(wi.makeLabel("step1.png", 89, 201, 240, 22));
+		add(wi.makeLabel("step2.png", 89, 473, 119, 22));
 
 		String root = "images/KioskImages/5. step1 Selected";
 		WithImage wi = new WithImage(root);
@@ -239,7 +244,7 @@ public class Step1Step2 extends JFrame {
 		point.setVisible(false);
 		pointActive.setVisible(true);
 	}
-	
+
 	public void step2Disabled() {
 		card.setEnabled(false);
 		point.setEnabled(false);
@@ -259,9 +264,21 @@ public class Step1Step2 extends JFrame {
 	public static String getMemberPhone() {
 		return member_phonenumber;
 	}
+	
+	public void setUsingOnlyPoint() {
+		payMethod = 3;
+	}
+	
+	public static void setUsingPoint() {
 
+		payMethod = 2;
+	}
+	public int getPayMethod() {
+		return payMethod;
+	}
+	
+	
 	public static void main(String[] args) {
-		new Step1Step2();
-
+		
 	}
 }
