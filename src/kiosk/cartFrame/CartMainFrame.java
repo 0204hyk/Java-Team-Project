@@ -137,7 +137,7 @@ public class CartMainFrame extends JFrame {
 		add(wi.makeLabel("point.png", 315, 679, 112, 23));
 		// 입력된 포인트 적용시키기 
 		
-		point = Point.getPoint(); 
+		point = Point.getPoint();
 		int tb = point;
 		
 		JLabel pointlb = new JLabel("-" + df.format(point));
@@ -184,8 +184,8 @@ public class CartMainFrame extends JFrame {
 					public void actionPerformed(ActionEvent e) {
 						timer.stop();
 						cp.dispose();
+						f.dispose();
 						dispose();
-						
 						
 						// 결제가 완료되었습니다
 						new PaymentCompleteFrame(f);

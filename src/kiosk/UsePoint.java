@@ -71,6 +71,7 @@ public class UsePoint extends JFrame {
 					
 					point2.setPoint(Integer.parseInt(ta.getText()));
 					//new CartMainFrame(Integer.parseInt(ta.getText()));
+					
 					dispose();
 					Step1Step2.pointActive();
 					Step1Step2.setUsingPoint();
