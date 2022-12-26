@@ -202,7 +202,14 @@ public class CartMainFrame extends JFrame {
 						new ToSalesManagement(orderInfo);
 						
 						// 판매 데이터 입력
-						new ToSales(completeInfoMenu(menuInfo));
+//						new ToSales(completeInfoMenu(menuInfo));
+		                  ArrayList<String> sub = new ArrayList<>();
+		                  for (int i = 0; i < menuInfo.size(); ++i) {
+		                     sub.addAll(menuInfo.subList(i, i + 5));
+		                     new ToSales(completeInfoMenu(sub));
+		                     sub.removeAll(sub);
+		                     i = i + 4;
+		                  }
 						
 						// 종료
 							
