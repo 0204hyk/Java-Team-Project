@@ -50,7 +50,8 @@ public class ShowPoint extends JFrame {
 		JButton cancel = wi.makeButton("dispose.png", 182, 570, 96, 49);
 		add(cancel);
 		this.ok = cancel;
-
+		
+		setUndecorated(true);
 		setLayout(null);
 		setSize(461, 710); // 창 크기 이상해서 임시로 늘림
 		setVisible(true);
