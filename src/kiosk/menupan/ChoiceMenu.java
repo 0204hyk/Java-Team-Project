@@ -24,7 +24,9 @@ public class ChoiceMenu extends JFrame {
 	WithImage wi = new WithImage(root);
 	
 	int category = 0;
-
+	
+	ChoiceMenu f;
+	
 	CardLayout card;
 
 	JPanel cardPanel;
@@ -44,7 +46,7 @@ public class ChoiceMenu extends JFrame {
 	ArrayList<String> menuInfo = new ArrayList<>();
 
 	public ChoiceMenu() {
-
+		this.f = this;
 		cart();
 
 		add(wi.makeLabel("hy.png", 53, 24, 60, 83));
@@ -290,7 +292,7 @@ public class ChoiceMenu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				// 총 금액의 10프로 보내기(포인트)
-				new Step1Step2(getTotalAmounts(), menuInfo);
+				new Step1Step2(getTotalAmounts(), menuInfo, f);
 
 			}
 		});

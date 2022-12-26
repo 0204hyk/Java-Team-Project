@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 
 import kiosk.cartFrame.CartMainFrame;
+import kiosk.menupan.ChoiceMenu;
 import kiosk.tools.WithImage;
 
 public class Step1Step2 extends JFrame {
@@ -28,7 +29,9 @@ public class Step1Step2 extends JFrame {
 	static JLabel cardActive;
 	static JLabel pointActive;
 	Timer timer;
-
+	ChoiceMenu f;
+	
+	
 	public static int payMethod = 1;
 	int totalPoint;
 	
@@ -37,9 +40,10 @@ public class Step1Step2 extends JFrame {
 	ArrayList<String> menuInfo = new ArrayList<>();
 
 	// 총 금액의 10% 받아옴
-	public Step1Step2(int point, ArrayList menuInfo) {
+	public Step1Step2(int point, ArrayList menuInfo, ChoiceMenu f) {
 		this.menuInfo = menuInfo;
-
+		this.f = f;
+		
 		totalPoint = point;
 		labels();
 		buttons();
@@ -151,11 +155,14 @@ public class Step1Step2 extends JFrame {
 		// 결제하기
 		JButton pay = wi.makeButton("pay.png", 324, 771, 192, 67);
 		pay.addActionListener(new ActionListener() {
-
+		
+			int num = 0;
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new CartMainFrame(menuInfo, totalPoint, Step1Step2.getMemberPhone(), payMethod);
+				num++;
+				new CartMainFrame(menuInfo, totalPoint, Step1Step2.getMemberPhone(), payMethod, f);
 				dispose();
+				
 				// 결제 창으로 넘어가기
 			}
 		});
@@ -272,5 +279,6 @@ public class Step1Step2 extends JFrame {
 	
 	
 	public static void main(String[] args) {
+		
 	}
 }

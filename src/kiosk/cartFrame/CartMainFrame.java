@@ -40,13 +40,15 @@ public class CartMainFrame extends JFrame {
 	DecimalFormat df = new DecimalFormat("#,###");
 	String salesNum = getTimeNow();
 	JPanel cart = new JPanel();
-
+	ChoiceMenu f;
+	
 	ArrayList<String> orderInfo = new ArrayList<>();
 	
 	
-	public CartMainFrame(ArrayList menuInfo, int totalPoint, String phoneNum, int payMethod) {
+	public CartMainFrame(ArrayList menuInfo, int totalPoint, String phoneNum, int payMethod, ChoiceMenu f) {
 		this.menuInfo = menuInfo;
-	
+		this.f = f;
+		
 		orderInfo.add(salesNum);
 		orderInfo.add(phoneNum+"");
 		orderInfo.add(salesNum.substring(0,6));
@@ -142,7 +144,7 @@ public class CartMainFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new Step1Step2(getTotalAmounts(), menuInfo);
+				new Step1Step2(getTotalAmounts(), menuInfo, f);
 				dispose();
 			}
 		});
@@ -163,7 +165,10 @@ public class CartMainFrame extends JFrame {
 					public void actionPerformed(ActionEvent e) {
 						cp.dispose();
 						
-						new PaymentCompleteFrame();
+						// 결제가 완료되었습니다
+						new PaymentCompleteFrame(f);
+						
+						
 						
 						timer.stop();
 
