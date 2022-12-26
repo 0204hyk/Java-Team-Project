@@ -49,12 +49,11 @@ public class CartMainFrame extends JFrame {
 	
 		orderInfo.add(salesNum);
 		orderInfo.add(phoneNum+"");
-		orderInfo.add(salesNum.substring(0,6));
+		orderInfo.add(getDate()); // 여기를..날짜를 넣어야하는데 (시간포함)
 		orderInfo.add(payMethod+"");
 		orderInfo.add(totalPoint+"");
 		orderInfo.add(new GenerateCardNum().randomCardNumber());
 		
-
 		panelSetting();
 
 		setLayout(null);
@@ -119,10 +118,10 @@ public class CartMainFrame extends JFrame {
 		orderAmountlb.setForeground(Color.black);
 		orderAmountlb.setHorizontalAlignment(SwingConstants.RIGHT);
 
-		// 포인트 입력피료
+		// 사용 포인트
+		int tb = 120;
 		add(wi.makeLabel("point.png", 315, 679, 112, 23));
-		int point = 1323;
-		JLabel pointlb = new JLabel("-" + df.format(point));
+		JLabel pointlb = new JLabel("-" + df.format(tb));
 		pointlb.setBounds(450, 667, 150, 45);
 		pointlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		pointlb.setForeground(Color.black);
@@ -130,7 +129,7 @@ public class CartMainFrame extends JFrame {
 
 		// 결제 금액
 		add(wi.makeLabel("purchase.png", 299, 720, 126, 32));
-		JLabel purchaseAmountlb = new JLabel(df.format(orderAmount - point) + "원");
+		JLabel purchaseAmountlb = new JLabel(df.format(orderAmount - tb) + "원");
 		purchaseAmountlb.setBounds(450, 710, 150, 45);
 		purchaseAmountlb.setFont(new Font("맑은 고딕", Font.BOLD, 30));
 		purchaseAmountlb.setForeground(new Color(15, 11, 65));
@@ -174,7 +173,6 @@ public class CartMainFrame extends JFrame {
 						new ToSales(completeInfoMenu(menuInfo));
 						
 						// 종료
-						dispose();
 							
 						// 포인트 적립
 //						new SavePoint(포인트, 멤버십번호);
@@ -232,6 +230,16 @@ public class CartMainFrame extends JFrame {
 		return myDateFormat.format(date);
 	}
 
+	public String getDate() {
+
+		Calendar now = Calendar.getInstance();
+		SimpleDateFormat myDateFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+
+		Date date = now.getTime();
+
+		return myDateFormat.format(date);
+	}
+	
 	public int getTotalAmounts() {
 
 		int total = 0;

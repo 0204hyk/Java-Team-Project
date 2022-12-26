@@ -58,18 +58,17 @@ public class SalesDayCheckMain extends JFrame {
 		JPanel salesTitle = new TitlePanel();
 		JPanel total = new TotalPanel();
 
-
 		add(title);
 		add(yearCombo);
 		add(monthCombo);
 		add(dayCombo);
 		add(searchBtn);
 		add(escapeBtn);
-		add(salesTitle);
-		add(total);
 		add(table);
 		add(list);
 		add(chart);
+		add(salesTitle);
+		add(total);
 		setSize(1200, 800);
 		getContentPane().setBackground(new Color(64, 64, 64));
 		setLayout(null);

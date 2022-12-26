@@ -56,8 +56,9 @@ CREATE TABLE sales_management (
     saledate   DATE,
     payment_type NUMBER(1), -- 1 - 카드 / 2 - 포인트 / 3 - 혼합
     used_point NUMBER(6),  -- 포인트 사용 액수
-    card_number VARCHAR2(14) -- 0000-0000-0000
+    card_number VARCHAR2(20) -- 0000-0000-0000
 );
+
 
 -- date 타입 시간까지 나오게끔 포맷 변경
 ALTER SESSION SET nls_date_format = 'YYYY-MM-DD HH24:MI:SS';

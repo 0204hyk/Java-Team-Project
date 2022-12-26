@@ -43,7 +43,7 @@ INSERT INTO manager VALUES ('hyCafe', 1234);
 INSERT INTO membership VALUES ('01067447970', 50000, '2022-12-22');
 
 -- 임시 회원 판매 데이터
-INSERT INTO sales_management VALUES ('20221222-01-165330',
+INSERT INTO sales_management VALUES ('2022122201-165330',
 '01067447970',
 to_date('2022-12-22 16:53:30', 'YYYY-MM-DD HH24:MI:SS'),
 3, 5000, '1234-1234-1234');
@@ -52,19 +52,71 @@ INSERT INTO sales VALUES ('20221222-01-165330', 2, 0000000, 1, 3500);
 INSERT INTO sales VALUES ('20221222-01-165330', 3, 0000000, 2, 9000);
 
 -- 임시 비회원 판매 데이터
-INSERT INTO sales_management VALUES ('20221222-01-170015', null,
-to_date('2022-12-22 17:00:15', 'YYYY-MM-DD HH24:MI:SS'),
+INSERT INTO sales_management VALUES ('20221223-01-170016', null,
+to_date('2022-12-23 17:00:16', 'YYYY-MM-DD HH24:MI:SS'),
 1, 0, '2345-2345-2345');
                                         -- 상품코드, 옵션, 갯수 , 가격
-INSERT INTO sales VALUES ('20221222-01-170015', 9, 0000000, 1, 5000);
-INSERT INTO sales VALUES ('20221222-01-170015', 9, 0120000, 1, 5300);
-INSERT INTO sales VALUES ('20221222-01-170015', 21, 0000000, 1, 4500);
+INSERT INTO sales VALUES ('20221223-01-170016', 9, 0000000, 1, 5000);
+INSERT INTO sales VALUES ('20221223-01-170016', 9, 0120000, 1, 5300);
+INSERT INTO sales VALUES ('20221223-01-170016', 21, 0000000, 1, 4500);
 
+<<<<<<< HEAD
 
+select * from sales where sales_number = '20221223-01-170016';
+select * from sales_management where sales_number = '20221223-01-170016';
+=======
 select * from sales where sales_number = '20221222-01-165330';
 select * from sales_management;
+>>>>>>> branch 'khy' of https://github.com/0204hyk/Java-Team-Project.git
 
 commit;
 
 SELECT * FROM user_tables;
 SELECT * FROM user_constraints;
+
+<<<<<<< HEAD
+select * from sales_management order by sales_number;
+select * from sales where sales_number = '20221223-01-163219';
+commit;
+
+SELECT to_char(saledate, 'HH24'), sum(price) - used_point FROM sales_management INNER JOIN sales USING(sales_number) WHERE to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD') GROUP BY to_char(saledate, 'HH24'), used_point ORDER BY to_char(saledate, 'HH24');
+
+
+<<<<<<< HEAD
+select menu_name, menu_qty, m.price, menu_options
+            from sales s, menu m 
+            where sales_number = '20221223-01-163219'
+            AND s.menu_number = m.menu_number;
+=======
+SELECT
+    to_char(saledate, 'HH24'),
+    TRIM(to_char(SUM(price) - used_point,
+                 '999,999,999'))
+FROM
+         sales_management
+    INNER JOIN sales USING ( sales_number )
+WHERE
+        to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')
+    AND to_char(saledate, 'HH24') = 16
+GROUP BY
+    to_char(saledate, 'HH24'), used_point
+ORDER BY
+    to_char(saledate, 'HH24');
+
+
+SELECT
+    TRIM(to_char(SUM(price) - used_point,
+                 '999,999,999'))
+FROM
+         sales_management
+    INNER JOIN sales USING ( sales_number )
+WHERE
+        to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')
+    AND to_char(saledate, 'HH24') BETWEEN 10 AND 21
+GROUP BY
+    used_point;
+	
+>>>>>>> branch 'khy' of https://github.com/0204hyk/Java-Team-Project.git
+=======
+COMMIT;
+>>>>>>> refs/remotes/origin/jsj

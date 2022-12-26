@@ -8,13 +8,14 @@ public class TimeTest {
 
 	
 	public static void main(String[] args) {
+		Calendar now = Calendar.getInstance();
+		SimpleDateFormat myDateFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
 		
 		
-//		System.out.printf("%d%d%d-01-%d%d%d",now.get(Calendar.YEAR),
-//				now.get(Calendar.MONTH),now.get(Calendar.DATE),
-//				now.get(Calendar.HOUR),now.get(Calendar.MINUTE),
-//				now.get(Calendar.SECOND));
-//		
-//		
+		Date date = now.getTime();
+
+		System.out.println(myDateFormat.format(date));
+		
+		
 	}
 }

@@ -27,9 +27,8 @@ public class AMenu extends JPanel {
 
 	// 장바구니에 한 줄씩 들어감, Options에서 만든 cup을 가져온다
 
-	public AMenu() {
-		// TODO Auto-generated constructor stub
-	}
+	public AMenu() {}
+	
 	public AMenu(String menu, Cups cup, String temparature, int optionPrice, ChoiceMenu frame, String name, String optionNums) {
 		this.menu = menu;
 		this.temparature = temparature;
@@ -117,19 +116,14 @@ public class AMenu extends JPanel {
 				}
 				setVisible(false);
 				num--;
-				wi.makeLabel(num + ".png", x + 4, y + 5, 31, 31);
-			
 			}
 		});
-		
 		
 		
 		setBorder(null);
 		setLayout(null);
 
 		// 음료 순번 - 수정 필요
-		revalidate();
-		repaint();
 		add(wi.makeLabel(num + ".png", x + 4, y + 5, 31, 31));
 		add(cups);
 		add(menuNamelb);

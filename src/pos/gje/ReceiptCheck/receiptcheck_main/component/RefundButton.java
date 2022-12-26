@@ -46,7 +46,4 @@ public class RefundButton extends JButton implements ActionListener {
 		List.refundFrame.setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		
-	}
 }
