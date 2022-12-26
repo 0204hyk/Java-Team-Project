@@ -54,49 +54,8 @@ public class List {
 	DecimalFormat formatter = new DecimalFormat("###,###");
 
 
-<<<<<<< HEAD
 	String sales_date, sales_number, menu_name;
 	int menu_qty, total_price, menu_price, point;
-=======
-         }
-      });
-   }
-   
-   // 메뉴를 담는 클래스 
-   public void menu (String sales_number, int num) {
-      
-      String query = "select menu_name, menu_qty, s.price, menu_options "
-            + "from sales s, menu m "
-            + "where sales_number = '" + sales_number + "'"
-            + "AND s.menu_number = m.menu_number"; 
-      
-      
-      StringBuilder sb1 = new StringBuilder();
-      
-      try (Connection conn = OjdbcConnection.getConnection();
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            ) {
-         ResultSet rs = pstmt.executeQuery();
-         
-            // 영수증에 관한 값을 List에 저장 (현재 영수증 테이블에 값이 없엉서 멤버십 테이블로 대신함)
-//            ResultSetMetaData metadata = rs.getMetaData();
-         while (rs.next()) {   
-            
-            menu_name = rs.getString("menu_name");
-            menu_qty = rs.getInt("menu_qty");
-            menu_price = rs.getInt("price");
-         
-            // 처음에 메뉴 개수나 옵션 개수가 몇 개인지 몰라서 list로 받음 
-            options.add(rs.getInt("menu_options") + "");
-            
-            String[] options1 = new String[options.size()];
-            String[] option = new String[7];
-            
-            // list를 배열로 저장 
-            for (int i = 0; i < options.size(); i++) {
-               options1[i] = options.get(i).substring(0, 1);
-            }
->>>>>>> refs/heads/main
 
 	String tem, caf, tum, size, shot, ice, milk;
 
