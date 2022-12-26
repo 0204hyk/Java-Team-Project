@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import kiosk.TouchToPlaceAnOrder;
 import pos.product_management.menu01_main.ProductManagementJFrame;
 
 public class LoginSelectFrame extends JFrame{
@@ -38,6 +39,14 @@ public class LoginSelectFrame extends JFrame{
 				, "images/KioskImages/1. 관리자, 키오스크 모드/Asset 11@4x-8 클릭.png"
 				, 87, 154, 163, 141);
 		
+		kioskBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new TouchToPlaceAnOrder();
+			}
+		});
 		
 		
 		// 포스 로그인 버튼
