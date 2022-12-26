@@ -60,15 +60,21 @@ INSERT INTO sales VALUES ('20221223-01-170016', 9, 0000000, 1, 5000);
 INSERT INTO sales VALUES ('20221223-01-170016', 9, 0120000, 1, 5300);
 INSERT INTO sales VALUES ('20221223-01-170016', 21, 0000000, 1, 4500);
 
+<<<<<<< HEAD
 
 select * from sales where sales_number = '20221223-01-170016';
 select * from sales_management where sales_number = '20221223-01-170016';
+=======
+select * from sales where sales_number = '20221222-01-165330';
+select * from sales_management;
+>>>>>>> branch 'khy' of https://github.com/0204hyk/Java-Team-Project.git
 
 commit;
 
 SELECT * FROM user_tables;
 SELECT * FROM user_constraints;
 
+<<<<<<< HEAD
 select * from sales_management order by sales_number;
 select * from sales where sales_number = '20221223-01-163219';
 commit;
@@ -80,3 +86,33 @@ select menu_name, menu_qty, m.price, menu_options
             from sales s, menu m 
             where sales_number = '20221223-01-163219'
             AND s.menu_number = m.menu_number;
+=======
+SELECT
+    to_char(saledate, 'HH24'),
+    TRIM(to_char(SUM(price) - used_point,
+                 '999,999,999'))
+FROM
+         sales_management
+    INNER JOIN sales USING ( sales_number )
+WHERE
+        to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')
+    AND to_char(saledate, 'HH24') = 16
+GROUP BY
+    to_char(saledate, 'HH24'), used_point
+ORDER BY
+    to_char(saledate, 'HH24');
+
+
+SELECT
+    TRIM(to_char(SUM(price) - used_point,
+                 '999,999,999'))
+FROM
+         sales_management
+    INNER JOIN sales USING ( sales_number )
+WHERE
+        to_char(saledate, 'YYYY-MM-DD') = to_char(sysdate, 'YYYY-MM-DD')
+    AND to_char(saledate, 'HH24') BETWEEN 10 AND 21
+GROUP BY
+    used_point;
+	
+>>>>>>> branch 'khy' of https://github.com/0204hyk/Java-Team-Project.git
