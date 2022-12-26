@@ -24,10 +24,6 @@ import database.kiosk.infotodb.ToSales;
 import database.kiosk.infotodb.ToSalesManagement;
 import kiosk.CardPutFrame;
 import kiosk.Step1Step2;
-<<<<<<< HEAD
-=======
-import kiosk.TouchToPlaceAnOrder;
->>>>>>> refs/remotes/origin/jsj
 import kiosk.menupan.ChoiceMenu;
 import kiosk.menupan.MenuPanelForConfirmOrder;
 import kiosk.menupan.Options;
@@ -53,19 +49,11 @@ public class CartMainFrame extends JFrame {
 	
 		orderInfo.add(salesNum);
 		orderInfo.add(phoneNum+"");
-<<<<<<< HEAD
-		orderInfo.add(salesNum.substring(0,6));
-=======
-		orderInfo.add(getDate()); // 여기를..날짜를 넣어야하는데
->>>>>>> refs/remotes/origin/jsj
+		orderInfo.add(getDate()); // 여기를..날짜를 넣어야하는데 (시간포함)
 		orderInfo.add(payMethod+"");
 		orderInfo.add(totalPoint+"");
 		orderInfo.add(new GenerateCardNum().randomCardNumber());
 		
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/jsj
 		panelSetting();
 
 		setLayout(null);
@@ -130,121 +118,6 @@ public class CartMainFrame extends JFrame {
 		orderAmountlb.setForeground(Color.black);
 		orderAmountlb.setHorizontalAlignment(SwingConstants.RIGHT);
 
-<<<<<<< HEAD
-		// 포인트 입력피료
-		add(wi.makeLabel("point.png", 315, 679, 112, 23));
-		int point = 1323;
-		JLabel pointlb = new JLabel("-" + df.format(point));
-		pointlb.setBounds(450, 667, 150, 45);
-		pointlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
-		pointlb.setForeground(Color.black);
-		pointlb.setHorizontalAlignment(SwingConstants.RIGHT);
-
-		// 결제 금액
-		add(wi.makeLabel("purchase.png", 299, 720, 126, 32));
-		JLabel purchaseAmountlb = new JLabel(df.format(orderAmount - point) + "원");
-		purchaseAmountlb.setBounds(450, 710, 150, 45);
-		purchaseAmountlb.setFont(new Font("맑은 고딕", Font.BOLD, 30));
-		purchaseAmountlb.setForeground(new Color(15, 11, 65));
-		purchaseAmountlb.setHorizontalAlignment(SwingConstants.RIGHT);
-
-		// 돌아가기
-		JButton cancel = wi.makeButton("cancel.png", 124, 789, 192, 67);
-		cancel.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new Step1Step2(getTotalAmounts(), menuInfo);
-				dispose();
-			}
-		});
-
-		// 결제하기
-		JButton pay = wi.makeButton("pay.png", 335, 789, 192, 67);
-
-		pay.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// 자동종료
-				JFrame cp = new CardPutFrame();
-				
-				timer = new Timer(3000, new ActionListener() {
-
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						cp.dispose();
-						
-						new PaymentCompleteFrame();
-						
-						timer.stop();
-
-						// 판매관리 데이터 입력
-						new ToSalesManagement(orderInfo);
-						
-						// 판매 데이터 입력
-						new ToSales(completeInfoMenu(menuInfo));
-						
-						// 종료
-						dispose();
-							
-						// 포인트 적립
-//						new SavePoint(포인트, 멤버십번호);
-
-						// 포인트 차감
-//						new UsePoint(포인트, 멤버십번호);
-
-						/*
-						 * 결제 후 필요 한 동작
-						 * 
-						 * 1.멤버십적립 2.판매테이블 3.판매관리테이블
-						 */
-
-					}
-				});
-				timer.start();
-			}
-		});
-		add(home);
-		add(orderAmountlb);
-		add(pointlb);
-		add(purchaseAmountlb);
-		add(pay);
-		add(cancel);
-	}
-
-	// 판매 테이블 전달용
-	public ArrayList<String> completeInfoMenu(ArrayList<String> menuInfo) {
-		ArrayList<String> menuInfoComplete = menuInfo;
-		
-		for (int i = 0; i < menuInfo.size() - 3; i++) {
-			menuInfoComplete.add(i, salesNum);
-			i = i + 5;
-			menuInfoComplete.add(i, "" + getMenuNum(menuInfo.get(i - 4)));
-			i = i + 1;
-		}
-
-		return menuInfoComplete;
-	}
-	
-	public int getMenuNum(String menu) {
-
-		GetImageInfo gi = new GetImageInfo(menu);
-
-		return gi.getMenuNum();
-	}
-
-	public String getTimeNow() {
-
-		Calendar now = Calendar.getInstance();
-		SimpleDateFormat myDateFormat = new SimpleDateFormat("yyyyMMdd-01-HHmmss");
-
-		Date date = now.getTime();
-
-		return myDateFormat.format(date);
-	}
-
-=======
 		// 사용 포인트
 		int tb = 120;
 		add(wi.makeLabel("point.png", 315, 679, 112, 23));
@@ -367,7 +240,6 @@ public class CartMainFrame extends JFrame {
 		return myDateFormat.format(date);
 	}
 	
->>>>>>> refs/remotes/origin/jsj
 	public int getTotalAmounts() {
 
 		int total = 0;

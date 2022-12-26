@@ -103,7 +103,7 @@ public class KioskEndCheckBtn extends JButton implements ActionListener {
 				KioskAccessPanel.discordance.setVisible(true);
 			}
 
-		} catch (IOException | SQLException e1) {
+		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
 

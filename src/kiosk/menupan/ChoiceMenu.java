@@ -40,11 +40,8 @@ public class ChoiceMenu extends JFrame {
 	JPanel adePn2 = PanelsByCategory2(5);
 
 	JPanel cart = new JPanel();
-<<<<<<< HEAD
 	JButton pay;
-=======
 
->>>>>>> refs/remotes/origin/jsj
 	ArrayList<String> menuInfo = new ArrayList<>();
 
 	public ChoiceMenu() {
@@ -286,22 +283,7 @@ public class ChoiceMenu extends JFrame {
 
 	public void pay() {
 		// 장바구니에 있는것들 보내기
-<<<<<<< HEAD
 		pay = wi.makeButton("pay.png", 548, 748, 78, 93);
-=======
-		JButton pay = wi.makeButton("pay.png", 548, 748, 78, 93);
-
-		pay.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				// 총 금액의 10프로 보내기(포인트)
-				new Step1Step2(getTotalAmounts(), menuInfo);
-
-			}
-		});
->>>>>>> refs/remotes/origin/jsj
 
 		pay.addActionListener(new ActionListener() {
 
@@ -335,11 +317,7 @@ public class ChoiceMenu extends JFrame {
 	}
 
 	public void makeMenu(JPanel pn, Cups totalCups, ArrayList menuInfo) {
-<<<<<<< HEAD
 		pay.setEnabled(true);
-=======
-
->>>>>>> refs/remotes/origin/jsj
 		cart.add(pn);
 
 		// 메뉴,잔,최종금액,옵션
