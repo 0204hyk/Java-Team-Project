@@ -1,17 +1,13 @@
 package kiosk.paymentComplete;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import kiosk.TouchToPlaceAnOrder;
 import kiosk.tools.WithImage;
 
 public class PaymentCompleteFrame extends JFrame {
@@ -55,6 +51,7 @@ public class PaymentCompleteFrame extends JFrame {
 					count--;
 				} else {
 					timer.cancel();
+					new TouchToPlaceAnOrder();
 				}
 			}
 		};
