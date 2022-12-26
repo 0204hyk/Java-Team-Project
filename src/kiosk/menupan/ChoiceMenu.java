@@ -93,9 +93,10 @@ public class ChoiceMenu extends JFrame {
 		add(coffeePn2);
 		add(adePn2);
 
-		newMenu.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택 Selected/신메뉴.png"));
-		
-		
+		showCoffe();
+		category = 1;
+		coffee.setIcon(new ImageIcon("images/KioskImages/3. 메뉴선택 Selected/커피.png"));
+
 		newMenu.addActionListener(new ActionListener() {
 
 			@Override
