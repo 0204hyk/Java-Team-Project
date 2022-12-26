@@ -34,6 +34,7 @@ public class Step1_EnterPhoneNum extends JFrame {
 	int point;
 
 	public Step1_EnterPhoneNum(int point) {
+		setUndecorated(true);
 		this.point = point;
 
 		notValidNum = wi.makeLabel("notValidNum.png", 70, 169, 177, 14);

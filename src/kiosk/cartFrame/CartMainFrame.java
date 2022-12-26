@@ -127,7 +127,7 @@ public class CartMainFrame extends JFrame {
 		orderAmountlb.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		// 사용 포인트
-		int tb = 120;
+		int tb = 0;
 		add(wi.makeLabel("point.png", 315, 679, 112, 23));
 		JLabel pointlb = new JLabel("-" + df.format(tb));
 		pointlb.setBounds(450, 667, 150, 45);

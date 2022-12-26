@@ -27,7 +27,7 @@ public class TouchToPlaceAnOrder extends JFrame {
 
 	public KioskHomeBtn home = new KioskHomeBtn(this); 
 	public TouchToPlaceAnOrder() {
-		
+		setUndecorated(true);
 		add(home);
 		
 		add(wi.makeLabel("hy.png", 53, 23, 60, 83));

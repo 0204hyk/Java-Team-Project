@@ -44,6 +44,7 @@ public class Step1Step2 extends JFrame {
 		labels();
 		buttons();
 
+		setUndecorated(true);
 		setLayout(null);
 		setSize(650, 950);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
