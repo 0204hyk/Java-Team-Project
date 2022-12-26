@@ -116,6 +116,7 @@ public class AMenu extends JPanel {
 				}
 				setVisible(false);
 				num--;
+				frame.menuInfo.remove(position);
 			}
 		});
 		

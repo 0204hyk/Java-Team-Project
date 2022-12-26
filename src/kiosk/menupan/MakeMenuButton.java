@@ -2,13 +2,13 @@ package kiosk.menupan;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import database.kiosk.GetImageInfo;
@@ -31,41 +31,57 @@ public class MakeMenuButton extends JButton implements ActionListener {
 	Options frame;
 	
 	public MakeMenuButton(int ctgNum, int optionNum, String menu, int x, int y) {
-		this.optionNum = optionNum;
-		this.menu = menu;
+	      this.optionNum = optionNum;
+	      this.menu = menu;
 
-		String root = "";
+	      String root = "";
+	      if (ctgNum == 1) {
+	         setIcon(new ImageIcon("images/KioskImages/menu/defaultimage.png"));
+	         GetImageInfo gi = new GetImageInfo(menu);
+	         JLabel price = new JLabel("￦" + df.format(gi.getMenuPrice()));
+	         price.setHorizontalAlignment(JLabel.CENTER);
+	         add(price);
+	         setLayout(null);
+	         setBounds(x, y, 155, 155);
+	         setBorderPainted(false);
+		     setContentAreaFilled(false);
+	         setVisible(true);
+	         addActionListener(this);
 
-		if (ctgNum == 2) {
-			root = "images/KioskImages/menu/coffee ";
-		} else if (ctgNum == 3) {
-			root = "images/KioskImages/menu/frappe ";
-		} else if (ctgNum == 4) {
-			root = "images/KioskImages/menu/noncoffee ";
-		} else if (ctgNum == 5) {
-			root = "images/KioskImages/menu/ade ";
-		}
+	      }else {
+	         
+	      if (ctgNum == 2) {
+	         root = "images/KioskImages/menu/coffee ";
+	      } else if (ctgNum == 3) {
+	         root = "images/KioskImages/menu/frappe ";
+	      } else if (ctgNum == 4) {
+	         root = "images/KioskImages/menu/noncoffee ";
+	      } else if (ctgNum == 5) {
+	         root = "images/KioskImages/menu/ade ";
+	      } 
+	      
 
-		WithImage wi = new WithImage(root);
-		GetImageInfo gi = new GetImageInfo(menu);
+	      WithImage wi = new WithImage(root);
+	      GetImageInfo gi = new GetImageInfo(menu);
 
-		JLabel price = new JLabel("￦" + df.format(gi.getMenuPrice()));
-		price.setBounds(48, 131, 57, 16);
-		price.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		price.setForeground(new Color(15, 11, 65));
-		price.setHorizontalAlignment(JLabel.CENTER);
-		add(price);
+	      JLabel price = new JLabel("￦" + df.format(gi.getMenuPrice()));
+	      price.setBounds(48, 131, 57, 16);
+	      price.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+	      price.setForeground(new Color(15, 11, 65));
+	      price.setHorizontalAlignment(JLabel.CENTER);
+	      add(price);
 
-		setLayout(null);
-		setIcon(new ImageIcon(wi.readImage(root + "unselected/" + menu + ".png", 155, 155)));
-		setBounds(x, y, 155, 155);
-		setBorderPainted(false);
-		setContentAreaFilled(false);
-		setPressedIcon(new ImageIcon(wi.readImage(root + "selected/" + menu + ".png", 155, 155)));
-		setVisible(true);
-		addActionListener(this);
+	      setLayout(null);
+	      setIcon(new ImageIcon(wi.readImage(root + "unselected/" + menu + ".png", 155, 155)));
+	      setBounds(x, y, 155, 155);
+	      setBorderPainted(false);
+	      setContentAreaFilled(false);
+	      setPressedIcon(new ImageIcon(wi.readImage(root + "selected/" + menu + ".png", 155, 155)));
+	      setVisible(true);
+	      addActionListener(this);
 
-	}
+	      }
+	   }
 
 	
 
