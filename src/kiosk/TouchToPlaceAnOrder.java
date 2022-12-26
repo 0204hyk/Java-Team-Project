@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -27,7 +30,7 @@ public class TouchToPlaceAnOrder extends JFrame {
 
 	public KioskHomeBtn home = new KioskHomeBtn(this); 
 	public TouchToPlaceAnOrder() {
-		
+		setUndecorated(true);
 		add(home);
 		
 		add(wi.makeLabel("hy.png", 53, 23, 60, 83));
@@ -37,7 +40,7 @@ public class TouchToPlaceAnOrder extends JFrame {
 		setLocationRelativeTo(null);
 
 		pic = new JButton();
-		pic.setBounds(0, 0, 650, 920);
+		pic.setBounds(0, 0, 650, 950);
 
 		setImageSize(4);
 
@@ -86,6 +89,5 @@ public class TouchToPlaceAnOrder extends JFrame {
 
 	public static void main(String[] args) {
 		new TouchToPlaceAnOrder();
-
 	}
 }

@@ -4,8 +4,12 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.Timestamp;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -23,12 +27,14 @@ import database.kiosk.GetImageInfo;
 import database.kiosk.infotodb.ToSales;
 import database.kiosk.infotodb.ToSalesManagement;
 import kiosk.CardPutFrame;
+import kiosk.Order;
+import kiosk.Point;
 import kiosk.Step1Step2;
 import kiosk.menupan.ChoiceMenu;
 import kiosk.menupan.MenuPanelForConfirmOrder;
-import kiosk.menupan.Options;
 import kiosk.paymentComplete.PaymentCompleteFrame;
 import kiosk.tools.WithImage;
+import oracle.sql.DATE;
 
 // 마지막 페이지!!!!!!
 
@@ -40,16 +46,22 @@ public class CartMainFrame extends JFrame {
 	DecimalFormat df = new DecimalFormat("#,###");
 	String salesNum = getTimeNow();
 	JPanel cart = new JPanel();
-
+	ChoiceMenu f;
+	int point = 0;
+	
 	ArrayList<String> orderInfo = new ArrayList<>();
 	
 	
-	public CartMainFrame(ArrayList menuInfo, int totalPoint, String phoneNum, int payMethod) {
+	public CartMainFrame(ArrayList menuInfo, int totalPoint, String phoneNum, int payMethod, ChoiceMenu f) {
 		this.menuInfo = menuInfo;
-	
+		this.f = f;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String now = formatter.format(LocalDateTime.now()).toString();
+
+		
 		orderInfo.add(salesNum);
 		orderInfo.add(phoneNum+"");
-		orderInfo.add(getDate()); // 여기를..날짜를 넣어야하는데 (시간포함)
+		orderInfo.add(now);
 		orderInfo.add(payMethod+"");
 		orderInfo.add(totalPoint+"");
 		orderInfo.add(new GenerateCardNum().randomCardNumber());
@@ -112,6 +124,9 @@ public class CartMainFrame extends JFrame {
 
 			orderAmount += Integer.parseInt(menuInfo.get(index));
 		}
+		
+		
+		
 		JLabel orderAmountlb = new JLabel(df.format(orderAmount) + "원");
 		orderAmountlb.setBounds(450, 630, 150, 45);
 		orderAmountlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
@@ -119,9 +134,13 @@ public class CartMainFrame extends JFrame {
 		orderAmountlb.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		// 사용 포인트
-		int tb = 120;
+		int tb = 0;
 		add(wi.makeLabel("point.png", 315, 679, 112, 23));
-		JLabel pointlb = new JLabel("-" + df.format(tb));
+		// 입력된 포인트 적용시키기 
+		
+		point = Point.getPoint(); 
+		
+		JLabel pointlb = new JLabel("-" + df.format(point));
 		pointlb.setBounds(450, 667, 150, 45);
 		pointlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		pointlb.setForeground(Color.black);
@@ -141,7 +160,7 @@ public class CartMainFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new Step1Step2(getTotalAmounts(), menuInfo);
+				new Step1Step2(getTotalAmounts(), menuInfo, f);
 				dispose();
 			}
 		});
@@ -151,20 +170,26 @@ public class CartMainFrame extends JFrame {
 
 		pay.addActionListener(new ActionListener() {
 
+		
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				pay.setEnabled(false);
+				cancel.setEnabled(false);
 				// 자동종료
 				JFrame cp = new CardPutFrame();
 				
-				timer = new Timer(3000, new ActionListener() {
+				timer = new Timer(2000, new ActionListener() {
 
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						cp.dispose();
-						
-						new PaymentCompleteFrame();
-						
 						timer.stop();
+						cp.dispose();
+						f.dispose();
+						
+						// 결제가 완료되었습니다
+						new PaymentCompleteFrame(f);
+						
+						
 
 						// 판매관리 데이터 입력
 						new ToSalesManagement(orderInfo);
@@ -250,9 +275,9 @@ public class CartMainFrame extends JFrame {
 
 		return total / 10;
 	}
+	
 
 	public static void main(String[] args) {
 
-		Options.choiceMenu = new ChoiceMenu();
 	}
 }

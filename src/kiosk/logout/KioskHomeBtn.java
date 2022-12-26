@@ -30,13 +30,8 @@ public class KioskHomeBtn extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		try {
-			new KioskEndFrame(frame);
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
+		frame.setEnabled(false);
+		new KioskEndFrame(frame);
 	}
 
 }

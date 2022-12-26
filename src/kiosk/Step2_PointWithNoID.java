@@ -28,7 +28,7 @@ public class Step2_PointWithNoID extends JFrame {
 	String phonenumber;
 
 	public Step2_PointWithNoID() {
-
+		
 		add(wi.makeLabel("phoneNum.png", 71, 94, 87, 14));
 		add(wi.makeLabel("010.png", 70, 126, 46, 21));
 		JLabel notValidNum = wi.makeLabel("notValidNum.png", 70, 169, 177, 14);
@@ -119,6 +119,7 @@ public class Step2_PointWithNoID extends JFrame {
 
 		add(cancel);
 		add(confirm);
+		setUndecorated(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(null);
 		setSize(460, 700);

@@ -26,7 +26,7 @@ public class TitlePanel extends JPanel {
 		this.year = year;
 		
 		text.setText(year + "년");
-		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		text.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		text.setForeground(Color.BLACK);
 		
 	}
@@ -37,7 +37,7 @@ public class TitlePanel extends JPanel {
 		this.month = month;
 
 		text.setText(year + "년 " + month + "월 ");
-		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		text.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		text.setForeground(Color.BLACK);
 	}
 
@@ -48,7 +48,7 @@ public class TitlePanel extends JPanel {
 		this.day = day;
 
 		text.setText(year + "년 " + month + "월 " + day + "일");
-		text.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		text.setFont(new Font("맑은 고딕", Font.BOLD, 25));
 		text.setForeground(Color.BLACK);
 	}
 }

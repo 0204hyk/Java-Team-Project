@@ -11,10 +11,9 @@ public class KioskEndFrame extends JFrame{
 
 	TouchToPlaceAnOrder mainFrame;
 	
-	public KioskEndFrame(TouchToPlaceAnOrder mainFrame) throws IOException {
+	public KioskEndFrame(TouchToPlaceAnOrder mainFrame) {
 		add(new KioskAccessPanel(mainFrame, this));
 		
-//		setUndecorated(true);
 		setLayout(null);
 		setSize(465, 195);
 		setUndecorated(true);
@@ -28,7 +27,7 @@ public class KioskEndFrame extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		
+		new KioskEndFrame(new TouchToPlaceAnOrder());
 	}
 
 }

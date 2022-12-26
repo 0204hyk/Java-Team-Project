@@ -59,6 +59,5 @@ CREATE TABLE sales_management (
     card_number VARCHAR2(20) -- 0000-0000-0000
 );
 
-
 -- date 타입 시간까지 나오게끔 포맷 변경
 ALTER SESSION SET nls_date_format = 'YYYY-MM-DD HH24:MI:SS';
