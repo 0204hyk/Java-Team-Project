@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.HashSet;
 
 import javax.swing.JButton;
@@ -30,7 +31,8 @@ public class RefundFrame extends JFrame {
 	public static int point = 0;
 	public static String cardNum = "1234-****-1234-****";
 	
-	
+	DecimalFormat formatter = new DecimalFormat("###,###");
+
 	JLabel cardLb = new JLabel();
 	JLabel pointLb = new JLabel();
 	JLabel amountLb = new JLabel();
@@ -124,9 +126,9 @@ public class RefundFrame extends JFrame {
 		
 		
 		// setText 
-		amountLb.setText(amount + "");
-		cardLb.setText(card + "");
-		pointLb.setText(point + "");
+		amountLb.setText(formatter.format(amount) + "");
+		cardLb.setText(formatter.format(card) + "");
+		pointLb.setText(formatter.format(point) + "");
 		cardNumLb.setText(cardNum);
 		
 		// 오른쪽 정렬
