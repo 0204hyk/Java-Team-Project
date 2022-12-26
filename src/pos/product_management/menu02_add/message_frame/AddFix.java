@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Vector;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -34,7 +35,7 @@ public class AddFix extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				prjf.mj.contents.setRowCount(0);
-				prjf.mj.selectTable(prjf.allMenu());
+				prjf.mj.dataInput(prjf.allMenu());
 				prjf.setEnabled(true);
 				prjf.addBtn.setEnabled(true);
 				dispose();

@@ -1,5 +1,7 @@
 package pos.gje.ReceiptCheck.receiptcheck_main;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -8,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -16,7 +19,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 import database.OjdbcConnection;
 import pos.gje.ReceiptCheck.receiptcheck_main.component.OutputButton;
@@ -43,7 +51,7 @@ public class List {
 	static ArrayList<String> mem_number = new ArrayList<>(); //멤버십 정보
 	static ArrayList<String> options = new ArrayList<>(); // 옵션 번호 
 	
-
+	DecimalFormat formatter = new DecimalFormat("###,###");
 	
 	
 	String sales_date, sales_number, menu_name;
@@ -53,7 +61,6 @@ public class List {
 	
 	
 	public List() {	}
-	
 	
 	public List(OutputButton out, RefundButton refund) {
 		
@@ -90,49 +97,64 @@ public class List {
 		scroll.setBounds(75, 95, 500, 550);
 		
 		// 크기 조정 
-		table.getColumn(" ").setPreferredWidth(20);
+		table.getColumn(" ").setPreferredWidth(40);
 		table.getColumn("영수증번호").setPreferredWidth(450);
 
 		// 수정 안되게 만들기
 		table.getTableHeader().setReorderingAllowed(false);
         table.getTableHeader().setResizingAllowed(false);
 
+		table.getTableHeader().setPreferredSize(new Dimension(0, 50));	// 컬럼 헤드 높이 설정
+		table.getTableHeader().setBackground(new Color(217, 217, 217));	// 컬럼 헤드 배경색
+        
         // 높이
-        table.setRowHeight(25);
+        table.setRowHeight(35);
         
         // 글꼴 설정 
-		table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 23)); 
-		table.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
+		table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 25)); 
+		table.setFont(new Font("맑은 고딕", Font.BOLD, 18));
 		
 		// 하나만 선택되게 설정 
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
-		table.addMouseListener(new MouseAdapter() {
-			// 선택했을 때 
-			
+		DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer(); 
+		dtcr.setHorizontalAlignment(SwingConstants.CENTER); // 렌더러의 가로정렬을 CENTER로
+
+		TableColumnModel tcm = table.getColumnModel() ; // 정렬할 테이블의 컬럼모델을 가져옴
+
+		//전체 열에 지정
+		for(int i = 0 ; i < tcm.getColumnCount() ; i++){
+			tcm.getColumn(i).setCellRenderer(dtcr);
+		}
+		
+		ListSelectionModel rowSelect = table.getSelectionModel();
+		rowSelect.addListSelectionListener(new ListSelectionListener() {
 			
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				total_price = 0;
-				options.clear();
-				tem = "";
-				
-				int num = (int)(table.getValueAt(table.getSelectedRow(), 0)) - 1;
-				
-				String sales_number = (table.getValueAt(table.getSelectedRow(), 1)).toString();
-				String card_number = cardNum.get(num);
-				String sales_date = date.get(num);
-				
-				
-				// 영수증 번호 전달
-				menu(sales_number, num);
-				
-				
-				out.setEnabled(true);
-				refund.setEnabled(true);
-				
+			public void valueChanged(ListSelectionEvent e) {				
+				if(e.getValueIsAdjusting()) {
+					ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+					int rowIndex = lsm.getMinSelectionIndex();
+					
+					total_price = 0;
+					options.clear();
+					tem = "";
+					
+					int num = (int)(table.getValueAt(rowIndex, 0)) - 1;
+					
+					String sales_number = (table.getValueAt(rowIndex, 1)).toString();
+					String card_number = cardNum.get(num);
+					String sales_date = date.get(num);
+					
+					// 영수증 번호 전달
+					menu(sales_number, num);
+					
+					out.setEnabled(true);
+					refund.setEnabled(true);
+						
+				}
 
-			} 
+			}
 		});
 	}
 	
@@ -154,9 +176,9 @@ public class List {
 			
 			while (rs.next()) {
 				// 영수증에 관한 값을 List에 저장 (현재 영수증 테이블에 값이 없엉서 멤버십 테이블로 대신함)
-				ResultSetMetaData metadata = rs.getMetaData();
+//				ResultSetMetaData metadata = rs.getMetaData();
 				while (rs.next()) {	
-
+					
 					menu_name = rs.getString("menu_name");
 					menu_qty = rs.getInt("menu_qty");
 					menu_price = rs.getInt("price") * menu_qty;
@@ -173,7 +195,7 @@ public class List {
 					}
 
 					for (int i = 0; i < options1.length; ++i) {
-						System.out.println("optins1[i] = " + options1[i]);
+//						System.out.println("optins1[i] = " + options1[i]);
 					
 						
 						if (options1[i].equals("1")) {
@@ -190,18 +212,21 @@ public class List {
 //					sb1.append(menu);
 					
 					if (menu_name.length() < 6) {
-							sb1.append("  " + menu_name + tem + "\t\t\t " + menu_qty + "\t\t" + menu_price + "\n"); // 메뉴 프린트
+							sb1.append("  " + menu_name + tem + "\t\t\t " 
+										+ menu_qty + "\t\t" + formatter.format(menu_price) + "\n"); // 메뉴 프린트
 							
 						} else if (menu_name.length() > 10) {
-							sb1.append("  " + menu_name + tem + "\t " + menu_qty + "\t\t" + menu_price + "\n");
+							sb1.append("  " + menu_name + tem + "\t " 
+										+ menu_qty + "\t\t" + formatter.format(menu_price) + "\n");
 						}else {
-							sb1.append("  " + menu_name + tem + "\t\t " + menu_qty + "\t\t" + menu_price + "\n"); // 메뉴 프린트
+							sb1.append("  " + menu_name + tem + "\t\t " 
+										+ menu_qty + "\t\t" + formatter.format(menu_price) + "\n"); // 메뉴 프린트
 						} 
 					
 					total_price += menu_price;
 				}
 				
-				 
+				
 
 				
 			}
@@ -220,7 +245,8 @@ public class List {
 			// 영수증 출력하는 곳에 값 넣기 
 						// 날짜, 영수증번호, 메뉴, 총 가격, 포인트결제, 카드결제
 			changeTextA(sale_date, sales_number, sb1.toString(), total_price , point, card);
-		
+			
+			rs.close();
 		} catch (SQLException e) {
 			System.out.println(" 오류");
 			e.printStackTrace();
@@ -231,6 +257,7 @@ public class List {
 	
 	public void changeTextA(String date, String sales_number, String menu, int price, int point, int card) {
 		JTextArea a = PrintScroll.p;
+		
 		
 		a.setText(" [영수증]\n"
 				+ " \n"
@@ -246,12 +273,12 @@ public class List {
 				+ " ---------------------------------------------------------\n"
 				+ menu
 				+ " ---------------------------------------------------------\n"
-				+ " \t\t\t\t합 계 금 액	"  + price + "\n"
+				+ " \t\t\t\t합 계 금 액	"  + formatter.format(price) + "\n"
 				+ " ---------------------------------------------------------\n"
-				+ " \t\t\t\t받 을 금 액	"  + price + "\n"
-				+ " \t\t\t\t포인트 결제	"  + point + "\n"
-				+ " \t\t\t\t카 드 결 제	"  +  card + "\n"
-				+ " \t\t\t\t받 은 금 액	"  + price + "\n"
+				+ " \t\t\t\t받 을 금 액	"  + formatter.format(price) + "\n"
+				+ " \t\t\t\t포인트 결제	"  + formatter.format(point) + "\n"
+				+ " \t\t\t\t카 드 결 제	"  +  formatter.format(card) + "\n"
+				+ " \t\t\t\t받 은 금 액	"  + formatter.format(price) + "\n"
 				+ " =========================================================\n"
 				);
 		

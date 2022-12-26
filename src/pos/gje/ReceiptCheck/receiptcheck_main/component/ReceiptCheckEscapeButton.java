@@ -61,7 +61,7 @@ public class ReceiptCheckEscapeButton extends JButton implements ActionListener{
 		
 		// table 초기화
 		List table = new List();
-		table.contents.setNumRows(0);
+		List.contents.setNumRows(0);
 		
 		// 영수증 출력 창 초기화
 		JTextArea a = PrintScroll.p;
@@ -70,8 +70,7 @@ public class ReceiptCheckEscapeButton extends JButton implements ActionListener{
 		// 버튼 초기화
 		r.setEnabled(false);
 		o.setEnabled(false);
-		
-	
+
 		
 	}
 

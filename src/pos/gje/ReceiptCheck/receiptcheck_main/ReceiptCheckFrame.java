@@ -21,7 +21,6 @@ import pos.gje.ReceiptCheck.refund.RefundFrame;
 public class ReceiptCheckFrame extends JFrame{
 	
 	public static JTextArea printTextArea = new PrintTextArea();
-	//JScrollPane s = new JScrollPane();
 	RefundFrame refundFrame = new RefundFrame();
 	public static RefundButton refundButton = new RefundButton();
 	public ReceiptCheckFrame() {		
@@ -62,6 +61,7 @@ public class ReceiptCheckFrame extends JFrame{
 		
 		setTitle("영수증 조회");
 		setSize(1200, 800); // 프레임 사이즈
+		setUndecorated(true);
 		getContentPane().setBackground(new Color(64, 64, 64)); // 배경색
 		setLayout(null); 
 		setResizable(false); // 크기 조절 안되게
