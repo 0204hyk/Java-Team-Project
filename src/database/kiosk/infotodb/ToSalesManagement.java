@@ -3,7 +3,13 @@ package database.kiosk.infotodb;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 import database.OjdbcConnection;
 
@@ -13,14 +19,15 @@ public class ToSalesManagement {
 
 	public ToSalesManagement(ArrayList<String> orderInfo) {
 
-		String query = "INSERT INTO sales_management VALUES(?,?,?,?,?,?)";
+		String query = "INSERT INTO sales_management VALUES(?,?,to_date(?, 'YYYY-MM-DD HH24:MI:SS'),?,?,?)";
 		
 		try (Connection conn = OjdbcConnection.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(query);) {
-
+			
+			
 			pstmt.setString(1, orderInfo.get(0));
 			pstmt.setString(2, orderInfo.get(1));
-			pstmt.setString(3, "2022-12-23");
+			pstmt.setString(3, orderInfo.get(2));
 			pstmt.setInt(4, Integer.parseInt(orderInfo.get(3)));
 			pstmt.setInt(5, Integer.parseInt(orderInfo.get(4)));
 			pstmt.setString(6, orderInfo.get(5));
