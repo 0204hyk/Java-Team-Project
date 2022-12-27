@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
-import pos.kjh.TeamInfoFrame;
+import pos.login.TeamInfoFrame;
 import pos.main.exit_message.ExitMessageFrame;
 import pos.main.main_component.ClosingButton;
 import pos.main.main_component.ExitButton;

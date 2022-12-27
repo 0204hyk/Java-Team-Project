@@ -18,7 +18,7 @@ import javax.swing.JButton;
 
 import database.OjdbcConnection;
 import kiosk.TouchToPlaceAnOrder;
-import pos.kjh.LoginSelectFrame;
+import pos.login.LoginSelectFrame;
 
 public class KioskEndCheckBtn extends JButton implements ActionListener {
 

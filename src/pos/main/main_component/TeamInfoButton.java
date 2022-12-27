@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.kjh.TeamInfoFrame;
+import pos.login.TeamInfoFrame;
 
 public class TeamInfoButton extends JButton implements ActionListener{
 

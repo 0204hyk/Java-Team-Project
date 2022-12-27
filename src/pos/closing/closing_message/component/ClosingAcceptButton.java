@@ -15,8 +15,8 @@ import pos.ImageScaledTool;
 import pos.PosFrame;
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_message.ClosingMessageFrame;
-import pos.kjh.LoginSelectFrame;
-import pos.kjh.LoginStart;
+import pos.login.LoginSelectFrame;
+import pos.login.LoginStart;
 
 public class ClosingAcceptButton extends JButton implements ActionListener {
 	// 마감 확인 안내 프레임의 "네" 버튼

@@ -11,8 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.gje.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
-import pos.gje.ReceiptCheck.refund.RefundFrame;
+import pos.receipt_check.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
+import pos.receipt_check.ReceiptCheck.refund.RefundFrame;
 
 public class ReceiptCheckButton extends JButton implements ActionListener{
 	public ReceiptCheckButton() {

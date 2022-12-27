@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import pos.PosFrame;
-import pos.kjh.LoginSelectFrame;
+import pos.login.LoginSelectFrame;
 
 public class ExitAcceptButton extends JButton implements ActionListener{
 	PosFrame pos;
