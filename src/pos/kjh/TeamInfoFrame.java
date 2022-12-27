@@ -90,7 +90,7 @@ public class TeamInfoFrame extends JFrame{
 
 	public TeamInfoFrame() {
 
-		add(introduction("소개글", 65, 83, 375, 100));
+		add(introduction("https://github.com/0204hyk/\nJava-Team-Project", 65, 83, 375, 100));
 /*
 		// 이름
 		add(profile("김하영", 95, 170, 50, 40));
