@@ -174,7 +174,7 @@ public class Options extends JFrame {
 
 				} else {
 
-					AMenu menuPn = new AMenu(menu, cupText,
+					Amenu menuPn = new Amenu(menu, cupText,
 							hotAndIce.equals("1") ? "HOT" : hotAndIce.equals("2") ? "ICE" : "ICE ONLY", optionPrice,
 							frame, numToMenu(), optionNums());
 

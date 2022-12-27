@@ -15,7 +15,7 @@ import database.kiosk.GetImageInfo;
 import kiosk.byoption.Cups;
 import kiosk.tools.WithImage;
 
-public class AMenu extends JPanel {
+public class Amenu extends JPanel {
 	String root = "images/KioskImages/3. 메뉴선택";
 	WithImage wi = new WithImage(root);
 	DecimalFormat df = new DecimalFormat("#,###");
@@ -27,9 +27,9 @@ public class AMenu extends JPanel {
 
 	// 장바구니에 한 줄씩 들어감, Options에서 만든 cup을 가져온다
 
-	public AMenu() {}
+	public Amenu() {}
 	
-	public AMenu(String menu, Cups cup, String temparature, int optionPrice, ChoiceMenu frame, String name, String optionNums) {
+	public Amenu(String menu, Cups cup, String temparature, int optionPrice, ChoiceMenu frame, String name, String optionNums) {
 		this.menu = menu;
 		this.temparature = temparature;
 		this.optionNums = optionNums;
@@ -117,6 +117,7 @@ public class AMenu extends JPanel {
 				setVisible(false);
 				num--;
 				frame.menuInfo.remove(position);
+				
 			}
 		});
 		
