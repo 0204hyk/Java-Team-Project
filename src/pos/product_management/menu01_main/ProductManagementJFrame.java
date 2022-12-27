@@ -20,7 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import pos.PosFrame;
+import pos.main.main_component.PosFrame;
 import pos.product_management.menu01_main.component.AddButton;
 import pos.product_management.menu01_main.component.DeleteButton;
 import pos.product_management.menu01_main.component.MenuListJTable;

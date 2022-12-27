@@ -11,8 +11,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import pos.PosFrame;
 import pos.login.LoginSelectFrame;
+import pos.main.main_component.PosFrame;
 
 public class ExitAcceptButton extends JButton implements ActionListener{
 	PosFrame pos;

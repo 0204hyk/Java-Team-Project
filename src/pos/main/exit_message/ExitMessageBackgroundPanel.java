@@ -6,7 +6,7 @@ import java.awt.Image;
 
 import javax.swing.JPanel;
 
-import pos.PosFrame;
+import pos.main.main_component.PosFrame;
 
 public class ExitMessageBackgroundPanel extends JPanel{
 	Image background;

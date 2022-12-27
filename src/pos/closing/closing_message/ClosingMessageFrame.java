@@ -2,10 +2,11 @@ package pos.closing.closing_message;
 
 import java.awt.Color;
 import javax.swing.JFrame;
-import pos.PosFrame;
+
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_main.component.DoCloseButton;
 import pos.closing.closing_message.container.ClosingBackgroundPanel;
+import pos.main.main_component.PosFrame;
 import pos.util.ImageScaledTool;
 
 public class ClosingMessageFrame extends JFrame {

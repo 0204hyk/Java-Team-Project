@@ -9,11 +9,12 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import pos.PosFrame;
+
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_message.ClosingMessageFrame;
 import pos.login.LoginSelectFrame;
 import pos.login.LoginStart;
+import pos.main.main_component.PosFrame;
 
 public class ClosingAcceptButton extends JButton implements ActionListener {
 	// 마감 확인 안내 프레임의 "네" 버튼

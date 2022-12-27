@@ -1,4 +1,4 @@
-package pos;
+package pos.main.main_component;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -7,12 +7,6 @@ import javax.swing.JFrame;
 
 import pos.login.TeamInfoFrame;
 import pos.main.exit_message.ExitMessageFrame;
-import pos.main.main_component.ClosingButton;
-import pos.main.main_component.ExitButton;
-import pos.main.main_component.ProductManagementButton;
-import pos.main.main_component.ReceiptCheckButton;
-import pos.main.main_component.SalesSummaryButton;
-import pos.main.main_component.TeamInfoButton;
 
 public class PosFrame extends JFrame {
 	
