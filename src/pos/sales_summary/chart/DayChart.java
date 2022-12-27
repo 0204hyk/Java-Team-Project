@@ -73,9 +73,7 @@ public class DayChart extends JPanel {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
-
 
 	private static CategoryDataset createDataset() {
 		dataset = new DefaultCategoryDataset();
