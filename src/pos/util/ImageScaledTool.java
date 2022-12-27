@@ -1,4 +1,4 @@
-package pos;
+package pos.util;
 
 import java.awt.Image;
 import java.io.File;

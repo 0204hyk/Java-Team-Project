@@ -1,4 +1,4 @@
-package pos;
+package pos.util;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
