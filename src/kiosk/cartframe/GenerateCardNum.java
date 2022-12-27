@@ -1,4 +1,4 @@
-package kiosk.cartFrame;
+package kiosk.cartframe;
 
 import java.util.Random;
 

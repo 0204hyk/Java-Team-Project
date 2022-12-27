@@ -1,4 +1,4 @@
-package kiosk.cartFrame;
+package kiosk.cartframe;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -31,7 +31,7 @@ import kiosk.Point;
 import kiosk.Step1Step2;
 import kiosk.menupan.ChoiceMenu;
 import kiosk.menupan.MenuPanelForConfirmOrder;
-import kiosk.paymentComplete.PaymentCompleteFrame;
+import kiosk.paymentcomplete.PaymentCompleteFrame;
 import kiosk.tools.WithImage;
 
 // 마지막 페이지!!!!!!

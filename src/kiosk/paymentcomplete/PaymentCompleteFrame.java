@@ -1,4 +1,4 @@
-package kiosk.paymentComplete;
+package kiosk.paymentcomplete;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import kiosk.TouchToPlaceAnOrder;
-import kiosk.cartFrame.CartMainFrame;
+import kiosk.cartframe.CartMainFrame;
 import kiosk.menupan.ChoiceMenu;
 import kiosk.tools.WithImage;
 

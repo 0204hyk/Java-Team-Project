@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import database.kiosk.CheckPoint;
-import kiosk.cartFrame.CartMainFrame;
+import kiosk.cartframe.CartMainFrame;
 import kiosk.tools.WithImage;
 
 public class UsePoint extends JFrame {

@@ -1,4 +1,4 @@
-package kiosk.printReceipt;
+package kiosk.printreceipt;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

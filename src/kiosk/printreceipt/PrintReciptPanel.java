@@ -1,4 +1,4 @@
-package kiosk.printReceipt;
+package kiosk.printreceipt;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
