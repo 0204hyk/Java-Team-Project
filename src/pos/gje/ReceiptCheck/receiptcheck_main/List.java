@@ -218,7 +218,7 @@ public class List {
                   sb1.append("  " + menu_name + tem + "\t " 
                            + menu_qty + "\t\t" + formatter.format(menu_price) + "\n");
                }else {
-                  sb1.append("  " + menu_name + tem + "\t\t " 
+                  sb1.append("  " + menu_name + tem + "\t\t" 
                            + menu_qty + "\t\t" + formatter.format(menu_price) + "\n"); // 메뉴 프린트
                } 
             
