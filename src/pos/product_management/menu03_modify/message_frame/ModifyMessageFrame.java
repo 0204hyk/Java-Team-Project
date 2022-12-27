@@ -10,8 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pos.ImagePanel;
-import pos.ImageScaledTool;
+
 import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu02_add.MenuAddFrame;
 import pos.product_management.menu03_modify.ModifyFrame;

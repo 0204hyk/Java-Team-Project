@@ -6,12 +6,10 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import pos.ImageScaledTool;
 
 public class TitleImagePanel extends JPanel {
 

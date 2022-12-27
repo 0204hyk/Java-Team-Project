@@ -4,13 +4,13 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import pos.DigitalClock;
-import pos.ImagePanel;
-import pos.ImageScaledTool;
 import pos.sales_summary.button.DayButton;
 import pos.sales_summary.button.MonthButton;
 import pos.sales_summary.button.SalesTypeEscapeButton;
 import pos.sales_summary.button.YearButton;
+import pos.util.DigitalClock;
+import pos.util.ImagePanel;
+import pos.util.ImageScaledTool;
 
 public class SalesTypeMain extends JFrame{
 	

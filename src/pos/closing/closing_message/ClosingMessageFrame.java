@@ -1,14 +1,12 @@
 package pos.closing.closing_message;
 
 import java.awt.Color;
-
 import javax.swing.JFrame;
-
-import pos.ImageScaledTool;
 import pos.PosFrame;
 import pos.closing.closing_main.ClosingFrame;
 import pos.closing.closing_main.component.DoCloseButton;
 import pos.closing.closing_message.container.ClosingBackgroundPanel;
+import pos.util.ImageScaledTool;
 
 public class ClosingMessageFrame extends JFrame {
 	// 마감 확인 안내창

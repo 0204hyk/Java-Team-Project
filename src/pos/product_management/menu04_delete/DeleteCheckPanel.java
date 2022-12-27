@@ -3,14 +3,13 @@ package pos.product_management.menu04_delete;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import pos.ImageScaledTool;
 import pos.product_management.menu01_main.component.MenuListJTable;
+import pos.util.ImageScaledTool;
 
 public class DeleteCheckPanel extends JPanel{
 	

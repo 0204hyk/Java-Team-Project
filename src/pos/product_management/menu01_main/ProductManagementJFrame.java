@@ -10,7 +10,6 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -21,9 +20,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import pos.DigitalClock;
-import pos.ImagePanel;
-import pos.ImageScaledTool;
 import pos.PosFrame;
 import pos.product_management.menu01_main.component.AddButton;
 import pos.product_management.menu01_main.component.DeleteButton;
@@ -31,6 +27,9 @@ import pos.product_management.menu01_main.component.MenuListJTable;
 import pos.product_management.menu01_main.component.ModifyButton;
 import pos.product_management.menu04_delete.DeleteCheckPanel;
 import pos.product_management.menu04_delete.component.CancelBtn;
+import pos.util.DigitalClock;
+import pos.util.ImagePanel;
+import pos.util.ImageScaledTool;
 
 public class ProductManagementJFrame extends JFrame {
 

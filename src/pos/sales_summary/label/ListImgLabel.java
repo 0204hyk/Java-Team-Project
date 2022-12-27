@@ -4,7 +4,6 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -13,10 +12,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
-
 import org.jfree.data.xy.DefaultTableXYDataset;
 
-import pos.ImageScaledTool;
+import pos.util.ImageScaledTool;
+
 
 public class ListImgLabel extends JLabel {
 

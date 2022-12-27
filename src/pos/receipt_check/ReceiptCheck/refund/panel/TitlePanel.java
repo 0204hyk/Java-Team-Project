@@ -3,12 +3,12 @@ package pos.receipt_check.ReceiptCheck.refund.panel;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-
 import javax.swing.JPanel;
 
-import pos.ImageScaledTool;
+import pos.util.ImageScaledTool;
 
 public class TitlePanel extends JPanel {
+	
 	Image image = ImageScaledTool.getScaledImage(
 			"images/PosImages/영수증 조회 이미지/타이틀바.png", 800, 60);
 	

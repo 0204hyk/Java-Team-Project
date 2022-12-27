@@ -2,13 +2,10 @@ package pos.receipt_check.ReceiptCheck.receiptcheck_main.component;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
-
-import pos.WithImage;
-import pos.receipt_check.ReceiptCheck.receiptcheck_main.ReceiptCheckFrame;
+import pos.util.WithImage;
 
 
 public class OutputOKFrame extends JFrame{

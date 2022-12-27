@@ -1,22 +1,20 @@
 package pos.receipt_check.ReceiptCheck.receiptcheck_main;
 
 import java.awt.Color;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-
-import pos.DigitalClock;
-import pos.ImagePanel;
-import pos.ImageScaledTool;
 import pos.receipt_check.ReceiptCheck.receiptcheck_main.component.OutputButton;
 import pos.receipt_check.ReceiptCheck.receiptcheck_main.component.PrintScroll;
 import pos.receipt_check.ReceiptCheck.receiptcheck_main.component.PrintTextArea;
 import pos.receipt_check.ReceiptCheck.receiptcheck_main.component.ReceiptCheckEscapeButton;
 import pos.receipt_check.ReceiptCheck.receiptcheck_main.component.RefundButton;
 import pos.receipt_check.ReceiptCheck.refund.RefundFrame;
+import pos.util.DigitalClock;
+import pos.util.ImagePanel;
+import pos.util.ImageScaledTool;
 
 public class ReceiptCheckFrame extends JFrame{
 	

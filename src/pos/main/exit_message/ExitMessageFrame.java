@@ -1,11 +1,9 @@
 package pos.main.exit_message;
 
 import java.awt.Color;
-
 import javax.swing.JFrame;
-
-import pos.ImageScaledTool;
 import pos.PosFrame;
+import pos.util.ImageScaledTool;
 
 public class ExitMessageFrame extends JFrame {
 	public ExitMessageFrame(PosFrame pos) {

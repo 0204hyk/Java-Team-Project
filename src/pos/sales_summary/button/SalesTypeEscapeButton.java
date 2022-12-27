@@ -9,8 +9,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import pos.ImageScaledTool;
 import pos.sales_summary.main.SalesTypeMain;
+import pos.util.ImageScaledTool;
 
 
 

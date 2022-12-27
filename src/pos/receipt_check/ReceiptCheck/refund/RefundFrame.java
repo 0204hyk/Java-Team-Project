@@ -10,16 +10,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.HashSet;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.Timer;
-
 import database.OjdbcConnection;
-import pos.WithImage;
 import pos.receipt_check.ReceiptCheck.receiptcheck_main.List;
 import pos.receipt_check.ReceiptCheck.refund.component.RefundReiceiptFrame;
+import pos.util.WithImage;
 
 public class RefundFrame extends JFrame {
 

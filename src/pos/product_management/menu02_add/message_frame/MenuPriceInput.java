@@ -3,17 +3,15 @@ package pos.product_management.menu02_add.message_frame;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pos.ImagePanel;
-import pos.ImageScaledTool;
 import pos.product_management.menu01_main.ProductManagementJFrame;
 import pos.product_management.menu02_add.MenuAddFrame;
+import pos.util.ImagePanel;
+import pos.util.ImageScaledTool;
 
 public class MenuPriceInput extends JFrame{
 

@@ -8,10 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import pos.ImagePanel;
-import pos.ImageScaledTool;
 import pos.product_management.menu01_main.ProductManagementJFrame;
-import pos.product_management.menu02_add.MenuAddFrame;
+import pos.util.ImagePanel;
+import pos.util.ImageScaledTool;
 
 public class ModifyWarningFrame extends JFrame{
 

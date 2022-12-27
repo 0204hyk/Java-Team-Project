@@ -3,11 +3,8 @@ package pos.receipt_check.ReceiptCheck.refund.panel;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-
-import pos.ImageScaledTool;
 
 public class PaymentTypePanel extends JPanel{
 
