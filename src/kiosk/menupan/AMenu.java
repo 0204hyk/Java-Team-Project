@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import database.kiosk.GetImageInfo;
+import database.kiosk.fromdb.GetImageInfo;
 import kiosk.byoption.Cups;
 import kiosk.tools.WithImage;
 

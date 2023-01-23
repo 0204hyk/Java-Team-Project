@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import database.kiosk.GetImageInfo;
+import database.kiosk.fromdb.GetImageInfo;
 import kiosk.byoption.All_1;
 import kiosk.byoption.NoDecaf_7;
 import kiosk.byoption.NoHotMilk_4;

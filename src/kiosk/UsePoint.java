@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
-import database.kiosk.CheckPoint;
+import database.kiosk.fromdb.CheckPoint;
 import kiosk.cartFrame.CartMainFrame;
 import kiosk.tools.WithImage;
 

@@ -16,8 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
-import database.kiosk.CheckPhoneNum;
-import database.kiosk.CheckPoint;
+import database.kiosk.fromdb.CheckPhoneNum;
+import database.kiosk.fromdb.CheckPoint;
 import database.kiosk.infotodb.JoinMembership;
 import kiosk.tools.WithImage;
 

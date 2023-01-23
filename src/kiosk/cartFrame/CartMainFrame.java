@@ -21,7 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-import database.kiosk.GetImageInfo;
+import database.kiosk.fromdb.GetImageInfo;
 import database.kiosk.infotodb.SavePoint;
 import database.kiosk.infotodb.ToSales;
 import database.kiosk.infotodb.ToSalesManagement;
@@ -45,34 +45,33 @@ public class CartMainFrame extends JFrame {
 	String salesNum = getTimeNow();
 	JPanel cart = new JPanel();
 	ChoiceMenu f;
-	//int point = 0;
-	
+	// int point = 0;
+
 	String phoneNum = "";
 	int totalPoint = 0;
-	
+
 	CartMainFrame f2 = this;
-	
+
 	public static int usedPoint;
-	
+
 	ArrayList<String> orderInfo = new ArrayList<>();
-	
-	
+
 	public CartMainFrame(ArrayList menuInfo, int totalPoint, String phoneNum, int payMethod, ChoiceMenu f) {
 		this.menuInfo = menuInfo;
 		this.f = f;
 		this.totalPoint = totalPoint;
-		this.phoneNum = phoneNum; 
-		
+		this.phoneNum = phoneNum;
+
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 		String now = formatter.format(LocalDateTime.now()).toString();
-		 
+
 		orderInfo.add(salesNum);
-		orderInfo.add(phoneNum+"");
+		orderInfo.add(phoneNum + "");
 		orderInfo.add(now);
-		orderInfo.add(payMethod+"");
-		orderInfo.add(totalPoint+"");
+		orderInfo.add(payMethod + "");
+		orderInfo.add(totalPoint + "");
 		orderInfo.add(new GenerateCardNum().randomCardNumber());
-		
+
 		panelSetting();
 
 		setLayout(null);
@@ -107,7 +106,9 @@ public class CartMainFrame extends JFrame {
 
 		for (int i = 0; i < menuInfo.size(); i++) {
 			sub.addAll(menuInfo.subList(i, i + 5));
+			
 			cart.add(new MenuPanelForConfirmOrder(sub));
+			System.out.println(sub+"cartMainFrame 출력");
 			sub.removeAll(sub);
 			i = i + 4;
 
@@ -131,9 +132,7 @@ public class CartMainFrame extends JFrame {
 
 			orderAmount += Integer.parseInt(menuInfo.get(index));
 		}
-		
-		
-		
+
 		JLabel orderAmountlb = new JLabel(df.format(orderAmount) + "원");
 		orderAmountlb.setBounds(450, 630, 150, 45);
 		orderAmountlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
@@ -142,12 +141,12 @@ public class CartMainFrame extends JFrame {
 
 		// 사용 포인트
 		add(wi.makeLabel("point.png", 315, 679, 112, 23));
-		// 입력된 포인트 적용시키기 
-		
-		//usedPoint = Point.getPoint();
-		
-		
-		JLabel pointlb = new JLabel("-" + df.format(usedPoint));
+		// 입력된 포인트 적용시키기
+
+		// usedPoint = Point.getPoint();
+
+		String minus = usedPoint == 0 ? "" : "- ";
+		JLabel pointlb = new JLabel(minus + df.format(usedPoint));
 		pointlb.setBounds(450, 667, 150, 45);
 		pointlb.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
 		pointlb.setForeground(Color.black);
@@ -177,14 +176,13 @@ public class CartMainFrame extends JFrame {
 
 		pay.addActionListener(new ActionListener() {
 
-		
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				pay.setEnabled(false);
 				cancel.setEnabled(false);
 				// 자동종료
 				JFrame cp = new CardPutFrame();
-				
+
 				timer = new Timer(2000, new ActionListener() {
 
 					@Override
@@ -192,27 +190,25 @@ public class CartMainFrame extends JFrame {
 						timer.stop();
 						cp.dispose();
 						f.dispose();
-						
-						
+
 						// 결제가 완료되었습니다
 						new PaymentCompleteFrame(f2);
-						
-						
+
 						// 판매관리 데이터 입력
 						new ToSalesManagement(orderInfo);
-						
+
 						// 판매 데이터 입력
 //						new ToSales(completeInfoMenu(menuInfo));
-		                  ArrayList<String> sub = new ArrayList<>();
-		                  for (int i = 0; i < menuInfo.size(); ++i) {
-		                     sub.addAll(menuInfo.subList(i, i + 5));
-		                     new ToSales(completeInfoMenu(sub));
-		                     sub.removeAll(sub);
-		                     i = i + 4;
-		                  }
-						
+						ArrayList<String> sub = new ArrayList<>();
+						for (int i = 0; i < menuInfo.size(); ++i) {
+							sub.addAll(menuInfo.subList(i, i + 5));
+							new ToSales(completeInfoMenu(sub));
+							sub.removeAll(sub);
+							i = i + 4;
+						}
+
 						// 종료
-							
+
 						// 포인트 적립
 						new SavePoint(totalPoint, phoneNum);
 
@@ -241,7 +237,7 @@ public class CartMainFrame extends JFrame {
 	// 판매 테이블 전달용
 	public ArrayList<String> completeInfoMenu(ArrayList<String> menuInfo) {
 		ArrayList<String> menuInfoComplete = menuInfo;
-		
+
 		for (int i = 0; i < menuInfo.size() - 3; i++) {
 			menuInfoComplete.add(i, salesNum);
 			i = i + 5;
@@ -251,7 +247,7 @@ public class CartMainFrame extends JFrame {
 
 		return menuInfoComplete;
 	}
-	
+
 	public int getMenuNum(String menu) {
 
 		GetImageInfo gi = new GetImageInfo(menu);
@@ -278,7 +274,7 @@ public class CartMainFrame extends JFrame {
 
 		return myDateFormat.format(date);
 	}
-	
+
 	public int getTotalAmounts() {
 
 		int total = 0;
@@ -289,7 +285,6 @@ public class CartMainFrame extends JFrame {
 
 		return total / 10;
 	}
-	
 
 	public static void main(String[] args) {
 

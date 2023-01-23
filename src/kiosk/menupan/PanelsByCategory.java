@@ -5,7 +5,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import database.kiosk.CheckMenuByCategories;
+import database.kiosk.fromdb.CheckMenuByCategories;
 
 public class PanelsByCategory extends JPanel {
 

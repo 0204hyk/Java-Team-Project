@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
-import database.kiosk.CheckMenuByCategories;
+import database.kiosk.fromdb.CheckMenuByCategories;
 import kiosk.Order;
 import kiosk.Step1Step2;
 import kiosk.byoption.Cups;
@@ -395,6 +395,7 @@ public class ChoiceMenu extends JFrame {
 
 		// 메뉴,잔,최종금액,옵션
 		this.menuInfo.addAll(menuInfo);
+		System.out.println(menuInfo + "Choice Menu 출력");
 	}
 
 	public int getTotalAmounts() {

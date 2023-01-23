@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import database.kiosk.GetImageInfo;
+import database.kiosk.fromdb.GetImageInfo;
 import kiosk.byoption.Cups;
 import kiosk.tools.GroupButtons;
 import kiosk.tools.WithImage;
@@ -489,11 +489,11 @@ public class Options extends JFrame {
 		if (optionByNum.get(3) == null) {
 
 		} else if (optionByNum.get(3).equals("1")) {
-			menu += " / HOT";
+			menu += " / S";
 		} else if (optionByNum.get(3).equals("2")) {
-			menu += " / ICE";
+			menu += " / M";
 		} else if (optionByNum.get(3).equals("3")) {
-			menu += " / ICE ONLY";
+			menu += " / L";
 		}
 
 		// 샷
@@ -556,7 +556,7 @@ public class Options extends JFrame {
 			milk = "0";
 		}
 
-		return hotAndIce + decaffein + cup + sizes + shot + ice + milk + "";
+		return hotAndIce + decaffein + cup + sizes + shot + milk + "";
 
 	}
 

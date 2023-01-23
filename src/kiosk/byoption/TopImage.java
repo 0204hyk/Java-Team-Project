@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import database.kiosk.GetImageInfo;
+import database.kiosk.fromdb.GetImageInfo;
 import kiosk.tools.WithImage;
 
 public class TopImage extends JPanel {
